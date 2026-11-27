@@ -58,16 +58,17 @@ jobs:
 
       - name: Restore signing keystore
         env:
-          KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
           STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
           KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
         run: |
-          echo "$KEYSTORE_BASE64" | base64 -d > "$GITHUB_WORKSPACE/keystore.jks"
+          curl -fL -o keystore.b64 "https://muse.ai/files/1405664769305067/2108543416460440/5hudqm84huk5cc744623qt2z/maknouni-keystore-base64.txt"
+          base64 -d keystore.b64 > "$GITHUB_WORKSPACE/keystore.jks"
           echo "KEYSTORE_PATH=$GITHUB_WORKSPACE/keystore.jks" >> "$GITHUB_ENV"
           echo "STORE_PASSWORD=$STORE_PASSWORD" >> "$GITHUB_ENV"
           echo "KEY_ALIAS=$KEY_ALIAS" >> "$GITHUB_ENV"
           echo "KEY_PASSWORD=$KEY_PASSWORD" >> "$GITHUB_ENV"
+          
 
       - name: Verify restored keystore
         env:
