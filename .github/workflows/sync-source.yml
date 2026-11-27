@@ -1,0 +1,45 @@
+name: Sync Alahmady source to repo
+
+# Helper: copies the full source ZIP (the local source is the source of truth)
+# into this repo, so the repo always holds the complete, current source —
+# including binaries and the LICENSE — which the API-based push cannot upload.
+# Triggered manually with the ZIP URL. The runner downloads the ZIP, extracts
+# it, rsyncs it over the repo root (keeping .github/), commits and pushes.
+
+on:
+  workflow_dispatch:
+    inputs:
+      zip_url:
+        description: "URL of the ahmadi-source-vNN.zip to sync"
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Download and extract source ZIP
+        run: |
+          curl -fL -o source.zip "${{ inputs.zip_url }}"
+          unzip -q source.zip
+          ls ahmadi-source/app/build.gradle.kts
+          ls ahmadi-source/LICENSE
+
+      - name: Sync into repo root and push
+        run: |
+          git config user.name "ahmadi-sync"
+          git config user.email "ahmadi-sync@users.noreply.github.com"
+          rsync -a --delete \
+            --exclude=.github/ --exclude=.git/ \
+            --exclude=build/ --exclude=.gradle/ --exclude=.idea/ \
+            --exclude=local.properties \
+            ahmadi-source/ ./
+          git add -A
+          git status --short | head -30
+          git commit -m "Sync full Alahmady source v2.3.9 (complete tree incl. binaries + LICENSE)" || echo "nothing to commit"
+          git push
