@@ -1,0 +1,62 @@
+[
+ {
+  "id": "bukhari",
+  "titleEn": "Sahih al-Bukhari",
+  "titleAr": "صحيح البخاري",
+  "bundled": false,
+  "chapters": 97,
+  "hadiths": 7580,
+  "bytes": 2815520,
+  "sha256": "2da184ebf3db47039070594f4ed92cb75aa398e09dfc99de24ee845603e57ace"
+ },
+ {
+  "id": "muslim",
+  "titleEn": "Sahih Muslim",
+  "titleAr": "صحيح مسلم",
+  "bundled": false,
+  "chapters": 56,
+  "hadiths": 7428,
+  "bytes": 2124397,
+  "sha256": "725701a7a2079b6678afb58a812739e2ff5d3bac3413fbb0a2be26b5f7c433b9"
+ },
+ {
+  "id": "abudawud",
+  "titleEn": "Sahih selection from Sunan Abi Dawud",
+  "titleAr": "مختارات صحيحة من سنن أبي داود",
+  "bundled": false,
+  "chapters": 43,
+  "hadiths": 2957,
+  "bytes": 927465,
+  "sha256": "a79716435524c1cfa8dd339432fe61eca881cf2a1afd88702c8899389266ba33"
+ },
+ {
+  "id": "tirmidhi",
+  "titleEn": "Sahih selection from Jami' at-Tirmidhi",
+  "titleAr": "مختارات صحيحة من جامع الترمذي",
+  "bundled": false,
+  "chapters": 49,
+  "hadiths": 2222,
+  "bytes": 845613,
+  "sha256": "11b6b3bcf73aab01ed56c7156ec0501fb5728639df9e5345c574b05695f5023e"
+ },
+ {
+  "id": "nasai",
+  "titleEn": "Sahih selection from Sunan an-Nasa'i",
+  "titleAr": "مختارات صحيحة من سنن النسائي",
+  "bundled": false,
+  "chapters": 51,
+  "hadiths": 4228,
+  "bytes": 1037010,
+  "sha256": "847c9ee92ff190f19fabd5be3fceb01a79a7bff9d47090380b958ca003b0167d"
+ },
+ {
+  "id": "ibnmajah",
+  "titleEn": "Sahih selection from Sunan Ibn Majah",
+  "titleAr": "مختارات صحيحة من سنن ابن ماجه",
+  "bundled": false,
+  "chapters": 38,
+  "hadiths": 2454,
+  "bytes": 646609,
+  "sha256": "f50820e4a9122795a266519390309f8b7a46444879282cced381946b93071830"
+ }
+]
