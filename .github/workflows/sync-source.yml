@@ -4,7 +4,8 @@ name: Sync Alahmady source to repo
 # into this repo, so the repo always holds the complete, current source —
 # including binaries and the LICENSE — which the API-based push cannot upload.
 # Triggered manually with the ZIP URL. The runner downloads the ZIP, extracts
-# it, rsyncs it over the repo root (keeping .github/), commits and pushes.
+# it OUTSIDE the repo (so rsync --delete can never touch its own source),
+# rsyncs it over the repo root (keeping .github/), commits and pushes.
 
 on:
   workflow_dispatch:
@@ -25,10 +26,11 @@ jobs:
 
       - name: Download and extract source ZIP
         run: |
-          curl -fL -o source.zip "${{ inputs.zip_url }}"
-          unzip -q source.zip
-          ls ahmadi-source/app/build.gradle.kts
-          ls ahmadi-source/LICENSE
+          mkdir -p /tmp/src
+          curl -fL -o /tmp/src/source.zip "${{ inputs.zip_url }}"
+          cd /tmp/src && unzip -q source.zip
+          ls /tmp/src/ahmadi-source/app/build.gradle.kts
+          ls /tmp/src/ahmadi-source/LICENSE
 
       - name: Sync into repo root and push
         run: |
@@ -38,7 +40,7 @@ jobs:
             --exclude=.github/ --exclude=.git/ \
             --exclude=build/ --exclude=.gradle/ --exclude=.idea/ \
             --exclude=local.properties \
-            ahmadi-source/ ./
+            /tmp/src/ahmadi-source/ ./
           git add -A
           git status --short | head -30
           git commit -m "Sync full Alahmady source v2.3.9 (complete tree incl. binaries + LICENSE)" || echo "nothing to commit"
