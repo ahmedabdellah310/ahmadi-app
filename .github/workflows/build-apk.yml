@@ -72,6 +72,7 @@ jobs:
 
       - name: Verify restored keystore
         env:
+          STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
         run: |
           ls -l "$GITHUB_WORKSPACE/keystore.jks"
           sha256sum "$GITHUB_WORKSPACE/keystore.jks"
