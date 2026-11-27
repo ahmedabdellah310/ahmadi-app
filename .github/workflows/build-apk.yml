@@ -69,6 +69,14 @@ jobs:
           echo "KEY_ALIAS=$KEY_ALIAS" >> "$GITHUB_ENV"
           echo "KEY_PASSWORD=$KEY_PASSWORD" >> "$GITHUB_ENV"
 
+      - name: Verify restored keystore
+        env:
+          STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
+        run: |
+          ls -l "$GITHUB_WORKSPACE/keystore.jks"
+          sha256sum "$GITHUB_WORKSPACE/keystore.jks"
+          keytool -list -keystore "$GITHUB_WORKSPACE/keystore.jks" -storepass "$STORE_PASSWORD"
+
       - name: Build universal release APK (full flavor)
         run: |
           cd ahmadi-source
