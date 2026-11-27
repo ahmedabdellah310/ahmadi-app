@@ -1,0 +1,218 @@
+import java.util.Properties
+
+plugins {
+  alias(libs.plugins.android.application)
+  alias(libs.plugins.kotlin.compose)
+  alias(libs.plugins.google.devtools.ksp)
+  alias(libs.plugins.roborazzi)
+}
+
+// Roborazzi renders Compose screenshots off-screen during unit tests.
+System.setProperty("java.awt.headless", "true")
+
+android {
+  namespace = "io.github.sammynashed.emran"
+  compileSdk { version = release(36) { minorApiLevel = 1 } }
+
+  defaultConfig {
+    applicationId = "my.ahmed.quran2.ratel"
+    minSdk = 24
+    targetSdk = 36
+    versionCode = 15
+    versionName = "2.3.5"
+
+    testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+  }
+
+  signingConfigs {
+    // Release signing is opt-in. F-Droid and any contributor running
+    // `./gradlew assembleRelease` without a keystore should get an unsigned APK
+    // rather than a confusing "keystore password must not be null" failure, so
+    // the config is only registered when the keystore is actually present.
+    val keystoreFile = file(System.getenv("KEYSTORE_PATH") ?: "${rootDir}/my-upload-key.jks")
+    if (keystoreFile.exists() && System.getenv("STORE_PASSWORD") != null) {
+      create("release") {
+        storeFile = keystoreFile
+        storePassword = System.getenv("STORE_PASSWORD")
+        keyAlias = System.getenv("KEY_ALIAS") ?: "upload"
+        keyPassword = System.getenv("KEY_PASSWORD")
+        enableV1Signing = true
+        enableV2Signing = true
+        enableV3Signing = true
+      }
+    }
+    create("debugConfig") {
+      storeFile = file("${rootDir}/debug.keystore")
+      storePassword = "android"
+      keyAlias = "androiddebugkey"
+      keyPassword = "android"
+    }
+  }
+
+  // 97% of the release download was one native library shipped four times:
+  // libonnxruntime.so is 70 MB across four architectures, against 6 MB for all
+  // of Emran's own code. x86 and x86_64 serve emulators and a few Chromebooks,
+  // never a phone, so a release build carries neither - and the two that remain
+  // are split into their own APKs rather than bundled into one that makes every
+  // device download the other's copy.
+  splits {
+    abi {
+      isEnable = true
+      reset()
+      include("arm64-v8a", "armeabi-v7a")
+      // Kept so there is still one file that installs anywhere, for a release
+      // page where asking people to identify their own CPU is a poor welcome.
+      isUniversalApk = true
+    }
+  }
+
+  // Two builds from one source. "full" is the Telegram APK, which can update itself
+  // from a patch file or ask GitHub whether there is a newer version. "fdroid" leaves
+  // all of that out: F-Droid updates the apps it ships, and in-app updaters are what
+  // its reviewers reject. Same applicationId and signing key, so a phone can move
+  // between the two without losing data.
+  flavorDimensions += "store"
+  productFlavors {
+    create("full") {
+      dimension = "store"
+      buildConfigField("boolean", "SELF_UPDATE", "true")
+      // Contact number for Report/Suggest, from the git-ignored local.properties. Never in source.
+      val localProps = Properties()
+      rootProject.file("local.properties").takeIf { it.exists() }?.inputStream()?.use { localProps.load(it) }
+      buildConfigField("String", "SUPPORT_WHATSAPP", "\"${localProps.getProperty("support.whatsapp", "")}\"")
+    }
+    create("fdroid") {
+      dimension = "store"
+      buildConfigField("boolean", "SELF_UPDATE", "false")
+      // Always empty: F-Droid rebuilds this flavor and its APK must match ours byte for byte.
+      buildConfigField("String", "SUPPORT_WHATSAPP", "\"\"")
+    }
+  }
+
+  buildTypes {
+    release {
+      // F-Droid rebuilds the fdroid APK from the git tag and ships ours only if the two
+      // are byte-identical. AGP would stamp the build's git commit into the APK, and our
+      // own builds are not made from a git checkout, so the stamp is left out.
+      vcsInfo { include = false }
+      // splits{} decides which per-ABI APKs are produced; it does not decide
+      // what goes into the universal one. Without this the "installs anywhere"
+      // APK still carried x86 and x86_64 and stayed at 76 MB, which is the
+      // artifact most people would actually download.
+      ndk { abiFilters += listOf("arm64-v8a", "armeabi-v7a") }
+
+      isCrunchPngs = false
+      isMinifyEnabled = true
+      isShrinkResources = true
+      proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+      signingConfig = signingConfigs.findByName("release")
+      // Test builds for friends (EMRAN_BETA=1, ~/emran-release/build-beta.sh): a separate app
+      // (".beta" id, own throwaway key), so it never installs over anyone's real Emran.
+      // Shipping = build without EMRAN_BETA: the real id and the real key, unchanged.
+      if (System.getenv("EMRAN_BETA") == "1") {
+        applicationIdSuffix = ".beta"
+        versionNameSuffix = "-beta"
+      }
+    }
+    debug {
+      signingConfig = signingConfigs.getByName("debugConfig")
+
+      // A phone and an emulator, nothing else. Debug installs go over a cable
+      // dozens of times a day and every unused architecture is dead weight on
+      // each one; x86_64 stays because that is what an Android Studio emulator
+      // runs on, and a contributor who cannot run the app is worse off than a
+      // slightly larger debug APK.
+      ndk { abiFilters += listOf("arm64-v8a", "x86_64") }
+    }
+  }
+
+  // Strip the Google-signed dependency metadata blob from release artifacts.
+  // It is opaque, unreproducible, and F-Droid rejects builds that carry it.
+  dependenciesInfo {
+    includeInApk = false
+    includeInBundle = false
+  }
+
+  compileOptions {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+  }
+  // Hadith packs (assets/hadith/*.hdp) are deflated per chapter already. Storing
+  // them uncompressed in the APK lets them be read in place with openFd(), instead
+  // of being compressed a second time and then copied out to be opened.
+  androidResources {
+    noCompress += "hdp"
+  }
+  packaging { jniLibs { useLegacyPackaging = true } }
+  buildFeatures {
+    compose = true
+    buildConfig = true
+  }
+  testOptions { unitTests { isIncludeAndroidResources = true } }
+}
+
+// Emran's only network I/O is user-started: Check for updates and recitation
+// downloads, both over plain HttpURLConnection. It ships no API keys, so there is
+// deliberately no secrets plugin, no Firebase, no Play Services and no Retrofit/OkHttp.
+dependencies {
+  implementation("ai.ratl:ratl-android:1.0.0-SNAPSHOT")
+  implementation(platform(libs.androidx.compose.bom))
+  implementation(libs.androidx.activity.compose)
+  implementation(libs.androidx.work.runtime.ktx)
+  // Quran audio: gapless per-ayah playlist + media session (lock screen, background on HyperOS).
+  implementation("androidx.media3:media3-exoplayer:1.8.0")
+  implementation("androidx.media3:media3-session:1.8.0")
+  // Qur'an video maker: stitches the recitation, a looping nature clip and the ayah text into an MP4 on the phone.
+  implementation("androidx.media3:media3-transformer:1.8.0")
+  implementation("androidx.media3:media3-effect:1.8.0")
+  implementation(libs.androidx.compose.material.icons.core)
+  implementation(libs.androidx.compose.material.icons.extended)
+  implementation(libs.androidx.compose.material3)
+  implementation(libs.androidx.compose.ui)
+  implementation(libs.androidx.compose.ui.graphics)
+  implementation(libs.androidx.compose.ui.tooling.preview)
+  implementation(libs.androidx.core.ktx)
+  implementation(libs.androidx.lifecycle.runtime.compose)
+  implementation(libs.androidx.lifecycle.runtime.ktx)
+  implementation(libs.androidx.lifecycle.viewmodel.compose)
+  implementation(libs.androidx.navigation.compose)
+  implementation(libs.androidx.room.ktx)
+  implementation(libs.androidx.room.runtime)
+  // Coil only ever loads local content:// profile pictures -- no network needed.
+  implementation(libs.coil.compose)
+  implementation(libs.moshi.kotlin)
+  implementation(libs.androidx.glance.appwidget)
+  implementation(libs.androidx.glance.material3)
+  implementation(libs.kotlinx.coroutines.android)
+  implementation(libs.kotlinx.coroutines.core)
+
+  testImplementation(libs.androidx.compose.ui.test.junit4)
+  testImplementation(libs.androidx.core)
+  testImplementation(libs.androidx.junit)
+  testImplementation(libs.junit)
+  testImplementation(libs.kotlinx.coroutines.test)
+  testImplementation(libs.robolectric)
+  testImplementation(libs.roborazzi)
+  testImplementation(libs.roborazzi.compose)
+  testImplementation(libs.roborazzi.junit.rule)
+
+  androidTestImplementation(platform(libs.androidx.compose.bom))
+  androidTestImplementation(libs.androidx.compose.ui.test.junit4)
+  androidTestImplementation(libs.androidx.espresso.core)
+  androidTestImplementation(libs.androidx.junit)
+  androidTestImplementation(libs.androidx.runner)
+
+  debugImplementation(libs.androidx.compose.ui.test.manifest)
+  debugImplementation(libs.androidx.compose.ui.tooling)
+
+  "ksp"(libs.androidx.room.compiler)
+  "ksp"(libs.moshi.kotlin.codegen)
+}
+
+// The Telegram ("full") build does not carry onnxruntime's native libraries (17 MB of an 81 MB APK): the Hifz pack
+// downloads them (data/packs/Packs.kt). The F-Droid build keeps them inside: F-Droid does not allow fetching code.
+androidComponents {
+  onVariants(selector().withFlavor("store" to "full")) { variant ->
+    variant.packaging.jniLibs.excludes.add("**/libonnxruntime*.so")
+  }
+}

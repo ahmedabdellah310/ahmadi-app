@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--
+      Emran is fully offline. There is deliberately no INTERNET permission: prayer
+      times are computed on-device, and the Quran, Adhkar and location data are
+      bundled as assets. If you are auditing this app, note that the absence of
+      INTERNET makes it impossible for Emran to transmit your data anywhere.
+    -->
+
+    <!-- Deliver the adhan at the exact prayer instant rather than in a batched window. -->
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
+    <!-- Restore the alarm schedule after a reboot, otherwise adhan stops silently. -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!-- Android 13+ notification opt-in for prayer alerts. -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <!-- The in-app update page hands the downloaded APK to the system installer. -->
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <!-- Optional, user-initiated from Settings: keeps adhan reliable under Doze. -->
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+    <!-- Haptic feedback for the tasbeeh counter. -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+    <!-- Optional, opt-in from Settings: the floating dhikr card drawn over other apps. -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+    <!-- Optional Recitation Check. -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <!-- Only to show the Qibla in the user's room: a live preview, never captured, recorded or
+         stored (the camera code has no image reader or recorder at all). -->
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <!-- Small updates from Telegram: Emran rebuilds the new version from itself and asks Android
+         to install it (Android shows its own confirm screen). Nothing is downloaded by the app. -->
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+
+    <!-- Used for exactly one thing: fetching the optional recitation model when
+         the user explicitly asks for it. Nothing else in Emran touches the
+         network - prayer times, the Quran text, Adhkar and all personal data
+         remain local, and recitation audio is never transmitted. Adding this
+         was a deliberate decision to make the model obtainable in-app; before
+         it, the model could only be side-loaded through the file picker. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- Quran audio: the player runs as a media service, downloads as a data-sync job. -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
+
+    <!--
+      Optional, and only ever used to fill in the user's city during onboarding.
+      Coarse is enough for prayer times; there is no background location access
+      and the coordinates never leave the device.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-feature android:name="android.hardware.location" android:required="false" />
+    <uses-feature android:name="android.hardware.location.gps" android:required="false" />
+
+    <queries><intent><action android:name="android.intent.action.TTS_SERVICE" /></intent></queries>
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Emran">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:configChanges="orientation|screenSize|smallestScreenSize|screenLayout|keyboard|keyboardHidden|density|uiMode"
+            android:theme="@style/Theme.Emran">
+        </activity>
+
+        <activity-alias
+            android:name=".MainActivityAliasDefault"
+            android:targetActivity=".MainActivity"
+            android:exported="true"
+            android:enabled="true"
+            android:icon="@mipmap/ic_launcher_expressive"
+            android:roundIcon="@mipmap/ic_launcher_round_expressive"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <!-- Holds the app in the foreground while a whole adhan (minutes long) plays, so it isn't cut off. -->
+        <service
+            android:name=".service.AdhanKeepAliveService"
+            android:exported="false"
+            android:foregroundServiceType="mediaPlayback" />
+        <service
+            android:name=".service.QuranAudioService"
+            android:exported="true"
+            android:foregroundServiceType="mediaPlayback">
+            <intent-filter>
+                <action android:name="androidx.media3.session.MediaSessionService" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="androidx.work.impl.foreground.SystemForegroundService"
+            android:foregroundServiceType="dataSync"
+            tools:node="merge" />
+
+        <!-- Broadcast Receivers -->
+        <!-- Hands the rendered share picture to WhatsApp and friends without opening up storage. -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.share"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/share_paths" />
+        </provider>
+
+        <receiver
+            android:name=".service.PrayerAlarmReceiver"
+            android:enabled="true"
+            android:exported="false" />
+
+        <receiver
+            android:name=".service.PrayerStatusReceiver"
+            android:enabled="true"
+            android:exported="false" />
+
+        <receiver
+            android:name=".service.MissionReminderReceiver"
+            android:enabled="true"
+            android:exported="false" />
+
+        <receiver
+            android:name=".service.AdhkarReminderReceiver"
+            android:enabled="true"
+            android:exported="false" />
+
+        <receiver
+            android:name=".service.FloatingDhikrReceiver"
+            android:enabled="true"
+            android:exported="false" />
+
+        <receiver
+            android:name=".service.BootReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+                <action android:name="android.intent.action.TIME_SET" />
+                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name=".glance.WidgetStyleActivity"
+            android:exported="true"
+            android:excludeFromRecents="true"
+            android:taskAffinity=""
+            android:theme="@style/Theme.Emran">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+            </intent-filter>
+        </activity>
+
+        <receiver
+            android:name=".glance.PrayerRowWidgetReceiver"
+            android:exported="true"
+            android:label="الأَحْمَدِيّ · Prayer Row">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_prayer_row_info" />
+        </receiver>
+
+        <receiver
+            android:name=".glance.MonthCalligraphyWidgetReceiver"
+            android:exported="true"
+            android:label="الأَحْمَدِيّ · Month · Arabic">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_month_calligraphy_info" />
+        </receiver>
+
+        <receiver
+            android:name=".glance.MonthElegantWidgetReceiver"
+            android:exported="true"
+            android:label="الأَحْمَدِيّ · Month · Elegant">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_month_elegant_info" />
+        </receiver>
+
+        <receiver
+            android:name=".glance.DateCompactWidgetReceiver"
+            android:exported="true"
+            android:label="الأَحْمَدِيّ · Date">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_date_compact_info" />
+        </receiver>
+
+        <receiver
+            android:name=".glance.DateBannerWidgetReceiver"
+            android:exported="true"
+            android:label="الأَحْمَدِيّ · Date Banner">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_date_banner_info" />
+        </receiver>
+
+        <receiver
+            android:name=".glance.DualBannerWidgetReceiver"
+            android:exported="true"
+            android:label="الأَحْمَدِيّ · Hijri + Gregorian">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_dual_banner_info" />
+        </receiver>
+
+        <receiver
+            android:name=".glance.DateClockWidgetReceiver"
+            android:exported="true"
+            android:label="الأَحْمَدِيّ · Date + Clock">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_date_clock_info" />
+        </receiver>
+
+        <receiver
+            android:name=".glance.CalendarWidgetReceiver"
+            android:exported="true"
+            android:label="الأَحْمَدِيّ · Calendar">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_calendar_info" />
+        </receiver>
+
+        <receiver
+            android:name=".glance.YearDotsWidgetReceiver"
+            android:exported="true"
+            android:label="الأَحْمَدِيّ · Year Dots">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_year_dots_info" />
+        </receiver>
+
+        <receiver
+            android:name=".glance.ClockArabicWidgetReceiver"
+            android:exported="true"
+            android:label="الأَحْمَدِيّ · Clock · Arabic">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_clock_arabic_info" />
+        </receiver>
+
+        <receiver
+            android:name=".glance.DayArabicWidgetReceiver"
+            android:exported="true"
+            android:label="الأَحْمَدِيّ · Day · Arabic">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_day_arabic_info" />
+        </receiver>
+
+        <receiver
+            android:name=".glance.DayEnglishWidgetReceiver"
+            android:exported="true"
+            android:label="الأَحْمَدِيّ · Day · English">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_day_english_info" />
+        </receiver>
+
+        <receiver
+            android:name=".glance.PrayerProgressWidgetReceiver"
+            android:exported="true"
+            android:label="الأَحْمَدِيّ · Prayer Progress">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_prayer_progress_info" />
+        </receiver>
+
+        <receiver
+            android:name=".glance.PrayerTableWidgetReceiver"
+            android:exported="true"
+            android:label="الأَحْمَدِيّ · Prayer Table">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_prayer_table_info" />
+        </receiver>
+
+        <receiver
+            android:name=".glance.NextPrayerWidgetReceiver"
+            android:exported="true"
+            android:label="الأَحْمَدِيّ · Next Prayer">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_next_prayer_info" />
+        </receiver>
+
+        <receiver
+            android:name=".glance.HijriDateWidgetReceiver"
+            android:exported="true"
+            android:label="الأَحْمَدِيّ · Hijri Date">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_hijri_date_info" />
+        </receiver>
+
+        <receiver
+            android:name=".glance.HijriMonthWidgetReceiver"
+            android:exported="true"
+            android:label="الأَحْمَدِيّ · Hijri Month">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_hijri_month_info" />
+        </receiver>
+
+        <receiver
+            android:name=".glance.AyahWidgetReceiver"
+            android:exported="true"
+            android:label="الأَحْمَدِيّ · Ayah of the Day">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_ayah_info" />
+        </receiver>
+
+        <receiver
+            android:name=".glance.ClockWidgetReceiver"
+            android:exported="true"
+            android:label="الأَحْمَدِيّ · Clock">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_clock_info" />
+        </receiver>
+
+        <receiver
+            android:name=".glance.OccasionWidgetReceiver"
+            android:exported="true"
+            android:label="الأَحْمَدِيّ · Next Occasion">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_occasion_info" />
+        </receiver>
+
+        <receiver
+            android:name=".glance.MidnightReceiver"
+            android:exported="false" />
+
+    </application>
+
+</manifest>
