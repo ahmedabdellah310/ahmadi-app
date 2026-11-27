@@ -1,0 +1,94 @@
+{
+  "stage": "M1b_selection",
+  "selection_set": "RATL-Val-v0 (held-out)",
+  "bench_untouched": true,
+  "table": [
+    {
+      "rule": "M2E",
+      "top_db": null,
+      "n": 5011,
+      "G2": 0.8787,
+      "start": 0.9094,
+      "end": 0.8479,
+      "mujawwad": 0.7564,
+      "other": 0.896
+    },
+    {
+      "rule": "M2S",
+      "top_db": 25.0,
+      "n": 5011,
+      "G2": 0.8671,
+      "start": 0.9106,
+      "end": 0.8236,
+      "mujawwad": 0.7548,
+      "other": 0.883
+    },
+    {
+      "rule": "M2S",
+      "top_db": 30.0,
+      "n": 5011,
+      "G2": 0.8573,
+      "start": 0.909,
+      "end": 0.8056,
+      "mujawwad": 0.7379,
+      "other": 0.8742
+    },
+    {
+      "rule": "M2S",
+      "top_db": 35.0,
+      "n": 5011,
+      "G2": 0.8476,
+      "start": 0.9052,
+      "end": 0.7901,
+      "mujawwad": 0.7307,
+      "other": 0.8642
+    },
+    {
+      "rule": "M2S",
+      "top_db": 40.0,
+      "n": 5011,
+      "G2": 0.8429,
+      "start": 0.8998,
+      "end": 0.7861,
+      "mujawwad": 0.7275,
+      "other": 0.8593
+    }
+  ],
+  "best_on_val": {
+    "rule": "M2E",
+    "top_db": null,
+    "n": 5011,
+    "G2": 0.8787,
+    "start": 0.9094,
+    "end": 0.8479,
+    "mujawwad": 0.7564,
+    "other": 0.896
+  },
+  "confidence_table": [
+    {
+      "abstain_pct": 0,
+      "threshold": -1000000000.0,
+      "G2_retained": 0.8787,
+      "mujawwad_retained": 0.7564
+    },
+    {
+      "abstain_pct": 2,
+      "threshold": -0.3506,
+      "G2_retained": 0.8802,
+      "mujawwad_retained": 0.7593
+    },
+    {
+      "abstain_pct": 5,
+      "threshold": -0.2957,
+      "G2_retained": 0.8809,
+      "mujawwad_retained": 0.7625
+    },
+    {
+      "abstain_pct": 10,
+      "threshold": -0.2487,
+      "G2_retained": 0.883,
+      "mujawwad_retained": 0.7632
+    }
+  ],
+  "gate_rule": "G2 is computed over ALL words; abstention is reported only"
+}

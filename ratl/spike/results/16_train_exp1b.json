@@ -1,0 +1,130 @@
+{
+  "experiment": "exp1b",
+  "base": "tarteel-ai/whisper-tiny-ar-quran",
+  "params": 7933859,
+  "vocab_size": 35,
+  "vocab": [
+    "<blank>",
+    "|",
+    "'",
+    "-",
+    "a",
+    "b",
+    "d",
+    "e",
+    "f",
+    "g",
+    "h",
+    "i",
+    "j",
+    "k",
+    "l",
+    "m",
+    "n",
+    "o",
+    "q",
+    "r",
+    "s",
+    "t",
+    "u",
+    "w",
+    "y",
+    "z",
+    "ā",
+    "ī",
+    "ū",
+    "ʿ",
+    "ḍ",
+    "ḥ",
+    "ṣ",
+    "ṭ",
+    "ẓ"
+  ],
+  "epochs": 12,
+  "batch": 12,
+  "lr": 0.0003,
+  "window_s": 15.0,
+  "enc_frames": 750,
+  "train_clips": 12528,
+  "val_clips": 659,
+  "unreadable_clips_excluded": 1,
+  "hours": 30.0,
+  "reciters": 9,
+  "best_val_ctc": 0.176,
+  "exp1_best_val_ctc": 0.4006,
+  "device": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "log": [
+    {
+      "epoch": 1,
+      "train_ctc": 1.6968,
+      "val_ctc": 0.4882,
+      "sec": 59
+    },
+    {
+      "epoch": 2,
+      "train_ctc": 0.3826,
+      "val_ctc": 0.3461,
+      "sec": 111
+    },
+    {
+      "epoch": 3,
+      "train_ctc": 0.2547,
+      "val_ctc": 0.2945,
+      "sec": 164
+    },
+    {
+      "epoch": 4,
+      "train_ctc": 0.1865,
+      "val_ctc": 0.2516,
+      "sec": 217
+    },
+    {
+      "epoch": 5,
+      "train_ctc": 0.1351,
+      "val_ctc": 0.2207,
+      "sec": 270
+    },
+    {
+      "epoch": 6,
+      "train_ctc": 0.0963,
+      "val_ctc": 0.1943,
+      "sec": 323
+    },
+    {
+      "epoch": 7,
+      "train_ctc": 0.0587,
+      "val_ctc": 0.192,
+      "sec": 376
+    },
+    {
+      "epoch": 8,
+      "train_ctc": 0.035,
+      "val_ctc": 0.1825,
+      "sec": 429
+    },
+    {
+      "epoch": 9,
+      "train_ctc": 0.0184,
+      "val_ctc": 0.176,
+      "sec": 482
+    },
+    {
+      "epoch": 10,
+      "train_ctc": 0.0092,
+      "val_ctc": 0.182,
+      "sec": 535
+    },
+    {
+      "epoch": 11,
+      "train_ctc": 0.0059,
+      "val_ctc": 0.1869,
+      "sec": 587
+    },
+    {
+      "epoch": 12,
+      "train_ctc": 0.0041,
+      "val_ctc": 0.1882,
+      "sec": 640
+    }
+  ]
+}

@@ -1,0 +1,224 @@
+{
+  "experiment": "3_decode_extent",
+  "spec_threshold": 0.85,
+  "tolerance_ms": 150.0,
+  "harness": "05_g2_alignment.py imported UNMODIFIED",
+  "corpus": "RATL-Bench-v0 unchanged",
+  "training": "NONE - decode-side only",
+  "reference_measured": {
+    "wav2vec2": {
+      "G2": 0.5611,
+      "start": 0.682,
+      "end": 0.4403
+    },
+    "exp1": {
+      "G2": 0.6776,
+      "start": 0.7882,
+      "end": 0.567
+    },
+    "exp1b": {
+      "G2": 0.6707,
+      "start": 0.8079,
+      "end": 0.5335
+    }
+  },
+  "selection_caveat": "choosing a rule on RATL-Bench-v0 is selection on the eval set; the winner needs held-out confirmation before it is a trusted V1 number",
+  "results": {
+    "exp1": {
+      "M0_spike": {
+        "G2": 0.6776,
+        "start_acc": 0.7882,
+        "end_acc": 0.567,
+        "G2_excl_mujawwad": 0.7285,
+        "median_signed_start_ms": 68.1,
+        "median_signed_end_ms": -69.5,
+        "pct_start_late": 87.8,
+        "pct_end_late": 32.0,
+        "abs_err_ms": {
+          "median": 83.3,
+          "p90": 625.3,
+          "p99": 5425.9
+        },
+        "by_speed": {
+          "fast": 0.7073,
+          "measured": 0.6975,
+          "medium": 0.7401,
+          "moderate": 0.769,
+          "very_slow": 0.4684
+        },
+        "gap_to_spec": 0.1724,
+        "pass_spec": false
+      },
+      "M1_half_gap": {
+        "G2": 0.7147,
+        "start_acc": 0.7984,
+        "end_acc": 0.631,
+        "G2_excl_mujawwad": 0.7638,
+        "median_signed_start_ms": 52.5,
+        "median_signed_end_ms": -19.4,
+        "pct_start_late": 80.1,
+        "pct_end_late": 42.1,
+        "abs_err_ms": {
+          "median": 71.8,
+          "p90": 518.7,
+          "p99": 5140.1
+        },
+        "by_speed": {
+          "fast": 0.7764,
+          "measured": 0.7228,
+          "medium": 0.7491,
+          "moderate": 0.8069,
+          "very_slow": 0.513
+        },
+        "gap_to_spec": 0.1353,
+        "pass_spec": false
+      },
+      "M2_separator": {
+        "G2": 0.7828,
+        "start_acc": 0.7999,
+        "end_acc": 0.7656,
+        "G2_excl_mujawwad": 0.8086,
+        "median_signed_start_ms": 34.6,
+        "median_signed_end_ms": 26.3,
+        "pct_start_late": 74.0,
+        "pct_end_late": 74.9,
+        "abs_err_ms": {
+          "median": 46.3,
+          "p90": 650.2,
+          "p99": 5508.1
+        },
+        "by_speed": {
+          "fast": 0.8182,
+          "measured": 0.7826,
+          "medium": 0.7798,
+          "moderate": 0.8538,
+          "very_slow": 0.6766
+        },
+        "gap_to_spec": 0.0672,
+        "pass_spec": false
+      },
+      "M3_full_gap": {
+        "G2": 0.7795,
+        "start_acc": 0.8115,
+        "end_acc": 0.7475,
+        "G2_excl_mujawwad": 0.8041,
+        "median_signed_start_ms": 2.9,
+        "median_signed_end_ms": 56.8,
+        "pct_start_late": 54.2,
+        "pct_end_late": 89.5,
+        "abs_err_ms": {
+          "median": 51.7,
+          "p90": 653.2,
+          "p99": 5508.7
+        },
+        "by_speed": {
+          "fast": 0.82,
+          "measured": 0.7754,
+          "medium": 0.7708,
+          "moderate": 0.8502,
+          "very_slow": 0.6784
+        },
+        "gap_to_spec": 0.0705,
+        "pass_spec": false
+      }
+    },
+    "exp1b": {
+      "M0_spike": {
+        "G2": 0.6707,
+        "start_acc": 0.8079,
+        "end_acc": 0.5335,
+        "G2_excl_mujawwad": 0.7226,
+        "median_signed_start_ms": 71.7,
+        "median_signed_end_ms": -97.9,
+        "pct_start_late": 88.9,
+        "pct_end_late": 22.9,
+        "abs_err_ms": {
+          "median": 91.0,
+          "p90": 601.8,
+          "p99": 4713.3
+        },
+        "by_speed": {
+          "fast": 0.6964,
+          "measured": 0.6957,
+          "medium": 0.7347,
+          "moderate": 0.7635,
+          "very_slow": 0.4572
+        },
+        "gap_to_spec": 0.1793,
+        "pass_spec": false
+      },
+      "M1_half_gap": {
+        "G2": 0.7158,
+        "start_acc": 0.7933,
+        "end_acc": 0.6383,
+        "G2_excl_mujawwad": 0.7629,
+        "median_signed_start_ms": 60.2,
+        "median_signed_end_ms": -29.8,
+        "pct_start_late": 81.0,
+        "pct_end_late": 36.5,
+        "abs_err_ms": {
+          "median": 79.8,
+          "p90": 501.2,
+          "p99": 4328.9
+        },
+        "by_speed": {
+          "fast": 0.7782,
+          "measured": 0.7101,
+          "medium": 0.7491,
+          "moderate": 0.8141,
+          "very_slow": 0.5223
+        },
+        "gap_to_spec": 0.1342,
+        "pass_spec": false
+      },
+      "M2_separator": {
+        "G2": 0.7755,
+        "start_acc": 0.7897,
+        "end_acc": 0.7613,
+        "G2_excl_mujawwad": 0.8045,
+        "median_signed_start_ms": 44.9,
+        "median_signed_end_ms": 31.4,
+        "pct_start_late": 76.2,
+        "pct_end_late": 79.0,
+        "abs_err_ms": {
+          "median": 53.7,
+          "p90": 629.7,
+          "p99": 4959.9
+        },
+        "by_speed": {
+          "fast": 0.8091,
+          "measured": 0.7736,
+          "medium": 0.7708,
+          "moderate": 0.8646,
+          "very_slow": 0.6561
+        },
+        "gap_to_spec": 0.0745,
+        "pass_spec": false
+      },
+      "M3_full_gap": {
+        "G2": 0.7722,
+        "start_acc": 0.8042,
+        "end_acc": 0.7402,
+        "G2_excl_mujawwad": 0.8023,
+        "median_signed_start_ms": 8.6,
+        "median_signed_end_ms": 70.6,
+        "pct_start_late": 59.4,
+        "pct_end_late": 90.4,
+        "abs_err_ms": {
+          "median": 59.3,
+          "p90": 636.8,
+          "p99": 4988.8
+        },
+        "by_speed": {
+          "fast": 0.8145,
+          "measured": 0.7717,
+          "medium": 0.769,
+          "moderate": 0.8538,
+          "very_slow": 0.6487
+        },
+        "gap_to_spec": 0.0778,
+        "pass_spec": false
+      }
+    }
+  }
+}

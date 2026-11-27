@@ -1,0 +1,39 @@
+# ---- large research artifacts: never in git ----
+spike/.cache/
+spike/models/
+spike/results/*.log
+
+# ---- model weights: distributed by hash, never committed (SPEC 6.3) ----
+models/out/
+*.onnx
+*.pt
+*.npy
+
+# ---- python ----
+.venv/
+__pycache__/
+*.pyc
+
+# ---- jvm / gradle (M2.1+) ----
+.gradle/
+build/
+local.properties
+*.jar
+!gradle/wrapper/gradle-wrapper.jar
+
+# ---- os ----
+Thumbs.db
+desktop.ini
+
+# ---- gradle build output ----
+.gradle/
+build/
+
+# ---- evaluation PCM + manifests (contain transliterations; SPEC 5.5) ----
+eval/bench_pcm/
+
+# M3 test fixtures are copied into the APK at build time; not source.
+ratl-android/src/androidTest/assets/
+
+# ---- working notes: for me, not for the public ----
+notes/

@@ -1,0 +1,83 @@
+{
+  "spec_version": "0.4",
+  "generator": "conformance/generate.py",
+  "generated_from": "spike reference modules imported unmodified",
+  "seed": 1447,
+  "model": {
+    "name": "ratl-align-v1-e2e-fp32.onnx",
+    "sha256": "95a01016aa1383bf60d28edfe5eaf6baecb65b71280cc5085b67ce05545d2798"
+  },
+  "vocab_sha256": "9b76b72eb9c41bcde8b5d36738e06cb656c07e7d9f4045c29719a1cbfcdb9eef",
+  "frozen_config": {
+    "decoder": "M2E_edge_spike",
+    "window_s": 15.0,
+    "hop_s": 10.0,
+    "margin_s": 2.5,
+    "fps": 50.0,
+    "offset_ms": 0.0,
+    "blank": 0,
+    "vocab_size": 35
+  },
+  "tolerances": {
+    "T0_double": 1e-09,
+    "T0_integer": "exact",
+    "T1": 0.001,
+    "T2_logits": 0.001,
+    "T2_frame_indices": "exact",
+    "T3_status": "exact",
+    "T3_confidence": 0.001
+  },
+  "tiers_present": [
+    "T0",
+    "T1",
+    "T2",
+    "T3"
+  ],
+  "files": [
+    {
+      "file": "t0_tokenize.json",
+      "sha256": "91788de6063f743f025be6710796862f8248a98727c41d56a53bace935846384",
+      "bytes": 1950
+    },
+    {
+      "file": "t0_log_softmax.json",
+      "sha256": "7b946358ca0a271a9b7d6f75f29a40a98d791946878e466b82d0f3d09fa6d755",
+      "bytes": 30332
+    },
+    {
+      "file": "t0_forced_align.json",
+      "sha256": "eb443df98f93d2e3d56c687598c231d7d70f17607cc1159225c1f96b80724783",
+      "bytes": 9819
+    },
+    {
+      "file": "t0_word_bounds.json",
+      "sha256": "ce5054d8fa5106d404576c1f6d6e486be9aebafd699c23642f0be23baa459bc2",
+      "bytes": 3023
+    },
+    {
+      "file": "t0_windowing.json",
+      "sha256": "08b3824b6f2fb40a256bfe53a2f2116ce57d5f70a780bfe2a6f2ce168f214e7e",
+      "bytes": 3023
+    },
+    {
+      "file": "t1_frontend.json",
+      "sha256": "cf12259af1003e045e86f7d555f11da71f9f858b88e66d154cee00432db78a20",
+      "bytes": 1186
+    },
+    {
+      "file": "t2_decode.json",
+      "sha256": "17bdf7ecce3a2c890f10d128503adc70db7e9c311c62c1163a1eeebd05ff95a9",
+      "bytes": 8579
+    },
+    {
+      "file": "t3_assessment.json",
+      "sha256": "154a3d1cf73d4705d9c3797eaccc3cae50300d3308972222ea68886b99a44ebb",
+      "bytes": 83248
+    },
+    {
+      "file": "t0_normalizer.json",
+      "sha256": "0868998b250c6a1f32629c7d8e5fa1061c683e723a074809f0d89587298504ba",
+      "bytes": 3355
+    }
+  ]
+}

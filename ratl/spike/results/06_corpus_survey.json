@@ -1,0 +1,170 @@
+{
+  "reciters": {
+    "Abdul_Basit_Mujawwad_128kbps": {
+      "ayat": 6236,
+      "ayat_zero_error_stats": 2802,
+      "pct_ayat_clean": 44.9,
+      "words": 76298,
+      "hours": 52.32,
+      "insertions": 7754,
+      "deletions": 1337,
+      "transpositions": 2416,
+      "word_dur_ms_p50": 1920,
+      "word_dur_ms_p95": 4860,
+      "word_dur_ms_max": 29457
+    },
+    "Abdul_Basit_Murattal_64kbps": {
+      "ayat": 6236,
+      "ayat_zero_error_stats": 5295,
+      "pct_ayat_clean": 84.9,
+      "words": 77319,
+      "hours": 28.4,
+      "insertions": 2755,
+      "deletions": 141,
+      "transpositions": 157,
+      "word_dur_ms_p50": 1150,
+      "word_dur_ms_p95": 2380,
+      "word_dur_ms_max": 60970
+    },
+    "Abu_Bakr_Ash-Shaatree_128kbps": {
+      "ayat": 6236,
+      "ayat_zero_error_stats": 4089,
+      "pct_ayat_clean": 65.6,
+      "words": 77374,
+      "hours": 24.44,
+      "insertions": 5764,
+      "deletions": 92,
+      "transpositions": 140,
+      "word_dur_ms_p50": 940,
+      "word_dur_ms_p95": 2350,
+      "word_dur_ms_max": 90331
+    },
+    "Alafasy_128kbps": {
+      "ayat": 6236,
+      "ayat_zero_error_stats": 4604,
+      "pct_ayat_clean": 73.8,
+      "words": 77392,
+      "hours": 28.41,
+      "insertions": 3873,
+      "deletions": 71,
+      "transpositions": 272,
+      "word_dur_ms_p50": 1070,
+      "word_dur_ms_p95": 2990,
+      "word_dur_ms_max": 14610
+    },
+    "Hani_Rifai_192kbps": {
+      "ayat": 6236,
+      "ayat_zero_error_stats": 5210,
+      "pct_ayat_clean": 83.5,
+      "words": 77395,
+      "hours": 24.23,
+      "insertions": 2305,
+      "deletions": 86,
+      "transpositions": 136,
+      "word_dur_ms_p50": 1010,
+      "word_dur_ms_p95": 2170,
+      "word_dur_ms_max": 20780
+    },
+    "Husary_64kbps": {
+      "ayat": 6236,
+      "ayat_zero_error_stats": 5094,
+      "pct_ayat_clean": 81.7,
+      "words": 77414,
+      "hours": 37.83,
+      "insertions": 2549,
+      "deletions": 71,
+      "transpositions": 248,
+      "word_dur_ms_p50": 1510,
+      "word_dur_ms_p95": 3120,
+      "word_dur_ms_max": 20220
+    },
+    "Husary_Muallim_128kbps": {
+      "ayat": 6236,
+      "ayat_zero_error_stats": 4195,
+      "pct_ayat_clean": 67.3,
+      "words": 77347,
+      "hours": 39.28,
+      "insertions": 5164,
+      "deletions": 182,
+      "transpositions": 218,
+      "word_dur_ms_p50": 1310,
+      "word_dur_ms_p95": 2530,
+      "word_dur_ms_max": 28730
+    },
+    "Minshawy_Mujawwad_192kbps": {
+      "ayat": 6236,
+      "ayat_zero_error_stats": 3275,
+      "pct_ayat_clean": 52.5,
+      "words": 76226,
+      "hours": 51.63,
+      "insertions": 10639,
+      "deletions": 901,
+      "transpositions": 2524,
+      "word_dur_ms_p50": 1920,
+      "word_dur_ms_p95": 4170,
+      "word_dur_ms_max": 223940
+    },
+    "Minshawy_Murattal_128kbps": {
+      "ayat": 6236,
+      "ayat_zero_error_stats": 5262,
+      "pct_ayat_clean": 84.4,
+      "words": 77386,
+      "hours": 26.66,
+      "insertions": 2680,
+      "deletions": 66,
+      "transpositions": 203,
+      "word_dur_ms_p50": 1080,
+      "word_dur_ms_p95": 2280,
+      "word_dur_ms_max": 14290
+    },
+    "Mohammad_al_Tablaway_128kbps": {
+      "ayat": 6236,
+      "ayat_zero_error_stats": 5112,
+      "pct_ayat_clean": 82.0,
+      "words": 77199,
+      "hours": 27.69,
+      "insertions": 1586,
+      "deletions": 243,
+      "transpositions": 357,
+      "word_dur_ms_p50": 1070,
+      "word_dur_ms_p95": 2780,
+      "word_dur_ms_max": 36410
+    },
+    "Saood_ash-Shuraym_128kbps": {
+      "ayat": 6236,
+      "ayat_zero_error_stats": 5544,
+      "pct_ayat_clean": 88.9,
+      "words": 77373,
+      "hours": 17.29,
+      "insertions": 2098,
+      "deletions": 41,
+      "transpositions": 109,
+      "word_dur_ms_p50": 720,
+      "word_dur_ms_p95": 1500,
+      "word_dur_ms_max": 20030
+    }
+  },
+  "excluded": [
+    "Abdurrahmaan_As-Sudais_192kbps.json"
+  ],
+  "totals": {
+    "reciters_usable": 11,
+    "ayah_recordings": 68596,
+    "word_instances": 848723,
+    "hours_total": 358.2,
+    "inter_word_gap_ms_p50": 10,
+    "inter_word_gap_ms_p90": 10
+  },
+  "heldout": {
+    "bench_ayat": 30,
+    "bench_reciters": 5,
+    "bench_clips": 150,
+    "policy": "RATL-Bench-v0 ayat excluded from ALL training splits, across ALL reciters"
+  },
+  "clean_training_pool": {
+    "definition": "stats.insertions==deletions==transpositions==0, bench ayat removed",
+    "ayah_recordings": 50234,
+    "word_instances": 501929,
+    "hours": 185.01
+  }
+}

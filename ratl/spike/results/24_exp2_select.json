@@ -1,0 +1,99 @@
+{
+  "stage": "exp2_selection",
+  "selection_set": "RATL-Val-v0 (held-out)",
+  "bench_untouched": true,
+  "m1_incumbent_val_G2": 0.8787,
+  "table": [
+    {
+      "variant": "V_m2e",
+      "n": 5011,
+      "G2": 0.8941,
+      "start": 0.9272,
+      "end": 0.8611,
+      "mujawwad": 0.7934,
+      "other": 0.9084,
+      "dur_lt1000": 0.9443,
+      "dur_1_2k": 0.8683,
+      "dur_2_4k": 0.7813,
+      "dur_gt4k": 0.8913
+    },
+    {
+      "variant": "V_dp",
+      "n": 5011,
+      "G2": 0.4844,
+      "start": 0.5201,
+      "end": 0.4488,
+      "mujawwad": 0.4445,
+      "other": 0.4901,
+      "dur_lt1000": 0.5083,
+      "dur_1_2k": 0.4655,
+      "dur_2_4k": 0.4571,
+      "dur_gt4k": 0.413
+    },
+    {
+      "variant": "V_mean",
+      "n": 5011,
+      "G2": 0.5004,
+      "start": 0.5368,
+      "end": 0.464,
+      "mujawwad": 0.4405,
+      "other": 0.5089,
+      "dur_lt1000": 0.5322,
+      "dur_1_2k": 0.4736,
+      "dur_2_4k": 0.4683,
+      "dur_gt4k": 0.4348
+    },
+    {
+      "variant": "V_win_25",
+      "n": 5011,
+      "G2": 0.8801,
+      "start": 0.8998,
+      "end": 0.8603,
+      "mujawwad": 0.8264,
+      "other": 0.8877,
+      "dur_lt1000": 0.8931,
+      "dur_1_2k": 0.8852,
+      "dur_2_4k": 0.8105,
+      "dur_gt4k": 0.8478
+    },
+    {
+      "variant": "V_win_50",
+      "n": 5011,
+      "G2": 0.7709,
+      "start": 0.7865,
+      "end": 0.7553,
+      "mujawwad": 0.791,
+      "other": 0.7681,
+      "dur_lt1000": 0.6992,
+      "dur_1_2k": 0.8446,
+      "dur_2_4k": 0.8027,
+      "dur_gt4k": 0.7826
+    },
+    {
+      "variant": "V_win_100",
+      "n": 5011,
+      "G2": 0.5913,
+      "start": 0.6188,
+      "end": 0.5638,
+      "mujawwad": 0.6222,
+      "other": 0.5869,
+      "dur_lt1000": 0.5817,
+      "dur_1_2k": 0.5619,
+      "dur_2_4k": 0.7281,
+      "dur_gt4k": 0.7174
+    }
+  ],
+  "best_on_val": {
+    "variant": "V_m2e",
+    "n": 5011,
+    "G2": 0.8941,
+    "start": 0.9272,
+    "end": 0.8611,
+    "mujawwad": 0.7934,
+    "other": 0.9084,
+    "dur_lt1000": 0.9443,
+    "dur_1_2k": 0.8683,
+    "dur_2_4k": 0.7813,
+    "dur_gt4k": 0.8913
+  }
+}

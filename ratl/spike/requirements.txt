@@ -1,0 +1,15 @@
+# RATL Week 1 feasibility spike — throwaway exploratory environment.
+# Python 3.13 (NOT 3.14 — torch wheels lag the newest CPython).
+# CPU-only. No CUDA. $0 constraint: nothing here requires paid compute.
+
+torch --index-url https://download.pytorch.org/whl/cpu
+transformers
+onnx
+onnxruntime
+optimum[onnxruntime]
+datasets
+huggingface_hub
+librosa
+soundfile
+numpy
+pandas

@@ -1,0 +1,315 @@
+{
+  "step": "M2.0 G3/G4 reference-lattice evaluation",
+  "model": "ratl-align-v1-e2e-fp32.onnx",
+  "seed": 1450,
+  "bench_used_for_tuning": false,
+  "selection": {
+    "tier": "seen_reciter ONLY",
+    "config": {
+      "shape_index": 0,
+      "garb_pen": 2.0,
+      "lam_ins": -20.0,
+      "lam_skip": -10.0,
+      "lam_rep": -25.0,
+      "tau_sub": 0.05,
+      "tau_uncertain": null
+    },
+    "objective": "SPEC 4 rule 1 - feasible FRR first, then max omission recall; abstention guarded by non_correct_rate <= 0.15",
+    "n_configs_tried": 1200
+  },
+  "seen_tier": {
+    "G3_omission_recall": 1.0,
+    "G3_n": 40,
+    "G4_frr": 0.0149,
+    "G4_n_clean_words": 670,
+    "uncertain_rate_on_clean": 0.0,
+    "non_correct_rate_on_clean": 0.0149,
+    "per_class": {
+      "INCOMPLETE": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 40,
+        "precision": null,
+        "recall": 0.0,
+        "f1": null
+      },
+      "INSERTION": {
+        "tp": 17,
+        "fp": 0,
+        "fn": 23,
+        "precision": 1.0,
+        "recall": 0.425,
+        "f1": 0.5965
+      },
+      "OMISSION": {
+        "tp": 40,
+        "fp": 43,
+        "fn": 0,
+        "precision": 0.4819,
+        "recall": 1.0,
+        "f1": 0.6504
+      },
+      "REPETITION": {
+        "tp": 35,
+        "fp": 1,
+        "fn": 5,
+        "precision": 0.9722,
+        "recall": 0.875,
+        "f1": 0.9211
+      },
+      "SUBSTITUTION": {
+        "tp": 19,
+        "fp": 30,
+        "fn": 21,
+        "precision": 0.3878,
+        "recall": 0.475,
+        "f1": 0.427
+      }
+    },
+    "confusion": {
+      "OMISSION": {
+        "OMISSION": 40
+      },
+      "SUBSTITUTION": {
+        "SUBSTITUTION": 19,
+        "CORRECT": 12,
+        "OMISSION": 9
+      },
+      "REPETITION": {
+        "REPETITION": 35,
+        "SUBSTITUTION": 3,
+        "CORRECT": 2
+      },
+      "INSERTION": {
+        "SUBSTITUTION": 10,
+        "CORRECT": 12,
+        "INSERTION": 17,
+        "REPETITION": 1
+      },
+      "INCOMPLETE": {
+        "OMISSION": 34,
+        "CORRECT": 2,
+        "SUBSTITUTION": 4
+      },
+      "CORRECT": {
+        "CORRECT": 97,
+        "SUBSTITUTION": 3
+      },
+      "CORRECT_clean": {
+        "CORRECT": 660,
+        "SUBSTITUTION": 10
+      }
+    },
+    "by_reciter": {
+      "Saood_ash-Shuraym_128kbps": {
+        "n": 56,
+        "hit": 34,
+        "accuracy": 0.6071
+      },
+      "Minshawy_Mujawwad_192kbps": {
+        "n": 26,
+        "hit": 18,
+        "accuracy": 0.6923
+      },
+      "Husary_64kbps": {
+        "n": 29,
+        "hit": 16,
+        "accuracy": 0.5517
+      },
+      "Abdul_Basit_Murattal_64kbps": {
+        "n": 46,
+        "hit": 30,
+        "accuracy": 0.6522
+      },
+      "Mohammad_al_Tablaway_128kbps": {
+        "n": 42,
+        "hit": 30,
+        "accuracy": 0.7143
+      },
+      "Abu_Bakr_Ash-Shaatree_128kbps": {
+        "n": 49,
+        "hit": 39,
+        "accuracy": 0.7959
+      },
+      "Alafasy_128kbps": {
+        "n": 30,
+        "hit": 26,
+        "accuracy": 0.8667
+      },
+      "Husary_Muallim_128kbps": {
+        "n": 22,
+        "hit": 15,
+        "accuracy": 0.6818
+      }
+    },
+    "by_word_duration": {
+      "0-500ms": {
+        "n": 26,
+        "accuracy": 0.6154
+      },
+      "500-1000ms": {
+        "n": 104,
+        "accuracy": 0.7212
+      },
+      "1000-2000ms": {
+        "n": 118,
+        "accuracy": 0.7203
+      },
+      "2000-4000ms": {
+        "n": 52,
+        "accuracy": 0.6154
+      }
+    },
+    "null_control": {
+      "n": 40,
+      "flagged_as_error": 1,
+      "false_positive_rate": 0.025
+    },
+    "clustering": {
+      "n_target_words": 300,
+      "n_distinct_clips": 299,
+      "n_distinct_ayat": 285,
+      "n_reciters": 8,
+      "n_clean_words": 670,
+      "n_clean_clips": 99
+    }
+  },
+  "disjoint_tier_HELD_OUT": {
+    "G3_omission_recall": 1.0,
+    "G3_n": 22,
+    "G4_frr": 0.3577,
+    "G4_n_clean_words": 397,
+    "uncertain_rate_on_clean": 0.0,
+    "non_correct_rate_on_clean": 0.3577,
+    "per_class": {
+      "INCOMPLETE": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 22,
+        "precision": null,
+        "recall": 0.0,
+        "f1": null
+      },
+      "INSERTION": {
+        "tp": 6,
+        "fp": 0,
+        "fn": 16,
+        "precision": 1.0,
+        "recall": 0.2727,
+        "f1": 0.4286
+      },
+      "OMISSION": {
+        "tp": 22,
+        "fp": 32,
+        "fn": 0,
+        "precision": 0.4074,
+        "recall": 1.0,
+        "f1": 0.5789
+      },
+      "REPETITION": {
+        "tp": 13,
+        "fp": 0,
+        "fn": 9,
+        "precision": 1.0,
+        "recall": 0.5909,
+        "f1": 0.7429
+      },
+      "SUBSTITUTION": {
+        "tp": 7,
+        "fp": 183,
+        "fn": 15,
+        "precision": 0.0368,
+        "recall": 0.3182,
+        "f1": 0.066
+      }
+    },
+    "confusion": {
+      "OMISSION": {
+        "OMISSION": 22
+      },
+      "SUBSTITUTION": {
+        "SUBSTITUTION": 7,
+        "OMISSION": 13,
+        "CORRECT": 2
+      },
+      "REPETITION": {
+        "SUBSTITUTION": 8,
+        "REPETITION": 13,
+        "CORRECT": 1
+      },
+      "INSERTION": {
+        "SUBSTITUTION": 7,
+        "INSERTION": 6,
+        "CORRECT": 9
+      },
+      "INCOMPLETE": {
+        "OMISSION": 19,
+        "SUBSTITUTION": 2,
+        "CORRECT": 1
+      },
+      "CORRECT": {
+        "CORRECT": 38,
+        "SUBSTITUTION": 24
+      },
+      "CORRECT_clean": {
+        "CORRECT": 255,
+        "SUBSTITUTION": 142
+      }
+    },
+    "by_reciter": {
+      "Hani_Rifai_192kbps": {
+        "n": 85,
+        "hit": 34,
+        "accuracy": 0.4
+      },
+      "Minshawy_Murattal_128kbps": {
+        "n": 87,
+        "hit": 52,
+        "accuracy": 0.5977
+      }
+    },
+    "by_word_duration": {
+      "0-500ms": {
+        "n": 19,
+        "accuracy": 0.4211
+      },
+      "500-1000ms": {
+        "n": 69,
+        "accuracy": 0.5217
+      },
+      "1000-2000ms": {
+        "n": 72,
+        "accuracy": 0.5139
+      },
+      "2000-4000ms": {
+        "n": 8,
+        "accuracy": 0.5
+      },
+      "4000-infms": {
+        "n": 4,
+        "accuracy": 0.25
+      }
+    },
+    "null_control": {
+      "n": 22,
+      "flagged_as_error": 9,
+      "false_positive_rate": 0.4091
+    },
+    "clustering": {
+      "n_target_words": 172,
+      "n_distinct_clips": 31,
+      "n_distinct_ayat": 17,
+      "n_reciters": 2,
+      "n_clean_words": 397,
+      "n_clean_clips": 31
+    }
+  },
+  "gates": {
+    "G3_threshold": 0.8,
+    "G4_threshold": 0.05,
+    "G3_disjoint": 1.0,
+    "G4_disjoint": 0.3577,
+    "G3_PASS": true,
+    "G4_PASS": false
+  }
+}

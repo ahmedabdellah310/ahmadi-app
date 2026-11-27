@@ -1,0 +1,6427 @@
+{
+ "purpose": "C3-b fresh reciter-disjoint gate data",
+ "approved_cap_mb": 185.0,
+ "audio_bytes_downloaded": 150431690,
+ "audio_mb_downloaded": 143.46,
+ "translit_bytes_downloaded": 43679,
+ "bench_ayat_excluded": true,
+ "max_duration_s": 15.0,
+ "min_words": 4,
+ "seed": 1451,
+ "reciters": {
+  "Hani_Rifai_192kbps": {
+   "n_ayat": 400,
+   "n_newly_downloaded": 400,
+   "total_dur_s": 3606.6,
+   "items": [
+    {
+     "surah": 54,
+     "ayah": 10,
+     "dur_s": 5.74,
+     "n_words": 5,
+     "bytes": 144324,
+     "cached": false
+    },
+    {
+     "surah": 39,
+     "ayah": 54,
+     "dur_s": 12.26,
+     "n_words": 13,
+     "bytes": 304193,
+     "cached": false
+    },
+    {
+     "surah": 84,
+     "ayah": 7,
+     "dur_s": 4.5,
+     "n_words": 5,
+     "bytes": 111723,
+     "cached": false
+    },
+    {
+     "surah": 50,
+     "ayah": 25,
+     "dur_s": 6.24,
+     "n_words": 4,
+     "bytes": 159371,
+     "cached": false
+    },
+    {
+     "surah": 39,
+     "ayah": 40,
+     "dur_s": 8.85,
+     "n_words": 8,
+     "bytes": 213915,
+     "cached": false
+    },
+    {
+     "surah": 36,
+     "ayah": 54,
+     "dur_s": 11.34,
+     "n_words": 11,
+     "bytes": 276608,
+     "cached": false
+    },
+    {
+     "surah": 40,
+     "ayah": 72,
+     "dur_s": 6.11,
+     "n_words": 6,
+     "bytes": 153101,
+     "cached": false
+    },
+    {
+     "surah": 36,
+     "ayah": 79,
+     "dur_s": 9.11,
+     "n_words": 10,
+     "bytes": 225199,
+     "cached": false
+    },
+    {
+     "surah": 28,
+     "ayah": 74,
+     "dur_s": 11.33,
+     "n_words": 8,
+     "bytes": 277862,
+     "cached": false
+    },
+    {
+     "surah": 56,
+     "ayah": 71,
+     "dur_s": 5.19,
+     "n_words": 4,
+     "bytes": 132412,
+     "cached": false
+    },
+    {
+     "surah": 39,
+     "ayah": 50,
+     "dur_s": 10.4,
+     "n_words": 11,
+     "bytes": 252157,
+     "cached": false
+    },
+    {
+     "surah": 26,
+     "ayah": 181,
+     "dur_s": 9.4,
+     "n_words": 6,
+     "bytes": 230841,
+     "cached": false
+    },
+    {
+     "surah": 44,
+     "ayah": 50,
+     "dur_s": 7.46,
+     "n_words": 6,
+     "bytes": 187583,
+     "cached": false
+    },
+    {
+     "surah": 35,
+     "ayah": 20,
+     "dur_s": 4.29,
+     "n_words": 4,
+     "bytes": 106708,
+     "cached": false
+    },
+    {
+     "surah": 24,
+     "ayah": 36,
+     "dur_s": 13.39,
+     "n_words": 14,
+     "bytes": 323628,
+     "cached": false
+    },
+    {
+     "surah": 51,
+     "ayah": 22,
+     "dur_s": 6.0,
+     "n_words": 5,
+     "bytes": 150594,
+     "cached": false
+    },
+    {
+     "surah": 26,
+     "ayah": 210,
+     "dur_s": 4.42,
+     "n_words": 4,
+     "bytes": 108588,
+     "cached": false
+    },
+    {
+     "surah": 54,
+     "ayah": 36,
+     "dur_s": 6.78,
+     "n_words": 5,
+     "bytes": 171282,
+     "cached": false
+    },
+    {
+     "surah": 43,
+     "ayah": 83,
+     "dur_s": 9.31,
+     "n_words": 8,
+     "bytes": 233976,
+     "cached": false
+    },
+    {
+     "surah": 27,
+     "ayah": 79,
+     "dur_s": 8.32,
+     "n_words": 7,
+     "bytes": 214541,
+     "cached": false
+    },
+    {
+     "surah": 5,
+     "ayah": 26,
+     "dur_s": 14.27,
+     "n_words": 14,
+     "bytes": 366261,
+     "cached": false
+    },
+    {
+     "surah": 26,
+     "ayah": 196,
+     "dur_s": 4.56,
+     "n_words": 4,
+     "bytes": 117366,
+     "cached": false
+    },
+    {
+     "surah": 44,
+     "ayah": 49,
+     "dur_s": 6.83,
+     "n_words": 5,
+     "bytes": 170028,
+     "cached": false
+    },
+    {
+     "surah": 14,
+     "ayah": 14,
+     "dur_s": 11.68,
+     "n_words": 10,
+     "bytes": 287893,
+     "cached": false
+    },
+    {
+     "surah": 55,
+     "ayah": 60,
+     "dur_s": 5.52,
+     "n_words": 5,
+     "bytes": 140562,
+     "cached": false
+    },
+    {
+     "surah": 26,
+     "ayah": 114,
+     "dur_s": 4.47,
+     "n_words": 4,
+     "bytes": 108588,
+     "cached": false
+    },
+    {
+     "surah": 55,
+     "ayah": 17,
+     "dur_s": 5.24,
+     "n_words": 4,
+     "bytes": 132412,
+     "cached": false
+    },
+    {
+     "surah": 3,
+     "ayah": 57,
+     "dur_s": 12.48,
+     "n_words": 11,
+     "bytes": 301058,
+     "cached": false
+    },
+    {
+     "surah": 6,
+     "ayah": 3,
+     "dur_s": 11.65,
+     "n_words": 12,
+     "bytes": 281624,
+     "cached": false
+    },
+    {
+     "surah": 11,
+     "ayah": 71,
+     "dur_s": 14.44,
+     "n_words": 9,
+     "bytes": 353095,
+     "cached": false
+    },
+    {
+     "surah": 36,
+     "ayah": 49,
+     "dur_s": 9.19,
+     "n_words": 8,
+     "bytes": 227707,
+     "cached": false
+    },
+    {
+     "surah": 79,
+     "ayah": 27,
+     "dur_s": 6.98,
+     "n_words": 6,
+     "bytes": 171909,
+     "cached": false
+    },
+    {
+     "surah": 27,
+     "ayah": 50,
+     "dur_s": 8.6,
+     "n_words": 7,
+     "bytes": 214541,
+     "cached": false
+    },
+    {
+     "surah": 72,
+     "ayah": 17,
+     "dur_s": 10.04,
+     "n_words": 10,
+     "bytes": 252158,
+     "cached": false
+    },
+    {
+     "surah": 23,
+     "ayah": 69,
+     "dur_s": 7.36,
+     "n_words": 7,
+     "bytes": 180686,
+     "cached": false
+    },
+    {
+     "surah": 55,
+     "ayah": 61,
+     "dur_s": 6.0,
+     "n_words": 4,
+     "bytes": 150594,
+     "cached": false
+    },
+    {
+     "surah": 29,
+     "ayah": 30,
+     "dur_s": 6.45,
+     "n_words": 6,
+     "bytes": 161251,
+     "cached": false
+    },
+    {
+     "surah": 102,
+     "ayah": 7,
+     "dur_s": 5.49,
+     "n_words": 4,
+     "bytes": 139935,
+     "cached": false
+    },
+    {
+     "surah": 93,
+     "ayah": 5,
+     "dur_s": 3.93,
+     "n_words": 4,
+     "bytes": 100439,
+     "cached": false
+    },
+    {
+     "surah": 39,
+     "ayah": 44,
+     "dur_s": 13.04,
+     "n_words": 11,
+     "bytes": 321748,
+     "cached": false
+    },
+    {
+     "surah": 77,
+     "ayah": 41,
+     "dur_s": 6.79,
+     "n_words": 5,
+     "bytes": 394473,
+     "cached": false
+    },
+    {
+     "surah": 37,
+     "ayah": 21,
+     "dur_s": 9.83,
+     "n_words": 7,
+     "bytes": 266577,
+     "cached": false
+    },
+    {
+     "surah": 55,
+     "ayah": 22,
+     "dur_s": 4.9,
+     "n_words": 4,
+     "bytes": 121754,
+     "cached": false
+    },
+    {
+     "surah": 50,
+     "ayah": 21,
+     "dur_s": 9.65,
+     "n_words": 6,
+     "bytes": 241500,
+     "cached": false
+    },
+    {
+     "surah": 38,
+     "ayah": 20,
+     "dur_s": 7.78,
+     "n_words": 6,
+     "bytes": 193852,
+     "cached": false
+    },
+    {
+     "surah": 27,
+     "ayah": 74,
+     "dur_s": 8.53,
+     "n_words": 8,
+     "bytes": 213287,
+     "cached": false
+    },
+    {
+     "surah": 105,
+     "ayah": 1,
+     "dur_s": 6.57,
+     "n_words": 7,
+     "bytes": 167521,
+     "cached": false
+    },
+    {
+     "surah": 12,
+     "ayah": 39,
+     "dur_s": 13.47,
+     "n_words": 9,
+     "bytes": 327390,
+     "cached": false
+    },
+    {
+     "surah": 33,
+     "ayah": 66,
+     "dur_s": 12.2,
+     "n_words": 11,
+     "bytes": 298551,
+     "cached": false
+    },
+    {
+     "surah": 21,
+     "ayah": 86,
+     "dur_s": 8.28,
+     "n_words": 6,
+     "bytes": 205764,
+     "cached": false
+    },
+    {
+     "surah": 19,
+     "ayah": 61,
+     "dur_s": 13.57,
+     "n_words": 11,
+     "bytes": 335540,
+     "cached": false
+    },
+    {
+     "surah": 80,
+     "ayah": 26,
+     "dur_s": 3.77,
+     "n_words": 4,
+     "bytes": 96050,
+     "cached": false
+    },
+    {
+     "surah": 15,
+     "ayah": 7,
+     "dur_s": 8.95,
+     "n_words": 8,
+     "bytes": 219557,
+     "cached": false
+    },
+    {
+     "surah": 50,
+     "ayah": 33,
+     "dur_s": 9.05,
+     "n_words": 7,
+     "bytes": 228960,
+     "cached": false
+    },
+    {
+     "surah": 67,
+     "ayah": 17,
+     "dur_s": 12.9,
+     "n_words": 12,
+     "bytes": 309835,
+     "cached": false
+    },
+    {
+     "surah": 94,
+     "ayah": 5,
+     "dur_s": 3.42,
+     "n_words": 4,
+     "bytes": 87900,
+     "cached": false
+    },
+    {
+     "surah": 77,
+     "ayah": 25,
+     "dur_s": 2.85,
+     "n_words": 4,
+     "bytes": 69718,
+     "cached": false
+    },
+    {
+     "surah": 51,
+     "ayah": 41,
+     "dur_s": 6.26,
+     "n_words": 7,
+     "bytes": 156862,
+     "cached": false
+    },
+    {
+     "surah": 43,
+     "ayah": 70,
+     "dur_s": 7.79,
+     "n_words": 5,
+     "bytes": 194479,
+     "cached": false
+    },
+    {
+     "surah": 27,
+     "ayah": 38,
+     "dur_s": 12.2,
+     "n_words": 10,
+     "bytes": 297924,
+     "cached": false
+    },
+    {
+     "surah": 28,
+     "ayah": 65,
+     "dur_s": 8.06,
+     "n_words": 6,
+     "bytes": 199495,
+     "cached": false
+    },
+    {
+     "surah": 21,
+     "ayah": 54,
+     "dur_s": 8.67,
+     "n_words": 8,
+     "bytes": 213914,
+     "cached": false
+    },
+    {
+     "surah": 19,
+     "ayah": 68,
+     "dur_s": 14.4,
+     "n_words": 8,
+     "bytes": 356229,
+     "cached": false
+    },
+    {
+     "surah": 69,
+     "ayah": 28,
+     "dur_s": 3.79,
+     "n_words": 4,
+     "bytes": 97304,
+     "cached": false
+    },
+    {
+     "surah": 7,
+     "ayah": 13,
+     "dur_s": 12.93,
+     "n_words": 13,
+     "bytes": 314224,
+     "cached": false
+    },
+    {
+     "surah": 23,
+     "ayah": 74,
+     "dur_s": 9.28,
+     "n_words": 8,
+     "bytes": 226453,
+     "cached": false
+    },
+    {
+     "surah": 22,
+     "ayah": 20,
+     "dur_s": 5.97,
+     "n_words": 6,
+     "bytes": 151847,
+     "cached": false
+    },
+    {
+     "surah": 27,
+     "ayah": 5,
+     "dur_s": 11.26,
+     "n_words": 10,
+     "bytes": 278489,
+     "cached": false
+    },
+    {
+     "surah": 2,
+     "ayah": 241,
+     "dur_s": 8.84,
+     "n_words": 6,
+     "bytes": 215795,
+     "cached": false
+    },
+    {
+     "surah": 2,
+     "ayah": 204,
+     "dur_s": 14.74,
+     "n_words": 17,
+     "bytes": 359364,
+     "cached": false
+    },
+    {
+     "surah": 2,
+     "ayah": 2,
+     "dur_s": 7.01,
+     "n_words": 7,
+     "bytes": 176925,
+     "cached": false
+    },
+    {
+     "surah": 8,
+     "ayah": 21,
+     "dur_s": 8.29,
+     "n_words": 8,
+     "bytes": 201375,
+     "cached": false
+    },
+    {
+     "surah": 25,
+     "ayah": 27,
+     "dur_s": 12.22,
+     "n_words": 11,
+     "bytes": 304193,
+     "cached": false
+    },
+    {
+     "surah": 90,
+     "ayah": 12,
+     "dur_s": 2.77,
+     "n_words": 4,
+     "bytes": 72226,
+     "cached": false
+    },
+    {
+     "surah": 70,
+     "ayah": 32,
+     "dur_s": 6.18,
+     "n_words": 5,
+     "bytes": 156236,
+     "cached": false
+    },
+    {
+     "surah": 37,
+     "ayah": 139,
+     "dur_s": 4.99,
+     "n_words": 4,
+     "bytes": 122381,
+     "cached": false
+    },
+    {
+     "surah": 45,
+     "ayah": 9,
+     "dur_s": 11.84,
+     "n_words": 11,
+     "bytes": 288519,
+     "cached": false
+    },
+    {
+     "surah": 70,
+     "ayah": 44,
+     "dur_s": 11.88,
+     "n_words": 9,
+     "bytes": 304194,
+     "cached": false
+    },
+    {
+     "surah": 82,
+     "ayah": 14,
+     "dur_s": 4.37,
+     "n_words": 4,
+     "bytes": 112350,
+     "cached": false
+    },
+    {
+     "surah": 2,
+     "ayah": 15,
+     "dur_s": 9.24,
+     "n_words": 7,
+     "bytes": 228334,
+     "cached": false
+    },
+    {
+     "surah": 38,
+     "ayah": 88,
+     "dur_s": 5.95,
+     "n_words": 4,
+     "bytes": 163132,
+     "cached": false
+    },
+    {
+     "surah": 37,
+     "ayah": 72,
+     "dur_s": 4.66,
+     "n_words": 4,
+     "bytes": 114230,
+     "cached": false
+    },
+    {
+     "surah": 41,
+     "ayah": 13,
+     "dur_s": 10.38,
+     "n_words": 9,
+     "bytes": 256546,
+     "cached": false
+    },
+    {
+     "surah": 53,
+     "ayah": 29,
+     "dur_s": 10.13,
+     "n_words": 11,
+     "bytes": 251531,
+     "cached": false
+    },
+    {
+     "surah": 22,
+     "ayah": 77,
+     "dur_s": 13.08,
+     "n_words": 11,
+     "bytes": 324883,
+     "cached": false
+    },
+    {
+     "surah": 98,
+     "ayah": 7,
+     "dur_s": 10.0,
+     "n_words": 9,
+     "bytes": 248395,
+     "cached": false
+    },
+    {
+     "surah": 43,
+     "ayah": 29,
+     "dur_s": 12.08,
+     "n_words": 9,
+     "bytes": 295416,
+     "cached": false
+    },
+    {
+     "surah": 33,
+     "ayah": 54,
+     "dur_s": 9.76,
+     "n_words": 11,
+     "bytes": 240873,
+     "cached": false
+    },
+    {
+     "surah": 44,
+     "ayah": 54,
+     "dur_s": 6.24,
+     "n_words": 4,
+     "bytes": 153728,
+     "cached": false
+    },
+    {
+     "surah": 26,
+     "ayah": 61,
+     "dur_s": 13.85,
+     "n_words": 8,
+     "bytes": 341183,
+     "cached": false
+    },
+    {
+     "surah": 24,
+     "ayah": 48,
+     "dur_s": 12.78,
+     "n_words": 11,
+     "bytes": 316105,
+     "cached": false
+    },
+    {
+     "surah": 93,
+     "ayah": 3,
+     "dur_s": 3.47,
+     "n_words": 5,
+     "bytes": 96050,
+     "cached": false
+    },
+    {
+     "surah": 75,
+     "ayah": 35,
+     "dur_s": 3.17,
+     "n_words": 4,
+     "bytes": 82257,
+     "cached": false
+    },
+    {
+     "surah": 38,
+     "ayah": 36,
+     "dur_s": 8.72,
+     "n_words": 8,
+     "bytes": 216422,
+     "cached": false
+    },
+    {
+     "surah": 53,
+     "ayah": 2,
+     "dur_s": 3.6,
+     "n_words": 5,
+     "bytes": 93542,
+     "cached": false
+    },
+    {
+     "surah": 79,
+     "ayah": 17,
+     "dur_s": 5.35,
+     "n_words": 5,
+     "bytes": 130531,
+     "cached": false
+    },
+    {
+     "surah": 73,
+     "ayah": 2,
+     "dur_s": 3.3,
+     "n_words": 4,
+     "bytes": 87899,
+     "cached": false
+    },
+    {
+     "surah": 99,
+     "ayah": 6,
+     "dur_s": 7.47,
+     "n_words": 6,
+     "bytes": 181313,
+     "cached": false
+    },
+    {
+     "surah": 15,
+     "ayah": 68,
+     "dur_s": 7.76,
+     "n_words": 6,
+     "bytes": 191345,
+     "cached": false
+    },
+    {
+     "surah": 52,
+     "ayah": 14,
+     "dur_s": 7.34,
+     "n_words": 6,
+     "bytes": 184448,
+     "cached": false
+    },
+    {
+     "surah": 40,
+     "ayah": 68,
+     "dur_s": 13.21,
+     "n_words": 12,
+     "bytes": 322375,
+     "cached": false
+    },
+    {
+     "surah": 21,
+     "ayah": 95,
+     "dur_s": 8.42,
+     "n_words": 7,
+     "bytes": 206391,
+     "cached": false
+    },
+    {
+     "surah": 37,
+     "ayah": 10,
+     "dur_s": 6.73,
+     "n_words": 7,
+     "bytes": 168148,
+     "cached": false
+    },
+    {
+     "surah": 22,
+     "ayah": 16,
+     "dur_s": 12.54,
+     "n_words": 9,
+     "bytes": 306074,
+     "cached": false
+    },
+    {
+     "surah": 54,
+     "ayah": 50,
+     "dur_s": 6.54,
+     "n_words": 6,
+     "bytes": 165013,
+     "cached": false
+    },
+    {
+     "surah": 23,
+     "ayah": 55,
+     "dur_s": 8.66,
+     "n_words": 7,
+     "bytes": 209525,
+     "cached": false
+    },
+    {
+     "surah": 51,
+     "ayah": 11,
+     "dur_s": 5.36,
+     "n_words": 5,
+     "bytes": 136174,
+     "cached": false
+    },
+    {
+     "surah": 69,
+     "ayah": 3,
+     "dur_s": 4.88,
+     "n_words": 4,
+     "bytes": 127397,
+     "cached": false
+    },
+    {
+     "surah": 2,
+     "ayah": 244,
+     "dur_s": 8.53,
+     "n_words": 9,
+     "bytes": 208898,
+     "cached": false
+    },
+    {
+     "surah": 27,
+     "ayah": 83,
+     "dur_s": 13.57,
+     "n_words": 11,
+     "bytes": 332406,
+     "cached": false
+    },
+    {
+     "surah": 26,
+     "ayah": 45,
+     "dur_s": 7.38,
+     "n_words": 8,
+     "bytes": 179433,
+     "cached": false
+    },
+    {
+     "surah": 26,
+     "ayah": 24,
+     "dur_s": 10.11,
+     "n_words": 9,
+     "bytes": 250903,
+     "cached": false
+    },
+    {
+     "surah": 68,
+     "ayah": 47,
+     "dur_s": 4.83,
+     "n_words": 5,
+     "bytes": 121754,
+     "cached": false
+    },
+    {
+     "surah": 14,
+     "ayah": 49,
+     "dur_s": 7.5,
+     "n_words": 6,
+     "bytes": 183194,
+     "cached": false
+    },
+    {
+     "surah": 40,
+     "ayah": 57,
+     "dur_s": 14.33,
+     "n_words": 12,
+     "bytes": 349959,
+     "cached": false
+    },
+    {
+     "surah": 22,
+     "ayah": 44,
+     "dur_s": 12.95,
+     "n_words": 11,
+     "bytes": 320493,
+     "cached": false
+    },
+    {
+     "surah": 98,
+     "ayah": 2,
+     "dur_s": 5.74,
+     "n_words": 6,
+     "bytes": 145578,
+     "cached": false
+    },
+    {
+     "surah": 76,
+     "ayah": 28,
+     "dur_s": 10.04,
+     "n_words": 9,
+     "bytes": 249650,
+     "cached": false
+    },
+    {
+     "surah": 11,
+     "ayah": 111,
+     "dur_s": 13.37,
+     "n_words": 10,
+     "bytes": 328643,
+     "cached": false
+    },
+    {
+     "surah": 15,
+     "ayah": 53,
+     "dur_s": 7.01,
+     "n_words": 7,
+     "bytes": 175044,
+     "cached": false
+    },
+    {
+     "surah": 2,
+     "ayah": 116,
+     "dur_s": 13.69,
+     "n_words": 14,
+     "bytes": 333033,
+     "cached": false
+    },
+    {
+     "surah": 60,
+     "ayah": 5,
+     "dur_s": 13.35,
+     "n_words": 13,
+     "bytes": 323629,
+     "cached": false
+    },
+    {
+     "surah": 3,
+     "ayah": 163,
+     "dur_s": 8.96,
+     "n_words": 8,
+     "bytes": 219557,
+     "cached": false
+    },
+    {
+     "surah": 34,
+     "ayah": 44,
+     "dur_s": 12.01,
+     "n_words": 11,
+     "bytes": 299178,
+     "cached": false
+    },
+    {
+     "surah": 26,
+     "ayah": 198,
+     "dur_s": 5.02,
+     "n_words": 5,
+     "bytes": 124261,
+     "cached": false
+    },
+    {
+     "surah": 76,
+     "ayah": 24,
+     "dur_s": 6.85,
+     "n_words": 9,
+     "bytes": 167520,
+     "cached": false
+    },
+    {
+     "surah": 6,
+     "ayah": 23,
+     "dur_s": 12.88,
+     "n_words": 12,
+     "bytes": 313597,
+     "cached": false
+    },
+    {
+     "surah": 69,
+     "ayah": 9,
+     "dur_s": 7.96,
+     "n_words": 6,
+     "bytes": 197614,
+     "cached": false
+    },
+    {
+     "surah": 69,
+     "ayah": 42,
+     "dur_s": 7.37,
+     "n_words": 6,
+     "bytes": 180686,
+     "cached": false
+    },
+    {
+     "surah": 5,
+     "ayah": 9,
+     "dur_s": 10.95,
+     "n_words": 10,
+     "bytes": 264069,
+     "cached": false
+    },
+    {
+     "surah": 7,
+     "ayah": 177,
+     "dur_s": 12.25,
+     "n_words": 9,
+     "bytes": 295416,
+     "cached": false
+    },
+    {
+     "surah": 43,
+     "ayah": 28,
+     "dur_s": 8.45,
+     "n_words": 7,
+     "bytes": 212660,
+     "cached": false
+    },
+    {
+     "surah": 113,
+     "ayah": 2,
+     "dur_s": 2.77,
+     "n_words": 4,
+     "bytes": 78495,
+     "cached": false
+    },
+    {
+     "surah": 32,
+     "ayah": 9,
+     "dur_s": 14.54,
+     "n_words": 14,
+     "bytes": 356230,
+     "cached": false
+    },
+    {
+     "surah": 72,
+     "ayah": 26,
+     "dur_s": 8.39,
+     "n_words": 7,
+     "bytes": 206391,
+     "cached": false
+    },
+    {
+     "surah": 16,
+     "ayah": 37,
+     "dur_s": 13.85,
+     "n_words": 14,
+     "bytes": 114643,
+     "cached": false
+    },
+    {
+     "surah": 21,
+     "ayah": 42,
+     "dur_s": 13.68,
+     "n_words": 13,
+     "bytes": 330525,
+     "cached": false
+    },
+    {
+     "surah": 72,
+     "ayah": 3,
+     "dur_s": 8.58,
+     "n_words": 9,
+     "bytes": 214541,
+     "cached": false
+    },
+    {
+     "surah": 25,
+     "ayah": 43,
+     "dur_s": 9.01,
+     "n_words": 9,
+     "bytes": 224573,
+     "cached": false
+    },
+    {
+     "surah": 15,
+     "ayah": 9,
+     "dur_s": 7.1,
+     "n_words": 7,
+     "bytes": 176298,
+     "cached": false
+    },
+    {
+     "surah": 55,
+     "ayah": 44,
+     "dur_s": 5.18,
+     "n_words": 5,
+     "bytes": 131158,
+     "cached": false
+    },
+    {
+     "surah": 49,
+     "ayah": 16,
+     "dur_s": 13.77,
+     "n_words": 16,
+     "bytes": 335540,
+     "cached": false
+    },
+    {
+     "surah": 26,
+     "ayah": 161,
+     "dur_s": 6.15,
+     "n_words": 7,
+     "bytes": 151221,
+     "cached": false
+    },
+    {
+     "surah": 76,
+     "ayah": 25,
+     "dur_s": 5.18,
+     "n_words": 5,
+     "bytes": 129905,
+     "cached": false
+    },
+    {
+     "surah": 23,
+     "ayah": 50,
+     "dur_s": 13.01,
+     "n_words": 11,
+     "bytes": 323628,
+     "cached": false
+    },
+    {
+     "surah": 43,
+     "ayah": 74,
+     "dur_s": 7.96,
+     "n_words": 6,
+     "bytes": 194479,
+     "cached": false
+    },
+    {
+     "surah": 54,
+     "ayah": 46,
+     "dur_s": 6.01,
+     "n_words": 6,
+     "bytes": 151220,
+     "cached": false
+    },
+    {
+     "surah": 106,
+     "ayah": 2,
+     "dur_s": 5.19,
+     "n_words": 4,
+     "bytes": 134920,
+     "cached": false
+    },
+    {
+     "surah": 19,
+     "ayah": 37,
+     "dur_s": 11.28,
+     "n_words": 11,
+     "bytes": 280369,
+     "cached": false
+    },
+    {
+     "surah": 10,
+     "ayah": 69,
+     "dur_s": 8.89,
+     "n_words": 9,
+     "bytes": 215168,
+     "cached": false
+    },
+    {
+     "surah": 54,
+     "ayah": 8,
+     "dur_s": 8.16,
+     "n_words": 8,
+     "bytes": 205764,
+     "cached": false
+    },
+    {
+     "surah": 20,
+     "ayah": 38,
+     "dur_s": 5.39,
+     "n_words": 6,
+     "bytes": 134293,
+     "cached": false
+    },
+    {
+     "surah": 44,
+     "ayah": 39,
+     "dur_s": 10.23,
+     "n_words": 8,
+     "bytes": 250903,
+     "cached": false
+    },
+    {
+     "surah": 53,
+     "ayah": 55,
+     "dur_s": 5.42,
+     "n_words": 4,
+     "bytes": 137427,
+     "cached": false
+    },
+    {
+     "surah": 9,
+     "ayah": 82,
+     "dur_s": 11.91,
+     "n_words": 8,
+     "bytes": 292908,
+     "cached": false
+    },
+    {
+     "surah": 104,
+     "ayah": 2,
+     "dur_s": 4.02,
+     "n_words": 4,
+     "bytes": 101692,
+     "cached": false
+    },
+    {
+     "surah": 74,
+     "ayah": 28,
+     "dur_s": 2.45,
+     "n_words": 4,
+     "bytes": 63449,
+     "cached": false
+    },
+    {
+     "surah": 19,
+     "ayah": 12,
+     "dur_s": 8.22,
+     "n_words": 7,
+     "bytes": 208272,
+     "cached": false
+    },
+    {
+     "surah": 21,
+     "ayah": 80,
+     "dur_s": 13.65,
+     "n_words": 10,
+     "bytes": 332405,
+     "cached": false
+    },
+    {
+     "surah": 67,
+     "ayah": 6,
+     "dur_s": 8.09,
+     "n_words": 7,
+     "bytes": 204510,
+     "cached": false
+    },
+    {
+     "surah": 5,
+     "ayah": 111,
+     "dur_s": 14.64,
+     "n_words": 13,
+     "bytes": 354975,
+     "cached": false
+    },
+    {
+     "surah": 22,
+     "ayah": 66,
+     "dur_s": 14.04,
+     "n_words": 10,
+     "bytes": 344945,
+     "cached": false
+    },
+    {
+     "surah": 70,
+     "ayah": 27,
+     "dur_s": 5.9,
+     "n_words": 6,
+     "bytes": 150593,
+     "cached": false
+    },
+    {
+     "surah": 15,
+     "ayah": 84,
+     "dur_s": 6.04,
+     "n_words": 6,
+     "bytes": 150593,
+     "cached": false
+    },
+    {
+     "surah": 26,
+     "ayah": 80,
+     "dur_s": 3.36,
+     "n_words": 4,
+     "bytes": 90407,
+     "cached": false
+    },
+    {
+     "surah": 36,
+     "ayah": 63,
+     "dur_s": 7.01,
+     "n_words": 5,
+     "bytes": 171909,
+     "cached": false
+    },
+    {
+     "surah": 44,
+     "ayah": 58,
+     "dur_s": 8.52,
+     "n_words": 5,
+     "bytes": 214541,
+     "cached": false
+    },
+    {
+     "surah": 70,
+     "ayah": 42,
+     "dur_s": 9.56,
+     "n_words": 8,
+     "bytes": 235230,
+     "cached": false
+    },
+    {
+     "surah": 18,
+     "ayah": 80,
+     "dur_s": 12.52,
+     "n_words": 10,
+     "bytes": 306075,
+     "cached": false
+    },
+    {
+     "surah": 37,
+     "ayah": 18,
+     "dur_s": 4.18,
+     "n_words": 4,
+     "bytes": 109215,
+     "cached": false
+    },
+    {
+     "surah": 52,
+     "ayah": 26,
+     "dur_s": 6.71,
+     "n_words": 7,
+     "bytes": 169402,
+     "cached": false
+    },
+    {
+     "surah": 11,
+     "ayah": 2,
+     "dur_s": 10.11,
+     "n_words": 9,
+     "bytes": 249023,
+     "cached": false
+    },
+    {
+     "surah": 37,
+     "ayah": 19,
+     "dur_s": 7.89,
+     "n_words": 7,
+     "bytes": 194479,
+     "cached": false
+    },
+    {
+     "surah": 67,
+     "ayah": 13,
+     "dur_s": 8.86,
+     "n_words": 9,
+     "bytes": 220184,
+     "cached": false
+    },
+    {
+     "surah": 95,
+     "ayah": 4,
+     "dur_s": 6.06,
+     "n_words": 6,
+     "bytes": 154355,
+     "cached": false
+    },
+    {
+     "surah": 26,
+     "ayah": 180,
+     "dur_s": 8.76,
+     "n_words": 11,
+     "bytes": 225199,
+     "cached": false
+    },
+    {
+     "surah": 39,
+     "ayah": 64,
+     "dur_s": 9.11,
+     "n_words": 7,
+     "bytes": 223318,
+     "cached": false
+    },
+    {
+     "surah": 23,
+     "ayah": 32,
+     "dur_s": 12.11,
+     "n_words": 14,
+     "bytes": 300432,
+     "cached": false
+    },
+    {
+     "surah": 47,
+     "ayah": 21,
+     "dur_s": 11.43,
+     "n_words": 12,
+     "bytes": 276608,
+     "cached": false
+    },
+    {
+     "surah": 15,
+     "ayah": 42,
+     "dur_s": 10.81,
+     "n_words": 11,
+     "bytes": 265324,
+     "cached": false
+    },
+    {
+     "surah": 8,
+     "ayah": 71,
+     "dur_s": 13.55,
+     "n_words": 13,
+     "bytes": 338675,
+     "cached": false
+    },
+    {
+     "surah": 31,
+     "ayah": 28,
+     "dur_s": 12.73,
+     "n_words": 11,
+     "bytes": 316105,
+     "cached": false
+    },
+    {
+     "surah": 40,
+     "ayah": 84,
+     "dur_s": 14.2,
+     "n_words": 12,
+     "bytes": 348706,
+     "cached": false
+    },
+    {
+     "surah": 23,
+     "ayah": 45,
+     "dur_s": 9.72,
+     "n_words": 8,
+     "bytes": 238992,
+     "cached": false
+    },
+    {
+     "surah": 19,
+     "ayah": 3,
+     "dur_s": 4.9,
+     "n_words": 5,
+     "bytes": 124262,
+     "cached": false
+    },
+    {
+     "surah": 51,
+     "ayah": 57,
+     "dur_s": 8.6,
+     "n_words": 9,
+     "bytes": 219557,
+     "cached": false
+    },
+    {
+     "surah": 15,
+     "ayah": 21,
+     "dur_s": 13.02,
+     "n_words": 11,
+     "bytes": 321121,
+     "cached": false
+    },
+    {
+     "surah": 3,
+     "ayah": 171,
+     "dur_s": 12.32,
+     "n_words": 11,
+     "bytes": 299178,
+     "cached": false
+    },
+    {
+     "surah": 30,
+     "ayah": 19,
+     "dur_s": 13.71,
+     "n_words": 14,
+     "bytes": 338048,
+     "cached": false
+    },
+    {
+     "surah": 51,
+     "ayah": 8,
+     "dur_s": 7.65,
+     "n_words": 4,
+     "bytes": 326763,
+     "cached": false
+    },
+    {
+     "surah": 2,
+     "ayah": 166,
+     "dur_s": 13.07,
+     "n_words": 12,
+     "bytes": 323001,
+     "cached": false
+    },
+    {
+     "surah": 12,
+     "ayah": 14,
+     "dur_s": 9.02,
+     "n_words": 9,
+     "bytes": 218303,
+     "cached": false
+    },
+    {
+     "surah": 2,
+     "ayah": 9,
+     "dur_s": 12.67,
+     "n_words": 10,
+     "bytes": 310462,
+     "cached": false
+    },
+    {
+     "surah": 9,
+     "ayah": 43,
+     "dur_s": 12.56,
+     "n_words": 13,
+     "bytes": 307955,
+     "cached": false
+    },
+    {
+     "surah": 45,
+     "ayah": 6,
+     "dur_s": 12.63,
+     "n_words": 12,
+     "bytes": 306074,
+     "cached": false
+    },
+    {
+     "surah": 104,
+     "ayah": 7,
+     "dur_s": 3.76,
+     "n_words": 4,
+     "bytes": 96677,
+     "cached": false
+    },
+    {
+     "surah": 21,
+     "ayah": 5,
+     "dur_s": 14.01,
+     "n_words": 14,
+     "bytes": 341183,
+     "cached": false
+    },
+    {
+     "surah": 3,
+     "ayah": 88,
+     "dur_s": 9.43,
+     "n_words": 9,
+     "bytes": 231469,
+     "cached": false
+    },
+    {
+     "surah": 26,
+     "ayah": 19,
+     "dur_s": 7.41,
+     "n_words": 7,
+     "bytes": 187582,
+     "cached": false
+    },
+    {
+     "surah": 51,
+     "ayah": 9,
+     "dur_s": 2.41,
+     "n_words": 4,
+     "bytes": 61568,
+     "cached": false
+    },
+    {
+     "surah": 40,
+     "ayah": 3,
+     "dur_s": 12.69,
+     "n_words": 14,
+     "bytes": 313597,
+     "cached": false
+    },
+    {
+     "surah": 43,
+     "ayah": 48,
+     "dur_s": 14.0,
+     "n_words": 13,
+     "bytes": 348706,
+     "cached": false
+    },
+    {
+     "surah": 27,
+     "ayah": 14,
+     "dur_s": 14.81,
+     "n_words": 11,
+     "bytes": 370649,
+     "cached": false
+    },
+    {
+     "surah": 3,
+     "ayah": 43,
+     "dur_s": 7.41,
+     "n_words": 7,
+     "bytes": 179432,
+     "cached": false
+    },
+    {
+     "surah": 29,
+     "ayah": 59,
+     "dur_s": 7.71,
+     "n_words": 5,
+     "bytes": 190090,
+     "cached": false
+    },
+    {
+     "surah": 49,
+     "ayah": 8,
+     "dur_s": 7.02,
+     "n_words": 7,
+     "bytes": 170656,
+     "cached": false
+    },
+    {
+     "surah": 18,
+     "ayah": 7,
+     "dur_s": 9.6,
+     "n_words": 11,
+     "bytes": 237737,
+     "cached": false
+    },
+    {
+     "surah": 76,
+     "ayah": 1,
+     "dur_s": 10.08,
+     "n_words": 11,
+     "bytes": 247769,
+     "cached": false
+    },
+    {
+     "surah": 51,
+     "ayah": 55,
+     "dur_s": 6.13,
+     "n_words": 5,
+     "bytes": 157490,
+     "cached": false
+    },
+    {
+     "surah": 40,
+     "ayah": 63,
+     "dur_s": 8.37,
+     "n_words": 7,
+     "bytes": 207749,
+     "cached": false
+    },
+    {
+     "surah": 23,
+     "ayah": 96,
+     "dur_s": 9.16,
+     "n_words": 9,
+     "bytes": 223945,
+     "cached": false
+    },
+    {
+     "surah": 55,
+     "ayah": 15,
+     "dur_s": 7.83,
+     "n_words": 5,
+     "bytes": 195733,
+     "cached": false
+    },
+    {
+     "surah": 55,
+     "ayah": 43,
+     "dur_s": 9.96,
+     "n_words": 6,
+     "bytes": 244007,
+     "cached": false
+    },
+    {
+     "surah": 29,
+     "ayah": 57,
+     "dur_s": 10.73,
+     "n_words": 7,
+     "bytes": 260935,
+     "cached": false
+    },
+    {
+     "surah": 73,
+     "ayah": 5,
+     "dur_s": 5.48,
+     "n_words": 5,
+     "bytes": 141190,
+     "cached": false
+    },
+    {
+     "surah": 40,
+     "ayah": 54,
+     "dur_s": 3.83,
+     "n_words": 4,
+     "bytes": 122381,
+     "cached": false
+    },
+    {
+     "surah": 22,
+     "ayah": 64,
+     "dur_s": 10.04,
+     "n_words": 12,
+     "bytes": 250904,
+     "cached": false
+    },
+    {
+     "surah": 41,
+     "ayah": 18,
+     "dur_s": 6.83,
+     "n_words": 5,
+     "bytes": 178805,
+     "cached": false
+    },
+    {
+     "surah": 57,
+     "ayah": 24,
+     "dur_s": 14.09,
+     "n_words": 12,
+     "bytes": 342437,
+     "cached": false
+    },
+    {
+     "surah": 76,
+     "ayah": 13,
+     "dur_s": 10.16,
+     "n_words": 10,
+     "bytes": 250903,
+     "cached": false
+    },
+    {
+     "surah": 25,
+     "ayah": 52,
+     "dur_s": 9.43,
+     "n_words": 7,
+     "bytes": 237738,
+     "cached": false
+    },
+    {
+     "surah": 67,
+     "ayah": 7,
+     "dur_s": 7.7,
+     "n_words": 8,
+     "bytes": 190091,
+     "cached": false
+    },
+    {
+     "surah": 70,
+     "ayah": 4,
+     "dur_s": 10.37,
+     "n_words": 11,
+     "bytes": 258427,
+     "cached": false
+    },
+    {
+     "surah": 30,
+     "ayah": 35,
+     "dur_s": 10.58,
+     "n_words": 10,
+     "bytes": 256546,
+     "cached": false
+    },
+    {
+     "surah": 88,
+     "ayah": 7,
+     "dur_s": 4.31,
+     "n_words": 6,
+     "bytes": 106708,
+     "cached": false
+    },
+    {
+     "surah": 18,
+     "ayah": 9,
+     "dur_s": 8.87,
+     "n_words": 10,
+     "bytes": 220810,
+     "cached": false
+    },
+    {
+     "surah": 66,
+     "ayah": 7,
+     "dur_s": 13.91,
+     "n_words": 11,
+     "bytes": 341183,
+     "cached": false
+    },
+    {
+     "surah": 21,
+     "ayah": 37,
+     "dur_s": 9.66,
+     "n_words": 8,
+     "bytes": 235857,
+     "cached": false
+    },
+    {
+     "surah": 75,
+     "ayah": 14,
+     "dur_s": 4.67,
+     "n_words": 5,
+     "bytes": 119246,
+     "cached": false
+    },
+    {
+     "surah": 21,
+     "ayah": 8,
+     "dur_s": 8.76,
+     "n_words": 9,
+     "bytes": 213915,
+     "cached": false
+    },
+    {
+     "surah": 23,
+     "ayah": 8,
+     "dur_s": 6.84,
+     "n_words": 5,
+     "bytes": 167521,
+     "cached": false
+    },
+    {
+     "surah": 99,
+     "ayah": 8,
+     "dur_s": 5.97,
+     "n_words": 6,
+     "bytes": 160624,
+     "cached": false
+    },
+    {
+     "surah": 23,
+     "ayah": 16,
+     "dur_s": 6.27,
+     "n_words": 5,
+     "bytes": 156236,
+     "cached": false
+    },
+    {
+     "surah": 23,
+     "ayah": 3,
+     "dur_s": 5.12,
+     "n_words": 5,
+     "bytes": 128024,
+     "cached": false
+    },
+    {
+     "surah": 87,
+     "ayah": 15,
+     "dur_s": 3.65,
+     "n_words": 4,
+     "bytes": 92288,
+     "cached": false
+    },
+    {
+     "surah": 15,
+     "ayah": 32,
+     "dur_s": 7.24,
+     "n_words": 8,
+     "bytes": 180687,
+     "cached": false
+    },
+    {
+     "surah": 20,
+     "ayah": 93,
+     "dur_s": 4.81,
+     "n_words": 4,
+     "bytes": 126143,
+     "cached": false
+    },
+    {
+     "surah": 7,
+     "ayah": 113,
+     "dur_s": 13.6,
+     "n_words": 11,
+     "bytes": 329271,
+     "cached": false
+    },
+    {
+     "surah": 37,
+     "ayah": 124,
+     "dur_s": 4.46,
+     "n_words": 5,
+     "bytes": 114230,
+     "cached": false
+    },
+    {
+     "surah": 14,
+     "ayah": 46,
+     "dur_s": 11.56,
+     "n_words": 12,
+     "bytes": 311716,
+     "cached": false
+    },
+    {
+     "surah": 20,
+     "ayah": 95,
+     "dur_s": 3.82,
+     "n_words": 4,
+     "bytes": 99184,
+     "cached": false
+    },
+    {
+     "surah": 10,
+     "ayah": 25,
+     "dur_s": 13.24,
+     "n_words": 11,
+     "bytes": 321120,
+     "cached": false
+    },
+    {
+     "surah": 56,
+     "ayah": 24,
+     "dur_s": 5.95,
+     "n_words": 4,
+     "bytes": 153101,
+     "cached": false
+    },
+    {
+     "surah": 3,
+     "ayah": 22,
+     "dur_s": 13.35,
+     "n_words": 11,
+     "bytes": 329897,
+     "cached": false
+    },
+    {
+     "surah": 53,
+     "ayah": 38,
+     "dur_s": 4.99,
+     "n_words": 5,
+     "bytes": 124262,
+     "cached": false
+    },
+    {
+     "surah": 45,
+     "ayah": 33,
+     "dur_s": 10.7,
+     "n_words": 11,
+     "bytes": 264069,
+     "cached": false
+    },
+    {
+     "surah": 56,
+     "ayah": 60,
+     "dur_s": 7.12,
+     "n_words": 7,
+     "bytes": 176925,
+     "cached": false
+    },
+    {
+     "surah": 18,
+     "ayah": 104,
+     "dur_s": 10.49,
+     "n_words": 11,
+     "bytes": 257800,
+     "cached": false
+    },
+    {
+     "surah": 27,
+     "ayah": 27,
+     "dur_s": 11.69,
+     "n_words": 7,
+     "bytes": 286012,
+     "cached": false
+    },
+    {
+     "surah": 37,
+     "ayah": 97,
+     "dur_s": 6.6,
+     "n_words": 7,
+     "bytes": 159997,
+     "cached": false
+    },
+    {
+     "surah": 7,
+     "ayah": 197,
+     "dur_s": 12.12,
+     "n_words": 10,
+     "bytes": 292908,
+     "cached": false
+    },
+    {
+     "surah": 35,
+     "ayah": 15,
+     "dur_s": 13.73,
+     "n_words": 10,
+     "bytes": 333659,
+     "cached": false
+    },
+    {
+     "surah": 52,
+     "ayah": 25,
+     "dur_s": 6.72,
+     "n_words": 5,
+     "bytes": 166266,
+     "cached": false
+    },
+    {
+     "surah": 39,
+     "ayah": 14,
+     "dur_s": 4.87,
+     "n_words": 6,
+     "bytes": 126770,
+     "cached": false
+    },
+    {
+     "surah": 75,
+     "ayah": 25,
+     "dur_s": 3.98,
+     "n_words": 5,
+     "bytes": 102946,
+     "cached": false
+    },
+    {
+     "surah": 7,
+     "ayah": 181,
+     "dur_s": 9.62,
+     "n_words": 7,
+     "bytes": 233976,
+     "cached": false
+    },
+    {
+     "surah": 3,
+     "ayah": 107,
+     "dur_s": 11.17,
+     "n_words": 10,
+     "bytes": 272220,
+     "cached": false
+    },
+    {
+     "surah": 37,
+     "ayah": 152,
+     "dur_s": 5.27,
+     "n_words": 4,
+     "bytes": 129905,
+     "cached": false
+    },
+    {
+     "surah": 15,
+     "ayah": 24,
+     "dur_s": 8.84,
+     "n_words": 7,
+     "bytes": 217676,
+     "cached": false
+    },
+    {
+     "surah": 30,
+     "ayah": 41,
+     "dur_s": 14.74,
+     "n_words": 15,
+     "bytes": 358737,
+     "cached": false
+    },
+    {
+     "surah": 12,
+     "ayah": 20,
+     "dur_s": 9.56,
+     "n_words": 9,
+     "bytes": 236484,
+     "cached": false
+    },
+    {
+     "surah": 7,
+     "ayah": 90,
+     "dur_s": 12.45,
+     "n_words": 12,
+     "bytes": 301059,
+     "cached": false
+    },
+    {
+     "surah": 26,
+     "ayah": 72,
+     "dur_s": 4.23,
+     "n_words": 5,
+     "bytes": 106080,
+     "cached": false
+    },
+    {
+     "surah": 30,
+     "ayah": 44,
+     "dur_s": 10.69,
+     "n_words": 9,
+     "bytes": 264069,
+     "cached": false
+    },
+    {
+     "surah": 16,
+     "ayah": 21,
+     "dur_s": 9.83,
+     "n_words": 7,
+     "bytes": 82039,
+     "cached": false
+    },
+    {
+     "surah": 54,
+     "ayah": 40,
+     "dur_s": 6.67,
+     "n_words": 7,
+     "bytes": 169402,
+     "cached": false
+    },
+    {
+     "surah": 37,
+     "ayah": 7,
+     "dur_s": 5.14,
+     "n_words": 5,
+     "bytes": 129905,
+     "cached": false
+    },
+    {
+     "surah": 54,
+     "ayah": 13,
+     "dur_s": 5.01,
+     "n_words": 5,
+     "bytes": 128651,
+     "cached": false
+    },
+    {
+     "surah": 48,
+     "ayah": 3,
+     "dur_s": 4.47,
+     "n_words": 4,
+     "bytes": 115485,
+     "cached": false
+    },
+    {
+     "surah": 20,
+     "ayah": 44,
+     "dur_s": 7.33,
+     "n_words": 8,
+     "bytes": 185075,
+     "cached": false
+    },
+    {
+     "surah": 73,
+     "ayah": 8,
+     "dur_s": 5.49,
+     "n_words": 6,
+     "bytes": 141189,
+     "cached": false
+    },
+    {
+     "surah": 59,
+     "ayah": 13,
+     "dur_s": 13.54,
+     "n_words": 12,
+     "bytes": 331779,
+     "cached": false
+    },
+    {
+     "surah": 2,
+     "ayah": 47,
+     "dur_s": 14.69,
+     "n_words": 11,
+     "bytes": 364379,
+     "cached": false
+    },
+    {
+     "surah": 27,
+     "ayah": 80,
+     "dur_s": 14.74,
+     "n_words": 11,
+     "bytes": 355603,
+     "cached": false
+    },
+    {
+     "surah": 42,
+     "ayah": 43,
+     "dur_s": 7.08,
+     "n_words": 8,
+     "bytes": 183194,
+     "cached": false
+    },
+    {
+     "surah": 17,
+     "ayah": 45,
+     "dur_s": 12.19,
+     "n_words": 12,
+     "bytes": 302940,
+     "cached": false
+    },
+    {
+     "surah": 84,
+     "ayah": 15,
+     "dur_s": 4.86,
+     "n_words": 6,
+     "bytes": 126770,
+     "cached": false
+    },
+    {
+     "surah": 27,
+     "ayah": 31,
+     "dur_s": 5.43,
+     "n_words": 5,
+     "bytes": 133666,
+     "cached": false
+    },
+    {
+     "surah": 71,
+     "ayah": 21,
+     "dur_s": 11.52,
+     "n_words": 13,
+     "bytes": 283504,
+     "cached": false
+    },
+    {
+     "surah": 3,
+     "ayah": 12,
+     "dur_s": 13.43,
+     "n_words": 9,
+     "bytes": 323001,
+     "cached": false
+    },
+    {
+     "surah": 34,
+     "ayah": 29,
+     "dur_s": 6.87,
+     "n_words": 7,
+     "bytes": 173163,
+     "cached": false
+    },
+    {
+     "surah": 43,
+     "ayah": 39,
+     "dur_s": 9.48,
+     "n_words": 9,
+     "bytes": 233349,
+     "cached": false
+    },
+    {
+     "surah": 96,
+     "ayah": 6,
+     "dur_s": 5.63,
+     "n_words": 4,
+     "bytes": 143697,
+     "cached": false
+    },
+    {
+     "surah": 8,
+     "ayah": 68,
+     "dur_s": 9.95,
+     "n_words": 10,
+     "bytes": 240872,
+     "cached": false
+    },
+    {
+     "surah": 72,
+     "ayah": 5,
+     "dur_s": 9.36,
+     "n_words": 10,
+     "bytes": 235857,
+     "cached": false
+    },
+    {
+     "surah": 8,
+     "ayah": 27,
+     "dur_s": 13.54,
+     "n_words": 11,
+     "bytes": 329897,
+     "cached": false
+    },
+    {
+     "surah": 27,
+     "ayah": 68,
+     "dur_s": 14.05,
+     "n_words": 12,
+     "bytes": 355602,
+     "cached": false
+    },
+    {
+     "surah": 4,
+     "ayah": 120,
+     "dur_s": 8.38,
+     "n_words": 7,
+     "bytes": 208899,
+     "cached": false
+    },
+    {
+     "surah": 26,
+     "ayah": 143,
+     "dur_s": 4.19,
+     "n_words": 4,
+     "bytes": 103573,
+     "cached": false
+    },
+    {
+     "surah": 37,
+     "ayah": 52,
+     "dur_s": 4.82,
+     "n_words": 4,
+     "bytes": 120500,
+     "cached": false
+    },
+    {
+     "surah": 33,
+     "ayah": 47,
+     "dur_s": 9.49,
+     "n_words": 8,
+     "bytes": 240873,
+     "cached": false
+    },
+    {
+     "surah": 40,
+     "ayah": 62,
+     "dur_s": 13.66,
+     "n_words": 12,
+     "bytes": 330421,
+     "cached": false
+    },
+    {
+     "surah": 26,
+     "ayah": 118,
+     "dur_s": 10.71,
+     "n_words": 9,
+     "bytes": 261562,
+     "cached": false
+    },
+    {
+     "surah": 93,
+     "ayah": 11,
+     "dur_s": 4.51,
+     "n_words": 4,
+     "bytes": 129277,
+     "cached": false
+    },
+    {
+     "surah": 32,
+     "ayah": 25,
+     "dur_s": 10.48,
+     "n_words": 11,
+     "bytes": 260308,
+     "cached": false
+    },
+    {
+     "surah": 36,
+     "ayah": 76,
+     "dur_s": 9.57,
+     "n_words": 9,
+     "bytes": 237737,
+     "cached": false
+    },
+    {
+     "surah": 20,
+     "ayah": 98,
+     "dur_s": 11.19,
+     "n_words": 12,
+     "bytes": 280996,
+     "cached": false
+    },
+    {
+     "surah": 43,
+     "ayah": 75,
+     "dur_s": 6.43,
+     "n_words": 6,
+     "bytes": 161878,
+     "cached": false
+    },
+    {
+     "surah": 19,
+     "ayah": 11,
+     "dur_s": 13.54,
+     "n_words": 11,
+     "bytes": 334286,
+     "cached": false
+    },
+    {
+     "surah": 56,
+     "ayah": 47,
+     "dur_s": 13.29,
+     "n_words": 9,
+     "bytes": 323629,
+     "cached": false
+    },
+    {
+     "surah": 75,
+     "ayah": 26,
+     "dur_s": 3.5,
+     "n_words": 4,
+     "bytes": 85391,
+     "cached": false
+    },
+    {
+     "surah": 7,
+     "ayah": 98,
+     "dur_s": 9.48,
+     "n_words": 9,
+     "bytes": 232722,
+     "cached": false
+    },
+    {
+     "surah": 55,
+     "ayah": 18,
+     "dur_s": 5.69,
+     "n_words": 4,
+     "bytes": 143697,
+     "cached": false
+    },
+    {
+     "surah": 45,
+     "ayah": 20,
+     "dur_s": 9.83,
+     "n_words": 7,
+     "bytes": 240873,
+     "cached": false
+    },
+    {
+     "surah": 3,
+     "ayah": 150,
+     "dur_s": 7.08,
+     "n_words": 6,
+     "bytes": 173790,
+     "cached": false
+    },
+    {
+     "surah": 83,
+     "ayah": 33,
+     "dur_s": 4.36,
+     "n_words": 4,
+     "bytes": 109216,
+     "cached": false
+    },
+    {
+     "surah": 4,
+     "ayah": 145,
+     "dur_s": 11.62,
+     "n_words": 11,
+     "bytes": 293535,
+     "cached": false
+    },
+    {
+     "surah": 75,
+     "ayah": 30,
+     "dur_s": 4.12,
+     "n_words": 4,
+     "bytes": 102319,
+     "cached": false
+    },
+    {
+     "surah": 19,
+     "ayah": 65,
+     "dur_s": 12.33,
+     "n_words": 12,
+     "bytes": 302939,
+     "cached": false
+    },
+    {
+     "surah": 21,
+     "ayah": 32,
+     "dur_s": 11.04,
+     "n_words": 8,
+     "bytes": 278489,
+     "cached": false
+    },
+    {
+     "surah": 12,
+     "ayah": 29,
+     "dur_s": 12.52,
+     "n_words": 10,
+     "bytes": 303566,
+     "cached": false
+    },
+    {
+     "surah": 72,
+     "ayah": 8,
+     "dur_s": 10.62,
+     "n_words": 8,
+     "bytes": 266577,
+     "cached": false
+    },
+    {
+     "surah": 37,
+     "ayah": 57,
+     "dur_s": 5.77,
+     "n_words": 6,
+     "bytes": 144324,
+     "cached": false
+    },
+    {
+     "surah": 2,
+     "ayah": 238,
+     "dur_s": 9.59,
+     "n_words": 8,
+     "bytes": 231468,
+     "cached": false
+    },
+    {
+     "surah": 50,
+     "ayah": 30,
+     "dur_s": 9.48,
+     "n_words": 9,
+     "bytes": 234603,
+     "cached": false
+    },
+    {
+     "surah": 37,
+     "ayah": 146,
+     "dur_s": 6.01,
+     "n_words": 5,
+     "bytes": 153728,
+     "cached": false
+    },
+    {
+     "surah": 54,
+     "ayah": 51,
+     "dur_s": 6.35,
+     "n_words": 6,
+     "bytes": 161251,
+     "cached": false
+    },
+    {
+     "surah": 38,
+     "ayah": 58,
+     "dur_s": 5.34,
+     "n_words": 4,
+     "bytes": 134920,
+     "cached": false
+    },
+    {
+     "surah": 37,
+     "ayah": 153,
+     "dur_s": 3.72,
+     "n_words": 4,
+     "bytes": 91034,
+     "cached": false
+    },
+    {
+     "surah": 2,
+     "ayah": 190,
+     "dur_s": 14.23,
+     "n_words": 13,
+     "bytes": 343691,
+     "cached": false
+    },
+    {
+     "surah": 2,
+     "ayah": 88,
+     "dur_s": 11.01,
+     "n_words": 10,
+     "bytes": 267204,
+     "cached": false
+    },
+    {
+     "surah": 31,
+     "ayah": 13,
+     "dur_s": 14.13,
+     "n_words": 14,
+     "bytes": 345572,
+     "cached": false
+    },
+    {
+     "surah": 13,
+     "ayah": 24,
+     "dur_s": 7.78,
+     "n_words": 7,
+     "bytes": 193852,
+     "cached": false
+    },
+    {
+     "surah": 42,
+     "ayah": 32,
+     "dur_s": 5.28,
+     "n_words": 6,
+     "bytes": 154355,
+     "cached": false
+    },
+    {
+     "surah": 48,
+     "ayah": 1,
+     "dur_s": 6.93,
+     "n_words": 5,
+     "bytes": 172536,
+     "cached": false
+    },
+    {
+     "surah": 18,
+     "ayah": 106,
+     "dur_s": 12.93,
+     "n_words": 9,
+     "bytes": 317359,
+     "cached": false
+    },
+    {
+     "surah": 51,
+     "ayah": 51,
+     "dur_s": 11.24,
+     "n_words": 11,
+     "bytes": 283504,
+     "cached": false
+    },
+    {
+     "surah": 30,
+     "ayah": 57,
+     "dur_s": 10.61,
+     "n_words": 9,
+     "bytes": 262189,
+     "cached": false
+    },
+    {
+     "surah": 33,
+     "ayah": 58,
+     "dur_s": 13.56,
+     "n_words": 12,
+     "bytes": 335540,
+     "cached": false
+    },
+    {
+     "surah": 75,
+     "ayah": 3,
+     "dur_s": 5.4,
+     "n_words": 5,
+     "bytes": 139935,
+     "cached": false
+    },
+    {
+     "surah": 76,
+     "ayah": 10,
+     "dur_s": 7.05,
+     "n_words": 7,
+     "bytes": 179432,
+     "cached": false
+    },
+    {
+     "surah": 10,
+     "ayah": 64,
+     "dur_s": 14.92,
+     "n_words": 15,
+     "bytes": 367514,
+     "cached": false
+    },
+    {
+     "surah": 21,
+     "ayah": 39,
+     "dur_s": 14.41,
+     "n_words": 16,
+     "bytes": 354976,
+     "cached": false
+    },
+    {
+     "surah": 25,
+     "ayah": 55,
+     "dur_s": 13.53,
+     "n_words": 14,
+     "bytes": 332901,
+     "cached": false
+    },
+    {
+     "surah": 21,
+     "ayah": 22,
+     "dur_s": 13.86,
+     "n_words": 13,
+     "bytes": 341182,
+     "cached": false
+    },
+    {
+     "surah": 29,
+     "ayah": 65,
+     "dur_s": 13.87,
+     "n_words": 16,
+     "bytes": 343690,
+     "cached": false
+    },
+    {
+     "surah": 111,
+     "ayah": 1,
+     "dur_s": 5.25,
+     "n_words": 5,
+     "bytes": 139935,
+     "cached": false
+    },
+    {
+     "surah": 9,
+     "ayah": 27,
+     "dur_s": 12.71,
+     "n_words": 12,
+     "bytes": 311717,
+     "cached": false
+    },
+    {
+     "surah": 14,
+     "ayah": 40,
+     "dur_s": 11.65,
+     "n_words": 9,
+     "bytes": 289774,
+     "cached": false
+    },
+    {
+     "surah": 51,
+     "ayah": 58,
+     "dur_s": 6.86,
+     "n_words": 7,
+     "bytes": 169401,
+     "cached": false
+    },
+    {
+     "surah": 12,
+     "ayah": 35,
+     "dur_s": 12.17,
+     "n_words": 11,
+     "bytes": 304193,
+     "cached": false
+    },
+    {
+     "surah": 21,
+     "ayah": 63,
+     "dur_s": 10.8,
+     "n_words": 9,
+     "bytes": 262816,
+     "cached": false
+    },
+    {
+     "surah": 76,
+     "ayah": 17,
+     "dur_s": 6.66,
+     "n_words": 6,
+     "bytes": 164386,
+     "cached": false
+    },
+    {
+     "surah": 25,
+     "ayah": 48,
+     "dur_s": 14.5,
+     "n_words": 13,
+     "bytes": 358737,
+     "cached": false
+    },
+    {
+     "surah": 11,
+     "ayah": 79,
+     "dur_s": 11.09,
+     "n_words": 13,
+     "bytes": 272219,
+     "cached": false
+    },
+    {
+     "surah": 10,
+     "ayah": 52,
+     "dur_s": 13.03,
+     "n_words": 13,
+     "bytes": 317359,
+     "cached": false
+    },
+    {
+     "surah": 20,
+     "ayah": 89,
+     "dur_s": 10.39,
+     "n_words": 12,
+     "bytes": 261561,
+     "cached": false
+    },
+    {
+     "surah": 37,
+     "ayah": 133,
+     "dur_s": 4.19,
+     "n_words": 4,
+     "bytes": 107962,
+     "cached": false
+    },
+    {
+     "surah": 25,
+     "ayah": 69,
+     "dur_s": 7.92,
+     "n_words": 8,
+     "bytes": 200122,
+     "cached": false
+    },
+    {
+     "surah": 16,
+     "ayah": 60,
+     "dur_s": 14.71,
+     "n_words": 12,
+     "bytes": 120495,
+     "cached": false
+    },
+    {
+     "surah": 53,
+     "ayah": 27,
+     "dur_s": 12.71,
+     "n_words": 9,
+     "bytes": 308582,
+     "cached": false
+    },
+    {
+     "surah": 59,
+     "ayah": 20,
+     "dur_s": 13.57,
+     "n_words": 10,
+     "bytes": 331151,
+     "cached": false
+    },
+    {
+     "surah": 24,
+     "ayah": 18,
+     "dur_s": 9.25,
+     "n_words": 7,
+     "bytes": 224572,
+     "cached": false
+    },
+    {
+     "surah": 26,
+     "ayah": 171,
+     "dur_s": 4.37,
+     "n_words": 4,
+     "bytes": 111723,
+     "cached": false
+    },
+    {
+     "surah": 71,
+     "ayah": 12,
+     "dur_s": 12.0,
+     "n_words": 9,
+     "bytes": 296044,
+     "cached": false
+    },
+    {
+     "surah": 37,
+     "ayah": 91,
+     "dur_s": 6.05,
+     "n_words": 6,
+     "bytes": 151220,
+     "cached": false
+    },
+    {
+     "surah": 22,
+     "ayah": 21,
+     "dur_s": 5.1,
+     "n_words": 4,
+     "bytes": 131786,
+     "cached": false
+    },
+    {
+     "surah": 50,
+     "ayah": 27,
+     "dur_s": 12.61,
+     "n_words": 10,
+     "bytes": 311716,
+     "cached": false
+    },
+    {
+     "surah": 10,
+     "ayah": 96,
+     "dur_s": 7.95,
+     "n_words": 8,
+     "bytes": 196987,
+     "cached": false
+    },
+    {
+     "surah": 16,
+     "ayah": 87,
+     "dur_s": 10.33,
+     "n_words": 10,
+     "bytes": 86846,
+     "cached": false
+    },
+    {
+     "surah": 52,
+     "ayah": 38,
+     "dur_s": 10.89,
+     "n_words": 9,
+     "bytes": 272219,
+     "cached": false
+    },
+    {
+     "surah": 44,
+     "ayah": 42,
+     "dur_s": 8.54,
+     "n_words": 8,
+     "bytes": 213287,
+     "cached": false
+    },
+    {
+     "surah": 5,
+     "ayah": 99,
+     "dur_s": 10.96,
+     "n_words": 11,
+     "bytes": 265324,
+     "cached": false
+    },
+    {
+     "surah": 21,
+     "ayah": 12,
+     "dur_s": 7.59,
+     "n_words": 7,
+     "bytes": 185075,
+     "cached": false
+    },
+    {
+     "surah": 48,
+     "ayah": 19,
+     "dur_s": 8.96,
+     "n_words": 7,
+     "bytes": 226453,
+     "cached": false
+    },
+    {
+     "surah": 55,
+     "ayah": 59,
+     "dur_s": 6.73,
+     "n_words": 4,
+     "bytes": 170028,
+     "cached": false
+    },
+    {
+     "surah": 71,
+     "ayah": 10,
+     "dur_s": 6.51,
+     "n_words": 6,
+     "bytes": 166266,
+     "cached": false
+    },
+    {
+     "surah": 76,
+     "ayah": 30,
+     "dur_s": 12.61,
+     "n_words": 11,
+     "bytes": 312971,
+     "cached": false
+    },
+    {
+     "surah": 17,
+     "ayah": 66,
+     "dur_s": 13.5,
+     "n_words": 14,
+     "bytes": 338048,
+     "cached": false
+    },
+    {
+     "surah": 87,
+     "ayah": 7,
+     "dur_s": 7.7,
+     "n_words": 9,
+     "bytes": 190717,
+     "cached": false
+    },
+    {
+     "surah": 3,
+     "ayah": 17,
+     "dur_s": 12.22,
+     "n_words": 6,
+     "bytes": 297924,
+     "cached": false
+    },
+    {
+     "surah": 20,
+     "ayah": 60,
+     "dur_s": 7.36,
+     "n_words": 6,
+     "bytes": 180059,
+     "cached": false
+    },
+    {
+     "surah": 36,
+     "ayah": 14,
+     "dur_s": 13.97,
+     "n_words": 11,
+     "bytes": 344945,
+     "cached": false
+    },
+    {
+     "surah": 19,
+     "ayah": 50,
+     "dur_s": 8.37,
+     "n_words": 9,
+     "bytes": 212033,
+     "cached": false
+    },
+    {
+     "surah": 27,
+     "ayah": 54,
+     "dur_s": 11.25,
+     "n_words": 8,
+     "bytes": 275354,
+     "cached": false
+    },
+    {
+     "surah": 19,
+     "ayah": 88,
+     "dur_s": 3.99,
+     "n_words": 4,
+     "bytes": 104827,
+     "cached": false
+    },
+    {
+     "surah": 18,
+     "ayah": 41,
+     "dur_s": 7.75,
+     "n_words": 8,
+     "bytes": 191971,
+     "cached": false
+    },
+    {
+     "surah": 19,
+     "ayah": 45,
+     "dur_s": 13.54,
+     "n_words": 11,
+     "bytes": 335540,
+     "cached": false
+    },
+    {
+     "surah": 67,
+     "ayah": 21,
+     "dur_s": 10.75,
+     "n_words": 12,
+     "bytes": 267204,
+     "cached": false
+    },
+    {
+     "surah": 14,
+     "ayah": 2,
+     "dur_s": 12.6,
+     "n_words": 14,
+     "bytes": 307955,
+     "cached": false
+    },
+    {
+     "surah": 54,
+     "ayah": 14,
+     "dur_s": 6.17,
+     "n_words": 6,
+     "bytes": 157490,
+     "cached": false
+    },
+    {
+     "surah": 16,
+     "ayah": 52,
+     "dur_s": 9.74,
+     "n_words": 11,
+     "bytes": 82248,
+     "cached": false
+    },
+    {
+     "surah": 67,
+     "ayah": 16,
+     "dur_s": 10.8,
+     "n_words": 11,
+     "bytes": 268458,
+     "cached": false
+    },
+    {
+     "surah": 15,
+     "ayah": 1,
+     "dur_s": 9.73,
+     "n_words": 6,
+     "bytes": 237738,
+     "cached": false
+    },
+    {
+     "surah": 36,
+     "ayah": 81,
+     "dur_s": 13.7,
+     "n_words": 14,
+     "bytes": 341809,
+     "cached": false
+    },
+    {
+     "surah": 27,
+     "ayah": 32,
+     "dur_s": 12.73,
+     "n_words": 12,
+     "bytes": 313597,
+     "cached": false
+    },
+    {
+     "surah": 38,
+     "ayah": 72,
+     "dur_s": 9.56,
+     "n_words": 9,
+     "bytes": 237737,
+     "cached": false
+    },
+    {
+     "surah": 51,
+     "ayah": 31,
+     "dur_s": 4.94,
+     "n_words": 5,
+     "bytes": 124888,
+     "cached": false
+    },
+    {
+     "surah": 55,
+     "ayah": 29,
+     "dur_s": 7.84,
+     "n_words": 10,
+     "bytes": 195106,
+     "cached": false
+    },
+    {
+     "surah": 3,
+     "ayah": 142,
+     "dur_s": 14.31,
+     "n_words": 13,
+     "bytes": 347452,
+     "cached": false
+    },
+    {
+     "surah": 21,
+     "ayah": 75,
+     "dur_s": 7.9,
+     "n_words": 6,
+     "bytes": 197614,
+     "cached": false
+    },
+    {
+     "surah": 16,
+     "ayah": 34,
+     "dur_s": 10.9,
+     "n_words": 10,
+     "bytes": 91444,
+     "cached": false
+    },
+    {
+     "surah": 7,
+     "ayah": 170,
+     "dur_s": 12.86,
+     "n_words": 10,
+     "bytes": 312970,
+     "cached": false
+    },
+    {
+     "surah": 76,
+     "ayah": 6,
+     "dur_s": 7.29,
+     "n_words": 7,
+     "bytes": 185702,
+     "cached": false
+    },
+    {
+     "surah": 15,
+     "ayah": 75,
+     "dur_s": 6.96,
+     "n_words": 5,
+     "bytes": 171283,
+     "cached": false
+    },
+    {
+     "surah": 38,
+     "ayah": 62,
+     "dur_s": 10.01,
+     "n_words": 10,
+     "bytes": 241500,
+     "cached": false
+    },
+    {
+     "surah": 55,
+     "ayah": 65,
+     "dur_s": 5.77,
+     "n_words": 4,
+     "bytes": 145578,
+     "cached": false
+    },
+    {
+     "surah": 7,
+     "ayah": 23,
+     "dur_s": 14.25,
+     "n_words": 12,
+     "bytes": 343690,
+     "cached": false
+    },
+    {
+     "surah": 18,
+     "ayah": 67,
+     "dur_s": 5.89,
+     "n_words": 6,
+     "bytes": 151847,
+     "cached": false
+    },
+    {
+     "surah": 26,
+     "ayah": 185,
+     "dur_s": 6.4,
+     "n_words": 5,
+     "bytes": 161878,
+     "cached": false
+    }
+   ]
+  },
+  "Minshawy_Murattal_128kbps": {
+   "n_ayat": 400,
+   "n_newly_downloaded": 400,
+   "total_dur_s": 3643.8,
+   "items": [
+    {
+     "surah": 47,
+     "ayah": 33,
+     "dur_s": 14.29,
+     "n_words": 10,
+     "bytes": 235857,
+     "cached": false
+    },
+    {
+     "surah": 11,
+     "ayah": 39,
+     "dur_s": 14.49,
+     "n_words": 10,
+     "bytes": 247560,
+     "cached": false
+    },
+    {
+     "surah": 18,
+     "ayah": 7,
+     "dur_s": 10.97,
+     "n_words": 11,
+     "bytes": 190717,
+     "cached": false
+    },
+    {
+     "surah": 34,
+     "ayah": 47,
+     "dur_s": 14.83,
+     "n_words": 17,
+     "bytes": 247142,
+     "cached": false
+    },
+    {
+     "surah": 44,
+     "ayah": 50,
+     "dur_s": 6.4,
+     "n_words": 6,
+     "bytes": 108379,
+     "cached": false
+    },
+    {
+     "surah": 79,
+     "ayah": 11,
+     "dur_s": 5.98,
+     "n_words": 4,
+     "bytes": 105454,
+     "cached": false
+    },
+    {
+     "surah": 33,
+     "ayah": 58,
+     "dur_s": 14.17,
+     "n_words": 12,
+     "bytes": 235857,
+     "cached": false
+    },
+    {
+     "surah": 37,
+     "ayah": 139,
+     "dur_s": 5.13,
+     "n_words": 4,
+     "bytes": 86228,
+     "cached": false
+    },
+    {
+     "surah": 20,
+     "ayah": 5,
+     "dur_s": 4.61,
+     "n_words": 4,
+     "bytes": 76615,
+     "cached": false
+    },
+    {
+     "surah": 38,
+     "ayah": 70,
+     "dur_s": 11.93,
+     "n_words": 8,
+     "bytes": 198658,
+     "cached": false
+    },
+    {
+     "surah": 26,
+     "ayah": 50,
+     "dur_s": 8.98,
+     "n_words": 7,
+     "bytes": 152683,
+     "cached": false
+    },
+    {
+     "surah": 17,
+     "ayah": 10,
+     "dur_s": 10.1,
+     "n_words": 9,
+     "bytes": 173163,
+     "cached": false
+    },
+    {
+     "surah": 18,
+     "ayah": 6,
+     "dur_s": 12.31,
+     "n_words": 11,
+     "bytes": 215377,
+     "cached": false
+    },
+    {
+     "surah": 40,
+     "ayah": 51,
+     "dur_s": 12.14,
+     "n_words": 11,
+     "bytes": 199076,
+     "cached": false
+    },
+    {
+     "surah": 55,
+     "ayah": 36,
+     "dur_s": 6.47,
+     "n_words": 4,
+     "bytes": 115903,
+     "cached": false
+    },
+    {
+     "surah": 3,
+     "ayah": 166,
+     "dur_s": 11.63,
+     "n_words": 9,
+     "bytes": 194061,
+     "cached": false
+    },
+    {
+     "surah": 19,
+     "ayah": 93,
+     "dur_s": 11.22,
+     "n_words": 10,
+     "bytes": 187373,
+     "cached": false
+    },
+    {
+     "surah": 21,
+     "ayah": 54,
+     "dur_s": 11.38,
+     "n_words": 8,
+     "bytes": 196569,
+     "cached": false
+    },
+    {
+     "surah": 55,
+     "ayah": 69,
+     "dur_s": 6.07,
+     "n_words": 4,
+     "bytes": 109634,
+     "cached": false
+    },
+    {
+     "surah": 52,
+     "ayah": 34,
+     "dur_s": 7.76,
+     "n_words": 6,
+     "bytes": 130531,
+     "cached": false
+    },
+    {
+     "surah": 12,
+     "ayah": 103,
+     "dur_s": 8.65,
+     "n_words": 6,
+     "bytes": 149757,
+     "cached": false
+    },
+    {
+     "surah": 20,
+     "ayah": 117,
+     "dur_s": 14.37,
+     "n_words": 12,
+     "bytes": 239619,
+     "cached": false
+    },
+    {
+     "surah": 11,
+     "ayah": 25,
+     "dur_s": 12.57,
+     "n_words": 9,
+     "bytes": 215377,
+     "cached": false
+    },
+    {
+     "surah": 80,
+     "ayah": 19,
+     "dur_s": 5.96,
+     "n_words": 4,
+     "bytes": 100856,
+     "cached": false
+    },
+    {
+     "surah": 37,
+     "ayah": 48,
+     "dur_s": 5.65,
+     "n_words": 4,
+     "bytes": 99185,
+     "cached": false
+    },
+    {
+     "surah": 73,
+     "ayah": 11,
+     "dur_s": 8.92,
+     "n_words": 6,
+     "bytes": 152683,
+     "cached": false
+    },
+    {
+     "surah": 56,
+     "ayah": 86,
+     "dur_s": 7.87,
+     "n_words": 5,
+     "bytes": 135547,
+     "cached": false
+    },
+    {
+     "surah": 23,
+     "ayah": 102,
+     "dur_s": 9.05,
+     "n_words": 6,
+     "bytes": 151847,
+     "cached": false
+    },
+    {
+     "surah": 29,
+     "ayah": 44,
+     "dur_s": 11.8,
+     "n_words": 10,
+     "bytes": 194479,
+     "cached": false
+    },
+    {
+     "surah": 52,
+     "ayah": 20,
+     "dur_s": 9.36,
+     "n_words": 7,
+     "bytes": 158534,
+     "cached": false
+    },
+    {
+     "surah": 42,
+     "ayah": 30,
+     "dur_s": 12.13,
+     "n_words": 10,
+     "bytes": 202420,
+     "cached": false
+    },
+    {
+     "surah": 37,
+     "ayah": 56,
+     "dur_s": 5.51,
+     "n_words": 5,
+     "bytes": 94587,
+     "cached": false
+    },
+    {
+     "surah": 84,
+     "ayah": 7,
+     "dur_s": 7.8,
+     "n_words": 5,
+     "bytes": 133875,
+     "cached": false
+    },
+    {
+     "surah": 75,
+     "ayah": 31,
+     "dur_s": 3.99,
+     "n_words": 4,
+     "bytes": 67420,
+     "cached": false
+    },
+    {
+     "surah": 54,
+     "ayah": 18,
+     "dur_s": 6.01,
+     "n_words": 6,
+     "bytes": 106707,
+     "cached": false
+    },
+    {
+     "surah": 26,
+     "ayah": 196,
+     "dur_s": 4.77,
+     "n_words": 4,
+     "bytes": 85391,
+     "cached": false
+    },
+    {
+     "surah": 39,
+     "ayah": 34,
+     "dur_s": 12.11,
+     "n_words": 8,
+     "bytes": 202420,
+     "cached": false
+    },
+    {
+     "surah": 83,
+     "ayah": 4,
+     "dur_s": 9.83,
+     "n_words": 5,
+     "bytes": 166894,
+     "cached": false
+    },
+    {
+     "surah": 24,
+     "ayah": 5,
+     "dur_s": 11.12,
+     "n_words": 11,
+     "bytes": 189463,
+     "cached": false
+    },
+    {
+     "surah": 69,
+     "ayah": 46,
+     "dur_s": 5.06,
+     "n_words": 4,
+     "bytes": 88318,
+     "cached": false
+    },
+    {
+     "surah": 7,
+     "ayah": 97,
+     "dur_s": 12.69,
+     "n_words": 9,
+     "bytes": 215795,
+     "cached": false
+    },
+    {
+     "surah": 43,
+     "ayah": 84,
+     "dur_s": 11.24,
+     "n_words": 11,
+     "bytes": 187791,
+     "cached": false
+    },
+    {
+     "surah": 25,
+     "ayah": 66,
+     "dur_s": 6.96,
+     "n_words": 4,
+     "bytes": 120500,
+     "cached": false
+    },
+    {
+     "surah": 20,
+     "ayah": 111,
+     "dur_s": 8.49,
+     "n_words": 9,
+     "bytes": 145578,
+     "cached": false
+    },
+    {
+     "surah": 68,
+     "ayah": 2,
+     "dur_s": 7.13,
+     "n_words": 5,
+     "bytes": 125516,
+     "cached": false
+    },
+    {
+     "surah": 26,
+     "ayah": 149,
+     "dur_s": 5.73,
+     "n_words": 5,
+     "bytes": 100020,
+     "cached": false
+    },
+    {
+     "surah": 84,
+     "ayah": 23,
+     "dur_s": 5.64,
+     "n_words": 4,
+     "bytes": 97513,
+     "cached": false
+    },
+    {
+     "surah": 56,
+     "ayah": 41,
+     "dur_s": 7.03,
+     "n_words": 5,
+     "bytes": 121754,
+     "cached": false
+    },
+    {
+     "surah": 15,
+     "ayah": 45,
+     "dur_s": 7.33,
+     "n_words": 5,
+     "bytes": 124679,
+     "cached": false
+    },
+    {
+     "surah": 21,
+     "ayah": 71,
+     "dur_s": 11.19,
+     "n_words": 8,
+     "bytes": 191553,
+     "cached": false
+    },
+    {
+     "surah": 16,
+     "ayah": 20,
+     "dur_s": 9.66,
+     "n_words": 10,
+     "bytes": 163132,
+     "cached": false
+    },
+    {
+     "surah": 89,
+     "ayah": 22,
+     "dur_s": 7.96,
+     "n_words": 5,
+     "bytes": 138473,
+     "cached": false
+    },
+    {
+     "surah": 51,
+     "ayah": 15,
+     "dur_s": 6.87,
+     "n_words": 5,
+     "bytes": 118829,
+     "cached": false
+    },
+    {
+     "surah": 55,
+     "ayah": 29,
+     "dur_s": 8.6,
+     "n_words": 10,
+     "bytes": 147668,
+     "cached": false
+    },
+    {
+     "surah": 26,
+     "ayah": 35,
+     "dur_s": 9.74,
+     "n_words": 8,
+     "bytes": 164804,
+     "cached": false
+    },
+    {
+     "surah": 19,
+     "ayah": 63,
+     "dur_s": 10.01,
+     "n_words": 9,
+     "bytes": 168984,
+     "cached": false
+    },
+    {
+     "surah": 53,
+     "ayah": 43,
+     "dur_s": 5.01,
+     "n_words": 4,
+     "bytes": 83720,
+     "cached": false
+    },
+    {
+     "surah": 11,
+     "ayah": 117,
+     "dur_s": 10.13,
+     "n_words": 8,
+     "bytes": 176506,
+     "cached": false
+    },
+    {
+     "surah": 51,
+     "ayah": 23,
+     "dur_s": 12.55,
+     "n_words": 9,
+     "bytes": 209525,
+     "cached": false
+    },
+    {
+     "surah": 7,
+     "ayah": 10,
+     "dur_s": 12.8,
+     "n_words": 11,
+     "bytes": 220392,
+     "cached": false
+    },
+    {
+     "surah": 83,
+     "ayah": 8,
+     "dur_s": 6.02,
+     "n_words": 4,
+     "bytes": 103782,
+     "cached": false
+    },
+    {
+     "surah": 86,
+     "ayah": 8,
+     "dur_s": 6.17,
+     "n_words": 4,
+     "bytes": 105036,
+     "cached": false
+    },
+    {
+     "surah": 75,
+     "ayah": 36,
+     "dur_s": 6.58,
+     "n_words": 5,
+     "bytes": 106707,
+     "cached": false
+    },
+    {
+     "surah": 55,
+     "ayah": 14,
+     "dur_s": 6.8,
+     "n_words": 5,
+     "bytes": 113812,
+     "cached": false
+    },
+    {
+     "surah": 20,
+     "ayah": 91,
+     "dur_s": 9.18,
+     "n_words": 9,
+     "bytes": 153101,
+     "cached": false
+    },
+    {
+     "surah": 51,
+     "ayah": 40,
+     "dur_s": 7.71,
+     "n_words": 7,
+     "bytes": 131785,
+     "cached": false
+    },
+    {
+     "surah": 37,
+     "ayah": 67,
+     "dur_s": 7.87,
+     "n_words": 7,
+     "bytes": 132621,
+     "cached": false
+    },
+    {
+     "surah": 20,
+     "ayah": 126,
+     "dur_s": 10.4,
+     "n_words": 8,
+     "bytes": 173581,
+     "cached": false
+    },
+    {
+     "surah": 55,
+     "ayah": 16,
+     "dur_s": 6.43,
+     "n_words": 4,
+     "bytes": 109633,
+     "cached": false
+    },
+    {
+     "surah": 7,
+     "ayah": 110,
+     "dur_s": 8.47,
+     "n_words": 7,
+     "bytes": 149340,
+     "cached": false
+    },
+    {
+     "surah": 53,
+     "ayah": 58,
+     "dur_s": 5.07,
+     "n_words": 6,
+     "bytes": 87900,
+     "cached": false
+    },
+    {
+     "surah": 93,
+     "ayah": 11,
+     "dur_s": 6.1,
+     "n_words": 4,
+     "bytes": 105872,
+     "cached": false
+    },
+    {
+     "surah": 26,
+     "ayah": 13,
+     "dur_s": 7.96,
+     "n_words": 8,
+     "bytes": 137636,
+     "cached": false
+    },
+    {
+     "surah": 15,
+     "ayah": 13,
+     "dur_s": 7.57,
+     "n_words": 7,
+     "bytes": 131367,
+     "cached": false
+    },
+    {
+     "surah": 105,
+     "ayah": 1,
+     "dur_s": 6.88,
+     "n_words": 7,
+     "bytes": 117575,
+     "cached": false
+    },
+    {
+     "surah": 23,
+     "ayah": 55,
+     "dur_s": 8.83,
+     "n_words": 7,
+     "bytes": 153519,
+     "cached": false
+    },
+    {
+     "surah": 51,
+     "ayah": 52,
+     "dur_s": 12.44,
+     "n_words": 13,
+     "bytes": 207436,
+     "cached": false
+    },
+    {
+     "surah": 17,
+     "ayah": 45,
+     "dur_s": 13.57,
+     "n_words": 12,
+     "bytes": 222064,
+     "cached": false
+    },
+    {
+     "surah": 55,
+     "ayah": 37,
+     "dur_s": 8.76,
+     "n_words": 6,
+     "bytes": 149757,
+     "cached": false
+    },
+    {
+     "surah": 18,
+     "ayah": 25,
+     "dur_s": 8.95,
+     "n_words": 8,
+     "bytes": 155190,
+     "cached": false
+    },
+    {
+     "surah": 70,
+     "ayah": 40,
+     "dur_s": 11.56,
+     "n_words": 7,
+     "bytes": 196569,
+     "cached": false
+    },
+    {
+     "surah": 68,
+     "ayah": 30,
+     "dur_s": 6.54,
+     "n_words": 5,
+     "bytes": 115484,
+     "cached": false
+    },
+    {
+     "surah": 26,
+     "ayah": 160,
+     "dur_s": 4.22,
+     "n_words": 4,
+     "bytes": 72435,
+     "cached": false
+    },
+    {
+     "surah": 28,
+     "ayah": 51,
+     "dur_s": 6.58,
+     "n_words": 6,
+     "bytes": 116321,
+     "cached": false
+    },
+    {
+     "surah": 107,
+     "ayah": 2,
+     "dur_s": 4.67,
+     "n_words": 4,
+     "bytes": 84555,
+     "cached": false
+    },
+    {
+     "surah": 104,
+     "ayah": 5,
+     "dur_s": 5.22,
+     "n_words": 4,
+     "bytes": 90407,
+     "cached": false
+    },
+    {
+     "surah": 54,
+     "ayah": 50,
+     "dur_s": 9.22,
+     "n_words": 6,
+     "bytes": 156445,
+     "cached": false
+    },
+    {
+     "surah": 22,
+     "ayah": 59,
+     "dur_s": 11.86,
+     "n_words": 7,
+     "bytes": 200749,
+     "cached": false
+    },
+    {
+     "surah": 47,
+     "ayah": 31,
+     "dur_s": 10.34,
+     "n_words": 8,
+     "bytes": 175671,
+     "cached": false
+    },
+    {
+     "surah": 50,
+     "ayah": 23,
+     "dur_s": 5.58,
+     "n_words": 6,
+     "bytes": 100438,
+     "cached": false
+    },
+    {
+     "surah": 54,
+     "ayah": 9,
+     "dur_s": 10.23,
+     "n_words": 9,
+     "bytes": 168566,
+     "cached": false
+    },
+    {
+     "surah": 13,
+     "ayah": 29,
+     "dur_s": 9.15,
+     "n_words": 8,
+     "bytes": 156027,
+     "cached": false
+    },
+    {
+     "surah": 38,
+     "ayah": 65,
+     "dur_s": 13.57,
+     "n_words": 11,
+     "bytes": 218302,
+     "cached": false
+    },
+    {
+     "surah": 44,
+     "ayah": 49,
+     "dur_s": 5.06,
+     "n_words": 5,
+     "bytes": 86646,
+     "cached": false
+    },
+    {
+     "surah": 20,
+     "ayah": 105,
+     "dur_s": 7.66,
+     "n_words": 7,
+     "bytes": 133457,
+     "cached": false
+    },
+    {
+     "surah": 38,
+     "ayah": 15,
+     "dur_s": 13.91,
+     "n_words": 10,
+     "bytes": 229588,
+     "cached": false
+    },
+    {
+     "surah": 2,
+     "ayah": 244,
+     "dur_s": 10.91,
+     "n_words": 9,
+     "bytes": 185702,
+     "cached": false
+    },
+    {
+     "surah": 2,
+     "ayah": 119,
+     "dur_s": 14.82,
+     "n_words": 10,
+     "bytes": 241708,
+     "cached": false
+    },
+    {
+     "surah": 26,
+     "ayah": 202,
+     "dur_s": 6.2,
+     "n_words": 5,
+     "bytes": 109634,
+     "cached": false
+    },
+    {
+     "surah": 42,
+     "ayah": 39,
+     "dur_s": 8.11,
+     "n_words": 6,
+     "bytes": 137218,
+     "cached": false
+    },
+    {
+     "surah": 52,
+     "ayah": 47,
+     "dur_s": 10.59,
+     "n_words": 10,
+     "bytes": 178597,
+     "cached": false
+    },
+    {
+     "surah": 18,
+     "ayah": 9,
+     "dur_s": 10.36,
+     "n_words": 10,
+     "bytes": 177760,
+     "cached": false
+    },
+    {
+     "surah": 33,
+     "ayah": 61,
+     "dur_s": 8.67,
+     "n_words": 6,
+     "bytes": 148503,
+     "cached": false
+    },
+    {
+     "surah": 30,
+     "ayah": 52,
+     "dur_s": 12.35,
+     "n_words": 11,
+     "bytes": 204510,
+     "cached": false
+    },
+    {
+     "surah": 23,
+     "ayah": 5,
+     "dur_s": 5.26,
+     "n_words": 4,
+     "bytes": 92497,
+     "cached": false
+    },
+    {
+     "surah": 33,
+     "ayah": 66,
+     "dur_s": 12.77,
+     "n_words": 11,
+     "bytes": 211615,
+     "cached": false
+    },
+    {
+     "surah": 11,
+     "ayah": 68,
+     "dur_s": 14.81,
+     "n_words": 12,
+     "bytes": 252575,
+     "cached": false
+    },
+    {
+     "surah": 45,
+     "ayah": 14,
+     "dur_s": 13.29,
+     "n_words": 14,
+     "bytes": 220811,
+     "cached": false
+    },
+    {
+     "surah": 25,
+     "ayah": 50,
+     "dur_s": 12.14,
+     "n_words": 9,
+     "bytes": 202003,
+     "cached": false
+    },
+    {
+     "surah": 45,
+     "ayah": 29,
+     "dur_s": 13.94,
+     "n_words": 11,
+     "bytes": 232931,
+     "cached": false
+    },
+    {
+     "surah": 75,
+     "ayah": 17,
+     "dur_s": 6.27,
+     "n_words": 4,
+     "bytes": 106708,
+     "cached": false
+    },
+    {
+     "surah": 15,
+     "ayah": 66,
+     "dur_s": 12.35,
+     "n_words": 9,
+     "bytes": 202838,
+     "cached": false
+    },
+    {
+     "surah": 21,
+     "ayah": 110,
+     "dur_s": 8.67,
+     "n_words": 8,
+     "bytes": 149339,
+     "cached": false
+    },
+    {
+     "surah": 55,
+     "ayah": 15,
+     "dur_s": 9.09,
+     "n_words": 6,
+     "bytes": 147250,
+     "cached": false
+    },
+    {
+     "surah": 69,
+     "ayah": 41,
+     "dur_s": 7.61,
+     "n_words": 7,
+     "bytes": 128441,
+     "cached": false
+    },
+    {
+     "surah": 23,
+     "ayah": 64,
+     "dur_s": 11.96,
+     "n_words": 8,
+     "bytes": 201166,
+     "cached": false
+    },
+    {
+     "surah": 7,
+     "ayah": 2,
+     "dur_s": 13.55,
+     "n_words": 13,
+     "bytes": 231678,
+     "cached": false
+    },
+    {
+     "surah": 7,
+     "ayah": 198,
+     "dur_s": 13.13,
+     "n_words": 12,
+     "bytes": 221646,
+     "cached": false
+    },
+    {
+     "surah": 3,
+     "ayah": 12,
+     "dur_s": 12.06,
+     "n_words": 9,
+     "bytes": 199494,
+     "cached": false
+    },
+    {
+     "surah": 37,
+     "ayah": 62,
+     "dur_s": 6.97,
+     "n_words": 6,
+     "bytes": 117992,
+     "cached": false
+    },
+    {
+     "surah": 15,
+     "ayah": 20,
+     "dur_s": 8.65,
+     "n_words": 8,
+     "bytes": 147668,
+     "cached": false
+    },
+    {
+     "surah": 103,
+     "ayah": 3,
+     "dur_s": 13.44,
+     "n_words": 9,
+     "bytes": 223736,
+     "cached": false
+    },
+    {
+     "surah": 69,
+     "ayah": 19,
+     "dur_s": 13.75,
+     "n_words": 9,
+     "bytes": 227498,
+     "cached": false
+    },
+    {
+     "surah": 20,
+     "ayah": 65,
+     "dur_s": 13.99,
+     "n_words": 11,
+     "bytes": 231677,
+     "cached": false
+    },
+    {
+     "surah": 7,
+     "ayah": 124,
+     "dur_s": 12.98,
+     "n_words": 8,
+     "bytes": 220393,
+     "cached": false
+    },
+    {
+     "surah": 24,
+     "ayah": 44,
+     "dur_s": 11.23,
+     "n_words": 10,
+     "bytes": 188210,
+     "cached": false
+    },
+    {
+     "surah": 43,
+     "ayah": 81,
+     "dur_s": 7.71,
+     "n_words": 8,
+     "bytes": 130531,
+     "cached": false
+    },
+    {
+     "surah": 3,
+     "ayah": 139,
+     "dur_s": 13.79,
+     "n_words": 9,
+     "bytes": 231678,
+     "cached": false
+    },
+    {
+     "surah": 87,
+     "ayah": 9,
+     "dur_s": 5.33,
+     "n_words": 4,
+     "bytes": 94169,
+     "cached": false
+    },
+    {
+     "surah": 21,
+     "ayah": 10,
+     "dur_s": 11.8,
+     "n_words": 8,
+     "bytes": 197405,
+     "cached": false
+    },
+    {
+     "surah": 74,
+     "ayah": 38,
+     "dur_s": 5.96,
+     "n_words": 5,
+     "bytes": 99603,
+     "cached": false
+    },
+    {
+     "surah": 21,
+     "ayah": 4,
+     "dur_s": 12.43,
+     "n_words": 10,
+     "bytes": 203674,
+     "cached": false
+    },
+    {
+     "surah": 79,
+     "ayah": 19,
+     "dur_s": 5.42,
+     "n_words": 4,
+     "bytes": 94586,
+     "cached": false
+    },
+    {
+     "surah": 26,
+     "ayah": 98,
+     "dur_s": 4.73,
+     "n_words": 4,
+     "bytes": 83720,
+     "cached": false
+    },
+    {
+     "surah": 43,
+     "ayah": 28,
+     "dur_s": 8.49,
+     "n_words": 7,
+     "bytes": 142652,
+     "cached": false
+    },
+    {
+     "surah": 26,
+     "ayah": 12,
+     "dur_s": 6.93,
+     "n_words": 6,
+     "bytes": 119664,
+     "cached": false
+    },
+    {
+     "surah": 55,
+     "ayah": 73,
+     "dur_s": 5.9,
+     "n_words": 4,
+     "bytes": 104618,
+     "cached": false
+    },
+    {
+     "surah": 90,
+     "ayah": 14,
+     "dur_s": 7.76,
+     "n_words": 6,
+     "bytes": 131785,
+     "cached": false
+    },
+    {
+     "surah": 44,
+     "ayah": 7,
+     "dur_s": 10.39,
+     "n_words": 8,
+     "bytes": 173581,
+     "cached": false
+    },
+    {
+     "surah": 48,
+     "ayah": 1,
+     "dur_s": 5.95,
+     "n_words": 5,
+     "bytes": 105454,
+     "cached": false
+    },
+    {
+     "surah": 84,
+     "ayah": 6,
+     "dur_s": 14.96,
+     "n_words": 8,
+     "bytes": 249650,
+     "cached": false
+    },
+    {
+     "surah": 7,
+     "ayah": 68,
+     "dur_s": 8.64,
+     "n_words": 7,
+     "bytes": 151847,
+     "cached": false
+    },
+    {
+     "surah": 69,
+     "ayah": 40,
+     "dur_s": 5.83,
+     "n_words": 4,
+     "bytes": 100439,
+     "cached": false
+    },
+    {
+     "surah": 36,
+     "ayah": 74,
+     "dur_s": 8.8,
+     "n_words": 7,
+     "bytes": 151429,
+     "cached": false
+    },
+    {
+     "surah": 30,
+     "ayah": 14,
+     "dur_s": 6.38,
+     "n_words": 5,
+     "bytes": 114231,
+     "cached": false
+    },
+    {
+     "surah": 37,
+     "ayah": 95,
+     "dur_s": 4.69,
+     "n_words": 4,
+     "bytes": 82466,
+     "cached": false
+    },
+    {
+     "surah": 37,
+     "ayah": 14,
+     "dur_s": 5.38,
+     "n_words": 4,
+     "bytes": 94587,
+     "cached": false
+    },
+    {
+     "surah": 37,
+     "ayah": 22,
+     "dur_s": 8.74,
+     "n_words": 7,
+     "bytes": 150175,
+     "cached": false
+    },
+    {
+     "surah": 20,
+     "ayah": 96,
+     "dur_s": 14.55,
+     "n_words": 16,
+     "bytes": 240454,
+     "cached": false
+    },
+    {
+     "surah": 50,
+     "ayah": 25,
+     "dur_s": 5.57,
+     "n_words": 4,
+     "bytes": 95840,
+     "cached": false
+    },
+    {
+     "surah": 12,
+     "ayah": 12,
+     "dur_s": 10.89,
+     "n_words": 8,
+     "bytes": 183612,
+     "cached": false
+    },
+    {
+     "surah": 32,
+     "ayah": 28,
+     "dur_s": 7.81,
+     "n_words": 7,
+     "bytes": 131785,
+     "cached": false
+    },
+    {
+     "surah": 50,
+     "ayah": 29,
+     "dur_s": 8.26,
+     "n_words": 8,
+     "bytes": 140562,
+     "cached": false
+    },
+    {
+     "surah": 17,
+     "ayah": 81,
+     "dur_s": 10.27,
+     "n_words": 9,
+     "bytes": 181522,
+     "cached": false
+    },
+    {
+     "surah": 16,
+     "ayah": 105,
+     "dur_s": 12.23,
+     "n_words": 11,
+     "bytes": 205764,
+     "cached": false
+    },
+    {
+     "surah": 41,
+     "ayah": 4,
+     "dur_s": 7.69,
+     "n_words": 7,
+     "bytes": 130532,
+     "cached": false
+    },
+    {
+     "surah": 71,
+     "ayah": 27,
+     "dur_s": 14.48,
+     "n_words": 10,
+     "bytes": 235439,
+     "cached": false
+    },
+    {
+     "surah": 15,
+     "ayah": 2,
+     "dur_s": 6.38,
+     "n_words": 7,
+     "bytes": 108798,
+     "cached": false
+    },
+    {
+     "surah": 18,
+     "ayah": 68,
+     "dur_s": 6.55,
+     "n_words": 8,
+     "bytes": 113395,
+     "cached": false
+    },
+    {
+     "surah": 19,
+     "ayah": 67,
+     "dur_s": 10.9,
+     "n_words": 10,
+     "bytes": 184448,
+     "cached": false
+    },
+    {
+     "surah": 53,
+     "ayah": 50,
+     "dur_s": 6.33,
+     "n_words": 4,
+     "bytes": 103364,
+     "cached": false
+    },
+    {
+     "surah": 56,
+     "ayah": 27,
+     "dur_s": 7.29,
+     "n_words": 5,
+     "bytes": 123844,
+     "cached": false
+    },
+    {
+     "surah": 19,
+     "ayah": 83,
+     "dur_s": 11.35,
+     "n_words": 9,
+     "bytes": 195315,
+     "cached": false
+    },
+    {
+     "surah": 58,
+     "ayah": 15,
+     "dur_s": 11.23,
+     "n_words": 10,
+     "bytes": 188209,
+     "cached": false
+    },
+    {
+     "surah": 46,
+     "ayah": 14,
+     "dur_s": 12.23,
+     "n_words": 6,
+     "bytes": 196151,
+     "cached": false
+    },
+    {
+     "surah": 29,
+     "ayah": 15,
+     "dur_s": 11.15,
+     "n_words": 6,
+     "bytes": 191554,
+     "cached": false
+    },
+    {
+     "surah": 28,
+     "ayah": 42,
+     "dur_s": 11.22,
+     "n_words": 10,
+     "bytes": 188627,
+     "cached": false
+    },
+    {
+     "surah": 17,
+     "ayah": 66,
+     "dur_s": 12.75,
+     "n_words": 14,
+     "bytes": 217467,
+     "cached": false
+    },
+    {
+     "surah": 28,
+     "ayah": 11,
+     "dur_s": 10.48,
+     "n_words": 10,
+     "bytes": 175671,
+     "cached": false
+    },
+    {
+     "surah": 16,
+     "ayah": 88,
+     "dur_s": 12.84,
+     "n_words": 13,
+     "bytes": 214541,
+     "cached": false
+    },
+    {
+     "surah": 23,
+     "ayah": 47,
+     "dur_s": 10.23,
+     "n_words": 7,
+     "bytes": 171909,
+     "cached": false
+    },
+    {
+     "surah": 3,
+     "ayah": 2,
+     "dur_s": 7.35,
+     "n_words": 7,
+     "bytes": 126352,
+     "cached": false
+    },
+    {
+     "surah": 27,
+     "ayah": 43,
+     "dur_s": 13.15,
+     "n_words": 12,
+     "bytes": 216631,
+     "cached": false
+    },
+    {
+     "surah": 16,
+     "ayah": 98,
+     "dur_s": 8.72,
+     "n_words": 8,
+     "bytes": 146832,
+     "cached": false
+    },
+    {
+     "surah": 23,
+     "ayah": 43,
+     "dur_s": 7.92,
+     "n_words": 7,
+     "bytes": 135547,
+     "cached": false
+    },
+    {
+     "surah": 7,
+     "ayah": 4,
+     "dur_s": 12.95,
+     "n_words": 10,
+     "bytes": 220811,
+     "cached": false
+    },
+    {
+     "surah": 26,
+     "ayah": 129,
+     "dur_s": 5.31,
+     "n_words": 4,
+     "bytes": 89989,
+     "cached": false
+    },
+    {
+     "surah": 88,
+     "ayah": 23,
+     "dur_s": 5.04,
+     "n_words": 4,
+     "bytes": 88318,
+     "cached": false
+    },
+    {
+     "surah": 76,
+     "ayah": 24,
+     "dur_s": 9.07,
+     "n_words": 9,
+     "bytes": 147668,
+     "cached": false
+    },
+    {
+     "surah": 55,
+     "ayah": 32,
+     "dur_s": 6.3,
+     "n_words": 4,
+     "bytes": 110469,
+     "cached": false
+    },
+    {
+     "surah": 7,
+     "ayah": 119,
+     "dur_s": 5.17,
+     "n_words": 4,
+     "bytes": 93750,
+     "cached": false
+    },
+    {
+     "surah": 71,
+     "ayah": 16,
+     "dur_s": 8.99,
+     "n_words": 7,
+     "bytes": 156445,
+     "cached": false
+    },
+    {
+     "surah": 11,
+     "ayah": 75,
+     "dur_s": 8.5,
+     "n_words": 5,
+     "bytes": 150593,
+     "cached": false
+    },
+    {
+     "surah": 30,
+     "ayah": 42,
+     "dur_s": 14.57,
+     "n_words": 14,
+     "bytes": 238782,
+     "cached": false
+    },
+    {
+     "surah": 33,
+     "ayah": 16,
+     "dur_s": 13.85,
+     "n_words": 15,
+     "bytes": 238782,
+     "cached": false
+    },
+    {
+     "surah": 40,
+     "ayah": 27,
+     "dur_s": 14.11,
+     "n_words": 13,
+     "bytes": 228751,
+     "cached": false
+    },
+    {
+     "surah": 20,
+     "ayah": 48,
+     "dur_s": 10.9,
+     "n_words": 10,
+     "bytes": 179433,
+     "cached": false
+    },
+    {
+     "surah": 26,
+     "ayah": 206,
+     "dur_s": 6.57,
+     "n_words": 5,
+     "bytes": 113395,
+     "cached": false
+    },
+    {
+     "surah": 37,
+     "ayah": 182,
+     "dur_s": 5.29,
+     "n_words": 4,
+     "bytes": 90407,
+     "cached": false
+    },
+    {
+     "surah": 57,
+     "ayah": 1,
+     "dur_s": 9.13,
+     "n_words": 9,
+     "bytes": 152683,
+     "cached": false
+    },
+    {
+     "surah": 73,
+     "ayah": 10,
+     "dur_s": 8.01,
+     "n_words": 7,
+     "bytes": 137637,
+     "cached": false
+    },
+    {
+     "surah": 16,
+     "ayah": 1,
+     "dur_s": 12.06,
+     "n_words": 9,
+     "bytes": 201584,
+     "cached": false
+    },
+    {
+     "surah": 26,
+     "ayah": 6,
+     "dur_s": 9.86,
+     "n_words": 8,
+     "bytes": 164804,
+     "cached": false
+    },
+    {
+     "surah": 43,
+     "ayah": 31,
+     "dur_s": 9.58,
+     "n_words": 10,
+     "bytes": 160624,
+     "cached": false
+    },
+    {
+     "surah": 4,
+     "ayah": 156,
+     "dur_s": 7.4,
+     "n_words": 6,
+     "bytes": 131785,
+     "cached": false
+    },
+    {
+     "surah": 20,
+     "ayah": 115,
+     "dur_s": 10.42,
+     "n_words": 11,
+     "bytes": 177761,
+     "cached": false
+    },
+    {
+     "surah": 26,
+     "ayah": 188,
+     "dur_s": 5.4,
+     "n_words": 5,
+     "bytes": 96259,
+     "cached": false
+    },
+    {
+     "surah": 20,
+     "ayah": 88,
+     "dur_s": 13.79,
+     "n_words": 12,
+     "bytes": 221647,
+     "cached": false
+    },
+    {
+     "surah": 45,
+     "ayah": 36,
+     "dur_s": 7.36,
+     "n_words": 8,
+     "bytes": 125515,
+     "cached": false
+    },
+    {
+     "surah": 3,
+     "ayah": 54,
+     "dur_s": 8.16,
+     "n_words": 6,
+     "bytes": 144742,
+     "cached": false
+    },
+    {
+     "surah": 29,
+     "ayah": 48,
+     "dur_s": 14.62,
+     "n_words": 13,
+     "bytes": 241709,
+     "cached": false
+    },
+    {
+     "surah": 80,
+     "ayah": 7,
+     "dur_s": 5.75,
+     "n_words": 4,
+     "bytes": 96676,
+     "cached": false
+    },
+    {
+     "surah": 70,
+     "ayah": 33,
+     "dur_s": 8.08,
+     "n_words": 4,
+     "bytes": 138890,
+     "cached": false
+    },
+    {
+     "surah": 21,
+     "ayah": 32,
+     "dur_s": 12.68,
+     "n_words": 8,
+     "bytes": 215795,
+     "cached": false
+    },
+    {
+     "surah": 17,
+     "ayah": 79,
+     "dur_s": 12.29,
+     "n_words": 12,
+     "bytes": 210362,
+     "cached": false
+    },
+    {
+     "surah": 51,
+     "ayah": 50,
+     "dur_s": 9.94,
+     "n_words": 8,
+     "bytes": 169402,
+     "cached": false
+    },
+    {
+     "surah": 68,
+     "ayah": 45,
+     "dur_s": 5.69,
+     "n_words": 5,
+     "bytes": 101692,
+     "cached": false
+    },
+    {
+     "surah": 16,
+     "ayah": 117,
+     "dur_s": 5.97,
+     "n_words": 5,
+     "bytes": 105872,
+     "cached": false
+    },
+    {
+     "surah": 7,
+     "ayah": 52,
+     "dur_s": 13.81,
+     "n_words": 10,
+     "bytes": 239619,
+     "cached": false
+    },
+    {
+     "surah": 38,
+     "ayah": 40,
+     "dur_s": 7.75,
+     "n_words": 6,
+     "bytes": 129695,
+     "cached": false
+    },
+    {
+     "surah": 18,
+     "ayah": 59,
+     "dur_s": 11.82,
+     "n_words": 8,
+     "bytes": 203674,
+     "cached": false
+    },
+    {
+     "surah": 56,
+     "ayah": 46,
+     "dur_s": 6.38,
+     "n_words": 5,
+     "bytes": 107543,
+     "cached": false
+    },
+    {
+     "surah": 90,
+     "ayah": 17,
+     "dur_s": 13.47,
+     "n_words": 9,
+     "bytes": 228334,
+     "cached": false
+    },
+    {
+     "surah": 54,
+     "ayah": 10,
+     "dur_s": 8.47,
+     "n_words": 5,
+     "bytes": 137636,
+     "cached": false
+    },
+    {
+     "surah": 52,
+     "ayah": 17,
+     "dur_s": 6.46,
+     "n_words": 5,
+     "bytes": 112559,
+     "cached": false
+    },
+    {
+     "surah": 12,
+     "ayah": 45,
+     "dur_s": 14.47,
+     "n_words": 11,
+     "bytes": 245888,
+     "cached": false
+    },
+    {
+     "surah": 51,
+     "ayah": 27,
+     "dur_s": 6.11,
+     "n_words": 5,
+     "bytes": 106707,
+     "cached": false
+    },
+    {
+     "surah": 20,
+     "ayah": 92,
+     "dur_s": 6.5,
+     "n_words": 7,
+     "bytes": 112559,
+     "cached": false
+    },
+    {
+     "surah": 89,
+     "ayah": 24,
+     "dur_s": 6.77,
+     "n_words": 4,
+     "bytes": 117574,
+     "cached": false
+    },
+    {
+     "surah": 25,
+     "ayah": 45,
+     "dur_s": 14.38,
+     "n_words": 16,
+     "bytes": 241708,
+     "cached": false
+    },
+    {
+     "surah": 20,
+     "ayah": 17,
+     "dur_s": 4.54,
+     "n_words": 4,
+     "bytes": 76196,
+     "cached": false
+    },
+    {
+     "surah": 26,
+     "ayah": 103,
+     "dur_s": 8.37,
+     "n_words": 8,
+     "bytes": 140981,
+     "cached": false
+    },
+    {
+     "surah": 43,
+     "ayah": 6,
+     "dur_s": 5.9,
+     "n_words": 6,
+     "bytes": 102110,
+     "cached": false
+    },
+    {
+     "surah": 20,
+     "ayah": 24,
+     "dur_s": 5.46,
+     "n_words": 5,
+     "bytes": 96677,
+     "cached": false
+    },
+    {
+     "surah": 8,
+     "ayah": 71,
+     "dur_s": 14.75,
+     "n_words": 13,
+     "bytes": 247560,
+     "cached": false
+    },
+    {
+     "surah": 25,
+     "ayah": 16,
+     "dur_s": 11.04,
+     "n_words": 10,
+     "bytes": 187374,
+     "cached": false
+    },
+    {
+     "surah": 20,
+     "ayah": 57,
+     "dur_s": 8.19,
+     "n_words": 7,
+     "bytes": 135546,
+     "cached": false
+    },
+    {
+     "surah": 25,
+     "ayah": 75,
+     "dur_s": 11.8,
+     "n_words": 9,
+     "bytes": 198658,
+     "cached": false
+    },
+    {
+     "surah": 82,
+     "ayah": 9,
+     "dur_s": 5.29,
+     "n_words": 4,
+     "bytes": 92079,
+     "cached": false
+    },
+    {
+     "surah": 85,
+     "ayah": 9,
+     "dur_s": 14.44,
+     "n_words": 10,
+     "bytes": 237529,
+     "cached": false
+    },
+    {
+     "surah": 44,
+     "ayah": 48,
+     "dur_s": 5.95,
+     "n_words": 7,
+     "bytes": 99184,
+     "cached": false
+    },
+    {
+     "surah": 50,
+     "ayah": 43,
+     "dur_s": 6.33,
+     "n_words": 6,
+     "bytes": 108379,
+     "cached": false
+    },
+    {
+     "surah": 3,
+     "ayah": 48,
+     "dur_s": 7.87,
+     "n_words": 5,
+     "bytes": 137637,
+     "cached": false
+    },
+    {
+     "surah": 22,
+     "ayah": 50,
+     "dur_s": 11.35,
+     "n_words": 8,
+     "bytes": 191553,
+     "cached": false
+    },
+    {
+     "surah": 38,
+     "ayah": 74,
+     "dur_s": 7.43,
+     "n_words": 6,
+     "bytes": 125933,
+     "cached": false
+    },
+    {
+     "surah": 20,
+     "ayah": 23,
+     "dur_s": 4.82,
+     "n_words": 4,
+     "bytes": 83302,
+     "cached": false
+    },
+    {
+     "surah": 56,
+     "ayah": 85,
+     "dur_s": 7.9,
+     "n_words": 7,
+     "bytes": 136383,
+     "cached": false
+    },
+    {
+     "surah": 112,
+     "ayah": 3,
+     "dur_s": 3.15,
+     "n_words": 4,
+     "bytes": 54045,
+     "cached": false
+    },
+    {
+     "surah": 37,
+     "ayah": 60,
+     "dur_s": 6.71,
+     "n_words": 5,
+     "bytes": 113395,
+     "cached": false
+    },
+    {
+     "surah": 23,
+     "ayah": 84,
+     "dur_s": 9.19,
+     "n_words": 8,
+     "bytes": 154355,
+     "cached": false
+    },
+    {
+     "surah": 10,
+     "ayah": 103,
+     "dur_s": 13.67,
+     "n_words": 10,
+     "bytes": 232096,
+     "cached": false
+    },
+    {
+     "surah": 6,
+     "ayah": 131,
+     "dur_s": 9.78,
+     "n_words": 10,
+     "bytes": 169820,
+     "cached": false
+    },
+    {
+     "surah": 15,
+     "ayah": 41,
+     "dur_s": 5.09,
+     "n_words": 5,
+     "bytes": 92497,
+     "cached": false
+    },
+    {
+     "surah": 56,
+     "ayah": 54,
+     "dur_s": 4.98,
+     "n_words": 4,
+     "bytes": 88735,
+     "cached": false
+    },
+    {
+     "surah": 52,
+     "ayah": 42,
+     "dur_s": 7.38,
+     "n_words": 7,
+     "bytes": 125516,
+     "cached": false
+    },
+    {
+     "surah": 13,
+     "ayah": 24,
+     "dur_s": 8.45,
+     "n_words": 7,
+     "bytes": 144324,
+     "cached": false
+    },
+    {
+     "surah": 29,
+     "ayah": 19,
+     "dur_s": 11.67,
+     "n_words": 13,
+     "bytes": 197823,
+     "cached": false
+    },
+    {
+     "surah": 3,
+     "ayah": 196,
+     "dur_s": 8.11,
+     "n_words": 7,
+     "bytes": 139726,
+     "cached": false
+    },
+    {
+     "surah": 37,
+     "ayah": 10,
+     "dur_s": 8.08,
+     "n_words": 7,
+     "bytes": 133875,
+     "cached": false
+    },
+    {
+     "surah": 23,
+     "ayah": 89,
+     "dur_s": 6.62,
+     "n_words": 5,
+     "bytes": 113395,
+     "cached": false
+    },
+    {
+     "surah": 7,
+     "ayah": 118,
+     "dur_s": 6.0,
+     "n_words": 6,
+     "bytes": 100439,
+     "cached": false
+    },
+    {
+     "surah": 33,
+     "ayah": 64,
+     "dur_s": 7.43,
+     "n_words": 7,
+     "bytes": 125516,
+     "cached": false
+    },
+    {
+     "surah": 72,
+     "ayah": 3,
+     "dur_s": 10.34,
+     "n_words": 9,
+     "bytes": 175670,
+     "cached": false
+    },
+    {
+     "surah": 23,
+     "ayah": 77,
+     "dur_s": 13.46,
+     "n_words": 12,
+     "bytes": 224572,
+     "cached": false
+    },
+    {
+     "surah": 42,
+     "ayah": 37,
+     "dur_s": 11.27,
+     "n_words": 10,
+     "bytes": 190300,
+     "cached": false
+    },
+    {
+     "surah": 26,
+     "ayah": 88,
+     "dur_s": 5.34,
+     "n_words": 6,
+     "bytes": 93751,
+     "cached": false
+    },
+    {
+     "surah": 16,
+     "ayah": 84,
+     "dur_s": 14.22,
+     "n_words": 14,
+     "bytes": 238782,
+     "cached": false
+    },
+    {
+     "surah": 64,
+     "ayah": 3,
+     "dur_s": 10.22,
+     "n_words": 9,
+     "bytes": 167730,
+     "cached": false
+    },
+    {
+     "surah": 45,
+     "ayah": 6,
+     "dur_s": 13.57,
+     "n_words": 12,
+     "bytes": 222482,
+     "cached": false
+    },
+    {
+     "surah": 96,
+     "ayah": 14,
+     "dur_s": 6.53,
+     "n_words": 5,
+     "bytes": 108380,
+     "cached": false
+    },
+    {
+     "surah": 38,
+     "ayah": 17,
+     "dur_s": 13.66,
+     "n_words": 11,
+     "bytes": 221647,
+     "cached": false
+    },
+    {
+     "surah": 102,
+     "ayah": 8,
+     "dur_s": 8.19,
+     "n_words": 5,
+     "bytes": 136383,
+     "cached": false
+    },
+    {
+     "surah": 11,
+     "ayah": 83,
+     "dur_s": 10.69,
+     "n_words": 8,
+     "bytes": 182358,
+     "cached": false
+    },
+    {
+     "surah": 19,
+     "ayah": 54,
+     "dur_s": 13.07,
+     "n_words": 11,
+     "bytes": 221647,
+     "cached": false
+    },
+    {
+     "surah": 79,
+     "ayah": 27,
+     "dur_s": 10.02,
+     "n_words": 6,
+     "bytes": 171073,
+     "cached": false
+    },
+    {
+     "surah": 58,
+     "ayah": 16,
+     "dur_s": 12.66,
+     "n_words": 10,
+     "bytes": 210780,
+     "cached": false
+    },
+    {
+     "surah": 43,
+     "ayah": 64,
+     "dur_s": 10.22,
+     "n_words": 9,
+     "bytes": 172745,
+     "cached": false
+    },
+    {
+     "surah": 52,
+     "ayah": 30,
+     "dur_s": 6.89,
+     "n_words": 7,
+     "bytes": 120500,
+     "cached": false
+    },
+    {
+     "surah": 19,
+     "ayah": 65,
+     "dur_s": 14.32,
+     "n_words": 12,
+     "bytes": 236275,
+     "cached": false
+    },
+    {
+     "surah": 7,
+     "ayah": 192,
+     "dur_s": 9.47,
+     "n_words": 7,
+     "bytes": 166058,
+     "cached": false
+    },
+    {
+     "surah": 26,
+     "ayah": 71,
+     "dur_s": 6.77,
+     "n_words": 6,
+     "bytes": 117993,
+     "cached": false
+    },
+    {
+     "surah": 15,
+     "ayah": 87,
+     "dur_s": 8.53,
+     "n_words": 7,
+     "bytes": 143488,
+     "cached": false
+    },
+    {
+     "surah": 64,
+     "ayah": 18,
+     "dur_s": 5.34,
+     "n_words": 5,
+     "bytes": 88318,
+     "cached": false
+    },
+    {
+     "surah": 10,
+     "ayah": 8,
+     "dur_s": 8.23,
+     "n_words": 6,
+     "bytes": 146414,
+     "cached": false
+    },
+    {
+     "surah": 37,
+     "ayah": 108,
+     "dur_s": 4.69,
+     "n_words": 4,
+     "bytes": 82048,
+     "cached": false
+    },
+    {
+     "surah": 69,
+     "ayah": 6,
+     "dur_s": 9.34,
+     "n_words": 6,
+     "bytes": 155609,
+     "cached": false
+    },
+    {
+     "surah": 100,
+     "ayah": 10,
+     "dur_s": 3.94,
+     "n_words": 4,
+     "bytes": 71181,
+     "cached": false
+    },
+    {
+     "surah": 38,
+     "ayah": 67,
+     "dur_s": 3.3,
+     "n_words": 4,
+     "bytes": 58224,
+     "cached": false
+    },
+    {
+     "surah": 6,
+     "ayah": 9,
+     "dur_s": 10.46,
+     "n_words": 9,
+     "bytes": 183612,
+     "cached": false
+    },
+    {
+     "surah": 17,
+     "ayah": 8,
+     "dur_s": 13.96,
+     "n_words": 11,
+     "bytes": 228752,
+     "cached": false
+    },
+    {
+     "surah": 78,
+     "ayah": 29,
+     "dur_s": 6.21,
+     "n_words": 4,
+     "bytes": 105872,
+     "cached": false
+    },
+    {
+     "surah": 4,
+     "ayah": 151,
+     "dur_s": 13.23,
+     "n_words": 8,
+     "bytes": 228334,
+     "cached": false
+    },
+    {
+     "surah": 88,
+     "ayah": 17,
+     "dur_s": 7.39,
+     "n_words": 6,
+     "bytes": 126770,
+     "cached": false
+    },
+    {
+     "surah": 76,
+     "ayah": 1,
+     "dur_s": 12.34,
+     "n_words": 11,
+     "bytes": 199495,
+     "cached": false
+    },
+    {
+     "surah": 12,
+     "ayah": 57,
+     "dur_s": 10.9,
+     "n_words": 7,
+     "bytes": 181940,
+     "cached": false
+    },
+    {
+     "surah": 30,
+     "ayah": 3,
+     "dur_s": 8.58,
+     "n_words": 8,
+     "bytes": 145578,
+     "cached": false
+    },
+    {
+     "surah": 43,
+     "ayah": 4,
+     "dur_s": 9.07,
+     "n_words": 7,
+     "bytes": 151429,
+     "cached": false
+    },
+    {
+     "surah": 20,
+     "ayah": 118,
+     "dur_s": 6.6,
+     "n_words": 7,
+     "bytes": 109633,
+     "cached": false
+    },
+    {
+     "surah": 12,
+     "ayah": 89,
+     "dur_s": 13.67,
+     "n_words": 10,
+     "bytes": 229169,
+     "cached": false
+    },
+    {
+     "surah": 6,
+     "ayah": 47,
+     "dur_s": 12.65,
+     "n_words": 14,
+     "bytes": 218302,
+     "cached": false
+    },
+    {
+     "surah": 26,
+     "ayah": 8,
+     "dur_s": 8.42,
+     "n_words": 8,
+     "bytes": 141398,
+     "cached": false
+    },
+    {
+     "surah": 52,
+     "ayah": 32,
+     "dur_s": 8.87,
+     "n_words": 8,
+     "bytes": 151429,
+     "cached": false
+    },
+    {
+     "surah": 40,
+     "ayah": 42,
+     "dur_s": 13.37,
+     "n_words": 15,
+     "bytes": 219138,
+     "cached": false
+    },
+    {
+     "surah": 18,
+     "ayah": 67,
+     "dur_s": 7.08,
+     "n_words": 6,
+     "bytes": 117992,
+     "cached": false
+    },
+    {
+     "surah": 12,
+     "ayah": 39,
+     "dur_s": 13.31,
+     "n_words": 9,
+     "bytes": 223736,
+     "cached": false
+    },
+    {
+     "surah": 29,
+     "ayah": 21,
+     "dur_s": 11.43,
+     "n_words": 8,
+     "bytes": 193643,
+     "cached": false
+    },
+    {
+     "surah": 9,
+     "ayah": 57,
+     "dur_s": 11.52,
+     "n_words": 11,
+     "bytes": 196987,
+     "cached": false
+    },
+    {
+     "surah": 35,
+     "ayah": 19,
+     "dur_s": 4.49,
+     "n_words": 4,
+     "bytes": 80794,
+     "cached": false
+    },
+    {
+     "surah": 71,
+     "ayah": 9,
+     "dur_s": 11.13,
+     "n_words": 7,
+     "bytes": 179851,
+     "cached": false
+    },
+    {
+     "surah": 36,
+     "ayah": 22,
+     "dur_s": 8.46,
+     "n_words": 8,
+     "bytes": 145160,
+     "cached": false
+    },
+    {
+     "surah": 27,
+     "ayah": 13,
+     "dur_s": 11.36,
+     "n_words": 8,
+     "bytes": 189463,
+     "cached": false
+    },
+    {
+     "surah": 33,
+     "ayah": 41,
+     "dur_s": 9.02,
+     "n_words": 7,
+     "bytes": 149758,
+     "cached": false
+    },
+    {
+     "surah": 26,
+     "ayah": 167,
+     "dur_s": 8.45,
+     "n_words": 8,
+     "bytes": 144741,
+     "cached": false
+    },
+    {
+     "surah": 69,
+     "ayah": 21,
+     "dur_s": 4.6,
+     "n_words": 4,
+     "bytes": 78704,
+     "cached": false
+    },
+    {
+     "surah": 109,
+     "ayah": 5,
+     "dur_s": 7.84,
+     "n_words": 5,
+     "bytes": 131367,
+     "cached": false
+    },
+    {
+     "surah": 53,
+     "ayah": 38,
+     "dur_s": 5.09,
+     "n_words": 5,
+     "bytes": 85810,
+     "cached": false
+    },
+    {
+     "surah": 27,
+     "ayah": 31,
+     "dur_s": 5.53,
+     "n_words": 5,
+     "bytes": 97930,
+     "cached": false
+    },
+    {
+     "surah": 113,
+     "ayah": 4,
+     "dur_s": 6.18,
+     "n_words": 5,
+     "bytes": 105454,
+     "cached": false
+    },
+    {
+     "surah": 16,
+     "ayah": 3,
+     "dur_s": 9.35,
+     "n_words": 7,
+     "bytes": 158535,
+     "cached": false
+    },
+    {
+     "surah": 88,
+     "ayah": 5,
+     "dur_s": 4.47,
+     "n_words": 4,
+     "bytes": 78286,
+     "cached": false
+    },
+    {
+     "surah": 54,
+     "ayah": 33,
+     "dur_s": 4.73,
+     "n_words": 4,
+     "bytes": 83720,
+     "cached": false
+    },
+    {
+     "surah": 98,
+     "ayah": 1,
+     "dur_s": 14.8,
+     "n_words": 12,
+     "bytes": 247142,
+     "cached": false
+    },
+    {
+     "surah": 10,
+     "ayah": 62,
+     "dur_s": 12.3,
+     "n_words": 10,
+     "bytes": 214542,
+     "cached": false
+    },
+    {
+     "surah": 39,
+     "ayah": 70,
+     "dur_s": 8.84,
+     "n_words": 9,
+     "bytes": 150593,
+     "cached": false
+    },
+    {
+     "surah": 27,
+     "ayah": 38,
+     "dur_s": 12.14,
+     "n_words": 10,
+     "bytes": 202002,
+     "cached": false
+    },
+    {
+     "surah": 54,
+     "ayah": 15,
+     "dur_s": 8.51,
+     "n_words": 6,
+     "bytes": 142652,
+     "cached": false
+    },
+    {
+     "surah": 72,
+     "ayah": 21,
+     "dur_s": 7.84,
+     "n_words": 8,
+     "bytes": 135965,
+     "cached": false
+    },
+    {
+     "surah": 40,
+     "ayah": 15,
+     "dur_s": 14.7,
+     "n_words": 16,
+     "bytes": 240872,
+     "cached": false
+    },
+    {
+     "surah": 50,
+     "ayah": 30,
+     "dur_s": 8.23,
+     "n_words": 9,
+     "bytes": 141398,
+     "cached": false
+    },
+    {
+     "surah": 26,
+     "ayah": 154,
+     "dur_s": 12.89,
+     "n_words": 11,
+     "bytes": 214541,
+     "cached": false
+    },
+    {
+     "surah": 7,
+     "ayah": 78,
+     "dur_s": 7.55,
+     "n_words": 6,
+     "bytes": 135547,
+     "cached": false
+    },
+    {
+     "surah": 54,
+     "ayah": 26,
+     "dur_s": 5.73,
+     "n_words": 5,
+     "bytes": 97512,
+     "cached": false
+    },
+    {
+     "surah": 43,
+     "ayah": 53,
+     "dur_s": 13.54,
+     "n_words": 11,
+     "bytes": 225826,
+     "cached": false
+    },
+    {
+     "surah": 21,
+     "ayah": 92,
+     "dur_s": 14.19,
+     "n_words": 8,
+     "bytes": 239201,
+     "cached": false
+    },
+    {
+     "surah": 53,
+     "ayah": 48,
+     "dur_s": 4.8,
+     "n_words": 4,
+     "bytes": 79540,
+     "cached": false
+    },
+    {
+     "surah": 67,
+     "ayah": 18,
+     "dur_s": 7.84,
+     "n_words": 8,
+     "bytes": 142652,
+     "cached": false
+    },
+    {
+     "surah": 16,
+     "ayah": 19,
+     "dur_s": 5.77,
+     "n_words": 6,
+     "bytes": 98348,
+     "cached": false
+    },
+    {
+     "surah": 28,
+     "ayah": 28,
+     "dur_s": 14.22,
+     "n_words": 15,
+     "bytes": 240873,
+     "cached": false
+    },
+    {
+     "surah": 84,
+     "ayah": 19,
+     "dur_s": 5.77,
+     "n_words": 4,
+     "bytes": 97512,
+     "cached": false
+    },
+    {
+     "surah": 26,
+     "ayah": 161,
+     "dur_s": 5.72,
+     "n_words": 6,
+     "bytes": 96676,
+     "cached": false
+    },
+    {
+     "surah": 92,
+     "ayah": 20,
+     "dur_s": 7.59,
+     "n_words": 5,
+     "bytes": 123844,
+     "cached": false
+    },
+    {
+     "surah": 17,
+     "ayah": 52,
+     "dur_s": 10.49,
+     "n_words": 9,
+     "bytes": 180268,
+     "cached": false
+    },
+    {
+     "surah": 4,
+     "ayah": 71,
+     "dur_s": 13.25,
+     "n_words": 10,
+     "bytes": 224572,
+     "cached": false
+    },
+    {
+     "surah": 38,
+     "ayah": 81,
+     "dur_s": 4.02,
+     "n_words": 4,
+     "bytes": 70345,
+     "cached": false
+    },
+    {
+     "surah": 21,
+     "ayah": 33,
+     "dur_s": 14.08,
+     "n_words": 11,
+     "bytes": 236275,
+     "cached": false
+    },
+    {
+     "surah": 73,
+     "ayah": 8,
+     "dur_s": 6.4,
+     "n_words": 6,
+     "bytes": 112559,
+     "cached": false
+    },
+    {
+     "surah": 15,
+     "ayah": 65,
+     "dur_s": 14.5,
+     "n_words": 14,
+     "bytes": 246306,
+     "cached": false
+    },
+    {
+     "surah": 11,
+     "ayah": 2,
+     "dur_s": 12.12,
+     "n_words": 9,
+     "bytes": 204928,
+     "cached": false
+    },
+    {
+     "surah": 23,
+     "ayah": 49,
+     "dur_s": 7.18,
+     "n_words": 6,
+     "bytes": 122590,
+     "cached": false
+    },
+    {
+     "surah": 26,
+     "ayah": 2,
+     "dur_s": 3.9,
+     "n_words": 4,
+     "bytes": 68255,
+     "cached": false
+    },
+    {
+     "surah": 112,
+     "ayah": 4,
+     "dur_s": 4.54,
+     "n_words": 5,
+     "bytes": 75779,
+     "cached": false
+    },
+    {
+     "surah": 7,
+     "ayah": 181,
+     "dur_s": 10.36,
+     "n_words": 7,
+     "bytes": 180268,
+     "cached": false
+    },
+    {
+     "surah": 51,
+     "ayah": 17,
+     "dur_s": 5.18,
+     "n_words": 6,
+     "bytes": 92496,
+     "cached": false
+    },
+    {
+     "surah": 68,
+     "ayah": 40,
+     "dur_s": 5.74,
+     "n_words": 4,
+     "bytes": 97930,
+     "cached": false
+    },
+    {
+     "surah": 3,
+     "ayah": 158,
+     "dur_s": 10.31,
+     "n_words": 7,
+     "bytes": 176506,
+     "cached": false
+    },
+    {
+     "surah": 28,
+     "ayah": 26,
+     "dur_s": 12.32,
+     "n_words": 10,
+     "bytes": 207018,
+     "cached": false
+    },
+    {
+     "surah": 30,
+     "ayah": 44,
+     "dur_s": 10.53,
+     "n_words": 9,
+     "bytes": 174417,
+     "cached": false
+    },
+    {
+     "surah": 46,
+     "ayah": 27,
+     "dur_s": 9.7,
+     "n_words": 10,
+     "bytes": 162296,
+     "cached": false
+    },
+    {
+     "surah": 86,
+     "ayah": 10,
+     "dur_s": 6.79,
+     "n_words": 6,
+     "bytes": 115485,
+     "cached": false
+    },
+    {
+     "surah": 23,
+     "ayah": 8,
+     "dur_s": 7.07,
+     "n_words": 5,
+     "bytes": 119664,
+     "cached": false
+    },
+    {
+     "surah": 50,
+     "ayah": 41,
+     "dur_s": 7.13,
+     "n_words": 7,
+     "bytes": 120501,
+     "cached": false
+    },
+    {
+     "surah": 77,
+     "ayah": 41,
+     "dur_s": 7.3,
+     "n_words": 5,
+     "bytes": 124680,
+     "cached": false
+    },
+    {
+     "surah": 50,
+     "ayah": 22,
+     "dur_s": 12.31,
+     "n_words": 12,
+     "bytes": 208690,
+     "cached": false
+    },
+    {
+     "surah": 15,
+     "ayah": 18,
+     "dur_s": 7.73,
+     "n_words": 7,
+     "bytes": 131367,
+     "cached": false
+    },
+    {
+     "surah": 2,
+     "ayah": 138,
+     "dur_s": 9.93,
+     "n_words": 10,
+     "bytes": 171073,
+     "cached": false
+    },
+    {
+     "surah": 28,
+     "ayah": 66,
+     "dur_s": 10.61,
+     "n_words": 7,
+     "bytes": 181522,
+     "cached": false
+    },
+    {
+     "surah": 53,
+     "ayah": 56,
+     "dur_s": 5.84,
+     "n_words": 5,
+     "bytes": 94586,
+     "cached": false
+    },
+    {
+     "surah": 26,
+     "ayah": 146,
+     "dur_s": 5.79,
+     "n_words": 5,
+     "bytes": 100856,
+     "cached": false
+    },
+    {
+     "surah": 23,
+     "ayah": 98,
+     "dur_s": 4.72,
+     "n_words": 5,
+     "bytes": 82884,
+     "cached": false
+    },
+    {
+     "surah": 28,
+     "ayah": 41,
+     "dur_s": 12.02,
+     "n_words": 9,
+     "bytes": 202421,
+     "cached": false
+    },
+    {
+     "surah": 37,
+     "ayah": 98,
+     "dur_s": 7.61,
+     "n_words": 5,
+     "bytes": 129695,
+     "cached": false
+    },
+    {
+     "surah": 2,
+     "ayah": 16,
+     "dur_s": 12.99,
+     "n_words": 11,
+     "bytes": 217885,
+     "cached": false
+    },
+    {
+     "surah": 7,
+     "ayah": 62,
+     "dur_s": 11.13,
+     "n_words": 11,
+     "bytes": 194897,
+     "cached": false
+    },
+    {
+     "surah": 36,
+     "ayah": 31,
+     "dur_s": 11.62,
+     "n_words": 11,
+     "bytes": 195315,
+     "cached": false
+    },
+    {
+     "surah": 41,
+     "ayah": 32,
+     "dur_s": 4.04,
+     "n_words": 4,
+     "bytes": 71599,
+     "cached": false
+    },
+    {
+     "surah": 77,
+     "ayah": 36,
+     "dur_s": 5.2,
+     "n_words": 4,
+     "bytes": 88736,
+     "cached": false
+    },
+    {
+     "surah": 93,
+     "ayah": 4,
+     "dur_s": 6.79,
+     "n_words": 5,
+     "bytes": 111305,
+     "cached": false
+    },
+    {
+     "surah": 33,
+     "ayah": 8,
+     "dur_s": 9.95,
+     "n_words": 8,
+     "bytes": 165222,
+     "cached": false
+    },
+    {
+     "surah": 69,
+     "ayah": 9,
+     "dur_s": 11.01,
+     "n_words": 6,
+     "bytes": 182358,
+     "cached": false
+    },
+    {
+     "surah": 51,
+     "ayah": 22,
+     "dur_s": 5.78,
+     "n_words": 5,
+     "bytes": 101274,
+     "cached": false
+    },
+    {
+     "surah": 23,
+     "ayah": 37,
+     "dur_s": 10.2,
+     "n_words": 10,
+     "bytes": 173581,
+     "cached": false
+    },
+    {
+     "surah": 21,
+     "ayah": 23,
+     "dur_s": 6.6,
+     "n_words": 6,
+     "bytes": 114649,
+     "cached": false
+    },
+    {
+     "surah": 52,
+     "ayah": 22,
+     "dur_s": 7.7,
+     "n_words": 5,
+     "bytes": 133039,
+     "cached": false
+    },
+    {
+     "surah": 72,
+     "ayah": 5,
+     "dur_s": 13.06,
+     "n_words": 10,
+     "bytes": 219557,
+     "cached": false
+    },
+    {
+     "surah": 52,
+     "ayah": 43,
+     "dur_s": 8.4,
+     "n_words": 9,
+     "bytes": 143488,
+     "cached": false
+    },
+    {
+     "surah": 30,
+     "ayah": 57,
+     "dur_s": 9.97,
+     "n_words": 9,
+     "bytes": 167730,
+     "cached": false
+    },
+    {
+     "surah": 35,
+     "ayah": 21,
+     "dur_s": 3.24,
+     "n_words": 4,
+     "bytes": 59060,
+     "cached": false
+    },
+    {
+     "surah": 21,
+     "ayah": 96,
+     "dur_s": 13.66,
+     "n_words": 10,
+     "bytes": 228333,
+     "cached": false
+    },
+    {
+     "surah": 36,
+     "ayah": 63,
+     "dur_s": 6.9,
+     "n_words": 5,
+     "bytes": 116321,
+     "cached": false
+    },
+    {
+     "surah": 16,
+     "ayah": 18,
+     "dur_s": 10.13,
+     "n_words": 10,
+     "bytes": 169402,
+     "cached": false
+    },
+    {
+     "surah": 42,
+     "ayah": 19,
+     "dur_s": 12.03,
+     "n_words": 9,
+     "bytes": 197822,
+     "cached": false
+    },
+    {
+     "surah": 107,
+     "ayah": 1,
+     "dur_s": 5.17,
+     "n_words": 4,
+     "bytes": 90408,
+     "cached": false
+    },
+    {
+     "surah": 25,
+     "ayah": 31,
+     "dur_s": 13.39,
+     "n_words": 11,
+     "bytes": 221647,
+     "cached": false
+    },
+    {
+     "surah": 114,
+     "ayah": 5,
+     "dur_s": 5.98,
+     "n_words": 5,
+     "bytes": 100439,
+     "cached": false
+    },
+    {
+     "surah": 36,
+     "ayah": 41,
+     "dur_s": 8.91,
+     "n_words": 8,
+     "bytes": 149339,
+     "cached": false
+    },
+    {
+     "surah": 43,
+     "ayah": 86,
+     "dur_s": 11.91,
+     "n_words": 13,
+     "bytes": 199494,
+     "cached": false
+    },
+    {
+     "surah": 6,
+     "ayah": 155,
+     "dur_s": 11.94,
+     "n_words": 8,
+     "bytes": 206600,
+     "cached": false
+    },
+    {
+     "surah": 78,
+     "ayah": 36,
+     "dur_s": 9.19,
+     "n_words": 5,
+     "bytes": 152683,
+     "cached": false
+    },
+    {
+     "surah": 6,
+     "ayah": 49,
+     "dur_s": 10.69,
+     "n_words": 8,
+     "bytes": 184866,
+     "cached": false
+    },
+    {
+     "surah": 18,
+     "ayah": 69,
+     "dur_s": 12.07,
+     "n_words": 10,
+     "bytes": 202420,
+     "cached": false
+    },
+    {
+     "surah": 69,
+     "ayah": 26,
+     "dur_s": 4.01,
+     "n_words": 4,
+     "bytes": 70763,
+     "cached": false
+    },
+    {
+     "surah": 26,
+     "ayah": 176,
+     "dur_s": 4.72,
+     "n_words": 4,
+     "bytes": 81630,
+     "cached": false
+    },
+    {
+     "surah": 74,
+     "ayah": 28,
+     "dur_s": 3.36,
+     "n_words": 4,
+     "bytes": 56553,
+     "cached": false
+    },
+    {
+     "surah": 74,
+     "ayah": 20,
+     "dur_s": 4.29,
+     "n_words": 4,
+     "bytes": 69510,
+     "cached": false
+    },
+    {
+     "surah": 69,
+     "ayah": 50,
+     "dur_s": 5.84,
+     "n_words": 4,
+     "bytes": 101692,
+     "cached": false
+    },
+    {
+     "surah": 96,
+     "ayah": 19,
+     "dur_s": 6.54,
+     "n_words": 5,
+     "bytes": 109215,
+     "cached": false
+    },
+    {
+     "surah": 19,
+     "ayah": 90,
+     "dur_s": 11.61,
+     "n_words": 9,
+     "bytes": 194479,
+     "cached": false
+    },
+    {
+     "surah": 40,
+     "ayah": 48,
+     "dur_s": 14.47,
+     "n_words": 12,
+     "bytes": 237529,
+     "cached": false
+    },
+    {
+     "surah": 83,
+     "ayah": 14,
+     "dur_s": 9.82,
+     "n_words": 8,
+     "bytes": 165640,
+     "cached": false
+    },
+    {
+     "surah": 67,
+     "ayah": 21,
+     "dur_s": 13.03,
+     "n_words": 12,
+     "bytes": 219974,
+     "cached": false
+    }
+   ]
+  }
+ }
+}

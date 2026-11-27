@@ -1,0 +1,4189 @@
+{
+ "tier": "T3",
+ "fn": "Engine.assess - full Assessment",
+ "model": "ratl-align-v1-e2e-fp32.onnx",
+ "spec_version": "0.4",
+ "config": {
+  "lam_skip": -20.0,
+  "lam_ins": -20.0,
+  "lam_rep": -25.0,
+  "lam_trunc": -40.0,
+  "garb_pen": 2.0,
+  "tau_sub_z": null,
+  "tau_sub_z_abstain": 6.0,
+  "tau_omit_abstain": -8.0,
+  "tau_uncertain": null
+ },
+ "config_note": "tau_sub_z is +inf: V1 does not assert SUBSTITUTION (SPEC 4.1)",
+ "tolerances": {
+  "status": "exact",
+  "index": "exact",
+  "t_start_ms": "exact",
+  "t_end_ms": "exact",
+  "confidence": 0.001,
+  "llr_per_token": 0.001
+ },
+ "pcm_format": "int16 LE mono 16 kHz; divide by 32768.0 for float",
+ "n_cases": 56,
+ "cases": [
+  {
+   "id": "221d148940c7e4a9",
+   "op": "delete",
+   "tier": "seen",
+   "expected_status": "OMISSION",
+   "mutated_word_index": 8,
+   "pcm_file": "t3_pcm_221d148940c7e4a9.s16",
+   "n_samples": 145228,
+   "words": [
+    "dhālika",
+    "ʿīsā",
+    "ub'nu",
+    "maryama",
+    "qawla",
+    "l-ḥaqi",
+    "alladhī",
+    "fīhi",
+    "yamtarūna"
+   ],
+   "audio_duration_ms": 9060.0,
+   "llr_per_token": {
+    "0": 21.887798,
+    "1": 14.107368,
+    "2": 13.021294,
+    "3": 15.165912,
+    "4": 14.140241,
+    "5": 18.711467,
+    "6": 10.986643,
+    "7": -3.726229,
+    "8": -15.022782
+   },
+   "results": [
+    {
+     "index": 0,
+     "status": "CORRECT",
+     "confidence": 0.8992,
+     "t_start_ms": 660.0,
+     "t_end_ms": 1660.0
+    },
+    {
+     "index": 1,
+     "status": "CORRECT",
+     "confidence": 0.8039,
+     "t_start_ms": 1760.0,
+     "t_end_ms": 2580.0
+    },
+    {
+     "index": 2,
+     "status": "CORRECT",
+     "confidence": 0.7862,
+     "t_start_ms": 2620.0,
+     "t_end_ms": 3140.0
+    },
+    {
+     "index": 3,
+     "status": "CORRECT",
+     "confidence": 0.82,
+     "t_start_ms": 3200.0,
+     "t_end_ms": 4220.0
+    },
+    {
+     "index": 4,
+     "status": "CORRECT",
+     "confidence": 0.8044,
+     "t_start_ms": 4240.0,
+     "t_end_ms": 5040.0
+    },
+    {
+     "index": 5,
+     "status": "CORRECT",
+     "confidence": 0.8666,
+     "t_start_ms": 5080.0,
+     "t_end_ms": 6240.0
+    },
+    {
+     "index": 6,
+     "status": "CORRECT",
+     "confidence": 0.75,
+     "t_start_ms": 6280.0,
+     "t_end_ms": 7340.0
+    },
+    {
+     "index": 7,
+     "status": "CORRECT",
+     "confidence": 0.4079,
+     "t_start_ms": 7380.0,
+     "t_end_ms": 9060.0
+    },
+    {
+     "index": 8,
+     "status": "OMISSION",
+     "confidence": 0.1821,
+     "t_start_ms": null,
+     "t_end_ms": null
+    }
+   ],
+   "events": []
+  },
+  {
+   "id": "8ba2b887546814af",
+   "op": "delete",
+   "tier": "seen",
+   "expected_status": "OMISSION",
+   "mutated_word_index": 1,
+   "pcm_file": "t3_pcm_8ba2b887546814af.s16",
+   "n_samples": 86185,
+   "words": [
+    "inna",
+    "hādhā",
+    "lahuwa",
+    "l-balāu",
+    "l-mubīnu"
+   ],
+   "audio_duration_ms": 5380.0,
+   "llr_per_token": {
+    "0": -4.566489,
+    "1": -22.176149,
+    "2": -2.639501,
+    "3": 14.444674,
+    "4": 15.886461
+   },
+   "results": [
+    {
+     "index": 0,
+     "status": "CORRECT",
+     "confidence": 0.3878,
+     "t_start_ms": 140.0,
+     "t_end_ms": 5380.0
+    },
+    {
+     "index": 1,
+     "status": "OMISSION",
+     "confidence": 0.0982,
+     "t_start_ms": null,
+     "t_end_ms": null
+    },
+    {
+     "index": 2,
+     "status": "CORRECT",
+     "confidence": 0.4344,
+     "t_start_ms": 1060.0,
+     "t_end_ms": 1560.0
+    },
+    {
+     "index": 3,
+     "status": "CORRECT",
+     "confidence": 0.8091,
+     "t_start_ms": 1600.0,
+     "t_end_ms": 3520.0
+    },
+    {
+     "index": 4,
+     "status": "CORRECT",
+     "confidence": 0.8304,
+     "t_start_ms": 3560.0,
+     "t_end_ms": 5020.0
+    }
+   ],
+   "events": []
+  },
+  {
+   "id": "d86bbac0b98a5417",
+   "op": "substitute",
+   "tier": "seen",
+   "expected_status": "SUBSTITUTION",
+   "mutated_word_index": 1,
+   "pcm_file": "t3_pcm_d86bbac0b98a5417.s16",
+   "n_samples": 167436,
+   "words": [
+    "wal-ḥamdu",
+    "lillahi",
+    "rabbi",
+    "l-ʿālamīna"
+   ],
+   "audio_duration_ms": 10460.0,
+   "llr_per_token": {
+    "0": 10.936315,
+    "1": -1.63562,
+    "2": 8.482,
+    "3": 16.204037
+   },
+   "results": [
+    {
+     "index": 0,
+     "status": "CORRECT",
+     "confidence": 0.7491,
+     "t_start_ms": 940.0,
+     "t_end_ms": 3040.0
+    },
+    {
+     "index": 1,
+     "status": "UNCERTAIN",
+     "confidence": 0.4592,
+     "t_start_ms": 3060.0,
+     "t_end_ms": 6140.0
+    },
+    {
+     "index": 2,
+     "status": "CORRECT",
+     "confidence": 0.7002,
+     "t_start_ms": 6160.0,
+     "t_end_ms": 7260.0
+    },
+    {
+     "index": 3,
+     "status": "CORRECT",
+     "confidence": 0.8349,
+     "t_start_ms": 7300.0,
+     "t_end_ms": 9840.0
+    }
+   ],
+   "events": [
+    {
+     "type": "INSERTION",
+     "after_word": 0,
+     "t_start_ms": 2380.0,
+     "t_end_ms": 2760.0
+    }
+   ]
+  },
+  {
+   "id": "d80c59a3ec6c21ce",
+   "op": "substitute",
+   "tier": "seen",
+   "expected_status": "SUBSTITUTION",
+   "mutated_word_index": 0,
+   "pcm_file": "t3_pcm_d80c59a3ec6c21ce.s16",
+   "n_samples": 127223,
+   "words": [
+    "kadhabat",
+    "qawmu",
+    "nūḥin",
+    "l-mur'salīna"
+   ],
+   "audio_duration_ms": 7940.0,
+   "llr_per_token": {
+    "0": 12.825739,
+    "1": 10.278035,
+    "2": 19.234277,
+    "3": 16.256375
+   },
+   "results": [
+    {
+     "index": 0,
+     "status": "UNCERTAIN",
+     "confidence": 0.7829,
+     "t_start_ms": 720.0,
+     "t_end_ms": 3380.0
+    },
+    {
+     "index": 1,
+     "status": "CORRECT",
+     "confidence": 0.7365,
+     "t_start_ms": 3420.0,
+     "t_end_ms": 4020.0
+    },
+    {
+     "index": 2,
+     "status": "CORRECT",
+     "confidence": 0.8725,
+     "t_start_ms": 4060.0,
+     "t_end_ms": 4860.0
+    },
+    {
+     "index": 3,
+     "status": "CORRECT",
+     "confidence": 0.8356,
+     "t_start_ms": 4880.0,
+     "t_end_ms": 7680.0
+    }
+   ],
+   "events": []
+  },
+  {
+   "id": "ae461eea2aa1c89f",
+   "op": "repeat",
+   "tier": "seen",
+   "expected_status": "REPETITION",
+   "mutated_word_index": 3,
+   "pcm_file": "t3_pcm_ae461eea2aa1c89f.s16",
+   "n_samples": 232294,
+   "words": [
+    "fa-arsala",
+    "fir'ʿawnu",
+    "fī",
+    "l-madāini",
+    "ḥāshirīna"
+   ],
+   "audio_duration_ms": 14500.0,
+   "llr_per_token": {
+    "0": 20.666962,
+    "1": 19.780608,
+    "2": 19.74865,
+    "3": 20.902606,
+    "4": 19.524927
+   },
+   "results": [
+    {
+     "index": 0,
+     "status": "CORRECT",
+     "confidence": 0.8876,
+     "t_start_ms": 280.0,
+     "t_end_ms": 1580.0
+    },
+    {
+     "index": 1,
+     "status": "CORRECT",
+     "confidence": 0.8785,
+     "t_start_ms": 1620.0,
+     "t_end_ms": 2980.0
+    },
+    {
+     "index": 2,
+     "status": "CORRECT",
+     "confidence": 0.8781,
+     "t_start_ms": 3040.0,
+     "t_end_ms": 3320.0
+    },
+    {
+     "index": 3,
+     "status": "REPETITION",
+     "confidence": 0.89,
+     "t_start_ms": 3340.0,
+     "t_end_ms": 9220.0
+    },
+    {
+     "index": 4,
+     "status": "CORRECT",
+     "confidence": 0.8757,
+     "t_start_ms": 9260.0,
+     "t_end_ms": 11240.0
+    }
+   ],
+   "events": []
+  },
+  {
+   "id": "d7c0d258ab78a449",
+   "op": "repeat",
+   "tier": "seen",
+   "expected_status": "REPETITION",
+   "mutated_word_index": 3,
+   "pcm_file": "t3_pcm_d7c0d258ab78a449.s16",
+   "n_samples": 152734,
+   "words": [
+    "innī",
+    "jazaytuhumu",
+    "l-yawma",
+    "bimā",
+    "ṣabarū",
+    "annahum",
+    "humu",
+    "l-fāizūna"
+   ],
+   "audio_duration_ms": 9540.0,
+   "llr_per_token": {
+    "0": 25.277677,
+    "1": 14.680241,
+    "2": 18.976446,
+    "3": 13.40945,
+    "4": 12.703877,
+    "5": 17.16142,
+    "6": 20.45746,
+    "7": 17.747252
+   },
+   "results": [
+    {
+     "index": 0,
+     "status": "CORRECT",
+     "confidence": 0.9261,
+     "t_start_ms": 280.0,
+     "t_end_ms": 1300.0
+    },
+    {
+     "index": 1,
+     "status": "CORRECT",
+     "confidence": 0.8128,
+     "t_start_ms": 1340.0,
+     "t_end_ms": 2480.0
+    },
+    {
+     "index": 2,
+     "status": "CORRECT",
+     "confidence": 0.8696,
+     "t_start_ms": 2520.0,
+     "t_end_ms": 3140.0
+    },
+    {
+     "index": 3,
+     "status": "REPETITION",
+     "confidence": 0.7926,
+     "t_start_ms": 3180.0,
+     "t_end_ms": 4060.0
+    },
+    {
+     "index": 4,
+     "status": "UNCERTAIN",
+     "confidence": 0.7808,
+     "t_start_ms": 4100.0,
+     "t_end_ms": 4800.0
+    },
+    {
+     "index": 5,
+     "status": "CORRECT",
+     "confidence": 0.8476,
+     "t_start_ms": 4840.0,
+     "t_end_ms": 5980.0
+    },
+    {
+     "index": 6,
+     "status": "CORRECT",
+     "confidence": 0.8855,
+     "t_start_ms": 6020.0,
+     "t_end_ms": 6320.0
+    },
+    {
+     "index": 7,
+     "status": "CORRECT",
+     "confidence": 0.855,
+     "t_start_ms": 6360.0,
+     "t_end_ms": 9160.0
+    }
+   ],
+   "events": []
+  },
+  {
+   "id": "d4905ef16f96cb13",
+   "op": "insert",
+   "tier": "seen",
+   "expected_status": "INSERTION",
+   "mutated_word_index": 7,
+   "pcm_file": "t3_pcm_d4905ef16f96cb13.s16",
+   "n_samples": 104425,
+   "words": [
+    "inna",
+    "l-laha",
+    "lā",
+    "yakhfā",
+    "ʿalayhi",
+    "shayon",
+    "fī",
+    "l-arḍi",
+    "walā",
+    "fī",
+    "l-samāi"
+   ],
+   "audio_duration_ms": 6520.0,
+   "llr_per_token": {
+    "0": 20.813793,
+    "1": 19.807076,
+    "2": 17.023834,
+    "3": 13.630859,
+    "4": 19.411247,
+    "5": 14.444332,
+    "6": 17.527154,
+    "7": 14.098933,
+    "8": 15.425521,
+    "9": 11.69284,
+    "10": 19.186434
+   },
+   "results": [
+    {
+     "index": 0,
+     "status": "CORRECT",
+     "confidence": 0.8891,
+     "t_start_ms": 260.0,
+     "t_end_ms": 760.0
+    },
+    {
+     "index": 1,
+     "status": "CORRECT",
+     "confidence": 0.8788,
+     "t_start_ms": 800.0,
+     "t_end_ms": 1340.0
+    },
+    {
+     "index": 2,
+     "status": "CORRECT",
+     "confidence": 0.8458,
+     "t_start_ms": 1360.0,
+     "t_end_ms": 1580.0
+    },
+    {
+     "index": 3,
+     "status": "CORRECT",
+     "confidence": 0.7963,
+     "t_start_ms": 1620.0,
+     "t_end_ms": 2140.0
+    },
+    {
+     "index": 4,
+     "status": "CORRECT",
+     "confidence": 0.8745,
+     "t_start_ms": 2180.0,
+     "t_end_ms": 2740.0
+    },
+    {
+     "index": 5,
+     "status": "CORRECT",
+     "confidence": 0.8091,
+     "t_start_ms": 2780.0,
+     "t_end_ms": 3600.0
+    },
+    {
+     "index": 6,
+     "status": "CORRECT",
+     "confidence": 0.8523,
+     "t_start_ms": 3640.0,
+     "t_end_ms": 3780.0
+    },
+    {
+     "index": 7,
+     "status": "CORRECT",
+     "confidence": 0.8037,
+     "t_start_ms": 3800.0,
+     "t_end_ms": 4320.0
+    },
+    {
+     "index": 8,
+     "status": "CORRECT",
+     "confidence": 0.8238,
+     "t_start_ms": 4380.0,
+     "t_end_ms": 5060.0
+    },
+    {
+     "index": 9,
+     "status": "CORRECT",
+     "confidence": 0.763,
+     "t_start_ms": 5080.0,
+     "t_end_ms": 5220.0
+    },
+    {
+     "index": 10,
+     "status": "UNCERTAIN",
+     "confidence": 0.872,
+     "t_start_ms": 5260.0,
+     "t_end_ms": 6340.0
+    }
+   ],
+   "events": []
+  },
+  {
+   "id": "63ad9dc5b2f99afb",
+   "op": "insert",
+   "tier": "seen",
+   "expected_status": "INSERTION",
+   "mutated_word_index": 1,
+   "pcm_file": "t3_pcm_63ad9dc5b2f99afb.s16",
+   "n_samples": 153280,
+   "words": [
+    "ayaḥsabūna",
+    "annamā",
+    "numidduhum",
+    "bihi",
+    "min",
+    "mālin",
+    "wabanīna"
+   ],
+   "audio_duration_ms": 9580.0,
+   "llr_per_token": {
+    "0": 15.167905,
+    "1": 12.243891,
+    "2": 14.865525,
+    "3": 19.704693,
+    "4": 13.950015,
+    "5": 13.850326,
+    "6": 16.242365
+   },
+   "results": [
+    {
+     "index": 0,
+     "status": "CORRECT",
+     "confidence": 0.8201,
+     "t_start_ms": 140.0,
+     "t_end_ms": 1340.0
+    },
+    {
+     "index": 1,
+     "status": "CORRECT",
+     "confidence": 0.7728,
+     "t_start_ms": 1380.0,
+     "t_end_ms": 2680.0
+    },
+    {
+     "index": 2,
+     "status": "UNCERTAIN",
+     "confidence": 0.8156,
+     "t_start_ms": 2740.0,
+     "t_end_ms": 5440.0
+    },
+    {
+     "index": 3,
+     "status": "CORRECT",
+     "confidence": 0.8777,
+     "t_start_ms": 5480.0,
+     "t_end_ms": 6000.0
+    },
+    {
+     "index": 4,
+     "status": "CORRECT",
+     "confidence": 0.8014,
+     "t_start_ms": 6040.0,
+     "t_end_ms": 6740.0
+    },
+    {
+     "index": 5,
+     "status": "CORRECT",
+     "confidence": 0.7998,
+     "t_start_ms": 6800.0,
+     "t_end_ms": 7780.0
+    },
+    {
+     "index": 6,
+     "status": "CORRECT",
+     "confidence": 0.8354,
+     "t_start_ms": 7860.0,
+     "t_end_ms": 9200.0
+    }
+   ],
+   "events": []
+  },
+  {
+   "id": "307eaed9e04d9013",
+   "op": "truncate_25",
+   "tier": "seen",
+   "expected_status": "INCOMPLETE",
+   "mutated_word_index": 3,
+   "pcm_file": "t3_pcm_307eaed9e04d9013.s16",
+   "n_samples": 47387,
+   "words": [
+    "in",
+    "kullu",
+    "man",
+    "fī",
+    "l-samāwāti",
+    "wal-arḍi",
+    "illā",
+    "ātī",
+    "l-raḥmāni",
+    "ʿabdan"
+   ],
+   "audio_duration_ms": 2960.0,
+   "llr_per_token": {
+    "0": -28.941249,
+    "1": -23.213462,
+    "2": -24.342811,
+    "3": -30.617181,
+    "4": -21.526592,
+    "5": -22.000801,
+    "6": -23.53096,
+    "7": -24.647627,
+    "8": -21.114246,
+    "9": -21.707377
+   },
+   "results": [
+    {
+     "index": 0,
+     "status": "CORRECT",
+     "confidence": 0.0524,
+     "t_start_ms": 680.0,
+     "t_end_ms": 1360.0
+    },
+    {
+     "index": 1,
+     "status": "CORRECT",
+     "confidence": 0.0894,
+     "t_start_ms": 1400.0,
+     "t_end_ms": 2060.0
+    },
+    {
+     "index": 2,
+     "status": "CORRECT",
+     "confidence": 0.0806,
+     "t_start_ms": 2080.0,
+     "t_end_ms": 2960.0
+    },
+    {
+     "index": 3,
+     "status": "OMISSION",
+     "confidence": 0.0447,
+     "t_start_ms": null,
+     "t_end_ms": null
+    },
+    {
+     "index": 4,
+     "status": "OMISSION",
+     "confidence": 0.1041,
+     "t_start_ms": null,
+     "t_end_ms": null
+    },
+    {
+     "index": 5,
+     "status": "OMISSION",
+     "confidence": 0.0997,
+     "t_start_ms": null,
+     "t_end_ms": null
+    },
+    {
+     "index": 6,
+     "status": "OMISSION",
+     "confidence": 0.0868,
+     "t_start_ms": null,
+     "t_end_ms": null
+    },
+    {
+     "index": 7,
+     "status": "OMISSION",
+     "confidence": 0.0784,
+     "t_start_ms": null,
+     "t_end_ms": null
+    },
+    {
+     "index": 8,
+     "status": "OMISSION",
+     "confidence": 0.108,
+     "t_start_ms": null,
+     "t_end_ms": null
+    },
+    {
+     "index": 9,
+     "status": "OMISSION",
+     "confidence": 0.1024,
+     "t_start_ms": null,
+     "t_end_ms": null
+    }
+   ],
+   "events": []
+  },
+  {
+   "id": "3852d7174ea2cc9b",
+   "op": "truncate_25",
+   "tier": "seen",
+   "expected_status": "INCOMPLETE",
+   "mutated_word_index": 3,
+   "pcm_file": "t3_pcm_3852d7174ea2cc9b.s16",
+   "n_samples": 89097,
+   "words": [
+    "waākharu",
+    "min",
+    "shaklihi",
+    "azwājun"
+   ],
+   "audio_duration_ms": 5560.0,
+   "llr_per_token": {
+    "0": 16.61959,
+    "1": 28.470954,
+    "2": 9.467379,
+    "3": -2.396821
+   },
+   "results": [
+    {
+     "index": 0,
+     "status": "CORRECT",
+     "confidence": 0.8405,
+     "t_start_ms": 380.0,
+     "t_end_ms": 1480.0
+    },
+    {
+     "index": 1,
+     "status": "CORRECT",
+     "confidence": 0.9452,
+     "t_start_ms": 1540.0,
+     "t_end_ms": 2420.0
+    },
+    {
+     "index": 2,
+     "status": "CORRECT",
+     "confidence": 0.7205,
+     "t_start_ms": 2480.0,
+     "t_end_ms": 5020.0
+    },
+    {
+     "index": 3,
+     "status": "UNCERTAIN",
+     "confidence": 0.4404,
+     "t_start_ms": 5040.0,
+     "t_end_ms": 5560.0
+    }
+   ],
+   "events": []
+  },
+  {
+   "id": "5f718e3ae18be5f2",
+   "op": "truncate_50",
+   "tier": "seen",
+   "expected_status": "INCOMPLETE",
+   "mutated_word_index": 1,
+   "pcm_file": "t3_pcm_5f718e3ae18be5f2.s16",
+   "n_samples": 70956,
+   "words": [
+    "falawlā",
+    "idhā",
+    "balaghati",
+    "l-ḥul'qūma"
+   ],
+   "audio_duration_ms": 4420.0,
+   "llr_per_token": {
+    "0": -12.578432,
+    "1": -21.070188,
+    "2": -17.128726,
+    "3": -18.424552
+   },
+   "results": [
+    {
+     "index": 0,
+     "status": "CORRECT",
+     "confidence": 0.2213,
+     "t_start_ms": 2260.0,
+     "t_end_ms": 3920.0
+    },
+    {
+     "index": 1,
+     "status": "INCOMPLETE",
+     "confidence": 0.1084,
+     "t_start_ms": null,
+     "t_end_ms": null
+    },
+    {
+     "index": 2,
+     "status": "OMISSION",
+     "confidence": 0.1528,
+     "t_start_ms": null,
+     "t_end_ms": null
+    },
+    {
+     "index": 3,
+     "status": "OMISSION",
+     "confidence": 0.1368,
+     "t_start_ms": null,
+     "t_end_ms": null
+    }
+   ],
+   "events": []
+  },
+  {
+   "id": "ac398a9ce188a3eb",
+   "op": "truncate_50",
+   "tier": "seen",
+   "expected_status": "INCOMPLETE",
+   "mutated_word_index": 0,
+   "pcm_file": "t3_pcm_ac398a9ce188a3eb.s16",
+   "n_samples": 11016,
+   "words": [
+    "fa-aradnā",
+    "an",
+    "yub'dilahumā",
+    "rabbuhumā",
+    "khayran",
+    "min'hu",
+    "zakatan",
+    "wa-aqraba",
+    "ruḥ'man"
+   ],
+   "audio_duration_ms": 680.0,
+   "llr_per_token": {
+    "0": 0.0,
+    "1": 0.0,
+    "2": 0.0,
+    "3": 0.0,
+    "4": 0.0,
+    "5": 0.0,
+    "6": 0.0,
+    "7": 0.0,
+    "8": 0.0
+   },
+   "results": [
+    {
+     "index": 0,
+     "status": "INCOMPLETE",
+     "confidence": 0.5,
+     "t_start_ms": null,
+     "t_end_ms": null
+    },
+    {
+     "index": 1,
+     "status": "UNCERTAIN",
+     "confidence": 0.5,
+     "t_start_ms": null,
+     "t_end_ms": null
+    },
+    {
+     "index": 2,
+     "status": "UNCERTAIN",
+     "confidence": 0.5,
+     "t_start_ms": null,
+     "t_end_ms": null
+    },
+    {
+     "index": 3,
+     "status": "UNCERTAIN",
+     "confidence": 0.5,
+     "t_start_ms": null,
+     "t_end_ms": null
+    },
+    {
+     "index": 4,
+     "status": "UNCERTAIN",
+     "confidence": 0.5,
+     "t_start_ms": null,
+     "t_end_ms": null
+    },
+    {
+     "index": 5,
+     "status": "UNCERTAIN",
+     "confidence": 0.5,
+     "t_start_ms": null,
+     "t_end_ms": null
+    },
+    {
+     "index": 6,
+     "status": "UNCERTAIN",
+     "confidence": 0.5,
+     "t_start_ms": null,
+     "t_end_ms": null
+    },
+    {
+     "index": 7,
+     "status": "UNCERTAIN",
+     "confidence": 0.5,
+     "t_start_ms": null,
+     "t_end_ms": null
+    },
+    {
+     "index": 8,
+     "status": "UNCERTAIN",
+     "confidence": 0.5,
+     "t_start_ms": null,
+     "t_end_ms": null
+    }
+   ],
+   "events": []
+  },
+  {
+   "id": "137948c45ca4fd67",
+   "op": "truncate_75",
+   "tier": "seen",
+   "expected_status": "INCOMPLETE",
+   "mutated_word_index": 6,
+   "pcm_file": "t3_pcm_137948c45ca4fd67.s16",
+   "n_samples": 106465,
+   "words": [
+    "alladhī",
+    "lahu",
+    "mul'ku",
+    "l-samāwāti",
+    "wal-arḍi",
+    "wal-lahu",
+    "ʿalā",
+    "kulli",
+    "shayin",
+    "shahīdun"
+   ],
+   "audio_duration_ms": 6640.0,
+   "llr_per_token": {
+    "0": 17.29785,
+    "1": 20.409788,
+    "2": 13.45907,
+    "3": 9.054435,
+    "4": -4.904312,
+    "5": -12.446703,
+    "6": -22.37079,
+    "7": -24.416307,
+    "8": -18.259093,
+    "9": -23.349759
+   },
+   "results": [
+    {
+     "index": 0,
+     "status": "CORRECT",
+     "confidence": 0.8494,
+     "t_start_ms": 100.0,
+     "t_end_ms": 960.0
+    },
+    {
+     "index": 1,
+     "status": "CORRECT",
+     "confidence": 0.885,
+     "t_start_ms": 1000.0,
+     "t_end_ms": 1580.0
+    },
+    {
+     "index": 2,
+     "status": "CORRECT",
+     "confidence": 0.7935,
+     "t_start_ms": 1640.0,
+     "t_end_ms": 2220.0
+    },
+    {
+     "index": 3,
+     "status": "CORRECT",
+     "confidence": 0.7121,
+     "t_start_ms": 2260.0,
+     "t_end_ms": 3720.0
+    },
+    {
+     "index": 4,
+     "status": "CORRECT",
+     "confidence": 0.3798,
+     "t_start_ms": 3780.0,
+     "t_end_ms": 5140.0
+    },
+    {
+     "index": 5,
+     "status": "CORRECT",
+     "confidence": 0.2236,
+     "t_start_ms": 5220.0,
+     "t_end_ms": 6200.0
+    },
+    {
+     "index": 6,
+     "status": "INCOMPLETE",
+     "confidence": 0.0965,
+     "t_start_ms": null,
+     "t_end_ms": null
+    },
+    {
+     "index": 7,
+     "status": "OMISSION",
+     "confidence": 0.0801,
+     "t_start_ms": null,
+     "t_end_ms": null
+    },
+    {
+     "index": 8,
+     "status": "OMISSION",
+     "confidence": 0.1387,
+     "t_start_ms": null,
+     "t_end_ms": null
+    },
+    {
+     "index": 9,
+     "status": "OMISSION",
+     "confidence": 0.0883,
+     "t_start_ms": null,
+     "t_end_ms": null
+    }
+   ],
+   "events": []
+  },
+  {
+   "id": "3ca9b985761e0302",
+   "op": "truncate_75",
+   "tier": "seen",
+   "expected_status": "INCOMPLETE",
+   "mutated_word_index": 1,
+   "pcm_file": "t3_pcm_3ca9b985761e0302.s16",
+   "n_samples": 62356,
+   "words": [
+    "thumma",
+    "innī",
+    "aʿlantu",
+    "lahum",
+    "wa-asrartu",
+    "lahum",
+    "is'rāran"
+   ],
+   "audio_duration_ms": 3880.0,
+   "llr_per_token": {
+    "0": -8.39835,
+    "1": -22.043774,
+    "2": -22.055663,
+    "3": -25.164935,
+    "4": -21.515806,
+    "5": -24.132752,
+    "6": -22.907484
+   },
+   "results": [
+    {
+     "index": 0,
+     "status": "CORRECT",
+     "confidence": 0.3016,
+     "t_start_ms": 660.0,
+     "t_end_ms": 2060.0
+    },
+    {
+     "index": 1,
+     "status": "INCOMPLETE",
+     "confidence": 0.0994,
+     "t_start_ms": null,
+     "t_end_ms": null
+    },
+    {
+     "index": 2,
+     "status": "OMISSION",
+     "confidence": 0.0993,
+     "t_start_ms": null,
+     "t_end_ms": null
+    },
+    {
+     "index": 3,
+     "status": "OMISSION",
+     "confidence": 0.0747,
+     "t_start_ms": null,
+     "t_end_ms": null
+    },
+    {
+     "index": 4,
+     "status": "OMISSION",
+     "confidence": 0.1042,
+     "t_start_ms": null,
+     "t_end_ms": null
+    },
+    {
+     "index": 5,
+     "status": "OMISSION",
+     "confidence": 0.0822,
+     "t_start_ms": null,
+     "t_end_ms": null
+    },
+    {
+     "index": 6,
+     "status": "OMISSION",
+     "confidence": 0.0919,
+     "t_start_ms": null,
+     "t_end_ms": null
+    }
+   ],
+   "events": []
+  },
+  {
+   "id": "15b2b4aee6842eb6",
+   "op": "null",
+   "tier": "seen",
+   "expected_status": "CORRECT",
+   "mutated_word_index": 2,
+   "pcm_file": "t3_pcm_15b2b4aee6842eb6.s16",
+   "n_samples": 72398,
+   "words": [
+    "faqara-ahu",
+    "ʿalayhim",
+    "mā",
+    "kānū",
+    "bihi",
+    "mu'minīna"
+   ],
+   "audio_duration_ms": 4520.0,
+   "llr_per_token": {
+    "0": 13.660209,
+    "1": 18.636386,
+    "2": 15.683086,
+    "3": 15.017396,
+    "4": 17.668874,
+    "5": 16.980469
+   },
+   "results": [
+    {
+     "index": 0,
+     "status": "CORRECT",
+     "confidence": 0.7967,
+     "t_start_ms": 100.0,
+     "t_end_ms": 900.0
+    },
+    {
+     "index": 1,
+     "status": "CORRECT",
+     "confidence": 0.8657,
+     "t_start_ms": 960.0,
+     "t_end_ms": 1880.0
+    },
+    {
+     "index": 2,
+     "status": "CORRECT",
+     "confidence": 0.8275,
+     "t_start_ms": 1900.0,
+     "t_end_ms": 2160.0
+    },
+    {
+     "index": 3,
+     "status": "CORRECT",
+     "confidence": 0.8178,
+     "t_start_ms": 2200.0,
+     "t_end_ms": 2780.0
+    },
+    {
+     "index": 4,
+     "status": "CORRECT",
+     "confidence": 0.8541,
+     "t_start_ms": 2800.0,
+     "t_end_ms": 3240.0
+    },
+    {
+     "index": 5,
+     "status": "CORRECT",
+     "confidence": 0.8453,
+     "t_start_ms": 3280.0,
+     "t_end_ms": 4280.0
+    }
+   ],
+   "events": []
+  },
+  {
+   "id": "600e2f7cb5410821",
+   "op": "null",
+   "tier": "seen",
+   "expected_status": "CORRECT",
+   "mutated_word_index": 3,
+   "pcm_file": "t3_pcm_600e2f7cb5410821.s16",
+   "n_samples": 207824,
+   "words": [
+    "walada",
+    "l-lahu",
+    "wa-innahum",
+    "lakādhibūna"
+   ],
+   "audio_duration_ms": 12980.0,
+   "llr_per_token": {
+    "0": 12.115412,
+    "1": 11.855547,
+    "2": 15.605289,
+    "3": 20.043034
+   },
+   "results": [
+    {
+     "index": 0,
+     "status": "CORRECT",
+     "confidence": 0.7706,
+     "t_start_ms": 180.0,
+     "t_end_ms": 1260.0
+    },
+    {
+     "index": 1,
+     "status": "CORRECT",
+     "confidence": 0.7659,
+     "t_start_ms": 1300.0,
+     "t_end_ms": 6240.0
+    },
+    {
+     "index": 2,
+     "status": "CORRECT",
+     "confidence": 0.8264,
+     "t_start_ms": 6280.0,
+     "t_end_ms": 8760.0
+    },
+    {
+     "index": 3,
+     "status": "CORRECT",
+     "confidence": 0.8812,
+     "t_start_ms": 8860.0,
+     "t_end_ms": 11620.0
+    }
+   ],
+   "events": []
+  },
+  {
+   "id": "dbbfb84684674f13",
+   "op": "delete",
+   "tier": "disjoint",
+   "expected_status": "OMISSION",
+   "mutated_word_index": 3,
+   "pcm_file": "t3_pcm_dbbfb84684674f13.s16",
+   "n_samples": 55696,
+   "words": [
+    "alam",
+    "nashraḥ",
+    "laka",
+    "ṣadraka"
+   ],
+   "audio_duration_ms": 3480.0,
+   "llr_per_token": {
+    "0": 14.290703,
+    "1": 5.516452,
+    "2": -7.018098,
+    "3": -11.914963
+   },
+   "results": [
+    {
+     "index": 0,
+     "status": "CORRECT",
+     "confidence": 0.8068,
+     "t_start_ms": 560.0,
+     "t_end_ms": 1220.0
+    },
+    {
+     "index": 1,
+     "status": "CORRECT",
+     "confidence": 0.6345,
+     "t_start_ms": 1260.0,
+     "t_end_ms": 2320.0
+    },
+    {
+     "index": 2,
+     "status": "CORRECT",
+     "confidence": 0.3314,
+     "t_start_ms": 2340.0,
+     "t_end_ms": 3480.0
+    },
+    {
+     "index": 3,
+     "status": "OMISSION",
+     "confidence": 0.233,
+     "t_start_ms": null,
+     "t_end_ms": null
+    }
+   ],
+   "events": []
+  },
+  {
+   "id": "772de24f8d399ddb",
+   "op": "delete",
+   "tier": "disjoint",
+   "expected_status": "OMISSION",
+   "mutated_word_index": 1,
+   "pcm_file": "t3_pcm_772de24f8d399ddb.s16",
+   "n_samples": 147022,
+   "words": [
+    "alif-lam-ra",
+    "til'ka",
+    "āyātu",
+    "l-kitābi",
+    "l-mubīni"
+   ],
+   "audio_duration_ms": 9180.0,
+   "llr_per_token": {
+    "0": -1.074674,
+    "1": -13.255233,
+    "2": 9.295987,
+    "3": 11.514343,
+    "4": 8.708302
+   },
+   "results": [
+    {
+     "index": 0,
+     "status": "CORRECT",
+     "confidence": 0.4732,
+     "t_start_ms": 1100.0,
+     "t_end_ms": 9180.0
+    },
+    {
+     "index": 1,
+     "status": "OMISSION",
+     "confidence": 0.2099,
+     "t_start_ms": null,
+     "t_end_ms": null
+    },
+    {
+     "index": 2,
+     "status": "CORRECT",
+     "confidence": 0.717,
+     "t_start_ms": 5280.0,
+     "t_end_ms": 6340.0
+    },
+    {
+     "index": 3,
+     "status": "UNCERTAIN",
+     "confidence": 0.7598,
+     "t_start_ms": 6360.0,
+     "t_end_ms": 7420.0
+    },
+    {
+     "index": 4,
+     "status": "CORRECT",
+     "confidence": 0.7049,
+     "t_start_ms": 7440.0,
+     "t_end_ms": 9020.0
+    }
+   ],
+   "events": []
+  },
+  {
+   "id": "fcd4c1945e47eb89",
+   "op": "substitute",
+   "tier": "disjoint",
+   "expected_status": "SUBSTITUTION",
+   "mutated_word_index": 3,
+   "pcm_file": "t3_pcm_fcd4c1945e47eb89.s16",
+   "n_samples": 79866,
+   "words": [
+    "sabbiḥi",
+    "is'ma",
+    "rabbika",
+    "l-aʿlā"
+   ],
+   "audio_duration_ms": 4980.0,
+   "llr_per_token": {
+    "0": 13.265453,
+    "1": 10.45354,
+    "2": 16.852734,
+    "3": 6.828485
+   },
+   "results": [
+    {
+     "index": 0,
+     "status": "CORRECT",
+     "confidence": 0.7903,
+     "t_start_ms": 320.0,
+     "t_end_ms": 1200.0
+    },
+    {
+     "index": 1,
+     "status": "CORRECT",
+     "confidence": 0.7399,
+     "t_start_ms": 1220.0,
+     "t_end_ms": 1720.0
+    },
+    {
+     "index": 2,
+     "status": "CORRECT",
+     "confidence": 0.8436,
+     "t_start_ms": 1780.0,
+     "t_end_ms": 2740.0
+    },
+    {
+     "index": 3,
+     "status": "UNCERTAIN",
+     "confidence": 0.6644,
+     "t_start_ms": 2800.0,
+     "t_end_ms": 4260.0
+    }
+   ],
+   "events": []
+  },
+  {
+   "id": "430c2f94c7866a91",
+   "op": "substitute",
+   "tier": "disjoint",
+   "expected_status": "SUBSTITUTION",
+   "mutated_word_index": 3,
+   "pcm_file": "t3_pcm_430c2f94c7866a91.s16",
+   "n_samples": 208749,
+   "words": [
+    "ṣirāṭa",
+    "alladhīna",
+    "anʿamta",
+    "ʿalayhim",
+    "ghayri",
+    "l-maghḍūbi",
+    "ʿalayhim",
+    "walā",
+    "l-ḍālīna"
+   ],
+   "audio_duration_ms": 13040.0,
+   "llr_per_token": {
+    "0": 5.922054,
+    "1": 14.549171,
+    "2": 4.810954,
+    "3": -6.383805,
+    "4": -8.158135,
+    "5": 0.795982,
+    "6": 11.739393,
+    "7": 11.359358,
+    "8": 6.047016
+   },
+   "results": [
+    {
+     "index": 0,
+     "status": "CORRECT",
+     "confidence": 0.6439,
+     "t_start_ms": 940.0,
+     "t_end_ms": 1660.0
+    },
+    {
+     "index": 1,
+     "status": "CORRECT",
+     "confidence": 0.8108,
+     "t_start_ms": 1700.0,
+     "t_end_ms": 2760.0
+    },
+    {
+     "index": 2,
+     "status": "CORRECT",
+     "confidence": 0.618,
+     "t_start_ms": 2800.0,
+     "t_end_ms": 13040.0
+    },
+    {
+     "index": 3,
+     "status": "UNCERTAIN",
+     "confidence": 0.3456,
+     "t_start_ms": null,
+     "t_end_ms": null
+    },
+    {
+     "index": 4,
+     "status": "CORRECT",
+     "confidence": 0.3067,
+     "t_start_ms": 4280.0,
+     "t_end_ms": 4840.0
+    },
+    {
+     "index": 5,
+     "status": "CORRECT",
+     "confidence": 0.5199,
+     "t_start_ms": 4900.0,
+     "t_end_ms": 6200.0
+    },
+    {
+     "index": 6,
+     "status": "CORRECT",
+     "confidence": 0.7639,
+     "t_start_ms": 6220.0,
+     "t_end_ms": 7220.0
+    },
+    {
+     "index": 7,
+     "status": "CORRECT",
+     "confidence": 0.7569,
+     "t_start_ms": 7320.0,
+     "t_end_ms": 7680.0
+    },
+    {
+     "index": 8,
+     "status": "CORRECT",
+     "confidence": 0.6467,
+     "t_start_ms": 7700.0,
+     "t_end_ms": 12180.0
+    }
+   ],
+   "events": []
+  },
+  {
+   "id": "4712afe7e368fd43",
+   "op": "repeat",
+   "tier": "disjoint",
+   "expected_status": "REPETITION",
+   "mutated_word_index": 3,
+   "pcm_file": "t3_pcm_4712afe7e368fd43.s16",
+   "n_samples": 131272,
+   "words": [
+    "fabi-ayyi",
+    "ālāi",
+    "rabbikumā",
+    "tukadhibāni"
+   ],
+   "audio_duration_ms": 8200.0,
+   "llr_per_token": {
+    "0": 16.961337,
+    "1": 16.584599,
+    "2": 17.024225,
+    "3": 18.265455
+   },
+   "results": [
+    {
+     "index": 0,
+     "status": "CORRECT",
+     "confidence": 0.845,
+     "t_start_ms": 360.0,
+     "t_end_ms": 1340.0
+    },
+    {
+     "index": 1,
+     "status": "CORRECT",
+     "confidence": 0.84,
+     "t_start_ms": 1360.0,
+     "t_end_ms": 3260.0
+    },
+    {
+     "index": 2,
+     "status": "CORRECT",
+     "confidence": 0.8459,
+     "t_start_ms": 3320.0,
+     "t_end_ms": 4460.0
+    },
+    {
+     "index": 3,
+     "status": "REPETITION",
+     "confidence": 0.8613,
+     "t_start_ms": 4480.0,
+     "t_end_ms": 7700.0
+    }
+   ],
+   "events": []
+  },
+  {
+   "id": "7333735ff937c41a",
+   "op": "repeat",
+   "tier": "disjoint",
+   "expected_status": "REPETITION",
+   "mutated_word_index": 7,
+   "pcm_file": "t3_pcm_7333735ff937c41a.s16",
+   "n_samples": 177902,
+   "words": [
+    "tabāraka",
+    "alladhī",
+    "biyadihi",
+    "l-mul'ku",
+    "wahuwa",
+    "ʿalā",
+    "kulli",
+    "shayin",
+    "qadīrun"
+   ],
+   "audio_duration_ms": 11100.0,
+   "llr_per_token": {
+    "0": 10.567733,
+    "1": 11.19297,
+    "2": 7.386255,
+    "3": 7.539571,
+    "4": 3.866007,
+    "5": 15.430844,
+    "6": 7.852431,
+    "7": 11.245389,
+    "8": 6.76049
+   },
+   "results": [
+    {
+     "index": 0,
+     "status": "CORRECT",
+     "confidence": 0.7421,
+     "t_start_ms": 1120.0,
+     "t_end_ms": 2140.0
+    },
+    {
+     "index": 1,
+     "status": "CORRECT",
+     "confidence": 0.7539,
+     "t_start_ms": 2200.0,
+     "t_end_ms": 2980.0
+    },
+    {
+     "index": 2,
+     "status": "CORRECT",
+     "confidence": 0.6767,
+     "t_start_ms": 3020.0,
+     "t_end_ms": 3840.0
+    },
+    {
+     "index": 3,
+     "status": "CORRECT",
+     "confidence": 0.68,
+     "t_start_ms": 3860.0,
+     "t_end_ms": 4920.0
+    },
+    {
+     "index": 4,
+     "status": "CORRECT",
+     "confidence": 0.5955,
+     "t_start_ms": 4940.0,
+     "t_end_ms": 5460.0
+    },
+    {
+     "index": 5,
+     "status": "CORRECT",
+     "confidence": 0.8239,
+     "t_start_ms": 5500.0,
+     "t_end_ms": 6120.0
+    },
+    {
+     "index": 6,
+     "status": "CORRECT",
+     "confidence": 0.6868,
+     "t_start_ms": 6160.0,
+     "t_end_ms": 8080.0
+    },
+    {
+     "index": 7,
+     "status": "CORRECT",
+     "confidence": 0.7548,
+     "t_start_ms": 8120.0,
+     "t_end_ms": 9460.0
+    },
+    {
+     "index": 8,
+     "status": "CORRECT",
+     "confidence": 0.6629,
+     "t_start_ms": 9480.0,
+     "t_end_ms": 10880.0
+    }
+   ],
+   "events": [
+    {
+     "type": "INSERTION",
+     "after_word": 6,
+     "t_start_ms": 6820.0,
+     "t_end_ms": 6940.0
+    }
+   ]
+  },
+  {
+   "id": "78e240df1f56cdf8",
+   "op": "insert",
+   "tier": "disjoint",
+   "expected_status": "INSERTION",
+   "mutated_word_index": 2,
+   "pcm_file": "t3_pcm_78e240df1f56cdf8.s16",
+   "n_samples": 91672,
+   "words": [
+    "iyyāka",
+    "naʿbudu",
+    "wa-iyyāka",
+    "nastaʿīnu"
+   ],
+   "audio_duration_ms": 5720.0,
+   "llr_per_token": {
+    "0": 7.543953,
+    "1": 3.459201,
+    "2": 4.473482,
+    "3": 9.264933
+   },
+   "results": [
+    {
+     "index": 0,
+     "status": "CORRECT",
+     "confidence": 0.6801,
+     "t_start_ms": 500.0,
+     "t_end_ms": 1180.0
+    },
+    {
+     "index": 1,
+     "status": "UNCERTAIN",
+     "confidence": 0.5856,
+     "t_start_ms": 1200.0,
+     "t_end_ms": 1980.0
+    },
+    {
+     "index": 2,
+     "status": "CORRECT",
+     "confidence": 0.61,
+     "t_start_ms": 2020.0,
+     "t_end_ms": 3760.0
+    },
+    {
+     "index": 3,
+     "status": "CORRECT",
+     "confidence": 0.7164,
+     "t_start_ms": 3780.0,
+     "t_end_ms": 5560.0
+    }
+   ],
+   "events": [
+    {
+     "type": "INSERTION",
+     "after_word": 2,
+     "t_start_ms": 3540.0,
+     "t_end_ms": 3720.0
+    }
+   ]
+  },
+  {
+   "id": "0eb8b8d1a1e687bf",
+   "op": "insert",
+   "tier": "disjoint",
+   "expected_status": "INSERTION",
+   "mutated_word_index": 2,
+   "pcm_file": "t3_pcm_0eb8b8d1a1e687bf.s16",
+   "n_samples": 122998,
+   "words": [
+    "al-ḥamdu",
+    "lillahi",
+    "rabbi",
+    "l-ʿālamīna"
+   ],
+   "audio_duration_ms": 7680.0,
+   "llr_per_token": {
+    "0": 5.906113,
+    "1": 5.117656,
+    "2": 3.152378,
+    "3": 9.129615
+   },
+   "results": [
+    {
+     "index": 0,
+     "status": "CORRECT",
+     "confidence": 0.6435,
+     "t_start_ms": 660.0,
+     "t_end_ms": 1320.0
+    },
+    {
+     "index": 1,
+     "status": "CORRECT",
+     "confidence": 0.6252,
+     "t_start_ms": 1340.0,
+     "t_end_ms": 2340.0
+    },
+    {
+     "index": 2,
+     "status": "CORRECT",
+     "confidence": 0.5782,
+     "t_start_ms": 2360.0,
+     "t_end_ms": 5040.0
+    },
+    {
+     "index": 3,
+     "status": "CORRECT",
+     "confidence": 0.7136,
+     "t_start_ms": 5060.0,
+     "t_end_ms": 7500.0
+    }
+   ],
+   "events": []
+  },
+  {
+   "id": "2fb50bb262b3a9b7",
+   "op": "truncate_25",
+   "tier": "disjoint",
+   "expected_status": "INCOMPLETE",
+   "mutated_word_index": 3,
+   "pcm_file": "t3_pcm_2fb50bb262b3a9b7.s16",
+   "n_samples": 52944,
+   "words": [
+    "ṣirāṭa",
+    "alladhīna",
+    "anʿamta",
+    "ʿalayhim",
+    "ghayri",
+    "l-maghḍūbi",
+    "ʿalayhim",
+    "walā",
+    "l-ḍālīna"
+   ],
+   "audio_duration_ms": 3300.0,
+   "llr_per_token": {
+    "0": -2.133012,
+    "1": -12.274962,
+    "2": -18.621631,
+    "3": -17.346999,
+    "4": -18.987614,
+    "5": -17.985897,
+    "6": -19.257642,
+    "7": -26.334347,
+    "8": -19.060782
+   },
+   "results": [
+    {
+     "index": 0,
+     "status": "CORRECT",
+     "confidence": 0.4469,
+     "t_start_ms": 80.0,
+     "t_end_ms": 780.0
+    },
+    {
+     "index": 1,
+     "status": "CORRECT",
+     "confidence": 0.2266,
+     "t_start_ms": 800.0,
+     "t_end_ms": 1800.0
+    },
+    {
+     "index": 2,
+     "status": "CORRECT",
+     "confidence": 0.1345,
+     "t_start_ms": 1840.0,
+     "t_end_ms": 2820.0
+    },
+    {
+     "index": 3,
+     "status": "INCOMPLETE",
+     "confidence": 0.15,
+     "t_start_ms": null,
+     "t_end_ms": null
+    },
+    {
+     "index": 4,
+     "status": "OMISSION",
+     "confidence": 0.1302,
+     "t_start_ms": null,
+     "t_end_ms": null
+    },
+    {
+     "index": 5,
+     "status": "OMISSION",
+     "confidence": 0.142,
+     "t_start_ms": null,
+     "t_end_ms": null
+    },
+    {
+     "index": 6,
+     "status": "OMISSION",
+     "confidence": 0.1272,
+     "t_start_ms": null,
+     "t_end_ms": null
+    },
+    {
+     "index": 7,
+     "status": "OMISSION",
+     "confidence": 0.067,
+     "t_start_ms": null,
+     "t_end_ms": null
+    },
+    {
+     "index": 8,
+     "status": "OMISSION",
+     "confidence": 0.1294,
+     "t_start_ms": null,
+     "t_end_ms": null
+    }
+   ],
+   "events": []
+  },
+  {
+   "id": "e220bf82350cfae4",
+   "op": "truncate_25",
+   "tier": "disjoint",
+   "expected_status": "INCOMPLETE",
+   "mutated_word_index": 1,
+   "pcm_file": "t3_pcm_e220bf82350cfae4.s16",
+   "n_samples": 42584,
+   "words": [
+    "innā",
+    "anzalnāhu",
+    "fī",
+    "laylati",
+    "l-qadri"
+   ],
+   "audio_duration_ms": 2660.0,
+   "llr_per_token": {
+    "0": -15.729628,
+    "1": -16.50513,
+    "2": -27.592591,
+    "3": -19.191904,
+    "4": -19.555854
+   },
+   "results": [
+    {
+     "index": 0,
+     "status": "CORRECT",
+     "confidence": 0.1718,
+     "t_start_ms": 520.0,
+     "t_end_ms": 2660.0
+    },
+    {
+     "index": 1,
+     "status": "OMISSION",
+     "confidence": 0.161,
+     "t_start_ms": null,
+     "t_end_ms": null
+    },
+    {
+     "index": 2,
+     "status": "OMISSION",
+     "confidence": 0.0596,
+     "t_start_ms": null,
+     "t_end_ms": null
+    },
+    {
+     "index": 3,
+     "status": "OMISSION",
+     "confidence": 0.128,
+     "t_start_ms": null,
+     "t_end_ms": null
+    },
+    {
+     "index": 4,
+     "status": "OMISSION",
+     "confidence": 0.1239,
+     "t_start_ms": null,
+     "t_end_ms": null
+    }
+   ],
+   "events": []
+  },
+  {
+   "id": "eb5d4921d4b0f241",
+   "op": "truncate_50",
+   "tier": "disjoint",
+   "expected_status": "INCOMPLETE",
+   "mutated_word_index": 2,
+   "pcm_file": "t3_pcm_eb5d4921d4b0f241.s16",
+   "n_samples": 41819,
+   "words": [
+    "sabbiḥi",
+    "is'ma",
+    "rabbika",
+    "l-aʿlā"
+   ],
+   "audio_duration_ms": 2600.0,
+   "llr_per_token": {
+    "0": 5.489263,
+    "1": -1.47804,
+    "2": -10.947879,
+    "3": -17.347874
+   },
+   "results": [
+    {
+     "index": 0,
+     "status": "CORRECT",
+     "confidence": 0.6339,
+     "t_start_ms": 1040.0,
+     "t_end_ms": 1740.0
+    },
+    {
+     "index": 1,
+     "status": "UNCERTAIN",
+     "confidence": 0.4631,
+     "t_start_ms": 1760.0,
+     "t_end_ms": 2100.0
+    },
+    {
+     "index": 2,
+     "status": "INCOMPLETE",
+     "confidence": 0.2507,
+     "t_start_ms": null,
+     "t_end_ms": null
+    },
+    {
+     "index": 3,
+     "status": "OMISSION",
+     "confidence": 0.15,
+     "t_start_ms": null,
+     "t_end_ms": null
+    }
+   ],
+   "events": []
+  },
+  {
+   "id": "23215f52b9e2f563",
+   "op": "truncate_50",
+   "tier": "disjoint",
+   "expected_status": "INCOMPLETE",
+   "mutated_word_index": 1,
+   "pcm_file": "t3_pcm_23215f52b9e2f563.s16",
+   "n_samples": 24517,
+   "words": [
+    "iq'ra",
+    "bi-is'mi",
+    "rabbika",
+    "alladhī",
+    "khalaqa"
+   ],
+   "audio_duration_ms": 1520.0,
+   "llr_per_token": {
+    "0": -20.98855,
+    "1": -17.156774,
+    "2": -18.248016,
+    "3": -22.086991,
+    "4": -20.76567
+   },
+   "results": [
+    {
+     "index": 0,
+     "status": "CORRECT",
+     "confidence": 0.1092,
+     "t_start_ms": 380.0,
+     "t_end_ms": 1280.0
+    },
+    {
+     "index": 1,
+     "status": "INCOMPLETE",
+     "confidence": 0.1524,
+     "t_start_ms": null,
+     "t_end_ms": null
+    },
+    {
+     "index": 2,
+     "status": "OMISSION",
+     "confidence": 0.1389,
+     "t_start_ms": null,
+     "t_end_ms": null
+    },
+    {
+     "index": 3,
+     "status": "OMISSION",
+     "confidence": 0.099,
+     "t_start_ms": null,
+     "t_end_ms": null
+    },
+    {
+     "index": 4,
+     "status": "OMISSION",
+     "confidence": 0.1114,
+     "t_start_ms": null,
+     "t_end_ms": null
+    }
+   ],
+   "events": []
+  },
+  {
+   "id": "20695156303d805f",
+   "op": "truncate_75",
+   "tier": "disjoint",
+   "expected_status": "INCOMPLETE",
+   "mutated_word_index": 2,
+   "pcm_file": "t3_pcm_20695156303d805f.s16",
+   "n_samples": 78394,
+   "words": [
+    "innā",
+    "anzalnāhu",
+    "fī",
+    "laylati",
+    "l-qadri"
+   ],
+   "audio_duration_ms": 4880.0,
+   "llr_per_token": {
+    "0": -11.376635,
+    "1": -11.641394,
+    "2": -26.442994,
+    "3": -19.881922,
+    "4": -19.919569
+   },
+   "results": [
+    {
+     "index": 0,
+     "status": "CORRECT",
+     "confidence": 0.2427,
+     "t_start_ms": 1060.0,
+     "t_end_ms": 2700.0
+    },
+    {
+     "index": 1,
+     "status": "INCOMPLETE",
+     "confidence": 0.2379,
+     "t_start_ms": null,
+     "t_end_ms": null
+    },
+    {
+     "index": 2,
+     "status": "OMISSION",
+     "confidence": 0.0663,
+     "t_start_ms": null,
+     "t_end_ms": null
+    },
+    {
+     "index": 3,
+     "status": "OMISSION",
+     "confidence": 0.1204,
+     "t_start_ms": null,
+     "t_end_ms": null
+    },
+    {
+     "index": 4,
+     "status": "OMISSION",
+     "confidence": 0.12,
+     "t_start_ms": null,
+     "t_end_ms": null
+    }
+   ],
+   "events": []
+  },
+  {
+   "id": "3005d4f7ac2fd277",
+   "op": "truncate_75",
+   "tier": "disjoint",
+   "expected_status": "INCOMPLETE",
+   "mutated_word_index": 1,
+   "pcm_file": "t3_pcm_3005d4f7ac2fd277.s16",
+   "n_samples": 41054,
+   "words": [
+    "fabi-ayyi",
+    "ālāi",
+    "rabbikumā",
+    "tukadhibāni"
+   ],
+   "audio_duration_ms": 2560.0,
+   "llr_per_token": {
+    "0": -4.528956,
+    "1": -15.45595,
+    "2": -17.804471,
+    "3": -16.718042
+   },
+   "results": [
+    {
+     "index": 0,
+     "status": "CORRECT",
+     "confidence": 0.3887,
+     "t_start_ms": 120.0,
+     "t_end_ms": 1100.0
+    },
+    {
+     "index": 1,
+     "status": "INCOMPLETE",
+     "confidence": 0.1757,
+     "t_start_ms": null,
+     "t_end_ms": null
+    },
+    {
+     "index": 2,
+     "status": "OMISSION",
+     "confidence": 0.1442,
+     "t_start_ms": null,
+     "t_end_ms": null
+    },
+    {
+     "index": 3,
+     "status": "OMISSION",
+     "confidence": 0.1582,
+     "t_start_ms": null,
+     "t_end_ms": null
+    }
+   ],
+   "events": []
+  },
+  {
+   "id": "39c35ed9d092e728",
+   "op": "null",
+   "tier": "disjoint",
+   "expected_status": "CORRECT",
+   "mutated_word_index": 0,
+   "pcm_file": "t3_pcm_39c35ed9d092e728.s16",
+   "n_samples": 198191,
+   "words": [
+    "al-ḥamdu",
+    "lillahi",
+    "alladhī",
+    "anzala",
+    "ʿalā",
+    "ʿabdihi",
+    "l-kitāba",
+    "walam",
+    "yajʿal",
+    "lahu",
+    "ʿiwajā"
+   ],
+   "audio_duration_ms": 12380.0,
+   "llr_per_token": {
+    "0": 14.828534,
+    "1": 16.665494,
+    "2": 15.567363,
+    "3": 15.041867,
+    "4": 16.338508,
+    "5": 14.915657,
+    "6": 16.414632,
+    "7": 17.987959,
+    "8": 15.559773,
+    "9": 10.725191,
+    "10": 4.589924
+   },
+   "results": [
+    {
+     "index": 0,
+     "status": "CORRECT",
+     "confidence": 0.815,
+     "t_start_ms": 260.0,
+     "t_end_ms": 1220.0
+    },
+    {
+     "index": 1,
+     "status": "CORRECT",
+     "confidence": 0.8411,
+     "t_start_ms": 1240.0,
+     "t_end_ms": 2240.0
+    },
+    {
+     "index": 2,
+     "status": "CORRECT",
+     "confidence": 0.8259,
+     "t_start_ms": 2280.0,
+     "t_end_ms": 4220.0
+    },
+    {
+     "index": 3,
+     "status": "CORRECT",
+     "confidence": 0.8182,
+     "t_start_ms": 4260.0,
+     "t_end_ms": 5660.0
+    },
+    {
+     "index": 4,
+     "status": "CORRECT",
+     "confidence": 0.8367,
+     "t_start_ms": 5720.0,
+     "t_end_ms": 6260.0
+    },
+    {
+     "index": 5,
+     "status": "CORRECT",
+     "confidence": 0.8163,
+     "t_start_ms": 6320.0,
+     "t_end_ms": 7140.0
+    },
+    {
+     "index": 6,
+     "status": "CORRECT",
+     "confidence": 0.8377,
+     "t_start_ms": 7180.0,
+     "t_end_ms": 8280.0
+    },
+    {
+     "index": 7,
+     "status": "CORRECT",
+     "confidence": 0.858,
+     "t_start_ms": 8340.0,
+     "t_end_ms": 8900.0
+    },
+    {
+     "index": 8,
+     "status": "CORRECT",
+     "confidence": 0.8258,
+     "t_start_ms": 8940.0,
+     "t_end_ms": 9660.0
+    },
+    {
+     "index": 9,
+     "status": "CORRECT",
+     "confidence": 0.7451,
+     "t_start_ms": 9680.0,
+     "t_end_ms": 10420.0
+    },
+    {
+     "index": 10,
+     "status": "UNCERTAIN",
+     "confidence": 0.6128,
+     "t_start_ms": 10440.0,
+     "t_end_ms": 11240.0
+    }
+   ],
+   "events": []
+  },
+  {
+   "id": "f2bea9b5158f7e4f",
+   "op": "null",
+   "tier": "disjoint",
+   "expected_status": "CORRECT",
+   "mutated_word_index": 1,
+   "pcm_file": "t3_pcm_f2bea9b5158f7e4f.s16",
+   "n_samples": 82428,
+   "words": [
+    "qul",
+    "aʿūdhu",
+    "birabbi",
+    "l-nāsi"
+   ],
+   "audio_duration_ms": 5140.0,
+   "llr_per_token": {
+    "0": 12.271109,
+    "1": 8.995295,
+    "2": 12.727463,
+    "3": 10.184175
+   },
+   "results": [
+    {
+     "index": 0,
+     "status": "CORRECT",
+     "confidence": 0.7733,
+     "t_start_ms": 980.0,
+     "t_end_ms": 1300.0
+    },
+    {
+     "index": 1,
+     "status": "CORRECT",
+     "confidence": 0.7109,
+     "t_start_ms": 1360.0,
+     "t_end_ms": 2200.0
+    },
+    {
+     "index": 2,
+     "status": "CORRECT",
+     "confidence": 0.7812,
+     "t_start_ms": 2220.0,
+     "t_end_ms": 3040.0
+    },
+    {
+     "index": 3,
+     "status": "CORRECT",
+     "confidence": 0.7347,
+     "t_start_ms": 3060.0,
+     "t_end_ms": 4880.0
+    }
+   ],
+   "events": []
+  },
+  {
+   "id": "8887cdea545e7f8a",
+   "op": "clean",
+   "tier": "seen",
+   "expected_status": "CORRECT",
+   "mutated_word_index": 2,
+   "pcm_file": "t3_pcm_8887cdea545e7f8a.s16",
+   "n_samples": 99057,
+   "words": [
+    "wa-anna",
+    "ʿalayhi",
+    "l-nashata",
+    "l-ukh'rā"
+   ],
+   "audio_duration_ms": 6180.0,
+   "llr_per_token": {
+    "0": 18.646895,
+    "1": 17.027261,
+    "2": 18.673878,
+    "3": 24.590463
+   },
+   "results": [
+    {
+     "index": 0,
+     "status": "CORRECT",
+     "confidence": 0.8658,
+     "t_start_ms": 180.0,
+     "t_end_ms": 1500.0
+    },
+    {
+     "index": 1,
+     "status": "CORRECT",
+     "confidence": 0.8459,
+     "t_start_ms": 1540.0,
+     "t_end_ms": 2560.0
+    },
+    {
+     "index": 2,
+     "status": "CORRECT",
+     "confidence": 0.8662,
+     "t_start_ms": 2620.0,
+     "t_end_ms": 4220.0
+    },
+    {
+     "index": 3,
+     "status": "CORRECT",
+     "confidence": 0.9212,
+     "t_start_ms": 4280.0,
+     "t_end_ms": 5220.0
+    }
+   ],
+   "events": []
+  },
+  {
+   "id": "6ebca89e8c36b13e",
+   "op": "clean",
+   "tier": "seen",
+   "expected_status": "CORRECT",
+   "mutated_word_index": 1,
+   "pcm_file": "t3_pcm_6ebca89e8c36b13e.s16",
+   "n_samples": 122045,
+   "words": [
+    "fa-ammā",
+    "in",
+    "kāna",
+    "mina",
+    "l-muqarabīna"
+   ],
+   "audio_duration_ms": 7620.0,
+   "llr_per_token": {
+    "0": 14.258032,
+    "1": 35.90323,
+    "2": 14.885734,
+    "3": 16.319335,
+    "4": 16.031707
+   },
+   "results": [
+    {
+     "index": 0,
+     "status": "CORRECT",
+     "confidence": 0.8062,
+     "t_start_ms": 40.0,
+     "t_end_ms": 2580.0
+    },
+    {
+     "index": 1,
+     "status": "CORRECT",
+     "confidence": 0.9732,
+     "t_start_ms": 2600.0,
+     "t_end_ms": 3480.0
+    },
+    {
+     "index": 2,
+     "status": "CORRECT",
+     "confidence": 0.8159,
+     "t_start_ms": 3500.0,
+     "t_end_ms": 4080.0
+    },
+    {
+     "index": 3,
+     "status": "CORRECT",
+     "confidence": 0.8364,
+     "t_start_ms": 4120.0,
+     "t_end_ms": 4400.0
+    },
+    {
+     "index": 4,
+     "status": "CORRECT",
+     "confidence": 0.8325,
+     "t_start_ms": 4460.0,
+     "t_end_ms": 6920.0
+    }
+   ],
+   "events": []
+  },
+  {
+   "id": "202a6a50efb643dc",
+   "op": "clean",
+   "tier": "seen",
+   "expected_status": "CORRECT",
+   "mutated_word_index": 5,
+   "pcm_file": "t3_pcm_202a6a50efb643dc.s16",
+   "n_samples": 133734,
+   "words": [
+    "liyakfurū",
+    "bimā",
+    "ātaynāhum",
+    "fatamattaʿū",
+    "fasawfa",
+    "taʿlamūna"
+   ],
+   "audio_duration_ms": 8340.0,
+   "llr_per_token": {
+    "0": 15.801083,
+    "1": 19.692821,
+    "2": 15.3944,
+    "3": 15.461036,
+    "4": 21.062237,
+    "5": 17.93472
+   },
+   "results": [
+    {
+     "index": 0,
+     "status": "CORRECT",
+     "confidence": 0.8292,
+     "t_start_ms": 100.0,
+     "t_end_ms": 1080.0
+    },
+    {
+     "index": 1,
+     "status": "CORRECT",
+     "confidence": 0.8775,
+     "t_start_ms": 1120.0,
+     "t_end_ms": 2320.0
+    },
+    {
+     "index": 2,
+     "status": "CORRECT",
+     "confidence": 0.8234,
+     "t_start_ms": 2380.0,
+     "t_end_ms": 4280.0
+    },
+    {
+     "index": 3,
+     "status": "CORRECT",
+     "confidence": 0.8244,
+     "t_start_ms": 4320.0,
+     "t_end_ms": 5560.0
+    },
+    {
+     "index": 4,
+     "status": "CORRECT",
+     "confidence": 0.8915,
+     "t_start_ms": 5600.0,
+     "t_end_ms": 6360.0
+    },
+    {
+     "index": 5,
+     "status": "CORRECT",
+     "confidence": 0.8574,
+     "t_start_ms": 6400.0,
+     "t_end_ms": 7980.0
+    }
+   ],
+   "events": []
+  },
+  {
+   "id": "2b645cf37f53c9c4",
+   "op": "clean",
+   "tier": "seen",
+   "expected_status": "CORRECT",
+   "mutated_word_index": 4,
+   "pcm_file": "t3_pcm_2b645cf37f53c9c4.s16",
+   "n_samples": 80667,
+   "words": [
+    "wa-uʿ'bud",
+    "rabbaka",
+    "ḥattā",
+    "yatiyaka",
+    "l-yaqīnu"
+   ],
+   "audio_duration_ms": 5040.0,
+   "llr_per_token": {
+    "0": 16.82281,
+    "1": 18.140734,
+    "2": 21.758539,
+    "3": 20.582285,
+    "4": 11.123206
+   },
+   "results": [
+    {
+     "index": 0,
+     "status": "CORRECT",
+     "confidence": 0.8432,
+     "t_start_ms": 360.0,
+     "t_end_ms": 980.0
+    },
+    {
+     "index": 1,
+     "status": "CORRECT",
+     "confidence": 0.8599,
+     "t_start_ms": 1060.0,
+     "t_end_ms": 1740.0
+    },
+    {
+     "index": 2,
+     "status": "CORRECT",
+     "confidence": 0.8981,
+     "t_start_ms": 1780.0,
+     "t_end_ms": 2500.0
+    },
+    {
+     "index": 3,
+     "status": "CORRECT",
+     "confidence": 0.8868,
+     "t_start_ms": 2540.0,
+     "t_end_ms": 3480.0
+    },
+    {
+     "index": 4,
+     "status": "UNCERTAIN",
+     "confidence": 0.7526,
+     "t_start_ms": 3540.0,
+     "t_end_ms": 4540.0
+    }
+   ],
+   "events": []
+  },
+  {
+   "id": "1ae0053e23e39e6f",
+   "op": "clean",
+   "tier": "seen",
+   "expected_status": "CORRECT",
+   "mutated_word_index": 2,
+   "pcm_file": "t3_pcm_1ae0053e23e39e6f.s16",
+   "n_samples": 169274,
+   "words": [
+    "walaqad",
+    "manannā",
+    "ʿalayka",
+    "marratan",
+    "ukh'rā"
+   ],
+   "audio_duration_ms": 10560.0,
+   "llr_per_token": {
+    "0": 18.655709,
+    "1": 18.323844,
+    "2": 22.530724,
+    "3": 17.9427,
+    "4": 37.040446
+   },
+   "results": [
+    {
+     "index": 0,
+     "status": "CORRECT",
+     "confidence": 0.8659,
+     "t_start_ms": 320.0,
+     "t_end_ms": 1120.0
+    },
+    {
+     "index": 1,
+     "status": "CORRECT",
+     "confidence": 0.862,
+     "t_start_ms": 1160.0,
+     "t_end_ms": 2540.0
+    },
+    {
+     "index": 2,
+     "status": "CORRECT",
+     "confidence": 0.9049,
+     "t_start_ms": 2600.0,
+     "t_end_ms": 3580.0
+    },
+    {
+     "index": 3,
+     "status": "CORRECT",
+     "confidence": 0.8574,
+     "t_start_ms": 3620.0,
+     "t_end_ms": 4820.0
+    },
+    {
+     "index": 4,
+     "status": "CORRECT",
+     "confidence": 0.976,
+     "t_start_ms": 4880.0,
+     "t_end_ms": 5560.0
+    }
+   ],
+   "events": []
+  },
+  {
+   "id": "80c80bf2b9535995",
+   "op": "clean",
+   "tier": "seen",
+   "expected_status": "CORRECT",
+   "mutated_word_index": 2,
+   "pcm_file": "t3_pcm_80c80bf2b9535995.s16",
+   "n_samples": 131240,
+   "words": [
+    "sayuh'zamu",
+    "l-jamʿu",
+    "wayuwallūna",
+    "l-dubura"
+   ],
+   "audio_duration_ms": 8200.0,
+   "llr_per_token": {
+    "0": 20.495054,
+    "1": 22.062843,
+    "2": 17.568985,
+    "3": 13.901155
+   },
+   "results": [
+    {
+     "index": 0,
+     "status": "CORRECT",
+     "confidence": 0.8859,
+     "t_start_ms": 140.0,
+     "t_end_ms": 1740.0
+    },
+    {
+     "index": 1,
+     "status": "CORRECT",
+     "confidence": 0.9008,
+     "t_start_ms": 1780.0,
+     "t_end_ms": 3140.0
+    },
+    {
+     "index": 2,
+     "status": "CORRECT",
+     "confidence": 0.8528,
+     "t_start_ms": 3180.0,
+     "t_end_ms": 5620.0
+    },
+    {
+     "index": 3,
+     "status": "CORRECT",
+     "confidence": 0.8006,
+     "t_start_ms": 5660.0,
+     "t_end_ms": 6780.0
+    }
+   ],
+   "events": []
+  },
+  {
+   "id": "2b43842b2801ba8f",
+   "op": "clean",
+   "tier": "seen",
+   "expected_status": "CORRECT",
+   "mutated_word_index": 1,
+   "pcm_file": "t3_pcm_2b43842b2801ba8f.s16",
+   "n_samples": 51822,
+   "words": [
+    "innahu",
+    "ʿalā",
+    "rajʿihi",
+    "laqādirun"
+   ],
+   "audio_duration_ms": 3220.0,
+   "llr_per_token": {
+    "0": 15.610154,
+    "1": 23.661617,
+    "2": 18.465783,
+    "3": 13.455177
+   },
+   "results": [
+    {
+     "index": 0,
+     "status": "CORRECT",
+     "confidence": 0.8265,
+     "t_start_ms": 280.0,
+     "t_end_ms": 980.0
+    },
+    {
+     "index": 1,
+     "status": "CORRECT",
+     "confidence": 0.9142,
+     "t_start_ms": 1040.0,
+     "t_end_ms": 1460.0
+    },
+    {
+     "index": 2,
+     "status": "CORRECT",
+     "confidence": 0.8637,
+     "t_start_ms": 1520.0,
+     "t_end_ms": 2260.0
+    },
+    {
+     "index": 3,
+     "status": "CORRECT",
+     "confidence": 0.7934,
+     "t_start_ms": 2300.0,
+     "t_end_ms": 3160.0
+    }
+   ],
+   "events": []
+  },
+  {
+   "id": "424caf336e93e54f",
+   "op": "clean",
+   "tier": "seen",
+   "expected_status": "CORRECT",
+   "mutated_word_index": 0,
+   "pcm_file": "t3_pcm_424caf336e93e54f.s16",
+   "n_samples": 135419,
+   "words": [
+    "fasāhama",
+    "fakāna",
+    "mina",
+    "l-mud'ḥaḍīna"
+   ],
+   "audio_duration_ms": 8460.0,
+   "llr_per_token": {
+    "0": 13.310634,
+    "1": 11.565604,
+    "2": 19.310678,
+    "3": 21.929222
+   },
+   "results": [
+    {
+     "index": 0,
+     "status": "CORRECT",
+     "confidence": 0.791,
+     "t_start_ms": 980.0,
+     "t_end_ms": 2840.0
+    },
+    {
+     "index": 1,
+     "status": "CORRECT",
+     "confidence": 0.7607,
+     "t_start_ms": 2880.0,
+     "t_end_ms": 4560.0
+    },
+    {
+     "index": 2,
+     "status": "CORRECT",
+     "confidence": 0.8734,
+     "t_start_ms": 4620.0,
+     "t_end_ms": 5360.0
+    },
+    {
+     "index": 3,
+     "status": "CORRECT",
+     "confidence": 0.8996,
+     "t_start_ms": 5420.0,
+     "t_end_ms": 8380.0
+    }
+   ],
+   "events": []
+  },
+  {
+   "id": "b89e86dc38953e5c",
+   "op": "clean",
+   "tier": "seen",
+   "expected_status": "CORRECT",
+   "mutated_word_index": 5,
+   "pcm_file": "t3_pcm_b89e86dc38953e5c.s16",
+   "n_samples": 215305,
+   "words": [
+    "walā",
+    "takūnū",
+    "ka-alladhīna",
+    "nasū",
+    "l-laha",
+    "fa-ansāhum",
+    "anfusahum",
+    "ulāika",
+    "humu",
+    "l-fāsiqūna"
+   ],
+   "audio_duration_ms": 13440.0,
+   "llr_per_token": {
+    "0": 13.736919,
+    "1": 12.345972,
+    "2": 10.069077,
+    "3": 11.103927,
+    "4": 19.992816,
+    "5": 19.557191,
+    "6": 15.083947,
+    "7": 16.083269,
+    "8": 11.987079,
+    "9": 16.009682
+   },
+   "results": [
+    {
+     "index": 0,
+     "status": "CORRECT",
+     "confidence": 0.798,
+     "t_start_ms": 920.0,
+     "t_end_ms": 1400.0
+    },
+    {
+     "index": 1,
+     "status": "CORRECT",
+     "confidence": 0.7746,
+     "t_start_ms": 1420.0,
+     "t_end_ms": 2340.0
+    },
+    {
+     "index": 2,
+     "status": "CORRECT",
+     "confidence": 0.7324,
+     "t_start_ms": 2360.0,
+     "t_end_ms": 3460.0
+    },
+    {
+     "index": 3,
+     "status": "CORRECT",
+     "confidence": 0.7522,
+     "t_start_ms": 3480.0,
+     "t_end_ms": 3820.0
+    },
+    {
+     "index": 4,
+     "status": "CORRECT",
+     "confidence": 0.8807,
+     "t_start_ms": 3880.0,
+     "t_end_ms": 4580.0
+    },
+    {
+     "index": 5,
+     "status": "CORRECT",
+     "confidence": 0.8761,
+     "t_start_ms": 4620.0,
+     "t_end_ms": 6280.0
+    },
+    {
+     "index": 6,
+     "status": "UNCERTAIN",
+     "confidence": 0.8188,
+     "t_start_ms": 6340.0,
+     "t_end_ms": 8340.0
+    },
+    {
+     "index": 7,
+     "status": "CORRECT",
+     "confidence": 0.8332,
+     "t_start_ms": 8380.0,
+     "t_end_ms": 10800.0
+    },
+    {
+     "index": 8,
+     "status": "CORRECT",
+     "confidence": 0.7683,
+     "t_start_ms": 10820.0,
+     "t_end_ms": 11160.0
+    },
+    {
+     "index": 9,
+     "status": "CORRECT",
+     "confidence": 0.8322,
+     "t_start_ms": 11200.0,
+     "t_end_ms": 13180.0
+    }
+   ],
+   "events": []
+  },
+  {
+   "id": "a52aa285098a2f20",
+   "op": "clean",
+   "tier": "seen",
+   "expected_status": "CORRECT",
+   "mutated_word_index": 0,
+   "pcm_file": "t3_pcm_a52aa285098a2f20.s16",
+   "n_samples": 184738,
+   "words": [
+    "fadhakkir",
+    "innamā",
+    "anta",
+    "mudhakkirun"
+   ],
+   "audio_duration_ms": 11540.0,
+   "llr_per_token": {
+    "0": 16.299362,
+    "1": 15.890851,
+    "2": 22.248159,
+    "3": 14.601819
+   },
+   "results": [
+    {
+     "index": 0,
+     "status": "CORRECT",
+     "confidence": 0.8362,
+     "t_start_ms": 440.0,
+     "t_end_ms": 2040.0
+    },
+    {
+     "index": 1,
+     "status": "CORRECT",
+     "confidence": 0.8305,
+     "t_start_ms": 2080.0,
+     "t_end_ms": 4680.0
+    },
+    {
+     "index": 2,
+     "status": "CORRECT",
+     "confidence": 0.9025,
+     "t_start_ms": 4700.0,
+     "t_end_ms": 6080.0
+    },
+    {
+     "index": 3,
+     "status": "CORRECT",
+     "confidence": 0.8116,
+     "t_start_ms": 6120.0,
+     "t_end_ms": 7600.0
+    }
+   ],
+   "events": []
+  },
+  {
+   "id": "4e1c6d4b41a734d3",
+   "op": "clean",
+   "tier": "seen",
+   "expected_status": "CORRECT",
+   "mutated_word_index": 1,
+   "pcm_file": "t3_pcm_4e1c6d4b41a734d3.s16",
+   "n_samples": 231965,
+   "words": [
+    "watil'ka",
+    "l-amthālu",
+    "naḍribuhā",
+    "lilnnāsi",
+    "wamā",
+    "yaʿqiluhā",
+    "illā",
+    "l-ʿālimūna"
+   ],
+   "audio_duration_ms": 14480.0,
+   "llr_per_token": {
+    "0": 17.847431,
+    "1": 13.107197,
+    "2": 15.348188,
+    "3": 13.696154,
+    "4": 21.016263,
+    "5": 17.553559,
+    "6": 13.970478,
+    "7": 16.493534
+   },
+   "results": [
+    {
+     "index": 0,
+     "status": "CORRECT",
+     "confidence": 0.8563,
+     "t_start_ms": 100.0,
+     "t_end_ms": 860.0
+    },
+    {
+     "index": 1,
+     "status": "CORRECT",
+     "confidence": 0.7876,
+     "t_start_ms": 880.0,
+     "t_end_ms": 2120.0
+    },
+    {
+     "index": 2,
+     "status": "CORRECT",
+     "confidence": 0.8227,
+     "t_start_ms": 2140.0,
+     "t_end_ms": 3340.0
+    },
+    {
+     "index": 3,
+     "status": "UNCERTAIN",
+     "confidence": 0.7973,
+     "t_start_ms": 3380.0,
+     "t_end_ms": 7160.0
+    },
+    {
+     "index": 4,
+     "status": "CORRECT",
+     "confidence": 0.8911,
+     "t_start_ms": 7240.0,
+     "t_end_ms": 7840.0
+    },
+    {
+     "index": 5,
+     "status": "CORRECT",
+     "confidence": 0.8526,
+     "t_start_ms": 7880.0,
+     "t_end_ms": 10300.0
+    },
+    {
+     "index": 6,
+     "status": "CORRECT",
+     "confidence": 0.8017,
+     "t_start_ms": 10340.0,
+     "t_end_ms": 10860.0
+    },
+    {
+     "index": 7,
+     "status": "CORRECT",
+     "confidence": 0.8388,
+     "t_start_ms": 10920.0,
+     "t_end_ms": 14100.0
+    }
+   ],
+   "events": []
+  },
+  {
+   "id": "ba5d2e7704c63984",
+   "op": "clean",
+   "tier": "seen",
+   "expected_status": "CORRECT",
+   "mutated_word_index": 3,
+   "pcm_file": "t3_pcm_ba5d2e7704c63984.s16",
+   "n_samples": 68957,
+   "words": [
+    "wamā",
+    "adrāka",
+    "mā",
+    "yawmu",
+    "l-dīni"
+   ],
+   "audio_duration_ms": 4300.0,
+   "llr_per_token": {
+    "0": 19.35965,
+    "1": 16.899136,
+    "2": 17.260818,
+    "3": 18.940423,
+    "4": 15.35248
+   },
+   "results": [
+    {
+     "index": 0,
+     "status": "CORRECT",
+     "confidence": 0.8739,
+     "t_start_ms": 100.0,
+     "t_end_ms": 1300.0
+    },
+    {
+     "index": 1,
+     "status": "CORRECT",
+     "confidence": 0.8442,
+     "t_start_ms": 1340.0,
+     "t_end_ms": 2220.0
+    },
+    {
+     "index": 2,
+     "status": "CORRECT",
+     "confidence": 0.8489,
+     "t_start_ms": 2240.0,
+     "t_end_ms": 2540.0
+    },
+    {
+     "index": 3,
+     "status": "CORRECT",
+     "confidence": 0.8692,
+     "t_start_ms": 2580.0,
+     "t_end_ms": 3120.0
+    },
+    {
+     "index": 4,
+     "status": "CORRECT",
+     "confidence": 0.8228,
+     "t_start_ms": 3160.0,
+     "t_end_ms": 4100.0
+    }
+   ],
+   "events": []
+  },
+  {
+   "id": "d35475a32df161bb",
+   "op": "clean",
+   "tier": "seen",
+   "expected_status": "CORRECT",
+   "mutated_word_index": 4,
+   "pcm_file": "t3_pcm_d35475a32df161bb.s16",
+   "n_samples": 180232,
+   "words": [
+    "afara-ayta",
+    "alladhī",
+    "kafara",
+    "biāyātinā",
+    "waqāla",
+    "laūtayanna",
+    "mālan",
+    "wawaladan"
+   ],
+   "audio_duration_ms": 11260.0,
+   "llr_per_token": {
+    "0": 18.503813,
+    "1": 14.484979,
+    "2": 12.136522,
+    "3": 18.817316,
+    "4": 18.955521,
+    "5": 16.171246,
+    "6": 16.273641,
+    "7": 14.056692
+   },
+   "results": [
+    {
+     "index": 0,
+     "status": "CORRECT",
+     "confidence": 0.8642,
+     "t_start_ms": 240.0,
+     "t_end_ms": 1420.0
+    },
+    {
+     "index": 1,
+     "status": "CORRECT",
+     "confidence": 0.8098,
+     "t_start_ms": 1460.0,
+     "t_end_ms": 2400.0
+    },
+    {
+     "index": 2,
+     "status": "CORRECT",
+     "confidence": 0.7709,
+     "t_start_ms": 2420.0,
+     "t_end_ms": 3120.0
+    },
+    {
+     "index": 3,
+     "status": "CORRECT",
+     "confidence": 0.8678,
+     "t_start_ms": 3160.0,
+     "t_end_ms": 4980.0
+    },
+    {
+     "index": 4,
+     "status": "CORRECT",
+     "confidence": 0.8694,
+     "t_start_ms": 5020.0,
+     "t_end_ms": 5920.0
+    },
+    {
+     "index": 5,
+     "status": "CORRECT",
+     "confidence": 0.8344,
+     "t_start_ms": 5960.0,
+     "t_end_ms": 8080.0
+    },
+    {
+     "index": 6,
+     "status": "CORRECT",
+     "confidence": 0.8358,
+     "t_start_ms": 8120.0,
+     "t_end_ms": 9740.0
+    },
+    {
+     "index": 7,
+     "status": "CORRECT",
+     "confidence": 0.8031,
+     "t_start_ms": 9780.0,
+     "t_end_ms": 10980.0
+    }
+   ],
+   "events": []
+  },
+  {
+   "id": "90cb7c3f4601731e",
+   "op": "clean",
+   "tier": "seen",
+   "expected_status": "CORRECT",
+   "mutated_word_index": 1,
+   "pcm_file": "t3_pcm_90cb7c3f4601731e.s16",
+   "n_samples": 84420,
+   "words": [
+    "yurīdu",
+    "an",
+    "yukh'rijakum",
+    "min",
+    "arḍikum",
+    "famādhā",
+    "tamurūna"
+   ],
+   "audio_duration_ms": 5260.0,
+   "llr_per_token": {
+    "0": 14.925794,
+    "1": 17.750416,
+    "2": 16.221946,
+    "3": 22.671489,
+    "4": 19.440782,
+    "5": 15.055132,
+    "6": 14.973334
+   },
+   "results": [
+    {
+     "index": 0,
+     "status": "CORRECT",
+     "confidence": 0.8165,
+     "t_start_ms": 100.0,
+     "t_end_ms": 620.0
+    },
+    {
+     "index": 1,
+     "status": "CORRECT",
+     "confidence": 0.8551,
+     "t_start_ms": 640.0,
+     "t_end_ms": 1080.0
+    },
+    {
+     "index": 2,
+     "status": "CORRECT",
+     "confidence": 0.8351,
+     "t_start_ms": 1140.0,
+     "t_end_ms": 2260.0
+    },
+    {
+     "index": 3,
+     "status": "CORRECT",
+     "confidence": 0.9061,
+     "t_start_ms": 2300.0,
+     "t_end_ms": 2560.0
+    },
+    {
+     "index": 4,
+     "status": "CORRECT",
+     "confidence": 0.8748,
+     "t_start_ms": 2600.0,
+     "t_end_ms": 3300.0
+    },
+    {
+     "index": 5,
+     "status": "CORRECT",
+     "confidence": 0.8184,
+     "t_start_ms": 3320.0,
+     "t_end_ms": 4100.0
+    },
+    {
+     "index": 6,
+     "status": "CORRECT",
+     "confidence": 0.8172,
+     "t_start_ms": 4140.0,
+     "t_end_ms": 5080.0
+    }
+   ],
+   "events": []
+  },
+  {
+   "id": "75ab8d3b28548e68",
+   "op": "clean",
+   "tier": "seen",
+   "expected_status": "CORRECT",
+   "mutated_word_index": 3,
+   "pcm_file": "t3_pcm_75ab8d3b28548e68.s16",
+   "n_samples": 141271,
+   "words": [
+    "walaqad",
+    "yassarnā",
+    "l-qur'āna",
+    "lildhik'ri",
+    "fahal",
+    "min",
+    "muddakirin"
+   ],
+   "audio_duration_ms": 8820.0,
+   "llr_per_token": {
+    "0": 16.281502,
+    "1": 14.50718,
+    "2": 17.278534,
+    "3": 15.910678,
+    "4": 19.958275,
+    "5": 12.861315,
+    "6": 10.855138
+   },
+   "results": [
+    {
+     "index": 0,
+     "status": "CORRECT",
+     "confidence": 0.8359,
+     "t_start_ms": 480.0,
+     "t_end_ms": 1360.0
+    },
+    {
+     "index": 1,
+     "status": "CORRECT",
+     "confidence": 0.8101,
+     "t_start_ms": 1420.0,
+     "t_end_ms": 2560.0
+    },
+    {
+     "index": 2,
+     "status": "CORRECT",
+     "confidence": 0.8491,
+     "t_start_ms": 2620.0,
+     "t_end_ms": 4120.0
+    },
+    {
+     "index": 3,
+     "status": "CORRECT",
+     "confidence": 0.8308,
+     "t_start_ms": 4140.0,
+     "t_end_ms": 5340.0
+    },
+    {
+     "index": 4,
+     "status": "CORRECT",
+     "confidence": 0.8804,
+     "t_start_ms": 5380.0,
+     "t_end_ms": 6200.0
+    },
+    {
+     "index": 5,
+     "status": "CORRECT",
+     "confidence": 0.7835,
+     "t_start_ms": 6240.0,
+     "t_end_ms": 7140.0
+    },
+    {
+     "index": 6,
+     "status": "CORRECT",
+     "confidence": 0.7475,
+     "t_start_ms": 7180.0,
+     "t_end_ms": 8400.0
+    }
+   ],
+   "events": []
+  },
+  {
+   "id": "f8a20be7bc3ccdb1",
+   "op": "clean",
+   "tier": "seen",
+   "expected_status": "CORRECT",
+   "mutated_word_index": 3,
+   "pcm_file": "t3_pcm_f8a20be7bc3ccdb1.s16",
+   "n_samples": 186828,
+   "words": [
+    "rabbi",
+    "ij'ʿalnī",
+    "muqīma",
+    "l-ṣalati",
+    "wamin",
+    "dhurriyyatī",
+    "rabbanā",
+    "wataqabbal",
+    "duʿāi"
+   ],
+   "audio_duration_ms": 11660.0,
+   "llr_per_token": {
+    "0": 10.926105,
+    "1": 9.745908,
+    "2": 12.06613,
+    "3": 16.077855,
+    "4": 21.320367,
+    "5": 15.887516,
+    "6": 13.572063,
+    "7": 16.715565,
+    "8": 12.243611
+   },
+   "results": [
+    {
+     "index": 0,
+     "status": "CORRECT",
+     "confidence": 0.7489,
+     "t_start_ms": 340.0,
+     "t_end_ms": 820.0
+    },
+    {
+     "index": 1,
+     "status": "CORRECT",
+     "confidence": 0.726,
+     "t_start_ms": 840.0,
+     "t_end_ms": 1660.0
+    },
+    {
+     "index": 2,
+     "status": "CORRECT",
+     "confidence": 0.7697,
+     "t_start_ms": 1700.0,
+     "t_end_ms": 2400.0
+    },
+    {
+     "index": 3,
+     "status": "CORRECT",
+     "confidence": 0.8331,
+     "t_start_ms": 2480.0,
+     "t_end_ms": 3380.0
+    },
+    {
+     "index": 4,
+     "status": "CORRECT",
+     "confidence": 0.894,
+     "t_start_ms": 3420.0,
+     "t_end_ms": 4680.0
+    },
+    {
+     "index": 5,
+     "status": "CORRECT",
+     "confidence": 0.8304,
+     "t_start_ms": 4740.0,
+     "t_end_ms": 7100.0
+    },
+    {
+     "index": 6,
+     "status": "CORRECT",
+     "confidence": 0.7953,
+     "t_start_ms": 7140.0,
+     "t_end_ms": 7960.0
+    },
+    {
+     "index": 7,
+     "status": "CORRECT",
+     "confidence": 0.8418,
+     "t_start_ms": 8020.0,
+     "t_end_ms": 9140.0
+    },
+    {
+     "index": 8,
+     "status": "CORRECT",
+     "confidence": 0.7728,
+     "t_start_ms": 9180.0,
+     "t_end_ms": 10780.0
+    }
+   ],
+   "events": []
+  },
+  {
+   "id": "ff0a70f1eb93fccc",
+   "op": "clean",
+   "tier": "seen",
+   "expected_status": "CORRECT",
+   "mutated_word_index": 8,
+   "pcm_file": "t3_pcm_ff0a70f1eb93fccc.s16",
+   "n_samples": 215667,
+   "words": [
+    "idh",
+    "qāla",
+    "li-abīhi",
+    "waqawmihi",
+    "mā",
+    "hādhihi",
+    "l-tamāthīlu",
+    "allatī",
+    "antum",
+    "lahā",
+    "ʿākifūna"
+   ],
+   "audio_duration_ms": 13460.0,
+   "llr_per_token": {
+    "0": 34.820624,
+    "1": 14.619828,
+    "2": 13.33651,
+    "3": 18.944355,
+    "4": 20.190541,
+    "5": 19.196732,
+    "6": 13.434201,
+    "7": 18.522264,
+    "8": 23.380715,
+    "9": 17.275027,
+    "10": 15.93392
+   },
+   "results": [
+    {
+     "index": 0,
+     "status": "CORRECT",
+     "confidence": 0.9702,
+     "t_start_ms": 440.0,
+     "t_end_ms": 620.0
+    },
+    {
+     "index": 1,
+     "status": "CORRECT",
+     "confidence": 0.8118,
+     "t_start_ms": 660.0,
+     "t_end_ms": 1380.0
+    },
+    {
+     "index": 2,
+     "status": "CORRECT",
+     "confidence": 0.7914,
+     "t_start_ms": 1440.0,
+     "t_end_ms": 2500.0
+    },
+    {
+     "index": 3,
+     "status": "CORRECT",
+     "confidence": 0.8693,
+     "t_start_ms": 2560.0,
+     "t_end_ms": 4000.0
+    },
+    {
+     "index": 4,
+     "status": "CORRECT",
+     "confidence": 0.8828,
+     "t_start_ms": 4040.0,
+     "t_end_ms": 4500.0
+    },
+    {
+     "index": 5,
+     "status": "CORRECT",
+     "confidence": 0.8721,
+     "t_start_ms": 4540.0,
+     "t_end_ms": 5460.0
+    },
+    {
+     "index": 6,
+     "status": "CORRECT",
+     "confidence": 0.7931,
+     "t_start_ms": 5500.0,
+     "t_end_ms": 7140.0
+    },
+    {
+     "index": 7,
+     "status": "CORRECT",
+     "confidence": 0.8644,
+     "t_start_ms": 7180.0,
+     "t_end_ms": 9140.0
+    },
+    {
+     "index": 8,
+     "status": "CORRECT",
+     "confidence": 0.912,
+     "t_start_ms": 9180.0,
+     "t_end_ms": 10700.0
+    },
+    {
+     "index": 9,
+     "status": "CORRECT",
+     "confidence": 0.8491,
+     "t_start_ms": 10740.0,
+     "t_end_ms": 11480.0
+    },
+    {
+     "index": 10,
+     "status": "CORRECT",
+     "confidence": 0.8311,
+     "t_start_ms": 11540.0,
+     "t_end_ms": 12980.0
+    }
+   ],
+   "events": []
+  },
+  {
+   "id": "00f76aae93779f9b",
+   "op": "clean",
+   "tier": "seen",
+   "expected_status": "CORRECT",
+   "mutated_word_index": 2,
+   "pcm_file": "t3_pcm_00f76aae93779f9b.s16",
+   "n_samples": 147857,
+   "words": [
+    "fabi-ayyi",
+    "ālāi",
+    "rabbikumā",
+    "tukadhibāni"
+   ],
+   "audio_duration_ms": 9240.0,
+   "llr_per_token": {
+    "0": 20.818607,
+    "1": 19.225194,
+    "2": 21.54668,
+    "3": 18.354797
+   },
+   "results": [
+    {
+     "index": 0,
+     "status": "CORRECT",
+     "confidence": 0.8891,
+     "t_start_ms": 40.0,
+     "t_end_ms": 1000.0
+    },
+    {
+     "index": 1,
+     "status": "CORRECT",
+     "confidence": 0.8724,
+     "t_start_ms": 1040.0,
+     "t_end_ms": 3760.0
+    },
+    {
+     "index": 2,
+     "status": "CORRECT",
+     "confidence": 0.8961,
+     "t_start_ms": 3820.0,
+     "t_end_ms": 5100.0
+    },
+    {
+     "index": 3,
+     "status": "CORRECT",
+     "confidence": 0.8624,
+     "t_start_ms": 5140.0,
+     "t_end_ms": 8940.0
+    }
+   ],
+   "events": []
+  },
+  {
+   "id": "51e294bf77a78edc",
+   "op": "clean",
+   "tier": "seen",
+   "expected_status": "CORRECT",
+   "mutated_word_index": 0,
+   "pcm_file": "t3_pcm_51e294bf77a78edc.s16",
+   "n_samples": 126224,
+   "words": [
+    "alladhī",
+    "yuwaswisu",
+    "fī",
+    "ṣudūri",
+    "l-nāsi"
+   ],
+   "audio_duration_ms": 7880.0,
+   "llr_per_token": {
+    "0": 24.793757,
+    "1": 16.926964,
+    "2": 19.347827,
+    "3": 19.06016,
+    "4": 18.430538
+   },
+   "results": [
+    {
+     "index": 0,
+     "status": "CORRECT",
+     "confidence": 0.9227,
+     "t_start_ms": 40.0,
+     "t_end_ms": 1480.0
+    },
+    {
+     "index": 1,
+     "status": "CORRECT",
+     "confidence": 0.8446,
+     "t_start_ms": 1540.0,
+     "t_end_ms": 3320.0
+    },
+    {
+     "index": 2,
+     "status": "CORRECT",
+     "confidence": 0.8738,
+     "t_start_ms": 3360.0,
+     "t_end_ms": 4020.0
+    },
+    {
+     "index": 3,
+     "status": "CORRECT",
+     "confidence": 0.8706,
+     "t_start_ms": 4100.0,
+     "t_end_ms": 5620.0
+    },
+    {
+     "index": 4,
+     "status": "CORRECT",
+     "confidence": 0.8633,
+     "t_start_ms": 5660.0,
+     "t_end_ms": 7860.0
+    }
+   ],
+   "events": []
+  },
+  {
+   "id": "fddd54cb59d58054",
+   "op": "clean",
+   "tier": "seen",
+   "expected_status": "CORRECT",
+   "mutated_word_index": 11,
+   "pcm_file": "t3_pcm_fddd54cb59d58054.s16",
+   "n_samples": 238655,
+   "words": [
+    "qul",
+    "atuʿallimūna",
+    "l-laha",
+    "bidīnikum",
+    "wal-lahu",
+    "yaʿlamu",
+    "mā",
+    "fī",
+    "l-samāwāti",
+    "wamā",
+    "fī",
+    "l-arḍi",
+    "wal-lahu",
+    "bikulli",
+    "shayin",
+    "ʿalīmun"
+   ],
+   "audio_duration_ms": 14900.0,
+   "llr_per_token": {
+    "0": 15.467759,
+    "1": 14.295659,
+    "2": 22.111149,
+    "3": 12.986646,
+    "4": 20.236309,
+    "5": 12.122245,
+    "6": 15.207328,
+    "7": 16.903547,
+    "8": 17.406858,
+    "9": 15.990531,
+    "10": 17.203021,
+    "11": 14.009173,
+    "12": 19.075079,
+    "13": 19.391764,
+    "14": 16.071942,
+    "15": 13.223842
+   },
+   "results": [
+    {
+     "index": 0,
+     "status": "CORRECT",
+     "confidence": 0.8244,
+     "t_start_ms": 460.0,
+     "t_end_ms": 740.0
+    },
+    {
+     "index": 1,
+     "status": "CORRECT",
+     "confidence": 0.8068,
+     "t_start_ms": 780.0,
+     "t_end_ms": 2160.0
+    },
+    {
+     "index": 2,
+     "status": "CORRECT",
+     "confidence": 0.9012,
+     "t_start_ms": 2220.0,
+     "t_end_ms": 2920.0
+    },
+    {
+     "index": 3,
+     "status": "CORRECT",
+     "confidence": 0.7856,
+     "t_start_ms": 2960.0,
+     "t_end_ms": 3980.0
+    },
+    {
+     "index": 4,
+     "status": "CORRECT",
+     "confidence": 0.8833,
+     "t_start_ms": 4040.0,
+     "t_end_ms": 4920.0
+    },
+    {
+     "index": 5,
+     "status": "CORRECT",
+     "confidence": 0.7707,
+     "t_start_ms": 4960.0,
+     "t_end_ms": 5660.0
+    },
+    {
+     "index": 6,
+     "status": "CORRECT",
+     "confidence": 0.8206,
+     "t_start_ms": 5680.0,
+     "t_end_ms": 5980.0
+    },
+    {
+     "index": 7,
+     "status": "CORRECT",
+     "confidence": 0.8443,
+     "t_start_ms": 6020.0,
+     "t_end_ms": 6180.0
+    },
+    {
+     "index": 8,
+     "status": "CORRECT",
+     "confidence": 0.8508,
+     "t_start_ms": 6200.0,
+     "t_end_ms": 7460.0
+    },
+    {
+     "index": 9,
+     "status": "CORRECT",
+     "confidence": 0.8319,
+     "t_start_ms": 7520.0,
+     "t_end_ms": 8000.0
+    },
+    {
+     "index": 10,
+     "status": "CORRECT",
+     "confidence": 0.8482,
+     "t_start_ms": 8040.0,
+     "t_end_ms": 8200.0
+    },
+    {
+     "index": 11,
+     "status": "CORRECT",
+     "confidence": 0.8023,
+     "t_start_ms": 8260.0,
+     "t_end_ms": 10020.0
+    },
+    {
+     "index": 12,
+     "status": "CORRECT",
+     "confidence": 0.8707,
+     "t_start_ms": 10080.0,
+     "t_end_ms": 10980.0
+    },
+    {
+     "index": 13,
+     "status": "CORRECT",
+     "confidence": 0.8743,
+     "t_start_ms": 11020.0,
+     "t_end_ms": 11640.0
+    },
+    {
+     "index": 14,
+     "status": "CORRECT",
+     "confidence": 0.833,
+     "t_start_ms": 11660.0,
+     "t_end_ms": 12300.0
+    },
+    {
+     "index": 15,
+     "status": "CORRECT",
+     "confidence": 0.7896,
+     "t_start_ms": 12340.0,
+     "t_end_ms": 14200.0
+    }
+   ],
+   "events": []
+  },
+  {
+   "id": "e488e4f1d5731b02",
+   "op": "clean",
+   "tier": "seen",
+   "expected_status": "CORRECT",
+   "mutated_word_index": 7,
+   "pcm_file": "t3_pcm_e488e4f1d5731b02.s16",
+   "n_samples": 218125,
+   "words": [
+    "wabil-ḥaqi",
+    "anzalnāhu",
+    "wabil-ḥaqi",
+    "nazala",
+    "wamā",
+    "arsalnāka",
+    "illā",
+    "mubashiran",
+    "wanadhīran"
+   ],
+   "audio_duration_ms": 13620.0,
+   "llr_per_token": {
+    "0": 14.832366,
+    "1": 15.497045,
+    "2": 17.107574,
+    "3": 10.757349,
+    "4": 17.061339,
+    "5": 18.136686,
+    "6": 22.182195,
+    "7": 17.96255,
+    "8": 18.245089
+   },
+   "results": [
+    {
+     "index": 0,
+     "status": "CORRECT",
+     "confidence": 0.8151,
+     "t_start_ms": 80.0,
+     "t_end_ms": 1260.0
+    },
+    {
+     "index": 1,
+     "status": "CORRECT",
+     "confidence": 0.8249,
+     "t_start_ms": 1280.0,
+     "t_end_ms": 3440.0
+    },
+    {
+     "index": 2,
+     "status": "CORRECT",
+     "confidence": 0.8469,
+     "t_start_ms": 3480.0,
+     "t_end_ms": 4720.0
+    },
+    {
+     "index": 3,
+     "status": "CORRECT",
+     "confidence": 0.7457,
+     "t_start_ms": 4760.0,
+     "t_end_ms": 5720.0
+    },
+    {
+     "index": 4,
+     "status": "CORRECT",
+     "confidence": 0.8463,
+     "t_start_ms": 5800.0,
+     "t_end_ms": 7640.0
+    },
+    {
+     "index": 5,
+     "status": "CORRECT",
+     "confidence": 0.8598,
+     "t_start_ms": 7680.0,
+     "t_end_ms": 9220.0
+    },
+    {
+     "index": 6,
+     "status": "CORRECT",
+     "confidence": 0.9019,
+     "t_start_ms": 9260.0,
+     "t_end_ms": 10020.0
+    },
+    {
+     "index": 7,
+     "status": "CORRECT",
+     "confidence": 0.8577,
+     "t_start_ms": 10060.0,
+     "t_end_ms": 11860.0
+    },
+    {
+     "index": 8,
+     "status": "CORRECT",
+     "confidence": 0.8611,
+     "t_start_ms": 11960.0,
+     "t_end_ms": 13420.0
+    }
+   ],
+   "events": []
+  },
+  {
+   "id": "efef42c230ac9a3c",
+   "op": "clean",
+   "tier": "seen",
+   "expected_status": "CORRECT",
+   "mutated_word_index": 1,
+   "pcm_file": "t3_pcm_efef42c230ac9a3c.s16",
+   "n_samples": 164676,
+   "words": [
+    "inna",
+    "fī",
+    "hādhā",
+    "labalāghan",
+    "liqawmin",
+    "ʿābidīna"
+   ],
+   "audio_duration_ms": 10280.0,
+   "llr_per_token": {
+    "0": 17.451705,
+    "1": 23.557876,
+    "2": 21.591874,
+    "3": 12.904175,
+    "4": 17.747378,
+    "5": 20.73068
+   },
+   "results": [
+    {
+     "index": 0,
+     "status": "CORRECT",
+     "confidence": 0.8513,
+     "t_start_ms": 1760.0,
+     "t_end_ms": 3120.0
+    },
+    {
+     "index": 1,
+     "status": "CORRECT",
+     "confidence": 0.9134,
+     "t_start_ms": 3160.0,
+     "t_end_ms": 3760.0
+    },
+    {
+     "index": 2,
+     "status": "CORRECT",
+     "confidence": 0.8965,
+     "t_start_ms": 3800.0,
+     "t_end_ms": 4940.0
+    },
+    {
+     "index": 3,
+     "status": "CORRECT",
+     "confidence": 0.7842,
+     "t_start_ms": 4980.0,
+     "t_end_ms": 6420.0
+    },
+    {
+     "index": 4,
+     "status": "CORRECT",
+     "confidence": 0.855,
+     "t_start_ms": 6440.0,
+     "t_end_ms": 8020.0
+    },
+    {
+     "index": 5,
+     "status": "CORRECT",
+     "confidence": 0.8883,
+     "t_start_ms": 8080.0,
+     "t_end_ms": 9680.0
+    }
+   ],
+   "events": []
+  },
+  {
+   "id": "e4e333e46480b71c",
+   "op": "clean",
+   "tier": "seen",
+   "expected_status": "CORRECT",
+   "mutated_word_index": 2,
+   "pcm_file": "t3_pcm_e4e333e46480b71c.s16",
+   "n_samples": 97385,
+   "words": [
+    "waʿalayhā",
+    "waʿalā",
+    "l-ful'ki",
+    "tuḥ'malūna"
+   ],
+   "audio_duration_ms": 6080.0,
+   "llr_per_token": {
+    "0": 18.406729,
+    "1": 19.344277,
+    "2": 17.995737,
+    "3": 17.783086
+   },
+   "results": [
+    {
+     "index": 0,
+     "status": "CORRECT",
+     "confidence": 0.863,
+     "t_start_ms": 320.0,
+     "t_end_ms": 1960.0
+    },
+    {
+     "index": 1,
+     "status": "CORRECT",
+     "confidence": 0.8737,
+     "t_start_ms": 2000.0,
+     "t_end_ms": 2780.0
+    },
+    {
+     "index": 2,
+     "status": "CORRECT",
+     "confidence": 0.8581,
+     "t_start_ms": 2820.0,
+     "t_end_ms": 3960.0
+    },
+    {
+     "index": 3,
+     "status": "CORRECT",
+     "confidence": 0.8555,
+     "t_start_ms": 4000.0,
+     "t_end_ms": 5560.0
+    }
+   ],
+   "events": []
+  },
+  {
+   "id": "de8a3d136bba244e",
+   "op": "clean",
+   "tier": "seen",
+   "expected_status": "CORRECT",
+   "mutated_word_index": 2,
+   "pcm_file": "t3_pcm_de8a3d136bba244e.s16",
+   "n_samples": 135837,
+   "words": [
+    "wayaqūlūna",
+    "matā",
+    "hādhā",
+    "l-waʿdu",
+    "in",
+    "kuntum",
+    "ṣādiqīna"
+   ],
+   "audio_duration_ms": 8480.0,
+   "llr_per_token": {
+    "0": 15.846799,
+    "1": 11.755403,
+    "2": 13.357896,
+    "3": 13.466905,
+    "4": 40.538513,
+    "5": 16.78014,
+    "6": 17.584467
+   },
+   "results": [
+    {
+     "index": 0,
+     "status": "CORRECT",
+     "confidence": 0.8299,
+     "t_start_ms": 180.0,
+     "t_end_ms": 1400.0
+    },
+    {
+     "index": 1,
+     "status": "CORRECT",
+     "confidence": 0.7641,
+     "t_start_ms": 1440.0,
+     "t_end_ms": 1920.0
+    },
+    {
+     "index": 2,
+     "status": "CORRECT",
+     "confidence": 0.7918,
+     "t_start_ms": 1980.0,
+     "t_end_ms": 2480.0
+    },
+    {
+     "index": 3,
+     "status": "CORRECT",
+     "confidence": 0.7936,
+     "t_start_ms": 2540.0,
+     "t_end_ms": 3220.0
+    },
+    {
+     "index": 4,
+     "status": "CORRECT",
+     "confidence": 0.9829,
+     "t_start_ms": 3240.0,
+     "t_end_ms": 4180.0
+    },
+    {
+     "index": 5,
+     "status": "CORRECT",
+     "confidence": 0.8426,
+     "t_start_ms": 4220.0,
+     "t_end_ms": 5800.0
+    },
+    {
+     "index": 6,
+     "status": "CORRECT",
+     "confidence": 0.853,
+     "t_start_ms": 5840.0,
+     "t_end_ms": 8040.0
+    }
+   ],
+   "events": []
+  }
+ ]
+}

@@ -1,0 +1,114 @@
+{
+  "step": "07_candidate_sizing",
+  "measured": [
+    "params",
+    "fp32_onnx_mb",
+    "int8_onnx_mb",
+    "desktop_rtf_1thread"
+  ],
+  "estimated": [
+    "G5_projected_rtf_range (desktop RTF x device factor)"
+  ],
+  "assumptions": {
+    "device_factor_range": [
+      3.0,
+      5.0
+    ],
+    "basis": "Dimensity 1080 2x Cortex-A78 @2.6GHz vs desktop core; NOT measured until Day 5",
+    "vocab_size": 40,
+    "weights": "randomly initialised -- sizing/speed only, says nothing about accuracy"
+  },
+  "spec_requirements": {
+    "G1_ceiling_mb": 120.0,
+    "G5_ceiling_rtf": 0.5
+  },
+  "reference_measured_failed_model": {
+    "name": "TBOGamer22/wav2vec2-quran-phonetics",
+    "params_M": 94.4,
+    "int8_onnx_mb": 116.28,
+    "desktop_rtf_bench": 0.331,
+    "G2": 0.5611
+  },
+  "candidates": [
+    {
+      "name": "w2v2-base-L12",
+      "family": "wav2vec2-base truncated",
+      "params": 94404010,
+      "params_M": 94.4,
+      "fp32_onnx_mb": 359.86,
+      "int8_onnx_mb": 115.82,
+      "desktop_rtf_1thread": 0.367,
+      "per_clip_rtf": [
+        0.33,
+        0.319,
+        0.453
+      ],
+      "G1_pass_measured": true,
+      "G5_projected_rtf_range": [
+        1.101,
+        1.835
+      ],
+      "G5_verdict_estimated": "IMPLAUSIBLE"
+    },
+    {
+      "name": "w2v2-base-L8",
+      "family": "wav2vec2-base truncated",
+      "params": 66052522,
+      "params_M": 66.05,
+      "fp32_onnx_mb": 251.8,
+      "int8_onnx_mb": 88.71,
+      "desktop_rtf_1thread": 0.293,
+      "per_clip_rtf": [
+        0.26,
+        0.271,
+        0.349
+      ],
+      "G1_pass_measured": true,
+      "G5_projected_rtf_range": [
+        0.879,
+        1.465
+      ],
+      "G5_verdict_estimated": "IMPLAUSIBLE"
+    },
+    {
+      "name": "w2v2-base-L6",
+      "family": "wav2vec2-base truncated",
+      "params": 51876778,
+      "params_M": 51.88,
+      "fp32_onnx_mb": 197.78,
+      "int8_onnx_mb": 75.15,
+      "desktop_rtf_1thread": 0.269,
+      "per_clip_rtf": [
+        0.237,
+        0.243,
+        0.328
+      ],
+      "G1_pass_measured": true,
+      "G5_projected_rtf_range": [
+        0.807,
+        1.345
+      ],
+      "G5_verdict_estimated": "IMPLAUSIBLE"
+    },
+    {
+      "name": "w2v2-base-L4",
+      "family": "wav2vec2-base truncated",
+      "params": 37701034,
+      "params_M": 37.7,
+      "fp32_onnx_mb": 143.75,
+      "int8_onnx_mb": 61.6,
+      "desktop_rtf_1thread": 0.222,
+      "per_clip_rtf": [
+        0.206,
+        0.21,
+        0.251
+      ],
+      "G1_pass_measured": true,
+      "G5_projected_rtf_range": [
+        0.666,
+        1.11
+      ],
+      "G5_verdict_estimated": "IMPLAUSIBLE"
+    }
+  ]
+}

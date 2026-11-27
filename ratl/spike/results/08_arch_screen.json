@@ -1,0 +1,296 @@
+{
+  "step": "08_arch_screen",
+  "measured": [
+    "params",
+    "int8_onnx_mb",
+    "desktop_rtf_1thread"
+  ],
+  "estimated": [
+    "G5_projected_rtf_range"
+  ],
+  "assumptions": {
+    "device_factor_range": [
+      3.0,
+      5.0
+    ],
+    "weights": "random init -- speed/size only, not accuracy"
+  },
+  "spec_requirements": {
+    "G1_ceiling_mb": 120.0,
+    "G5_ceiling_rtf": 0.5
+  },
+  "wav2vec2_family_result_from_07": "no depth reaches G5; conv frontend dominates",
+  "candidates": [
+    {
+      "name": "whisper-tiny-enc-15s",
+      "family": "whisper encoder + CTC (mel input)",
+      "params": 7936554,
+      "params_M": 7.94,
+      "fp32_onnx_mb": 30.25,
+      "int8_onnx_mb": 10.01,
+      "window_s": 15.0,
+      "desktop_rtf_1thread": 0.043,
+      "per_clip_rtf": [
+        0.07,
+        0.031,
+        0.028
+      ],
+      "G1_pass_measured": true,
+      "G5_projected_rtf_range": [
+        0.129,
+        0.215
+      ],
+      "G5_verdict_estimated": "PLAUSIBLE"
+    },
+    {
+      "name": "whisper-tiny-enc-8s",
+      "family": "whisper encoder + CTC (mel input)",
+      "params": 7802154,
+      "params_M": 7.8,
+      "fp32_onnx_mb": 29.74,
+      "int8_onnx_mb": 9.49,
+      "window_s": 8.0,
+      "desktop_rtf_1thread": 0.027,
+      "per_clip_rtf": [
+        0.031,
+        0.029,
+        0.021
+      ],
+      "G1_pass_measured": true,
+      "G5_projected_rtf_range": [
+        0.081,
+        0.135
+      ],
+      "G5_verdict_estimated": "PLAUSIBLE"
+    },
+    {
+      "name": "whisper-base-enc-15s",
+      "family": "whisper encoder + CTC (mel input)",
+      "params": 20228138,
+      "params_M": 20.23,
+      "fp32_onnx_mb": 77.09,
+      "int8_onnx_mb": 23.11,
+      "window_s": 15.0,
+      "desktop_rtf_1thread": 0.098,
+      "per_clip_rtf": [
+        0.154,
+        0.073,
+        0.067
+      ],
+      "G1_pass_measured": true,
+      "G5_projected_rtf_range": [
+        0.294,
+        0.49
+      ],
+      "G5_verdict_estimated": "PLAUSIBLE"
+    }
+  ],
+  "zipformer_probe": {
+    "repo": "csukuangfj/sherpa-onnx-streaming-zipformer-zh-14M-2023-02-23",
+    "file": "encoder-epoch-99-avg-1.int8.onnx",
+    "int8_onnx_mb": 20.62,
+    "inputs": {
+      "x": [
+        "N",
+        39,
+        80
+      ],
+      "cached_len_0": [
+        2,
+        "N"
+      ],
+      "cached_len_1": [
+        3,
+        "N"
+      ],
+      "cached_len_2": [
+        2,
+        "N"
+      ],
+      "cached_len_3": [
+        2,
+        "N"
+      ],
+      "cached_len_4": [
+        3,
+        "N"
+      ],
+      "cached_avg_0": [
+        2,
+        "N",
+        160
+      ],
+      "cached_avg_1": [
+        3,
+        "N",
+        160
+      ],
+      "cached_avg_2": [
+        2,
+        "N",
+        160
+      ],
+      "cached_avg_3": [
+        2,
+        "N",
+        160
+      ],
+      "cached_avg_4": [
+        3,
+        "N",
+        160
+      ],
+      "cached_key_0": [
+        2,
+        64,
+        "N",
+        96
+      ],
+      "cached_key_1": [
+        3,
+        32,
+        "N",
+        96
+      ],
+      "cached_key_2": [
+        2,
+        16,
+        "N",
+        96
+      ],
+      "cached_key_3": [
+        2,
+        8,
+        "N",
+        96
+      ],
+      "cached_key_4": [
+        3,
+        32,
+        "N",
+        96
+      ],
+      "cached_val_0": [
+        2,
+        64,
+        "N",
+        48
+      ],
+      "cached_val_1": [
+        3,
+        32,
+        "N",
+        48
+      ],
+      "cached_val_2": [
+        2,
+        16,
+        "N",
+        48
+      ],
+      "cached_val_3": [
+        2,
+        8,
+        "N",
+        48
+      ],
+      "cached_val_4": [
+        3,
+        32,
+        "N",
+        48
+      ],
+      "cached_val2_0": [
+        2,
+        64,
+        "N",
+        48
+      ],
+      "cached_val2_1": [
+        3,
+        32,
+        "N",
+        48
+      ],
+      "cached_val2_2": [
+        2,
+        16,
+        "N",
+        48
+      ],
+      "cached_val2_3": [
+        2,
+        8,
+        "N",
+        48
+      ],
+      "cached_val2_4": [
+        3,
+        32,
+        "N",
+        48
+      ],
+      "cached_conv1_0": [
+        2,
+        "N",
+        160,
+        30
+      ],
+      "cached_conv1_1": [
+        3,
+        "N",
+        160,
+        30
+      ],
+      "cached_conv1_2": [
+        2,
+        "N",
+        160,
+        30
+      ],
+      "cached_conv1_3": [
+        2,
+        "N",
+        160,
+        30
+      ],
+      "cached_conv1_4": [
+        3,
+        "N",
+        160,
+        30
+      ],
+      "cached_conv2_0": [
+        2,
+        "N",
+        160,
+        30
+      ],
+      "cached_conv2_1": [
+        3,
+        "N",
+        160,
+        30
+      ],
+      "cached_conv2_2": [
+        2,
+        "N",
+        160,
+        30
+      ],
+      "cached_conv2_3": [
+        2,
+        "N",
+        160,
+        30
+      ],
+      "cached_conv2_4": [
+        3,
+        "N",
+        160,
+        30
+      ]
+    },
+    "note": "streaming encoder; stateful inputs, RTF not directly comparable without the full state loop -- size and input spec reported"
+  }
+}

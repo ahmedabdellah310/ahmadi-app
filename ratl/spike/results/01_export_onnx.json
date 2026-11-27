@@ -1,0 +1,30 @@
+{
+  "step": "01_export_onnx",
+  "model_id": "TBOGamer22/wav2vec2-quran-phonetics",
+  "params": 94402472,
+  "params_millions": 94.4,
+  "vocab_size": 40,
+  "blank_token_id": 37,
+  "export_seconds": 5.7,
+  "fp32_onnx_mb": 360.32,
+  "quantize_seconds": 20.1,
+  "int8_onnx_mb": 116.28,
+  "G1_ceiling_mb": 120.0,
+  "G1_measured_mb": 116.28,
+  "G1_pass": true,
+  "compression_ratio": 3.1,
+  "fp32_smoke_shape": [
+    1,
+    199,
+    40
+  ],
+  "fp32_smoke_seconds": 1.431,
+  "int8_smoke_shape": [
+    1,
+    199,
+    40
+  ],
+  "int8_smoke_seconds": 1.319,
+  "smoke_shapes_match": true,
+  "frames_per_second": 49.75
+}

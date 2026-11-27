@@ -1,0 +1,154 @@
+{
+ "tier": "T0",
+ "fn": "Normalizer.romanize",
+ "tolerance": "exact",
+ "source": "eval/normalizer_probe.py, validated against 4287 cached reference ayat",
+ "validation": {
+  "words_compared": 33932,
+  "exact_word_agreement": 0.6354,
+  "char_error_rate": 0.0788,
+  "G2_via_this_pipeline": 0.8504,
+  "G2_via_reference_targets": 0.857
+ },
+ "words": [
+  {
+   "arabic": "بِسۡمِ",
+   "utterance_initial": true,
+   "note": "sukun U+06E1",
+   "expected": "bismi"
+  },
+  {
+   "arabic": "ٱللَّهِ",
+   "utterance_initial": false,
+   "note": "hamzat wasl elided + shadda",
+   "expected": "l-lahi"
+  },
+  {
+   "arabic": "ٱلۡحَمۡدُ",
+   "utterance_initial": true,
+   "note": "wasl sounded at utterance start",
+   "expected": "al-ḥamdu"
+  },
+  {
+   "arabic": "ٱلرَّحۡمَٰنِ",
+   "utterance_initial": false,
+   "note": "sun letter + dagger alif",
+   "expected": "l-raḥmāni"
+  },
+  {
+   "arabic": "ٱلۡعَٰلَمِينَ",
+   "utterance_initial": false,
+   "note": "ayn + dagger alif + long i",
+   "expected": "l-ʿālamīna"
+  },
+  {
+   "arabic": "إِيَّاكَ",
+   "utterance_initial": false,
+   "note": "initial hamza, shadda, long a",
+   "expected": "iyyāka"
+  },
+  {
+   "arabic": "وَإِيَّاكَ",
+   "utterance_initial": false,
+   "note": "wa prefix + hamza",
+   "expected": "wa'iyyāka"
+  },
+  {
+   "arabic": "نَعۡبُدُ",
+   "utterance_initial": false,
+   "note": "ayn with sukun",
+   "expected": "naʿbudu"
+  },
+  {
+   "arabic": "ٱلَّذِينَ",
+   "utterance_initial": false,
+   "note": "article + lam shadda",
+   "expected": "alladhīna"
+  },
+  {
+   "arabic": "رَبِّ",
+   "utterance_initial": false,
+   "note": "final shadda",
+   "expected": "rabbi"
+  },
+  {
+   "arabic": "عَلَٰ",
+   "utterance_initial": false,
+   "note": "dagger alif final",
+   "expected": "ʿalā"
+  },
+  {
+   "arabic": "الٓمٓ",
+   "utterance_initial": true,
+   "note": "muqattaat alif-lam-meem",
+   "expected": "alif-lam-meem"
+  },
+  {
+   "arabic": "يسٓ",
+   "utterance_initial": true,
+   "note": "muqattaat ya-seen",
+   "expected": "ya-seen"
+  },
+  {
+   "arabic": "قُلۡ",
+   "utterance_initial": true,
+   "note": "imperative with sukun",
+   "expected": "qul"
+  }
+ ],
+ "ayat": [
+  {
+   "surah": 1,
+   "ayah": 1,
+   "arabic": "بِسۡمِ ٱللَّهِ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ",
+   "expected_words": [
+    "bismi",
+    "l-lahi",
+    "l-raḥmāni",
+    "l-raḥīmi"
+   ]
+  },
+  {
+   "surah": 1,
+   "ayah": 2,
+   "arabic": "ٱلۡحَمۡدُ لِلَّهِ رَبِّ ٱلۡعَٰلَمِينَ",
+   "expected_words": [
+    "al-ḥamdu",
+    "lillahi",
+    "rabbi",
+    "l-ʿālamīna"
+   ]
+  },
+  {
+   "surah": 112,
+   "ayah": 1,
+   "arabic": "قُلۡ هُوَ ٱللَّهُ أَحَدٌ",
+   "expected_words": [
+    "qul",
+    "huwa",
+    "l-lahu",
+    "aḥadun"
+   ]
+  },
+  {
+   "surah": 112,
+   "ayah": 2,
+   "arabic": "ٱللَّهُ ٱلصَّمَدُ",
+   "expected_words": [
+    "al-lahu",
+    "l-ṣamadu"
+   ]
+  },
+  {
+   "surah": 114,
+   "ayah": 1,
+   "arabic": "قُلۡ أَعُوذُ بِرَبِّ ٱلنَّاسِ",
+   "expected_words": [
+    "qul",
+    "aʿūdhu",
+    "birabbi",
+    "l-nāsi"
+   ]
+  }
+ ]
+}

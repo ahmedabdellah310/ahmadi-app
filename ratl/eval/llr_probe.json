@@ -1,0 +1,171 @@
+{
+  "step": "M2.0 VALIDATION llr_probe",
+  "question": "does LLR separate a recited word from an omitted one?",
+  "not_a_gate": "no threshold selected, no G3/G4 verdict, no tuning",
+  "model": "ratl-align-v1-e2e-fp32.onnx",
+  "seed": 1449,
+  "frozen_pipeline_touched": false,
+  "aligner_equivalence_asserted": true,
+  "mutation": "excise the ground-truth word span, 10.0 ms crossfade",
+  "pairing": "same (clip, word) scored clean and deleted",
+  "tiers": {
+    "seen_reciter": {
+      "n_pairs": 88,
+      "n_reciters": 8,
+      "n_distinct_clips": 88,
+      "ayah_in_training_frac": 1.0,
+      "word_duration_ms": {
+        "n": 88,
+        "mean": 1152.955,
+        "std": 736.167,
+        "p05": 283.5,
+        "p25": 660.0,
+        "median": 940.0,
+        "p75": 1555.0,
+        "p95": 2765.5
+      },
+      "raw_llr": {
+        "clean": {
+          "n": 88,
+          "mean": 110.254,
+          "std": 48.034,
+          "p05": 38.058,
+          "p25": 78.63,
+          "median": 107.36,
+          "p75": 129.031,
+          "p95": 188.757
+        },
+        "deleted": {
+          "n": 88,
+          "mean": -100.968,
+          "std": 46.973,
+          "p05": -175.593,
+          "p25": -133.56,
+          "median": -99.713,
+          "p75": -62.446,
+          "p95": -26.769
+        },
+        "AUC": 1.0
+      },
+      "per_token_llr": {
+        "clean": {
+          "n": 88,
+          "mean": 17.483,
+          "std": 3.481,
+          "p05": 12.761,
+          "p25": 14.901,
+          "median": 17.512,
+          "p75": 19.712,
+          "p95": 22.207
+        },
+        "deleted": {
+          "n": 88,
+          "mean": -15.746,
+          "std": 4.242,
+          "p05": -21.527,
+          "p25": -18.796,
+          "median": -16.219,
+          "p75": -13.501,
+          "p95": -7.87
+        },
+        "AUC": 1.0
+      },
+      "paired_clean_gt_deleted": 1.0,
+      "roc_read_raw": {
+        "note": "curve read at G3 recall 0.80; NOT a tuned production threshold",
+        "threshold": -53.783,
+        "omission_recall": 0.7955,
+        "implied_clean_flag_rate": 0.0,
+        "G4_ceiling": 0.05,
+        "G4_plausible_at_this_point": true
+      },
+      "roc_read_per_token": {
+        "note": "curve read at G3 recall 0.80; NOT a tuned production threshold",
+        "threshold": -12.7701,
+        "omission_recall": 0.7955,
+        "implied_clean_flag_rate": 0.0,
+        "G4_ceiling": 0.05,
+        "G4_plausible_at_this_point": true
+      }
+    },
+    "reciter_disjoint": {
+      "n_pairs": 70,
+      "n_reciters": 2,
+      "n_distinct_clips": 24,
+      "ayah_in_training_frac": 0.0,
+      "word_duration_ms": {
+        "n": 70,
+        "mean": 1257.286,
+        "std": 904.746,
+        "p05": 448.0,
+        "p25": 765.0,
+        "median": 1025.0,
+        "p75": 1437.5,
+        "p95": 2648.5
+      },
+      "raw_llr": {
+        "clean": {
+          "n": 70,
+          "mean": 80.202,
+          "std": 42.522,
+          "p05": 10.782,
+          "p25": 53.407,
+          "median": 77.897,
+          "p75": 105.042,
+          "p95": 153.032
+        },
+        "deleted": {
+          "n": 70,
+          "mean": -100.452,
+          "std": 44.964,
+          "p05": -184.777,
+          "p25": -120.581,
+          "median": -105.587,
+          "p75": -71.485,
+          "p95": -22.861
+        },
+        "AUC": 0.9992
+      },
+      "per_token_llr": {
+        "clean": {
+          "n": 70,
+          "mean": 11.898,
+          "std": 5.229,
+          "p05": 1.205,
+          "p25": 8.705,
+          "median": 12.292,
+          "p75": 15.592,
+          "p95": 19.459
+        },
+        "deleted": {
+          "n": 70,
+          "mean": -14.144,
+          "std": 4.276,
+          "p05": -19.815,
+          "p25": -17.128,
+          "median": -14.616,
+          "p75": -11.925,
+          "p95": -5.715
+        },
+        "AUC": 0.9992
+      },
+      "paired_clean_gt_deleted": 1.0,
+      "roc_read_raw": {
+        "note": "curve read at G3 recall 0.80; NOT a tuned production threshold",
+        "threshold": -60.9959,
+        "omission_recall": 0.8,
+        "implied_clean_flag_rate": 0.0,
+        "G4_ceiling": 0.05,
+        "G4_plausible_at_this_point": true
+      },
+      "roc_read_per_token": {
+        "note": "curve read at G3 recall 0.80; NOT a tuned production threshold",
+        "threshold": -11.2795,
+        "omission_recall": 0.8,
+        "implied_clean_flag_rate": 0.0,
+        "G4_ceiling": 0.05,
+        "G4_plausible_at_this_point": true
+      }
+    }
+  }
+}

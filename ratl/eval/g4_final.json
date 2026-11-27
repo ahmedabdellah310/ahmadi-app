@@ -1,0 +1,696 @@
+{
+  "step": "M2.0 FINAL G4 selection pass",
+  "question": "can abstention bring held-out G4 to <= 0.05 at acceptable coverage?",
+  "no_downloads": true,
+  "no_retraining": true,
+  "model_unchanged": true,
+  "selection": {
+    "tier": "seen ONLY",
+    "config": {
+      "lam_skip": -20.0,
+      "lam_trunc": -40.0,
+      "garb_pen": 2.0,
+      "lam_ins": -20.0,
+      "lam_rep": -25.0,
+      "tau_sub_z": null,
+      "tau_sub_z_abstain": 6.0,
+      "tau_omit_abstain": -8.0,
+      "tau_uncertain": null
+    },
+    "n_configs": 10560,
+    "seen_frr_budget": 0.018,
+    "coverage_floor": 0.85,
+    "generalization_factor_source": "seen->spent x2.29 and seen->fresh x2.80 measured in the previous pass; fresh not consulted for selection"
+  },
+  "seen_tier_SELECTION": {
+    "G3_omission_recall": 0.9429,
+    "G3_n": 35,
+    "G4_frr": 0.0,
+    "G4_n_clean_words": 633,
+    "uncertain_rate_on_clean": 0.0348,
+    "non_correct_rate_on_clean": 0.0348,
+    "per_class": {
+      "INCOMPLETE": {
+        "tp": 75,
+        "fp": 0,
+        "fn": 30,
+        "precision": 1.0,
+        "recall": 0.7143,
+        "f1": 0.8333
+      },
+      "INSERTION": {
+        "tp": 17,
+        "fp": 0,
+        "fn": 18,
+        "precision": 1.0,
+        "recall": 0.4857,
+        "f1": 0.6538
+      },
+      "OMISSION": {
+        "tp": 33,
+        "fp": 13,
+        "fn": 2,
+        "precision": 0.7174,
+        "recall": 0.9429,
+        "f1": 0.8148
+      },
+      "REPETITION": {
+        "tp": 32,
+        "fp": 0,
+        "fn": 3,
+        "precision": 1.0,
+        "recall": 0.9143,
+        "f1": 0.9552
+      },
+      "SUBSTITUTION": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 35,
+        "precision": null,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    "retained_coverage_on_clean": 0.9652,
+    "overall_uncertain_rate": 0.0853,
+    "overall_retained_coverage": 0.9147,
+    "clean_by_reciter": {
+      "Mohammad_al_Tablaway_128kbps": {
+        "n": 143,
+        "err": 0,
+        "unc": 7,
+        "frr": 0.0,
+        "uncertain_rate": 0.049,
+        "coverage": 0.951
+      },
+      "Abu_Bakr_Ash-Shaatree_128kbps": {
+        "n": 105,
+        "err": 0,
+        "unc": 3,
+        "frr": 0.0,
+        "uncertain_rate": 0.0286,
+        "coverage": 0.9714
+      },
+      "Husary_64kbps": {
+        "n": 25,
+        "err": 0,
+        "unc": 0,
+        "frr": 0.0,
+        "uncertain_rate": 0.0,
+        "coverage": 1.0
+      },
+      "Minshawy_Mujawwad_192kbps": {
+        "n": 56,
+        "err": 0,
+        "unc": 4,
+        "frr": 0.0,
+        "uncertain_rate": 0.0714,
+        "coverage": 0.9286
+      },
+      "Alafasy_128kbps": {
+        "n": 41,
+        "err": 0,
+        "unc": 2,
+        "frr": 0.0,
+        "uncertain_rate": 0.0488,
+        "coverage": 0.9512
+      },
+      "Abdul_Basit_Murattal_64kbps": {
+        "n": 124,
+        "err": 0,
+        "unc": 2,
+        "frr": 0.0,
+        "uncertain_rate": 0.0161,
+        "coverage": 0.9839
+      },
+      "Husary_Muallim_128kbps": {
+        "n": 45,
+        "err": 0,
+        "unc": 2,
+        "frr": 0.0,
+        "uncertain_rate": 0.0444,
+        "coverage": 0.9556
+      },
+      "Saood_ash-Shuraym_128kbps": {
+        "n": 94,
+        "err": 0,
+        "unc": 2,
+        "frr": 0.0,
+        "uncertain_rate": 0.0213,
+        "coverage": 0.9787
+      }
+    },
+    "confusion": {
+      "OMISSION": {
+        "OMISSION": 33,
+        "UNCERTAIN": 2
+      },
+      "SUBSTITUTION": {
+        "UNCERTAIN": 33,
+        "OMISSION": 2
+      },
+      "REPETITION": {
+        "REPETITION": 32,
+        "CORRECT": 1,
+        "UNCERTAIN": 2
+      },
+      "INSERTION": {
+        "CORRECT": 11,
+        "INSERTION": 17,
+        "UNCERTAIN": 7
+      },
+      "INCOMPLETE": {
+        "OMISSION": 11,
+        "INCOMPLETE": 75,
+        "UNCERTAIN": 15,
+        "CORRECT": 4
+      },
+      "CORRECT": {
+        "CORRECT": 93,
+        "UNCERTAIN": 2
+      },
+      "CORRECT_clean": {
+        "CORRECT": 611,
+        "UNCERTAIN": 22
+      }
+    },
+    "by_reciter": {
+      "Husary_Muallim_128kbps": {
+        "n": 29,
+        "hit": 26,
+        "accuracy": 0.8966
+      },
+      "Mohammad_al_Tablaway_128kbps": {
+        "n": 48,
+        "hit": 38,
+        "accuracy": 0.7917
+      },
+      "Saood_ash-Shuraym_128kbps": {
+        "n": 55,
+        "hit": 37,
+        "accuracy": 0.6727
+      },
+      "Abdul_Basit_Murattal_64kbps": {
+        "n": 52,
+        "hit": 38,
+        "accuracy": 0.7308
+      },
+      "Minshawy_Mujawwad_192kbps": {
+        "n": 38,
+        "hit": 28,
+        "accuracy": 0.7368
+      },
+      "Husary_64kbps": {
+        "n": 30,
+        "hit": 20,
+        "accuracy": 0.6667
+      },
+      "Abu_Bakr_Ash-Shaatree_128kbps": {
+        "n": 48,
+        "hit": 36,
+        "accuracy": 0.75
+      },
+      "Alafasy_128kbps": {
+        "n": 40,
+        "hit": 27,
+        "accuracy": 0.675
+      }
+    },
+    "by_word_duration": {
+      "0-500ms": {
+        "n": 30,
+        "accuracy": 0.6
+      },
+      "500-1000ms": {
+        "n": 102,
+        "accuracy": 0.7745
+      },
+      "1000-2000ms": {
+        "n": 156,
+        "accuracy": 0.7372
+      },
+      "2000-4000ms": {
+        "n": 49,
+        "accuracy": 0.7143
+      },
+      "4000-infms": {
+        "n": 3,
+        "accuracy": 1.0
+      }
+    },
+    "truncation_by_position": {
+      "truncate_25": {
+        "n": 35,
+        "recall": 0.7143,
+        "short": {
+          "n": 9,
+          "recall": 0.4444
+        },
+        "long": {
+          "n": 14,
+          "recall": 0.9286
+        }
+      },
+      "truncate_50": {
+        "n": 35,
+        "recall": 0.8571,
+        "short": {
+          "n": 9,
+          "recall": 1.0
+        },
+        "long": {
+          "n": 17,
+          "recall": 0.7647
+        }
+      },
+      "truncate_75": {
+        "n": 35,
+        "recall": 0.5714,
+        "short": {
+          "n": 2,
+          "recall": 0.5
+        },
+        "long": {
+          "n": 15,
+          "recall": 0.5333
+        }
+      }
+    },
+    "null_control": {
+      "n": 35,
+      "flagged_as_error": 0,
+      "false_positive_rate": 0.0
+    },
+    "clustering": {
+      "n_target_words": 340,
+      "n_distinct_clips": 338,
+      "n_distinct_ayat": 327,
+      "n_reciters": 8,
+      "n_clean_words": 633,
+      "n_clean_clips": 95,
+      "effective_n_note": "mutations from the same clip are not independent; compare n_distinct_clips to n_target_words"
+    }
+  },
+  "disjoint_spent_EXPLORATORY": {
+    "G3_omission_recall": 0.8889,
+    "G3_n": 18,
+    "G4_frr": 0.0,
+    "G4_n_clean_words": 306,
+    "uncertain_rate_on_clean": 0.098,
+    "non_correct_rate_on_clean": 0.098,
+    "per_class": {
+      "INCOMPLETE": {
+        "tp": 16,
+        "fp": 0,
+        "fn": 38,
+        "precision": 1.0,
+        "recall": 0.2963,
+        "f1": 0.4571
+      },
+      "INSERTION": {
+        "tp": 4,
+        "fp": 0,
+        "fn": 14,
+        "precision": 1.0,
+        "recall": 0.2222,
+        "f1": 0.3636
+      },
+      "OMISSION": {
+        "tp": 16,
+        "fp": 30,
+        "fn": 2,
+        "precision": 0.3478,
+        "recall": 0.8889,
+        "f1": 0.5
+      },
+      "REPETITION": {
+        "tp": 10,
+        "fp": 0,
+        "fn": 8,
+        "precision": 1.0,
+        "recall": 0.5556,
+        "f1": 0.7143
+      },
+      "SUBSTITUTION": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 18,
+        "precision": null,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    "retained_coverage_on_clean": 0.902,
+    "overall_uncertain_rate": 0.1208,
+    "overall_retained_coverage": 0.8792,
+    "clean_by_reciter": {
+      "Hani_Rifai_192kbps": {
+        "n": 161,
+        "err": 0,
+        "unc": 12,
+        "frr": 0.0,
+        "uncertain_rate": 0.0745,
+        "coverage": 0.9255
+      },
+      "Minshawy_Murattal_128kbps": {
+        "n": 145,
+        "err": 0,
+        "unc": 18,
+        "frr": 0.0,
+        "uncertain_rate": 0.1241,
+        "coverage": 0.8759
+      }
+    },
+    "confusion": {
+      "OMISSION": {
+        "UNCERTAIN": 2,
+        "OMISSION": 16
+      },
+      "SUBSTITUTION": {
+        "UNCERTAIN": 14,
+        "OMISSION": 3,
+        "CORRECT": 1
+      },
+      "REPETITION": {
+        "UNCERTAIN": 2,
+        "REPETITION": 10,
+        "CORRECT": 6
+      },
+      "INSERTION": {
+        "CORRECT": 13,
+        "UNCERTAIN": 1,
+        "INSERTION": 4
+      },
+      "INCOMPLETE": {
+        "OMISSION": 27,
+        "UNCERTAIN": 5,
+        "CORRECT": 6,
+        "INCOMPLETE": 16
+      },
+      "CORRECT": {
+        "CORRECT": 44,
+        "UNCERTAIN": 4
+      },
+      "CORRECT_clean": {
+        "CORRECT": 276,
+        "UNCERTAIN": 30
+      }
+    },
+    "by_reciter": {
+      "Minshawy_Murattal_128kbps": {
+        "n": 92,
+        "hit": 54,
+        "accuracy": 0.587
+      },
+      "Hani_Rifai_192kbps": {
+        "n": 82,
+        "hit": 36,
+        "accuracy": 0.439
+      }
+    },
+    "by_word_duration": {
+      "0-500ms": {
+        "n": 19,
+        "accuracy": 0.4737
+      },
+      "500-1000ms": {
+        "n": 69,
+        "accuracy": 0.4928
+      },
+      "1000-2000ms": {
+        "n": 74,
+        "accuracy": 0.5541
+      },
+      "2000-4000ms": {
+        "n": 6,
+        "accuracy": 0.5
+      },
+      "4000-infms": {
+        "n": 6,
+        "accuracy": 0.5
+      }
+    },
+    "truncation_by_position": {
+      "truncate_25": {
+        "n": 18,
+        "recall": 0.0,
+        "short": {
+          "n": 3,
+          "recall": 0.0
+        },
+        "long": {
+          "n": 5,
+          "recall": 0.0
+        }
+      },
+      "truncate_50": {
+        "n": 18,
+        "recall": 0.3889,
+        "short": {
+          "n": 6,
+          "recall": 0.1667
+        },
+        "long": {
+          "n": 7,
+          "recall": 0.4286
+        }
+      },
+      "truncate_75": {
+        "n": 18,
+        "recall": 0.5,
+        "short": {
+          "n": 6,
+          "recall": 0.5
+        },
+        "long": {
+          "n": 5,
+          "recall": 0.2
+        }
+      }
+    },
+    "null_control": {
+      "n": 18,
+      "flagged_as_error": 0,
+      "false_positive_rate": 0.0
+    },
+    "clustering": {
+      "n_target_words": 174,
+      "n_distinct_clips": 31,
+      "n_distinct_ayat": 17,
+      "n_reciters": 2,
+      "n_clean_words": 306,
+      "n_clean_clips": 31,
+      "effective_n_note": "mutations from the same clip are not independent; compare n_distinct_clips to n_target_words"
+    }
+  },
+  "disjoint_fresh_GATE": {
+    "G3_omission_recall": 0.9333,
+    "G3_n": 30,
+    "G4_frr": 0.0085,
+    "G4_n_clean_words": 703,
+    "uncertain_rate_on_clean": 0.1067,
+    "non_correct_rate_on_clean": 0.1152,
+    "per_class": {
+      "INCOMPLETE": {
+        "tp": 42,
+        "fp": 0,
+        "fn": 48,
+        "precision": 1.0,
+        "recall": 0.4667,
+        "f1": 0.6364
+      },
+      "INSERTION": {
+        "tp": 6,
+        "fp": 0,
+        "fn": 24,
+        "precision": 1.0,
+        "recall": 0.2,
+        "f1": 0.3333
+      },
+      "OMISSION": {
+        "tp": 28,
+        "fp": 34,
+        "fn": 2,
+        "precision": 0.4516,
+        "recall": 0.9333,
+        "f1": 0.6087
+      },
+      "REPETITION": {
+        "tp": 18,
+        "fp": 3,
+        "fn": 12,
+        "precision": 0.8571,
+        "recall": 0.6,
+        "f1": 0.7059
+      },
+      "SUBSTITUTION": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 30,
+        "precision": null,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    "retained_coverage_on_clean": 0.8933,
+    "overall_uncertain_rate": 0.1396,
+    "overall_retained_coverage": 0.8604,
+    "clean_by_reciter": {
+      "Hani_Rifai_192kbps": {
+        "n": 381,
+        "err": 6,
+        "unc": 47,
+        "frr": 0.0157,
+        "uncertain_rate": 0.1234,
+        "coverage": 0.8766
+      },
+      "Minshawy_Murattal_128kbps": {
+        "n": 322,
+        "err": 0,
+        "unc": 28,
+        "frr": 0.0,
+        "uncertain_rate": 0.087,
+        "coverage": 0.913
+      }
+    },
+    "confusion": {
+      "OMISSION": {
+        "OMISSION": 28,
+        "UNCERTAIN": 2
+      },
+      "SUBSTITUTION": {
+        "UNCERTAIN": 28,
+        "OMISSION": 1,
+        "CORRECT": 1
+      },
+      "REPETITION": {
+        "UNCERTAIN": 4,
+        "REPETITION": 18,
+        "CORRECT": 8
+      },
+      "INSERTION": {
+        "INSERTION": 6,
+        "UNCERTAIN": 5,
+        "CORRECT": 19
+      },
+      "INCOMPLETE": {
+        "INCOMPLETE": 42,
+        "UNCERTAIN": 15,
+        "OMISSION": 30,
+        "CORRECT": 3
+      },
+      "CORRECT": {
+        "UNCERTAIN": 11,
+        "CORRECT": 79
+      },
+      "CORRECT_clean": {
+        "UNCERTAIN": 75,
+        "CORRECT": 622,
+        "OMISSION": 3,
+        "REPETITION": 3
+      }
+    },
+    "by_reciter": {
+      "Minshawy_Murattal_128kbps": {
+        "n": 149,
+        "hit": 97,
+        "accuracy": 0.651
+      },
+      "Hani_Rifai_192kbps": {
+        "n": 151,
+        "hit": 76,
+        "accuracy": 0.5033
+      }
+    },
+    "by_word_duration": {
+      "0-500ms": {
+        "n": 23,
+        "accuracy": 0.3913
+      },
+      "500-1000ms": {
+        "n": 104,
+        "accuracy": 0.5481
+      },
+      "1000-2000ms": {
+        "n": 136,
+        "accuracy": 0.5882
+      },
+      "2000-4000ms": {
+        "n": 36,
+        "accuracy": 0.7222
+      },
+      "4000-infms": {
+        "n": 1,
+        "accuracy": 1.0
+      }
+    },
+    "truncation_by_position": {
+      "truncate_25": {
+        "n": 30,
+        "recall": 0.4,
+        "short": {
+          "n": 5,
+          "recall": 0.0
+        },
+        "long": {
+          "n": 14,
+          "recall": 0.5
+        }
+      },
+      "truncate_50": {
+        "n": 30,
+        "recall": 0.5333,
+        "short": {
+          "n": 5,
+          "recall": 0.4
+        },
+        "long": {
+          "n": 14,
+          "recall": 0.4286
+        }
+      },
+      "truncate_75": {
+        "n": 30,
+        "recall": 0.4667,
+        "short": {
+          "n": 3,
+          "recall": 0.0
+        },
+        "long": {
+          "n": 11,
+          "recall": 0.5455
+        }
+      }
+    },
+    "null_control": {
+      "n": 30,
+      "flagged_as_error": 0,
+      "false_positive_rate": 0.0
+    },
+    "clustering": {
+      "n_target_words": 300,
+      "n_distinct_clips": 276,
+      "n_distinct_ayat": 269,
+      "n_reciters": 2,
+      "n_clean_words": 703,
+      "n_clean_clips": 89,
+      "effective_n_note": "mutations from the same clip are not independent; compare n_distinct_clips to n_target_words"
+    }
+  },
+  "previous_pass": {
+    "G3": 0.9333,
+    "G4": 0.0839,
+    "uncertain_rate": 0.0
+  },
+  "gates": {
+    "G3_threshold": 0.8,
+    "G4_threshold": 0.05,
+    "G3": 0.9333,
+    "G4": 0.0085,
+    "coverage": 0.8933,
+    "G3_PASS": true,
+    "G4_PASS": true,
+    "coverage_acceptable": true,
+    "OVERALL": "PASS"
+  }
+}

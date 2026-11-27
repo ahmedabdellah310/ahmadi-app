@@ -1,0 +1,36 @@
+{
+  "step": "G2 through the Arabic Normalizer pipeline",
+  "corpus": "RATL-Bench-v0 (unchanged)",
+  "harness": "05_g2_alignment.py imported unmodified",
+  "threshold": 0.85,
+  "frozen_reference_G2": 0.857,
+  "reference_transliteration": {
+    "G2": 0.857,
+    "start_acc": 0.8872,
+    "end_acc": 0.8268,
+    "n_words": 1374,
+    "by_speed": {
+      "fast": 0.8782,
+      "measured": 0.875,
+      "medium": 0.8899,
+      "moderate": 0.9152,
+      "very_slow": 0.723
+    }
+  },
+  "arabic_normalizer": {
+    "G2": 0.8504,
+    "start_acc": 0.8799,
+    "end_acc": 0.821,
+    "n_words": 1374,
+    "by_speed": {
+      "fast": 0.8691,
+      "measured": 0.875,
+      "medium": 0.8917,
+      "moderate": 0.9043,
+      "very_slow": 0.7082
+    }
+  },
+  "delta_G2": -0.0066,
+  "arabic_passes_spec": true,
+  "note": "Threshold, tolerance, corpus, aligner and boundary rule are unchanged. Only the source of the target words differs."
+}

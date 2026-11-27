@@ -1,0 +1,72 @@
+{
+  "stage": "M1_gate",
+  "corpus": "RATL-Bench-v0 (unchanged)",
+  "harness": "05_g2_alignment.py imported unmodified",
+  "spec_threshold": 0.85,
+  "tolerance_ms": 150.0,
+  "config": {
+    "checkpoint": "exp1",
+    "windowing": "overlap",
+    "win_s": 15.0,
+    "hop_s": 10.0,
+    "rule": "M2E_edge_spike",
+    "offset_ms": 0.0,
+    "selected_on": "RATL-Val-v0 (held-out)"
+  },
+  "reference": {
+    "wav2vec2": 0.5611,
+    "exp1_spike": 0.6776,
+    "exp1b_spike": 0.6707,
+    "exp3_M2_nonoverlap": 0.7828,
+    "m1_M2_overlap": 0.7889,
+    "val_selected_M2E": 0.8787
+  },
+  "exact": {
+    "G2": 0.8395,
+    "pass_spec": false,
+    "gap_to_spec": 0.0105,
+    "start_acc": 0.8705,
+    "end_acc": 0.8086,
+    "G2_excl_mujawwad": 0.8715,
+    "median_signed_start_ms": 40.0,
+    "median_signed_end_ms": 20.0,
+    "abs_err_ms": {
+      "median": 40.0,
+      "p90": 330.0,
+      "p99": 5536.5,
+      "max": 16520.0
+    },
+    "by_speed": {
+      "fast": 0.8582,
+      "measured": 0.8641,
+      "medium": 0.8736,
+      "moderate": 0.8899,
+      "very_slow": 0.7082
+    },
+    "n_words": 1374
+  },
+  "scaled": {
+    "G2": 0.8341,
+    "pass_spec": false,
+    "gap_to_spec": 0.0159,
+    "start_acc": 0.8624,
+    "end_acc": 0.8057,
+    "G2_excl_mujawwad": 0.8674,
+    "median_signed_start_ms": 41.0,
+    "median_signed_end_ms": 22.0,
+    "abs_err_ms": {
+      "median": 43.7,
+      "p90": 334.1,
+      "p99": 5539.4,
+      "max": 16524.6
+    },
+    "by_speed": {
+      "fast": 0.8509,
+      "measured": 0.8587,
+      "medium": 0.8718,
+      "moderate": 0.8881,
+      "very_slow": 0.697
+    },
+    "n_words": 1374
+  }
+}

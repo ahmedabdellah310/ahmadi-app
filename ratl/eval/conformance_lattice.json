@@ -1,0 +1,25 @@
+{
+  "step": "M2.0 conformance - lattice reduces to the frozen aligner",
+  "config": "lam_skip = lam_ins = lam_rep = -inf",
+  "frozen_reference": "g2.ctc_forced_align (05_g2_alignment.py, unmodified)",
+  "T0_synthetic": {
+    "n_cases": 6,
+    "n_fail": 0,
+    "failures": []
+  },
+  "T2_real_clips": {
+    "n_cases": 3,
+    "n_fail": 0,
+    "failures": []
+  },
+  "bench_full": {
+    "n_clips": 150,
+    "n_labels": 10430,
+    "n_label_mismatch": 0,
+    "n_word_boundaries": 1385,
+    "n_boundary_mismatch": 0,
+    "failures": []
+  },
+  "INVARIANT_HOLDS": true,
+  "meaning": "With the error arcs disabled the lattice is bit-identical to the frozen aligner on every checked case, so G2 = 0.8570 is preserved by construction."
+}

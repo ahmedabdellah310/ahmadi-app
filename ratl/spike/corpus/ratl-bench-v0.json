@@ -1,0 +1,1033 @@
+{
+  "ayat": [
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      2,
+      1
+    ],
+    [
+      2,
+      5
+    ],
+    [
+      2,
+      255
+    ],
+    [
+      3,
+      8
+    ],
+    [
+      4,
+      1
+    ],
+    [
+      6,
+      1
+    ],
+    [
+      12,
+      1
+    ],
+    [
+      18,
+      1
+    ],
+    [
+      18,
+      10
+    ],
+    [
+      24,
+      35
+    ],
+    [
+      36,
+      1
+    ],
+    [
+      36,
+      20
+    ],
+    [
+      55,
+      1
+    ],
+    [
+      55,
+      13
+    ],
+    [
+      67,
+      1
+    ],
+    [
+      78,
+      1
+    ],
+    [
+      87,
+      1
+    ],
+    [
+      91,
+      1
+    ],
+    [
+      93,
+      1
+    ],
+    [
+      94,
+      1
+    ],
+    [
+      96,
+      1
+    ],
+    [
+      97,
+      1
+    ],
+    [
+      103,
+      1
+    ],
+    [
+      108,
+      1
+    ],
+    [
+      112,
+      1
+    ],
+    [
+      114,
+      1
+    ]
+  ],
+  "reciters": [
+    "Husary_64kbps",
+    "Alafasy_128kbps",
+    "Hani_Rifai_192kbps",
+    "Abdul_Basit_Mujawwad_128kbps",
+    "Minshawy_Murattal_128kbps"
+  ],
+  "clips": [
+    {
+      "reciter": "Husary_64kbps",
+      "surah": 1,
+      "ayah": 1,
+      "audio": "Husary_64kbps/001001.mp3"
+    },
+    {
+      "reciter": "Husary_64kbps",
+      "surah": 1,
+      "ayah": 2,
+      "audio": "Husary_64kbps/001002.mp3"
+    },
+    {
+      "reciter": "Husary_64kbps",
+      "surah": 1,
+      "ayah": 5,
+      "audio": "Husary_64kbps/001005.mp3"
+    },
+    {
+      "reciter": "Husary_64kbps",
+      "surah": 1,
+      "ayah": 7,
+      "audio": "Husary_64kbps/001007.mp3"
+    },
+    {
+      "reciter": "Husary_64kbps",
+      "surah": 2,
+      "ayah": 1,
+      "audio": "Husary_64kbps/002001.mp3"
+    },
+    {
+      "reciter": "Husary_64kbps",
+      "surah": 2,
+      "ayah": 5,
+      "audio": "Husary_64kbps/002005.mp3"
+    },
+    {
+      "reciter": "Husary_64kbps",
+      "surah": 2,
+      "ayah": 255,
+      "audio": "Husary_64kbps/002255.mp3"
+    },
+    {
+      "reciter": "Husary_64kbps",
+      "surah": 3,
+      "ayah": 8,
+      "audio": "Husary_64kbps/003008.mp3"
+    },
+    {
+      "reciter": "Husary_64kbps",
+      "surah": 4,
+      "ayah": 1,
+      "audio": "Husary_64kbps/004001.mp3"
+    },
+    {
+      "reciter": "Husary_64kbps",
+      "surah": 6,
+      "ayah": 1,
+      "audio": "Husary_64kbps/006001.mp3"
+    },
+    {
+      "reciter": "Husary_64kbps",
+      "surah": 12,
+      "ayah": 1,
+      "audio": "Husary_64kbps/012001.mp3"
+    },
+    {
+      "reciter": "Husary_64kbps",
+      "surah": 18,
+      "ayah": 1,
+      "audio": "Husary_64kbps/018001.mp3"
+    },
+    {
+      "reciter": "Husary_64kbps",
+      "surah": 18,
+      "ayah": 10,
+      "audio": "Husary_64kbps/018010.mp3"
+    },
+    {
+      "reciter": "Husary_64kbps",
+      "surah": 24,
+      "ayah": 35,
+      "audio": "Husary_64kbps/024035.mp3"
+    },
+    {
+      "reciter": "Husary_64kbps",
+      "surah": 36,
+      "ayah": 1,
+      "audio": "Husary_64kbps/036001.mp3"
+    },
+    {
+      "reciter": "Husary_64kbps",
+      "surah": 36,
+      "ayah": 20,
+      "audio": "Husary_64kbps/036020.mp3"
+    },
+    {
+      "reciter": "Husary_64kbps",
+      "surah": 55,
+      "ayah": 1,
+      "audio": "Husary_64kbps/055001.mp3"
+    },
+    {
+      "reciter": "Husary_64kbps",
+      "surah": 55,
+      "ayah": 13,
+      "audio": "Husary_64kbps/055013.mp3"
+    },
+    {
+      "reciter": "Husary_64kbps",
+      "surah": 67,
+      "ayah": 1,
+      "audio": "Husary_64kbps/067001.mp3"
+    },
+    {
+      "reciter": "Husary_64kbps",
+      "surah": 78,
+      "ayah": 1,
+      "audio": "Husary_64kbps/078001.mp3"
+    },
+    {
+      "reciter": "Husary_64kbps",
+      "surah": 87,
+      "ayah": 1,
+      "audio": "Husary_64kbps/087001.mp3"
+    },
+    {
+      "reciter": "Husary_64kbps",
+      "surah": 91,
+      "ayah": 1,
+      "audio": "Husary_64kbps/091001.mp3"
+    },
+    {
+      "reciter": "Husary_64kbps",
+      "surah": 93,
+      "ayah": 1,
+      "audio": "Husary_64kbps/093001.mp3"
+    },
+    {
+      "reciter": "Husary_64kbps",
+      "surah": 94,
+      "ayah": 1,
+      "audio": "Husary_64kbps/094001.mp3"
+    },
+    {
+      "reciter": "Husary_64kbps",
+      "surah": 96,
+      "ayah": 1,
+      "audio": "Husary_64kbps/096001.mp3"
+    },
+    {
+      "reciter": "Husary_64kbps",
+      "surah": 97,
+      "ayah": 1,
+      "audio": "Husary_64kbps/097001.mp3"
+    },
+    {
+      "reciter": "Husary_64kbps",
+      "surah": 103,
+      "ayah": 1,
+      "audio": "Husary_64kbps/103001.mp3"
+    },
+    {
+      "reciter": "Husary_64kbps",
+      "surah": 108,
+      "ayah": 1,
+      "audio": "Husary_64kbps/108001.mp3"
+    },
+    {
+      "reciter": "Husary_64kbps",
+      "surah": 112,
+      "ayah": 1,
+      "audio": "Husary_64kbps/112001.mp3"
+    },
+    {
+      "reciter": "Husary_64kbps",
+      "surah": 114,
+      "ayah": 1,
+      "audio": "Husary_64kbps/114001.mp3"
+    },
+    {
+      "reciter": "Alafasy_128kbps",
+      "surah": 1,
+      "ayah": 1,
+      "audio": "Alafasy_128kbps/001001.mp3"
+    },
+    {
+      "reciter": "Alafasy_128kbps",
+      "surah": 1,
+      "ayah": 2,
+      "audio": "Alafasy_128kbps/001002.mp3"
+    },
+    {
+      "reciter": "Alafasy_128kbps",
+      "surah": 1,
+      "ayah": 5,
+      "audio": "Alafasy_128kbps/001005.mp3"
+    },
+    {
+      "reciter": "Alafasy_128kbps",
+      "surah": 1,
+      "ayah": 7,
+      "audio": "Alafasy_128kbps/001007.mp3"
+    },
+    {
+      "reciter": "Alafasy_128kbps",
+      "surah": 2,
+      "ayah": 1,
+      "audio": "Alafasy_128kbps/002001.mp3"
+    },
+    {
+      "reciter": "Alafasy_128kbps",
+      "surah": 2,
+      "ayah": 5,
+      "audio": "Alafasy_128kbps/002005.mp3"
+    },
+    {
+      "reciter": "Alafasy_128kbps",
+      "surah": 2,
+      "ayah": 255,
+      "audio": "Alafasy_128kbps/002255.mp3"
+    },
+    {
+      "reciter": "Alafasy_128kbps",
+      "surah": 3,
+      "ayah": 8,
+      "audio": "Alafasy_128kbps/003008.mp3"
+    },
+    {
+      "reciter": "Alafasy_128kbps",
+      "surah": 4,
+      "ayah": 1,
+      "audio": "Alafasy_128kbps/004001.mp3"
+    },
+    {
+      "reciter": "Alafasy_128kbps",
+      "surah": 6,
+      "ayah": 1,
+      "audio": "Alafasy_128kbps/006001.mp3"
+    },
+    {
+      "reciter": "Alafasy_128kbps",
+      "surah": 12,
+      "ayah": 1,
+      "audio": "Alafasy_128kbps/012001.mp3"
+    },
+    {
+      "reciter": "Alafasy_128kbps",
+      "surah": 18,
+      "ayah": 1,
+      "audio": "Alafasy_128kbps/018001.mp3"
+    },
+    {
+      "reciter": "Alafasy_128kbps",
+      "surah": 18,
+      "ayah": 10,
+      "audio": "Alafasy_128kbps/018010.mp3"
+    },
+    {
+      "reciter": "Alafasy_128kbps",
+      "surah": 24,
+      "ayah": 35,
+      "audio": "Alafasy_128kbps/024035.mp3"
+    },
+    {
+      "reciter": "Alafasy_128kbps",
+      "surah": 36,
+      "ayah": 1,
+      "audio": "Alafasy_128kbps/036001.mp3"
+    },
+    {
+      "reciter": "Alafasy_128kbps",
+      "surah": 36,
+      "ayah": 20,
+      "audio": "Alafasy_128kbps/036020.mp3"
+    },
+    {
+      "reciter": "Alafasy_128kbps",
+      "surah": 55,
+      "ayah": 1,
+      "audio": "Alafasy_128kbps/055001.mp3"
+    },
+    {
+      "reciter": "Alafasy_128kbps",
+      "surah": 55,
+      "ayah": 13,
+      "audio": "Alafasy_128kbps/055013.mp3"
+    },
+    {
+      "reciter": "Alafasy_128kbps",
+      "surah": 67,
+      "ayah": 1,
+      "audio": "Alafasy_128kbps/067001.mp3"
+    },
+    {
+      "reciter": "Alafasy_128kbps",
+      "surah": 78,
+      "ayah": 1,
+      "audio": "Alafasy_128kbps/078001.mp3"
+    },
+    {
+      "reciter": "Alafasy_128kbps",
+      "surah": 87,
+      "ayah": 1,
+      "audio": "Alafasy_128kbps/087001.mp3"
+    },
+    {
+      "reciter": "Alafasy_128kbps",
+      "surah": 91,
+      "ayah": 1,
+      "audio": "Alafasy_128kbps/091001.mp3"
+    },
+    {
+      "reciter": "Alafasy_128kbps",
+      "surah": 93,
+      "ayah": 1,
+      "audio": "Alafasy_128kbps/093001.mp3"
+    },
+    {
+      "reciter": "Alafasy_128kbps",
+      "surah": 94,
+      "ayah": 1,
+      "audio": "Alafasy_128kbps/094001.mp3"
+    },
+    {
+      "reciter": "Alafasy_128kbps",
+      "surah": 96,
+      "ayah": 1,
+      "audio": "Alafasy_128kbps/096001.mp3"
+    },
+    {
+      "reciter": "Alafasy_128kbps",
+      "surah": 97,
+      "ayah": 1,
+      "audio": "Alafasy_128kbps/097001.mp3"
+    },
+    {
+      "reciter": "Alafasy_128kbps",
+      "surah": 103,
+      "ayah": 1,
+      "audio": "Alafasy_128kbps/103001.mp3"
+    },
+    {
+      "reciter": "Alafasy_128kbps",
+      "surah": 108,
+      "ayah": 1,
+      "audio": "Alafasy_128kbps/108001.mp3"
+    },
+    {
+      "reciter": "Alafasy_128kbps",
+      "surah": 112,
+      "ayah": 1,
+      "audio": "Alafasy_128kbps/112001.mp3"
+    },
+    {
+      "reciter": "Alafasy_128kbps",
+      "surah": 114,
+      "ayah": 1,
+      "audio": "Alafasy_128kbps/114001.mp3"
+    },
+    {
+      "reciter": "Hani_Rifai_192kbps",
+      "surah": 1,
+      "ayah": 1,
+      "audio": "Hani_Rifai_192kbps/001001.mp3"
+    },
+    {
+      "reciter": "Hani_Rifai_192kbps",
+      "surah": 1,
+      "ayah": 2,
+      "audio": "Hani_Rifai_192kbps/001002.mp3"
+    },
+    {
+      "reciter": "Hani_Rifai_192kbps",
+      "surah": 1,
+      "ayah": 5,
+      "audio": "Hani_Rifai_192kbps/001005.mp3"
+    },
+    {
+      "reciter": "Hani_Rifai_192kbps",
+      "surah": 1,
+      "ayah": 7,
+      "audio": "Hani_Rifai_192kbps/001007.mp3"
+    },
+    {
+      "reciter": "Hani_Rifai_192kbps",
+      "surah": 2,
+      "ayah": 1,
+      "audio": "Hani_Rifai_192kbps/002001.mp3"
+    },
+    {
+      "reciter": "Hani_Rifai_192kbps",
+      "surah": 2,
+      "ayah": 5,
+      "audio": "Hani_Rifai_192kbps/002005.mp3"
+    },
+    {
+      "reciter": "Hani_Rifai_192kbps",
+      "surah": 2,
+      "ayah": 255,
+      "audio": "Hani_Rifai_192kbps/002255.mp3"
+    },
+    {
+      "reciter": "Hani_Rifai_192kbps",
+      "surah": 3,
+      "ayah": 8,
+      "audio": "Hani_Rifai_192kbps/003008.mp3"
+    },
+    {
+      "reciter": "Hani_Rifai_192kbps",
+      "surah": 4,
+      "ayah": 1,
+      "audio": "Hani_Rifai_192kbps/004001.mp3"
+    },
+    {
+      "reciter": "Hani_Rifai_192kbps",
+      "surah": 6,
+      "ayah": 1,
+      "audio": "Hani_Rifai_192kbps/006001.mp3"
+    },
+    {
+      "reciter": "Hani_Rifai_192kbps",
+      "surah": 12,
+      "ayah": 1,
+      "audio": "Hani_Rifai_192kbps/012001.mp3"
+    },
+    {
+      "reciter": "Hani_Rifai_192kbps",
+      "surah": 18,
+      "ayah": 1,
+      "audio": "Hani_Rifai_192kbps/018001.mp3"
+    },
+    {
+      "reciter": "Hani_Rifai_192kbps",
+      "surah": 18,
+      "ayah": 10,
+      "audio": "Hani_Rifai_192kbps/018010.mp3"
+    },
+    {
+      "reciter": "Hani_Rifai_192kbps",
+      "surah": 24,
+      "ayah": 35,
+      "audio": "Hani_Rifai_192kbps/024035.mp3"
+    },
+    {
+      "reciter": "Hani_Rifai_192kbps",
+      "surah": 36,
+      "ayah": 1,
+      "audio": "Hani_Rifai_192kbps/036001.mp3"
+    },
+    {
+      "reciter": "Hani_Rifai_192kbps",
+      "surah": 36,
+      "ayah": 20,
+      "audio": "Hani_Rifai_192kbps/036020.mp3"
+    },
+    {
+      "reciter": "Hani_Rifai_192kbps",
+      "surah": 55,
+      "ayah": 1,
+      "audio": "Hani_Rifai_192kbps/055001.mp3"
+    },
+    {
+      "reciter": "Hani_Rifai_192kbps",
+      "surah": 55,
+      "ayah": 13,
+      "audio": "Hani_Rifai_192kbps/055013.mp3"
+    },
+    {
+      "reciter": "Hani_Rifai_192kbps",
+      "surah": 67,
+      "ayah": 1,
+      "audio": "Hani_Rifai_192kbps/067001.mp3"
+    },
+    {
+      "reciter": "Hani_Rifai_192kbps",
+      "surah": 78,
+      "ayah": 1,
+      "audio": "Hani_Rifai_192kbps/078001.mp3"
+    },
+    {
+      "reciter": "Hani_Rifai_192kbps",
+      "surah": 87,
+      "ayah": 1,
+      "audio": "Hani_Rifai_192kbps/087001.mp3"
+    },
+    {
+      "reciter": "Hani_Rifai_192kbps",
+      "surah": 91,
+      "ayah": 1,
+      "audio": "Hani_Rifai_192kbps/091001.mp3"
+    },
+    {
+      "reciter": "Hani_Rifai_192kbps",
+      "surah": 93,
+      "ayah": 1,
+      "audio": "Hani_Rifai_192kbps/093001.mp3"
+    },
+    {
+      "reciter": "Hani_Rifai_192kbps",
+      "surah": 94,
+      "ayah": 1,
+      "audio": "Hani_Rifai_192kbps/094001.mp3"
+    },
+    {
+      "reciter": "Hani_Rifai_192kbps",
+      "surah": 96,
+      "ayah": 1,
+      "audio": "Hani_Rifai_192kbps/096001.mp3"
+    },
+    {
+      "reciter": "Hani_Rifai_192kbps",
+      "surah": 97,
+      "ayah": 1,
+      "audio": "Hani_Rifai_192kbps/097001.mp3"
+    },
+    {
+      "reciter": "Hani_Rifai_192kbps",
+      "surah": 103,
+      "ayah": 1,
+      "audio": "Hani_Rifai_192kbps/103001.mp3"
+    },
+    {
+      "reciter": "Hani_Rifai_192kbps",
+      "surah": 108,
+      "ayah": 1,
+      "audio": "Hani_Rifai_192kbps/108001.mp3"
+    },
+    {
+      "reciter": "Hani_Rifai_192kbps",
+      "surah": 112,
+      "ayah": 1,
+      "audio": "Hani_Rifai_192kbps/112001.mp3"
+    },
+    {
+      "reciter": "Hani_Rifai_192kbps",
+      "surah": 114,
+      "ayah": 1,
+      "audio": "Hani_Rifai_192kbps/114001.mp3"
+    },
+    {
+      "reciter": "Abdul_Basit_Mujawwad_128kbps",
+      "surah": 1,
+      "ayah": 1,
+      "audio": "Abdul_Basit_Mujawwad_128kbps/001001.mp3"
+    },
+    {
+      "reciter": "Abdul_Basit_Mujawwad_128kbps",
+      "surah": 1,
+      "ayah": 2,
+      "audio": "Abdul_Basit_Mujawwad_128kbps/001002.mp3"
+    },
+    {
+      "reciter": "Abdul_Basit_Mujawwad_128kbps",
+      "surah": 1,
+      "ayah": 5,
+      "audio": "Abdul_Basit_Mujawwad_128kbps/001005.mp3"
+    },
+    {
+      "reciter": "Abdul_Basit_Mujawwad_128kbps",
+      "surah": 1,
+      "ayah": 7,
+      "audio": "Abdul_Basit_Mujawwad_128kbps/001007.mp3"
+    },
+    {
+      "reciter": "Abdul_Basit_Mujawwad_128kbps",
+      "surah": 2,
+      "ayah": 1,
+      "audio": "Abdul_Basit_Mujawwad_128kbps/002001.mp3"
+    },
+    {
+      "reciter": "Abdul_Basit_Mujawwad_128kbps",
+      "surah": 2,
+      "ayah": 5,
+      "audio": "Abdul_Basit_Mujawwad_128kbps/002005.mp3"
+    },
+    {
+      "reciter": "Abdul_Basit_Mujawwad_128kbps",
+      "surah": 2,
+      "ayah": 255,
+      "audio": "Abdul_Basit_Mujawwad_128kbps/002255.mp3"
+    },
+    {
+      "reciter": "Abdul_Basit_Mujawwad_128kbps",
+      "surah": 3,
+      "ayah": 8,
+      "audio": "Abdul_Basit_Mujawwad_128kbps/003008.mp3"
+    },
+    {
+      "reciter": "Abdul_Basit_Mujawwad_128kbps",
+      "surah": 4,
+      "ayah": 1,
+      "audio": "Abdul_Basit_Mujawwad_128kbps/004001.mp3"
+    },
+    {
+      "reciter": "Abdul_Basit_Mujawwad_128kbps",
+      "surah": 6,
+      "ayah": 1,
+      "audio": "Abdul_Basit_Mujawwad_128kbps/006001.mp3"
+    },
+    {
+      "reciter": "Abdul_Basit_Mujawwad_128kbps",
+      "surah": 12,
+      "ayah": 1,
+      "audio": "Abdul_Basit_Mujawwad_128kbps/012001.mp3"
+    },
+    {
+      "reciter": "Abdul_Basit_Mujawwad_128kbps",
+      "surah": 18,
+      "ayah": 1,
+      "audio": "Abdul_Basit_Mujawwad_128kbps/018001.mp3"
+    },
+    {
+      "reciter": "Abdul_Basit_Mujawwad_128kbps",
+      "surah": 18,
+      "ayah": 10,
+      "audio": "Abdul_Basit_Mujawwad_128kbps/018010.mp3"
+    },
+    {
+      "reciter": "Abdul_Basit_Mujawwad_128kbps",
+      "surah": 24,
+      "ayah": 35,
+      "audio": "Abdul_Basit_Mujawwad_128kbps/024035.mp3"
+    },
+    {
+      "reciter": "Abdul_Basit_Mujawwad_128kbps",
+      "surah": 36,
+      "ayah": 1,
+      "audio": "Abdul_Basit_Mujawwad_128kbps/036001.mp3"
+    },
+    {
+      "reciter": "Abdul_Basit_Mujawwad_128kbps",
+      "surah": 36,
+      "ayah": 20,
+      "audio": "Abdul_Basit_Mujawwad_128kbps/036020.mp3"
+    },
+    {
+      "reciter": "Abdul_Basit_Mujawwad_128kbps",
+      "surah": 55,
+      "ayah": 1,
+      "audio": "Abdul_Basit_Mujawwad_128kbps/055001.mp3"
+    },
+    {
+      "reciter": "Abdul_Basit_Mujawwad_128kbps",
+      "surah": 55,
+      "ayah": 13,
+      "audio": "Abdul_Basit_Mujawwad_128kbps/055013.mp3"
+    },
+    {
+      "reciter": "Abdul_Basit_Mujawwad_128kbps",
+      "surah": 67,
+      "ayah": 1,
+      "audio": "Abdul_Basit_Mujawwad_128kbps/067001.mp3"
+    },
+    {
+      "reciter": "Abdul_Basit_Mujawwad_128kbps",
+      "surah": 78,
+      "ayah": 1,
+      "audio": "Abdul_Basit_Mujawwad_128kbps/078001.mp3"
+    },
+    {
+      "reciter": "Abdul_Basit_Mujawwad_128kbps",
+      "surah": 87,
+      "ayah": 1,
+      "audio": "Abdul_Basit_Mujawwad_128kbps/087001.mp3"
+    },
+    {
+      "reciter": "Abdul_Basit_Mujawwad_128kbps",
+      "surah": 91,
+      "ayah": 1,
+      "audio": "Abdul_Basit_Mujawwad_128kbps/091001.mp3"
+    },
+    {
+      "reciter": "Abdul_Basit_Mujawwad_128kbps",
+      "surah": 93,
+      "ayah": 1,
+      "audio": "Abdul_Basit_Mujawwad_128kbps/093001.mp3"
+    },
+    {
+      "reciter": "Abdul_Basit_Mujawwad_128kbps",
+      "surah": 94,
+      "ayah": 1,
+      "audio": "Abdul_Basit_Mujawwad_128kbps/094001.mp3"
+    },
+    {
+      "reciter": "Abdul_Basit_Mujawwad_128kbps",
+      "surah": 96,
+      "ayah": 1,
+      "audio": "Abdul_Basit_Mujawwad_128kbps/096001.mp3"
+    },
+    {
+      "reciter": "Abdul_Basit_Mujawwad_128kbps",
+      "surah": 97,
+      "ayah": 1,
+      "audio": "Abdul_Basit_Mujawwad_128kbps/097001.mp3"
+    },
+    {
+      "reciter": "Abdul_Basit_Mujawwad_128kbps",
+      "surah": 103,
+      "ayah": 1,
+      "audio": "Abdul_Basit_Mujawwad_128kbps/103001.mp3"
+    },
+    {
+      "reciter": "Abdul_Basit_Mujawwad_128kbps",
+      "surah": 108,
+      "ayah": 1,
+      "audio": "Abdul_Basit_Mujawwad_128kbps/108001.mp3"
+    },
+    {
+      "reciter": "Abdul_Basit_Mujawwad_128kbps",
+      "surah": 112,
+      "ayah": 1,
+      "audio": "Abdul_Basit_Mujawwad_128kbps/112001.mp3"
+    },
+    {
+      "reciter": "Abdul_Basit_Mujawwad_128kbps",
+      "surah": 114,
+      "ayah": 1,
+      "audio": "Abdul_Basit_Mujawwad_128kbps/114001.mp3"
+    },
+    {
+      "reciter": "Minshawy_Murattal_128kbps",
+      "surah": 1,
+      "ayah": 1,
+      "audio": "Minshawy_Murattal_128kbps/001001.mp3"
+    },
+    {
+      "reciter": "Minshawy_Murattal_128kbps",
+      "surah": 1,
+      "ayah": 2,
+      "audio": "Minshawy_Murattal_128kbps/001002.mp3"
+    },
+    {
+      "reciter": "Minshawy_Murattal_128kbps",
+      "surah": 1,
+      "ayah": 5,
+      "audio": "Minshawy_Murattal_128kbps/001005.mp3"
+    },
+    {
+      "reciter": "Minshawy_Murattal_128kbps",
+      "surah": 1,
+      "ayah": 7,
+      "audio": "Minshawy_Murattal_128kbps/001007.mp3"
+    },
+    {
+      "reciter": "Minshawy_Murattal_128kbps",
+      "surah": 2,
+      "ayah": 1,
+      "audio": "Minshawy_Murattal_128kbps/002001.mp3"
+    },
+    {
+      "reciter": "Minshawy_Murattal_128kbps",
+      "surah": 2,
+      "ayah": 5,
+      "audio": "Minshawy_Murattal_128kbps/002005.mp3"
+    },
+    {
+      "reciter": "Minshawy_Murattal_128kbps",
+      "surah": 2,
+      "ayah": 255,
+      "audio": "Minshawy_Murattal_128kbps/002255.mp3"
+    },
+    {
+      "reciter": "Minshawy_Murattal_128kbps",
+      "surah": 3,
+      "ayah": 8,
+      "audio": "Minshawy_Murattal_128kbps/003008.mp3"
+    },
+    {
+      "reciter": "Minshawy_Murattal_128kbps",
+      "surah": 4,
+      "ayah": 1,
+      "audio": "Minshawy_Murattal_128kbps/004001.mp3"
+    },
+    {
+      "reciter": "Minshawy_Murattal_128kbps",
+      "surah": 6,
+      "ayah": 1,
+      "audio": "Minshawy_Murattal_128kbps/006001.mp3"
+    },
+    {
+      "reciter": "Minshawy_Murattal_128kbps",
+      "surah": 12,
+      "ayah": 1,
+      "audio": "Minshawy_Murattal_128kbps/012001.mp3"
+    },
+    {
+      "reciter": "Minshawy_Murattal_128kbps",
+      "surah": 18,
+      "ayah": 1,
+      "audio": "Minshawy_Murattal_128kbps/018001.mp3"
+    },
+    {
+      "reciter": "Minshawy_Murattal_128kbps",
+      "surah": 18,
+      "ayah": 10,
+      "audio": "Minshawy_Murattal_128kbps/018010.mp3"
+    },
+    {
+      "reciter": "Minshawy_Murattal_128kbps",
+      "surah": 24,
+      "ayah": 35,
+      "audio": "Minshawy_Murattal_128kbps/024035.mp3"
+    },
+    {
+      "reciter": "Minshawy_Murattal_128kbps",
+      "surah": 36,
+      "ayah": 1,
+      "audio": "Minshawy_Murattal_128kbps/036001.mp3"
+    },
+    {
+      "reciter": "Minshawy_Murattal_128kbps",
+      "surah": 36,
+      "ayah": 20,
+      "audio": "Minshawy_Murattal_128kbps/036020.mp3"
+    },
+    {
+      "reciter": "Minshawy_Murattal_128kbps",
+      "surah": 55,
+      "ayah": 1,
+      "audio": "Minshawy_Murattal_128kbps/055001.mp3"
+    },
+    {
+      "reciter": "Minshawy_Murattal_128kbps",
+      "surah": 55,
+      "ayah": 13,
+      "audio": "Minshawy_Murattal_128kbps/055013.mp3"
+    },
+    {
+      "reciter": "Minshawy_Murattal_128kbps",
+      "surah": 67,
+      "ayah": 1,
+      "audio": "Minshawy_Murattal_128kbps/067001.mp3"
+    },
+    {
+      "reciter": "Minshawy_Murattal_128kbps",
+      "surah": 78,
+      "ayah": 1,
+      "audio": "Minshawy_Murattal_128kbps/078001.mp3"
+    },
+    {
+      "reciter": "Minshawy_Murattal_128kbps",
+      "surah": 87,
+      "ayah": 1,
+      "audio": "Minshawy_Murattal_128kbps/087001.mp3"
+    },
+    {
+      "reciter": "Minshawy_Murattal_128kbps",
+      "surah": 91,
+      "ayah": 1,
+      "audio": "Minshawy_Murattal_128kbps/091001.mp3"
+    },
+    {
+      "reciter": "Minshawy_Murattal_128kbps",
+      "surah": 93,
+      "ayah": 1,
+      "audio": "Minshawy_Murattal_128kbps/093001.mp3"
+    },
+    {
+      "reciter": "Minshawy_Murattal_128kbps",
+      "surah": 94,
+      "ayah": 1,
+      "audio": "Minshawy_Murattal_128kbps/094001.mp3"
+    },
+    {
+      "reciter": "Minshawy_Murattal_128kbps",
+      "surah": 96,
+      "ayah": 1,
+      "audio": "Minshawy_Murattal_128kbps/096001.mp3"
+    },
+    {
+      "reciter": "Minshawy_Murattal_128kbps",
+      "surah": 97,
+      "ayah": 1,
+      "audio": "Minshawy_Murattal_128kbps/097001.mp3"
+    },
+    {
+      "reciter": "Minshawy_Murattal_128kbps",
+      "surah": 103,
+      "ayah": 1,
+      "audio": "Minshawy_Murattal_128kbps/103001.mp3"
+    },
+    {
+      "reciter": "Minshawy_Murattal_128kbps",
+      "surah": 108,
+      "ayah": 1,
+      "audio": "Minshawy_Murattal_128kbps/108001.mp3"
+    },
+    {
+      "reciter": "Minshawy_Murattal_128kbps",
+      "surah": 112,
+      "ayah": 1,
+      "audio": "Minshawy_Murattal_128kbps/112001.mp3"
+    },
+    {
+      "reciter": "Minshawy_Murattal_128kbps",
+      "surah": 114,
+      "ayah": 1,
+      "audio": "Minshawy_Murattal_128kbps/114001.mp3"
+    }
+  ]
+}

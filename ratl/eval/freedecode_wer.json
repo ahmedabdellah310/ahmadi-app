@@ -1,0 +1,272 @@
+{
+  "step": "M2.0 DIAGNOSTIC free-decode WER",
+  "purpose": "decide viability of free decode -> '|' split -> edit-distance alignment as the basis for the G3/G4 reference detector",
+  "not_an_experiment": "no training, no tuning, no threshold selection, frozen alignment pipeline untouched",
+  "model": "ratl-align-v1-e2e-fp32.onnx",
+  "decode": "greedy CTC best path (argmax, collapse repeats, drop blank)",
+  "windowing": "FROZEN 15 s / 10 s / 2.5 s",
+  "corpus": "RATL-Bench-v0 clips (30 ayat x 5 reciters); ayat excluded from training for all reciters",
+  "overall": {
+    "n_clips": 150,
+    "n_ref_words": 1385,
+    "n_ref_chars": 9195,
+    "WER": 0.5097,
+    "word_sub_rate": 0.3877,
+    "word_del_rate": 0.0953,
+    "word_ins_rate": 0.0267,
+    "CER": 0.1258,
+    "char_sub_rate": 0.0465,
+    "char_del_rate": 0.034,
+    "char_ins_rate": 0.0452,
+    "sep_expected": 1235,
+    "sep_decoded": 1141,
+    "sep_ratio": 0.9239,
+    "clips_with_exact_word_count": 0.5533,
+    "word_count_delta_median": 0.0
+  },
+  "by_seen_in_training": {
+    "unseen_reciters": {
+      "n_clips": 60,
+      "n_ref_words": 554,
+      "n_ref_chars": 3678,
+      "WER": 0.6336,
+      "word_sub_rate": 0.4874,
+      "word_del_rate": 0.1191,
+      "word_ins_rate": 0.0271,
+      "CER": 0.1672,
+      "char_sub_rate": 0.0783,
+      "char_del_rate": 0.0552,
+      "char_ins_rate": 0.0337,
+      "sep_expected": 494,
+      "sep_decoded": 443,
+      "sep_ratio": 0.8968,
+      "clips_with_exact_word_count": 0.5333,
+      "word_count_delta_median": 0.0
+    },
+    "seen_reciters": {
+      "n_clips": 90,
+      "n_ref_words": 831,
+      "n_ref_chars": 5517,
+      "WER": 0.4272,
+      "word_sub_rate": 0.3213,
+      "word_del_rate": 0.0794,
+      "word_ins_rate": 0.0265,
+      "CER": 0.0982,
+      "char_sub_rate": 0.0254,
+      "char_del_rate": 0.0199,
+      "char_ins_rate": 0.0529,
+      "sep_expected": 741,
+      "sep_decoded": 698,
+      "sep_ratio": 0.942,
+      "clips_with_exact_word_count": 0.5667,
+      "word_count_delta_median": 0.0
+    }
+  },
+  "by_reciter": {
+    "Abdul_Basit_Mujawwad_128kbps": {
+      "n_clips": 30,
+      "n_ref_words": 277,
+      "n_ref_chars": 1839,
+      "WER": 0.5018,
+      "word_sub_rate": 0.4007,
+      "word_del_rate": 0.0975,
+      "word_ins_rate": 0.0036,
+      "CER": 0.1126,
+      "char_sub_rate": 0.0288,
+      "char_del_rate": 0.0239,
+      "char_ins_rate": 0.0598,
+      "sep_expected": 247,
+      "sep_decoded": 222,
+      "sep_ratio": 0.8988,
+      "clips_with_exact_word_count": 0.5,
+      "word_count_delta_median": 0.0
+    },
+    "Alafasy_128kbps": {
+      "n_clips": 30,
+      "n_ref_words": 277,
+      "n_ref_chars": 1839,
+      "WER": 0.3574,
+      "word_sub_rate": 0.2455,
+      "word_del_rate": 0.0578,
+      "word_ins_rate": 0.0542,
+      "CER": 0.1006,
+      "char_sub_rate": 0.0196,
+      "char_del_rate": 0.0125,
+      "char_ins_rate": 0.0685,
+      "sep_expected": 247,
+      "sep_decoded": 246,
+      "sep_ratio": 0.996,
+      "clips_with_exact_word_count": 0.5667,
+      "word_count_delta_median": 0.0
+    },
+    "Hani_Rifai_192kbps": {
+      "n_clips": 30,
+      "n_ref_words": 277,
+      "n_ref_chars": 1839,
+      "WER": 0.7762,
+      "word_sub_rate": 0.5812,
+      "word_del_rate": 0.1805,
+      "word_ins_rate": 0.0144,
+      "CER": 0.2208,
+      "char_sub_rate": 0.112,
+      "char_del_rate": 0.0832,
+      "char_ins_rate": 0.0256,
+      "sep_expected": 247,
+      "sep_decoded": 201,
+      "sep_ratio": 0.8138,
+      "clips_with_exact_word_count": 0.4667,
+      "word_count_delta_median": -0.5
+    },
+    "Husary_64kbps": {
+      "n_clips": 30,
+      "n_ref_words": 277,
+      "n_ref_chars": 1839,
+      "WER": 0.4224,
+      "word_sub_rate": 0.3177,
+      "word_del_rate": 0.083,
+      "word_ins_rate": 0.0217,
+      "CER": 0.0816,
+      "char_sub_rate": 0.0277,
+      "char_del_rate": 0.0234,
+      "char_ins_rate": 0.0305,
+      "sep_expected": 247,
+      "sep_decoded": 230,
+      "sep_ratio": 0.9312,
+      "clips_with_exact_word_count": 0.6333,
+      "word_count_delta_median": 0.0
+    },
+    "Minshawy_Murattal_128kbps": {
+      "n_clips": 30,
+      "n_ref_words": 277,
+      "n_ref_chars": 1839,
+      "WER": 0.491,
+      "word_sub_rate": 0.3935,
+      "word_del_rate": 0.0578,
+      "word_ins_rate": 0.0397,
+      "CER": 0.1136,
+      "char_sub_rate": 0.0446,
+      "char_del_rate": 0.0272,
+      "char_ins_rate": 0.0419,
+      "sep_expected": 247,
+      "sep_decoded": 242,
+      "sep_ratio": 0.9798,
+      "clips_with_exact_word_count": 0.6,
+      "word_count_delta_median": 0.0
+    }
+  },
+  "examples_worst": [
+    {
+      "reciter": "Hani_Rifai_192kbps",
+      "ayah": "91:1",
+      "wer": 1.5,
+      "tgt": [
+        "wal-shamsi",
+        "waḍuḥāhā"
+      ],
+      "hyp": [
+        "wal-shamzi",
+        "wuahu",
+        "fāhāhi"
+      ]
+    },
+    {
+      "reciter": "Husary_64kbps",
+      "ayah": "36:1",
+      "wer": 1.0,
+      "tgt": [
+        "ya-seen"
+      ],
+      "hyp": [
+        "yaseena"
+      ]
+    },
+    {
+      "reciter": "Husary_64kbps",
+      "ayah": "55:1",
+      "wer": 1.0,
+      "tgt": [
+        "al-raḥmānu"
+      ],
+      "hyp": [
+        "al-raḥmāni"
+      ]
+    },
+    {
+      "reciter": "Alafasy_128kbps",
+      "ayah": "36:1",
+      "wer": 1.0,
+      "tgt": [
+        "ya-seen"
+      ],
+      "hyp": [
+        "yaseena"
+      ]
+    },
+    {
+      "reciter": "Alafasy_128kbps",
+      "ayah": "55:1",
+      "wer": 1.0,
+      "tgt": [
+        "al-raḥmānu"
+      ],
+      "hyp": [
+        "al-raḥmāni"
+      ]
+    }
+  ],
+  "examples_best": [
+    {
+      "reciter": "Husary_64kbps",
+      "ayah": "1:2",
+      "wer": 0.0,
+      "tgt": [
+        "al-ḥamdu",
+        "lillahi",
+        "rabbi",
+        "l-ʿālamīna"
+      ],
+      "hyp": [
+        "al-ḥamdu",
+        "lillahi",
+        "rabbi",
+        "l-ʿālamīna"
+      ]
+    },
+    {
+      "reciter": "Husary_64kbps",
+      "ayah": "2:1",
+      "wer": 0.0,
+      "tgt": [
+        "alif-lam-meem"
+      ],
+      "hyp": [
+        "alif-lam-meem"
+      ]
+    },
+    {
+      "reciter": "Husary_64kbps",
+      "ayah": "2:5",
+      "wer": 0.0,
+      "tgt": [
+        "ulāika",
+        "ʿalā",
+        "hudan",
+        "min",
+        "rabbihim",
+        "wa-ulāika",
+        "humu",
+        "l-muf'liḥūna"
+      ],
+      "hyp": [
+        "ulāika",
+        "ʿalā",
+        "hudan",
+        "min",
+        "rabbihim",
+        "wa-ulāika",
+        "humu",
+        "l-muf'liḥūna"
+      ]
+    }
+  ]
+}

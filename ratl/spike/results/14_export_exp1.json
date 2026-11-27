@@ -1,0 +1,26 @@
+{
+  "step": "14_export_exp1",
+  "params": 7933859,
+  "params_M": 7.93,
+  "fp32_onnx_mb": 30.31,
+  "int8_onnx_mb": 10.07,
+  "G1_ceiling_mb": 120.0,
+  "G1_pass": true,
+  "desktop_cpu_rtf_1thread": 0.0204,
+  "per_clip_rtf": [
+    0.0384,
+    0.0123,
+    0.0107
+  ],
+  "G5_ceiling_rtf": 0.5,
+  "G5_projected_device_range": [
+    0.0612,
+    0.102
+  ],
+  "G5_verdict_estimated": "PLAUSIBLE",
+  "note": "includes log-mel feature extraction in the timed loop",
+  "comparison_failed_model": {
+    "int8_onnx_mb": 116.28,
+    "desktop_rtf_bench": 0.331
+  }
+}

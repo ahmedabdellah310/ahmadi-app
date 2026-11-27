@@ -1,0 +1,358 @@
+{
+  "step": "M2.0 DIAGNOSTIC free-decode normalization re-scoring",
+  "not_an_experiment": "string re-scoring only; no model, decoder, threshold or training touched",
+  "model": "ratl-align-v1-e2e-fp32.onnx",
+  "n_clips": 150,
+  "tier_definitions": {
+    "N0_raw": "as decoded",
+    "N1_orthographic": "hyphens removed",
+    "N2_pausal": "N1 + trailing tanwin/short vowel stripped (waqf)",
+    "N3_aggressive_ceiling": "N2 + long vowels merged, doubled consonants collapsed, hamza/ayn dropped - DIAGNOSTIC CEILING ONLY, must never ship"
+  },
+  "overall": {
+    "N0_raw": {
+      "n_clips": 150,
+      "n_ref_words": 1385,
+      "WER": 0.5097,
+      "word_sub_rate": 0.3877,
+      "word_del_rate": 0.0953,
+      "word_ins_rate": 0.0267,
+      "CER": 0.1258,
+      "exact_word_match_rate_when_counts_agree": 0.5361
+    },
+    "N1_orthographic": {
+      "n_clips": 150,
+      "n_ref_words": 1385,
+      "WER": 0.5061,
+      "word_sub_rate": 0.3841,
+      "word_del_rate": 0.0953,
+      "word_ins_rate": 0.0267,
+      "CER": 0.1236,
+      "exact_word_match_rate_when_counts_agree": 0.5444
+    },
+    "N2_pausal": {
+      "n_clips": 150,
+      "n_ref_words": 1385,
+      "WER": 0.4729,
+      "word_sub_rate": 0.3437,
+      "word_del_rate": 0.0989,
+      "word_ins_rate": 0.0303,
+      "CER": 0.1337,
+      "exact_word_match_rate_when_counts_agree": 0.5944
+    },
+    "N3_aggressive_ceiling": {
+      "n_clips": 150,
+      "n_ref_words": 1385,
+      "WER": 0.4397,
+      "word_sub_rate": 0.3076,
+      "word_del_rate": 0.1004,
+      "word_ins_rate": 0.0318,
+      "CER": 0.1204,
+      "exact_word_match_rate_when_counts_agree": 0.6361
+    }
+  },
+  "unseen_reciters": {
+    "N0_raw": {
+      "n_clips": 60,
+      "n_ref_words": 554,
+      "WER": 0.6336,
+      "word_sub_rate": 0.4874,
+      "word_del_rate": 0.1191,
+      "word_ins_rate": 0.0271,
+      "CER": 0.1672,
+      "exact_word_match_rate_when_counts_agree": 0.3972
+    },
+    "N1_orthographic": {
+      "n_clips": 60,
+      "n_ref_words": 554,
+      "WER": 0.6336,
+      "word_sub_rate": 0.4874,
+      "word_del_rate": 0.1191,
+      "word_ins_rate": 0.0271,
+      "CER": 0.165,
+      "exact_word_match_rate_when_counts_agree": 0.3972
+    },
+    "N2_pausal": {
+      "n_clips": 60,
+      "n_ref_words": 554,
+      "WER": 0.6119,
+      "word_sub_rate": 0.4657,
+      "word_del_rate": 0.1191,
+      "word_ins_rate": 0.0271,
+      "CER": 0.1732,
+      "exact_word_match_rate_when_counts_agree": 0.4255
+    },
+    "N3_aggressive_ceiling": {
+      "n_clips": 60,
+      "n_ref_words": 554,
+      "WER": 0.5758,
+      "word_sub_rate": 0.426,
+      "word_del_rate": 0.1209,
+      "word_ins_rate": 0.0289,
+      "CER": 0.1541,
+      "exact_word_match_rate_when_counts_agree": 0.4823
+    }
+  },
+  "seen_reciters": {
+    "N0_raw": {
+      "n_clips": 90,
+      "n_ref_words": 831,
+      "WER": 0.4272,
+      "word_sub_rate": 0.3213,
+      "word_del_rate": 0.0794,
+      "word_ins_rate": 0.0265,
+      "CER": 0.0982,
+      "exact_word_match_rate_when_counts_agree": 0.6256
+    },
+    "N1_orthographic": {
+      "n_clips": 90,
+      "n_ref_words": 831,
+      "WER": 0.4212,
+      "word_sub_rate": 0.3153,
+      "word_del_rate": 0.0794,
+      "word_ins_rate": 0.0265,
+      "CER": 0.0961,
+      "exact_word_match_rate_when_counts_agree": 0.6393
+    },
+    "N2_pausal": {
+      "n_clips": 90,
+      "n_ref_words": 831,
+      "WER": 0.3803,
+      "word_sub_rate": 0.2623,
+      "word_del_rate": 0.0854,
+      "word_ins_rate": 0.0325,
+      "CER": 0.1074,
+      "exact_word_match_rate_when_counts_agree": 0.7032
+    },
+    "N3_aggressive_ceiling": {
+      "n_clips": 90,
+      "n_ref_words": 831,
+      "WER": 0.349,
+      "word_sub_rate": 0.2286,
+      "word_del_rate": 0.0866,
+      "word_ins_rate": 0.0337,
+      "CER": 0.0978,
+      "exact_word_match_rate_when_counts_agree": 0.7352
+    }
+  },
+  "by_reciter": {
+    "Abdul_Basit_Mujawwad_128kbps": {
+      "N0_raw": {
+        "n_clips": 30,
+        "n_ref_words": 277,
+        "WER": 0.5018,
+        "word_sub_rate": 0.4007,
+        "word_del_rate": 0.0975,
+        "word_ins_rate": 0.0036,
+        "CER": 0.1126,
+        "exact_word_match_rate_when_counts_agree": 0.3721
+      },
+      "N1_orthographic": {
+        "n_clips": 30,
+        "n_ref_words": 277,
+        "WER": 0.491,
+        "word_sub_rate": 0.3899,
+        "word_del_rate": 0.0975,
+        "word_ins_rate": 0.0036,
+        "CER": 0.1105,
+        "exact_word_match_rate_when_counts_agree": 0.407
+      },
+      "N2_pausal": {
+        "n_clips": 30,
+        "n_ref_words": 277,
+        "WER": 0.4513,
+        "word_sub_rate": 0.3141,
+        "word_del_rate": 0.1155,
+        "word_ins_rate": 0.0217,
+        "CER": 0.1355,
+        "exact_word_match_rate_when_counts_agree": 0.4535
+      },
+      "N3_aggressive_ceiling": {
+        "n_clips": 30,
+        "n_ref_words": 277,
+        "WER": 0.4296,
+        "word_sub_rate": 0.2924,
+        "word_del_rate": 0.1155,
+        "word_ins_rate": 0.0217,
+        "CER": 0.1264,
+        "exact_word_match_rate_when_counts_agree": 0.4767
+      }
+    },
+    "Alafasy_128kbps": {
+      "N0_raw": {
+        "n_clips": 30,
+        "n_ref_words": 277,
+        "WER": 0.3574,
+        "word_sub_rate": 0.2455,
+        "word_del_rate": 0.0578,
+        "word_ins_rate": 0.0542,
+        "CER": 0.1006,
+        "exact_word_match_rate_when_counts_agree": 0.8125
+      },
+      "N1_orthographic": {
+        "n_clips": 30,
+        "n_ref_words": 277,
+        "WER": 0.3502,
+        "word_sub_rate": 0.2383,
+        "word_del_rate": 0.0578,
+        "word_ins_rate": 0.0542,
+        "CER": 0.1004,
+        "exact_word_match_rate_when_counts_agree": 0.8125
+      },
+      "N2_pausal": {
+        "n_clips": 30,
+        "n_ref_words": 277,
+        "WER": 0.3105,
+        "word_sub_rate": 0.1986,
+        "word_del_rate": 0.0578,
+        "word_ins_rate": 0.0542,
+        "CER": 0.1012,
+        "exact_word_match_rate_when_counts_agree": 0.875
+      },
+      "N3_aggressive_ceiling": {
+        "n_clips": 30,
+        "n_ref_words": 277,
+        "WER": 0.2708,
+        "word_sub_rate": 0.1588,
+        "word_del_rate": 0.0578,
+        "word_ins_rate": 0.0542,
+        "CER": 0.0948,
+        "exact_word_match_rate_when_counts_agree": 0.9219
+      }
+    },
+    "Hani_Rifai_192kbps": {
+      "N0_raw": {
+        "n_clips": 30,
+        "n_ref_words": 277,
+        "WER": 0.7762,
+        "word_sub_rate": 0.5812,
+        "word_del_rate": 0.1805,
+        "word_ins_rate": 0.0144,
+        "CER": 0.2208,
+        "exact_word_match_rate_when_counts_agree": 0.1899
+      },
+      "N1_orthographic": {
+        "n_clips": 30,
+        "n_ref_words": 277,
+        "WER": 0.7762,
+        "word_sub_rate": 0.5812,
+        "word_del_rate": 0.1805,
+        "word_ins_rate": 0.0144,
+        "CER": 0.2188,
+        "exact_word_match_rate_when_counts_agree": 0.1899
+      },
+      "N2_pausal": {
+        "n_clips": 30,
+        "n_ref_words": 277,
+        "WER": 0.769,
+        "word_sub_rate": 0.574,
+        "word_del_rate": 0.1805,
+        "word_ins_rate": 0.0144,
+        "CER": 0.227,
+        "exact_word_match_rate_when_counts_agree": 0.1899
+      },
+      "N3_aggressive_ceiling": {
+        "n_clips": 30,
+        "n_ref_words": 277,
+        "WER": 0.7329,
+        "word_sub_rate": 0.5307,
+        "word_del_rate": 0.1841,
+        "word_ins_rate": 0.0181,
+        "CER": 0.1973,
+        "exact_word_match_rate_when_counts_agree": 0.2532
+      }
+    },
+    "Husary_64kbps": {
+      "N0_raw": {
+        "n_clips": 30,
+        "n_ref_words": 277,
+        "WER": 0.4224,
+        "word_sub_rate": 0.3177,
+        "word_del_rate": 0.083,
+        "word_ins_rate": 0.0217,
+        "CER": 0.0816,
+        "exact_word_match_rate_when_counts_agree": 0.7681
+      },
+      "N1_orthographic": {
+        "n_clips": 30,
+        "n_ref_words": 277,
+        "WER": 0.4224,
+        "word_sub_rate": 0.3177,
+        "word_del_rate": 0.083,
+        "word_ins_rate": 0.0217,
+        "CER": 0.0773,
+        "exact_word_match_rate_when_counts_agree": 0.7681
+      },
+      "N2_pausal": {
+        "n_clips": 30,
+        "n_ref_words": 277,
+        "WER": 0.3791,
+        "word_sub_rate": 0.2744,
+        "word_del_rate": 0.083,
+        "word_ins_rate": 0.0217,
+        "CER": 0.0856,
+        "exact_word_match_rate_when_counts_agree": 0.8551
+      },
+      "N3_aggressive_ceiling": {
+        "n_clips": 30,
+        "n_ref_words": 277,
+        "WER": 0.3466,
+        "word_sub_rate": 0.2347,
+        "word_del_rate": 0.0866,
+        "word_ins_rate": 0.0253,
+        "CER": 0.0723,
+        "exact_word_match_rate_when_counts_agree": 0.8841
+      }
+    },
+    "Minshawy_Murattal_128kbps": {
+      "N0_raw": {
+        "n_clips": 30,
+        "n_ref_words": 277,
+        "WER": 0.491,
+        "word_sub_rate": 0.3935,
+        "word_del_rate": 0.0578,
+        "word_ins_rate": 0.0397,
+        "CER": 0.1136,
+        "exact_word_match_rate_when_counts_agree": 0.6613
+      },
+      "N1_orthographic": {
+        "n_clips": 30,
+        "n_ref_words": 277,
+        "WER": 0.491,
+        "word_sub_rate": 0.3935,
+        "word_del_rate": 0.0578,
+        "word_ins_rate": 0.0397,
+        "CER": 0.1111,
+        "exact_word_match_rate_when_counts_agree": 0.6613
+      },
+      "N2_pausal": {
+        "n_clips": 30,
+        "n_ref_words": 277,
+        "WER": 0.4549,
+        "word_sub_rate": 0.3574,
+        "word_del_rate": 0.0578,
+        "word_ins_rate": 0.0397,
+        "CER": 0.1193,
+        "exact_word_match_rate_when_counts_agree": 0.7258
+      },
+      "N3_aggressive_ceiling": {
+        "n_clips": 30,
+        "n_ref_words": 277,
+        "WER": 0.4188,
+        "word_sub_rate": 0.3213,
+        "word_del_rate": 0.0578,
+        "word_ins_rate": 0.0397,
+        "CER": 0.111,
+        "exact_word_match_rate_when_counts_agree": 0.7742
+      }
+    }
+  },
+  "attribution": {
+    "raw_WER": 0.5097,
+    "explained_by_hyphenation": 0.0036,
+    "explained_by_pausal_waqf": 0.0332,
+    "explained_by_aggressive_ceiling": 0.0332,
+    "residual_after_N2": 0.4729,
+    "residual_after_N3_ceiling": 0.4397
+  }
+}
