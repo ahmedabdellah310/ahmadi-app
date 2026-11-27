@@ -19,7 +19,7 @@ import java.security.MessageDigest
  */
 object ForcedUpdate {
     /** Set this ONCE when the update site is deployed, e.g. "https://updates.example.com". Empty = the check is off. */
-    const val BASE_URL = "https://ahmadi-updates.vercel.app"
+    const val BASE_URL = "https://ahmadi-updates-gamma.vercel.app"
 
     data class Info(
         val versionCode: Long, val versionName: String, val notes: String,
