@@ -7,6 +7,7 @@ import android.media.MediaPlayer
 import android.media.RingtoneManager
 import android.os.Build
 import androidx.activity.compose.BackHandler
+import androidx.core.graphics.drawable.toBitmap
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.AnimatedContent
@@ -17,7 +18,7 @@ import androidx.compose.animation.fadeOut
 import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.animation.togetherWith
-import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -59,13 +60,10 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.geometry.CornerRadius
-import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.SolidColor
-import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -74,6 +72,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.content.ContextCompat
+import io.github.sammynashed.emran.R
 import io.github.sammynashed.emran.data.LocationPreset
 import io.github.sammynashed.emran.data.LocationPresets
 import io.github.sammynashed.emran.ui.design.ChoiceDialog
@@ -238,7 +237,25 @@ private fun WelcomeStep(ar: Boolean, onLanguage: (String) -> Unit) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
-        Pillars(Modifier.size(132.dp))
+        // The app's own launcher icon, read from the installed app at runtime —
+        // it follows the launcher icon automatically whenever it changes.
+        // (Do NOT use painterResource(R.mipmap.ic_launcher): on API 26+ that
+        // resource is an <adaptive-icon> XML, which Compose cannot load as a
+        // painter — it crashed the app on launch in v2.3.7.)
+        val context = LocalContext.current
+        val iconBitmap = remember {
+            runCatching {
+                context.packageManager.getApplicationIcon(context.packageName)
+                    .toBitmap(256, 256)
+            }.getOrNull()
+        }
+        iconBitmap?.let { bitmap ->
+            Image(
+                bitmap = bitmap.asImageBitmap(),
+                contentDescription = null,
+                modifier = Modifier.size(132.dp),
+            )
+        }
         Spacer(Modifier.height(26.dp))
         Text(
             if (ar) "الأَحْمَدِيّ" else "الأَحْمَدِيّ",
@@ -271,24 +288,6 @@ private fun WelcomeStep(ar: Boolean, onLanguage: (String) -> Unit) {
                     }
                 }
             }
-        }
-    }
-}
-
-/** The five pillars of Emran's icon, flat, inside a thin ring. */
-@Composable
-private fun Pillars(modifier: Modifier = Modifier) {
-    val sky = LocalSky.current
-    Canvas(modifier) {
-        val u = size.minDimension / 72f
-        drawCircle(sky.ink.copy(alpha = 0.22f), size.minDimension / 2 - 1.5f * u, style = Stroke(1.2f * u))
-        val tops = listOf(54f, 46f, 38f, 46f, 54f)
-        tops.forEachIndexed { i, top ->
-            val x = (36f + (i - 2) * 9f - 3f) * u
-            val y0 = (top - 19.5f) * u
-            val y1 = (73f - 19.5f) * u
-            drawRoundRect(sky.ink, Offset(x, y0), Size(6f * u, 6f * u), CornerRadius(3f * u))
-            drawRect(sky.ink, Offset(x, y0 + 3f * u), Size(6f * u, y1 - y0 - 3f * u))
         }
     }
 }

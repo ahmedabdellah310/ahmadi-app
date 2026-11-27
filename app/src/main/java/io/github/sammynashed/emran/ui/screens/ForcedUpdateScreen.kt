@@ -1,6 +1,9 @@
 package io.github.sammynashed.emran.ui.screens
 
 import androidx.activity.compose.BackHandler
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleEventObserver
+import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -34,12 +37,24 @@ import kotlinx.coroutines.launch
 /** Debug: show the page with sample data without a server: adb ... --ez FORCE_UPDATE_DEMO true */
 object UpdateDemo { var on by mutableStateOf(false) }
 
-/** Sits over the whole app. Checks the update site on every open; blocks the app only for a newer, forced release. */
+/** Sits over the whole app. Checks the update site on every open and every return to the app; blocks the app only for a newer, forced release. */
 @Composable
 fun ForcedUpdateGate(viewModel: PrayerViewModel, ar: Boolean) {
     val context = LocalContext.current
+    val lifecycleOwner = LocalLifecycleOwner.current
     var info by remember { mutableStateOf<ForcedUpdate.Info?>(null) }
-    LaunchedEffect(Unit) { info = ForcedUpdate.check(context) }
+    // Re-check on every resume, not just on a fresh launch: coming back to the app
+    // from the background must also catch a newly published forced update.
+    // A failed re-check never clears a known forced update (only a found one sets it).
+    var resumeTick by remember { mutableIntStateOf(0) }
+    DisposableEffect(lifecycleOwner) {
+        val observer = LifecycleEventObserver { _, event ->
+            if (event == Lifecycle.Event.ON_RESUME) resumeTick++
+        }
+        lifecycleOwner.lifecycle.addObserver(observer)
+        onDispose { lifecycleOwner.lifecycle.removeObserver(observer) }
+    }
+    LaunchedEffect(resumeTick) { ForcedUpdate.check(context)?.let { info = it } }
     val shown = if (UpdateDemo.on) ForcedUpdate.Info(
         99, "2.4.0", "• خط كايرو وألوان أوضح\n• أيقونة التطبيق في فيديوهات القرآن\n• تحسينات في الأذان", "", 71_529_855, "", true,
     ) else info
