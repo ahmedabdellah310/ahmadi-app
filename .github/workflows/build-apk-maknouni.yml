@@ -1,0 +1,102 @@
+name: Build Alahmady APK
+
+# Builds the Alahmady app (Emran fork, GPL-3.0) v2.3.6 / versionCode 16 from
+# the full source ZIP, signs it with the Maknouni shared keystore from repo
+# secrets (the SAME key that signed v2.7/v2.8/v2.9, so the APK installs as an
+# update over them), and publishes the universal APK as a release on this repo.
+#
+# Triggered manually (workflow_dispatch) — run it from the Actions tab after
+# the four secrets below exist. Create them once in repo Settings > Secrets
+# and variables > Actions > New repository secret:
+#   KEYSTORE_BASE64  base64 of the Maknouni debug keystore (alias maknouni)
+#   STORE_PASSWORD   keystore password
+#   KEY_ALIAS        maknouni
+#   KEY_PASSWORD     key password
+# The built APK points its forced-update check at Ahmed's own update site
+# (https://ahmadi-updates-gamma.vercel.app).
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Fail fast if signing secrets are missing
+        env:
+          KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
+        run: |
+          if [ -z "$KEYSTORE_BASE64" ]; then
+            echo "::error::KEYSTORE_BASE64 secret is missing. Create the four secrets (KEYSTORE_BASE64, STORE_PASSWORD, KEY_ALIAS, KEY_PASSWORD) in repo Settings > Secrets and variables > Actions, then re-run this workflow."
+            exit 1
+          fi
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Set up Android SDK 36
+        uses: android-actions/setup-android@v3
+        with:
+          api-level: 36
+          build-tools: 36.0.0
+
+      - name: Download full source
+        run: |
+          curl -L -o source.zip "https://muse.ai/files/1405664769305067/1614411484059034/kqra4z9eo8b27bb7yo46jc7u/ahmadi-source-v16.zip"
+          unzip -q source.zip
+          ls ahmadi-source/app/build.gradle.kts
+
+      - name: Restore signing keystore
+        env:
+          KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
+          STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+        run: |
+          echo "$KEYSTORE_BASE64" | base64 -d > "$GITHUB_WORKSPACE/keystore.jks"
+          echo "KEYSTORE_PATH=$GITHUB_WORKSPACE/keystore.jks" >> "$GITHUB_ENV"
+          echo "STORE_PASSWORD=$STORE_PASSWORD" >> "$GITHUB_ENV"
+          echo "KEY_ALIAS=$KEY_ALIAS" >> "$GITHUB_ENV"
+          echo "KEY_PASSWORD=$KEY_PASSWORD" >> "$GITHUB_ENV"
+
+      - name: Build universal release APK (full flavor)
+        run: |
+          cd ahmadi-source
+          chmod +x gradlew
+          ./gradlew assembleFullRelease --stacktrace
+
+      - name: Verify APK (package, version, signature)
+        run: |
+          APK=$(ls ahmadi-source/app/build/outputs/apk/full/release/*universal*.apk)
+          echo "APK=$APK"
+          "$ANDROID_HOME/build-tools/36.0.0/aapt2" dump badging "$APK" | grep -E 'package:|launchable-activity'
+          CERT=$("$ANDROID_HOME/build-tools/36.0.0/apksigner" verify --print-certs "$APK" | grep 'SHA-256 digest' | head -1)
+          echo "$CERT"
+          echo "$CERT" | grep -qi '7fa43d647db800386bd384ed21b1603c4f87c9f552ab940cd92f338e620dc0ce' || { echo "::error::APK is not signed with the Maknouni key (install-as-update would fail)"; exit 1; }
+          sha256sum "$APK"
+          cp "$APK" alahmady-v2.3.6.apk
+          ls -la alahmady-v2.3.6.apk
+
+      - name: Upload APK as workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: alahmady-v2.3.6
+          path: alahmady-v2.3.6.apk
+
+      - name: Publish APK as release on this repo
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create v2.3.6 --title "Alahmady v2.3.6 (versionCode 16)" \
+            --notes "First build against Ahmed's own update site (ahmadi-updates-gamma.vercel.app). Signed with the same key as v2.7/v2.8/v2.9, so it installs over them as an update." \
+            alahmady-v2.3.6.apk \
+          || gh release upload v2.3.6 alahmady-v2.3.6.apk --clobber
