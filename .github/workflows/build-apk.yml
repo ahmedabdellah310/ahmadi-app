@@ -1,6 +1,6 @@
 name: Build Alahmady APK
 
-# Builds the Alahmady app (Emran fork, GPL-3.0) v2.3.6 / versionCode 16 from
+# Builds the Alahmady app (Emran fork, GPL-3.0) v2.3.7 / versionCode 17 from
 # the full source ZIP, signs it with the Maknouni shared keystore from repo
 # secrets (the SAME key that signed v2.7/v2.8/v2.9, so the APK installs as an
 # update over them), and publishes the universal APK as a release on this repo.
@@ -52,7 +52,7 @@ jobs:
 
       - name: Download full source
         run: |
-          curl -L -o source.zip "https://muse.ai/files/1405664769305067/1614411484059034/kqra4z9eo8b27bb7yo46jc7u/ahmadi-source-v16.zip"
+          curl -L -o source.zip "https://muse.ai/files/1405664769305067/1168093639338060/p6px8ehgzarqbxvtishqx983/ahmadi-source-v17.zip"
           unzip -q source.zip
           ls ahmadi-source/app/build.gradle.kts
 
@@ -68,7 +68,6 @@ jobs:
           echo "STORE_PASSWORD=$STORE_PASSWORD" >> "$GITHUB_ENV"
           echo "KEY_ALIAS=$KEY_ALIAS" >> "$GITHUB_ENV"
           echo "KEY_PASSWORD=$KEY_PASSWORD" >> "$GITHUB_ENV"
-          
 
       - name: Verify restored keystore
         env:
@@ -93,20 +92,20 @@ jobs:
           echo "$CERT"
           echo "$CERT" | grep -qi '7fa43d647db800386bd384ed21b1603c4f87c9f552ab940cd92f338e620dc0ce' || { echo "::error::APK is not signed with the Maknouni key (install-as-update would fail)"; exit 1; }
           sha256sum "$APK"
-          cp "$APK" alahmady-v2.3.6.apk
-          ls -la alahmady-v2.3.6.apk
+          cp "$APK" alahmady-v2.3.7.apk
+          ls -la alahmady-v2.3.7.apk
 
       - name: Upload APK as workflow artifact
         uses: actions/upload-artifact@v4
         with:
-          name: alahmady-v2.3.6
-          path: alahmady-v2.3.6.apk
+          name: alahmady-v2.3.7
+          path: alahmady-v2.3.7.apk
 
       - name: Publish APK as release on this repo
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh release create v2.3.6 --title "Alahmady v2.3.6 (versionCode 16)" \
-            --notes "First build against Ahmed's own update site (ahmadi-updates-gamma.vercel.app). Signed with the same key as v2.7/v2.8/v2.9, so it installs over them as an update." \
-            alahmady-v2.3.6.apk \
-          || gh release upload v2.3.6 alahmady-v2.3.6.apk --clobber
+          gh release create v2.3.7 --title "Alahmady v2.3.7 (versionCode 17)" \
+            --notes "Welcome screen now shows the app's own launcher icon automatically. Signed with the same key as v2.7/v2.8/v2.9, so it installs over them as an update." \
+            alahmady-v2.3.7.apk \
+          || gh release upload v2.3.7 alahmady-v2.3.7.apk --clobber
