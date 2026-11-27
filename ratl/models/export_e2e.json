@@ -1,0 +1,49 @@
+{
+  "step": "M2.0 export_e2e",
+  "graph": "reflect-padded PCM (1, 240400) -> logits (1, 750, 35)",
+  "mel_frontend": "conv-basis DFT (PLAN_A2)",
+  "boundary_head_dropped": true,
+  "op_types": [
+    "Add",
+    "Clip",
+    "Concat",
+    "Constant",
+    "Conv",
+    "Div",
+    "Erf",
+    "Gather",
+    "LayerNormalization",
+    "Log",
+    "MatMul",
+    "Max",
+    "Mul",
+    "ReduceMax",
+    "Reshape",
+    "Shape",
+    "Slice",
+    "Softmax",
+    "Sub",
+    "Transpose",
+    "Unsqueeze"
+  ],
+  "sizes_mb": {
+    "fp32": 30.9902,
+    "int8": 10.7489
+  },
+  "e2e_vs_staged_fp32": {
+    "max_abs": 4.387e-05,
+    "argmax_agreement": 1.0,
+    "frames": 2250
+  },
+  "artifacts": {
+    "fp32": {
+      "name": "ratl-align-v1-e2e-fp32.onnx",
+      "sha256": "95a01016aa1383bf60d28edfe5eaf6baecb65b71280cc5085b67ce05545d2798"
+    },
+    "int8": {
+      "name": "ratl-align-v1-e2e-int8.onnx",
+      "sha256": "112ce86857dea093722d31c8ee1d708561810f3fedaa8254a6e7d80f46432003"
+    }
+  },
+  "note": "Correctness is decided by verify_onnx_g2_e2e.py, not by this file."
+}

@@ -1,0 +1,70 @@
+{
+  "step": "M2.0 export_exp2",
+  "checkpoint": {
+    "path": "spike\\models\\exp2\\best.pt",
+    "epoch": 7,
+    "val": 0.5635
+  },
+  "boundary_head_dropped": true,
+  "params_exp2_full": 7934629,
+  "params_exported_ctc_only": 7933859,
+  "vocab_size": 35,
+  "vocab_identical_to_exp1": true,
+  "head_drop_logit_max_abs_diff": 0.0,
+  "G1": {
+    "fp32_onnx_mb": 30.3119,
+    "int8_onnx_mb": 10.069,
+    "ceiling_mb": 120.0,
+    "pass": true,
+    "exp1_reference_int8_mb": 10.07
+  },
+  "onnx_parity": {
+    "torch_vs_onnx_fp32_max_abs": 7.033348083496094e-05,
+    "torch_vs_onnx_int8_max_abs": 1.356201410293579,
+    "int8_argmax_agreement": 0.994667,
+    "frames_compared": 2250
+  },
+  "G5_basis": {
+    "desktop_cpu_rtf_1thread": 0.01648,
+    "windowing": "FROZEN 15 s window / 10 s hop (overlap)",
+    "includes_feature_extraction": true,
+    "per_clip": [
+      {
+        "clip": "Husary_64kbps/001001.mp3",
+        "dur_s": 5.12,
+        "rtf": 0.02494
+      },
+      {
+        "clip": "Alafasy_128kbps/018001.mp3",
+        "dur_s": 11.12,
+        "rtf": 0.01162
+      },
+      {
+        "clip": "Husary_64kbps/002255.mp3",
+        "dur_s": 60.71,
+        "rtf": 0.01287
+      }
+    ],
+    "ceiling_rtf": 0.5,
+    "projected_device_range_3x_5x": [
+      0.0494,
+      0.0824
+    ],
+    "verdict_estimated": "PLAUSIBLE",
+    "note": "ESTIMATE. G5 is only satisfied when measured on the SPEC 7.3 device."
+  },
+  "artifacts": {
+    "fp32": {
+      "name": "ratl-align-v1-fp32.onnx",
+      "sha256": "f2740d87a8a8174f259bb9fca2d4c2c713677304f2d69c6f40911b87b10506b6"
+    },
+    "int8": {
+      "name": "ratl-align-v1-int8.onnx",
+      "sha256": "c81e6f8f3b43677c694d4bfdf144c381d612766bd85f74c4c370ba7b4b409f56"
+    },
+    "vocab": {
+      "name": "vocab.json",
+      "sha256": "9b76b72eb9c41bcde8b5d36738e06cb656c07e7d9f4045c29719a1cbfcdb9eef"
+    }
+  }
+}

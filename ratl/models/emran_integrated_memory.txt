@@ -1,0 +1,32 @@
+RATL + Emran integrated memory AFTER the allocation fix
+device: Xiaomi Redmi Note 12 Pro+ 5G (22101316UG), MT6877V/TTZA, Android 14
+date: 2026-08-19T13:44:03Z
+
+=== EMRAN + RATL INTEGRATED MEMORY ===
+  device = Xiaomi 22101316UG
+  soc = MT6877V/TTZA  android = 14
+  package = com.aistudio.imad.salah.tracker
+  1_baseline_rss_mb = 243.9
+     peak_at_baseline_mb = 245.8
+  2_loaded_idle_rss_mb = 325.8
+     model_load_ms = 275
+     delta_load_mb = 81.9
+     assessed 6s -> 8 words, rss now 349.9 MB
+     assessed 12s -> 8 words, rss now 366.9 MB
+     assessed 20s -> 8 words, rss now 365.6 MB
+  3_active_rss_mb = 366.9
+     words = 8  statuses = OMIS,OMIS,OMIS,OMIS,OMIS,OMIS,OMIS,OMIS
+     streaming finished, 8 words, rss 366.1 MB
+
+=== RESULTS ===
+  1 baseline (RATL not loaded)   = 243.9 MB
+  2 loaded, idle                 = 325.8 MB   (+81.9)
+  3 active (batch + streaming)   = 370.8 MB   (+126.9 over baseline)
+  4 PEAK RSS (VmHWM)             = 374.7 MB   ceiling 400
+  after release()                = 360.4 MB
+  RATL incremental (peak-base)   = 130.8 MB
+  G6 headroom                    = 25.3 MB
+  G6 PASS                        = true
+
+BEFORE the fix, same test, same device:
+  baseline 243.6 | idle 326.2 | active 563.9 | PEAK 572.9 | after release 586.0 | G6 FAIL

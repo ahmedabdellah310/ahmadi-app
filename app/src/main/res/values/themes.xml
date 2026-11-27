@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!--
+      Emran renders its entire UI with Jetpack Compose, so this platform theme only
+      needs to provide a chrome-less window for MainActivity to draw into. The actual
+      colour system lives in ui/theme/Theme.kt (see EmranTheme).
+    -->
+    <style name="Theme.Emran" parent="android:Theme.DeviceDefault.NoActionBar">
+        <item name="android:windowBackground">@drawable/window_night_sky</item>
+        <!-- Emran draws its own day and night (the sky). HyperOS/MIUI "dark mode for apps" would darken it again on
+             top (cream turned grey, light pages muddy), so the system must never force-dark this app. -->
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
+    </style>
+</resources>

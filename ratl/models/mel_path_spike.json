@@ -1,0 +1,25 @@
+{
+  "step": "M2.0 mel_path_spike",
+  "filterbank_shape": [
+    80,
+    201
+  ],
+  "n_fft": 400,
+  "hop": 160,
+  "T1_tolerance": 0.001,
+  "torch_module_vs_hf_max_abs": 0.0,
+  "plan_A_onnx_frontend": {
+    "exported": false,
+    "ort_loads": false,
+    "ort_runs": false,
+    "max_abs_vs_hf": null,
+    "error": "SymbolicValueError: STFT does not currently support complex types  [Caused by the value '53 defined in (%53 : Float(*, *, strides=[240400, 1], requires_grad=0, device=cpu) = onnx::Reshape[allowzero=0](%42, %52), scope: __main__.WhisperMel:: # C:\\Users\\sammy\\ratl\\spike\\.venv\\Lib\\site-packages\\torch\\functional.py:679:0\n)' (type 'Tensor') in the TorchScript graph. The containing node has kind 'onnx::"
+  },
+  "plan_B_kotlin_frontend": {
+    "filterbank_asset": "80x201 float32 = 64320 bytes, generated not recomputed",
+    "hand_ported": "reflect pad, hann window, real FFT (n=400), power spec, matmul, log10, dynamic clamp, affine",
+    "guarded_by": "T1 conformance vector, tolerance 1e-3"
+  },
+  "decision": "PLAN_B",
+  "decision_basis": "Plan A unavailable or outside tolerance; the front end is ported to Kotlin with the filterbank shipped as a generated asset."
+}

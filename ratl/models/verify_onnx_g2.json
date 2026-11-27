@@ -1,0 +1,123 @@
+{
+  "step": "M2.0 verify_onnx_g2",
+  "corpus": "RATL-Bench-v0 (unchanged)",
+  "harness": "05_g2_alignment.py imported unmodified",
+  "decode": "M2E_edge_spike + frozen 15 s/10 s/2.5 s overlap",
+  "frozen_reference_G2": 0.857,
+  "spec_threshold": 0.85,
+  "results": {
+    "torch": {
+      "G2": 0.857,
+      "pass_spec": true,
+      "start_acc": 0.8872,
+      "end_acc": 0.8268,
+      "by_speed": {
+        "fast": 0.8782,
+        "measured": 0.875,
+        "medium": 0.8899,
+        "moderate": 0.9152,
+        "very_slow": 0.723
+      },
+      "by_word_duration": {
+        "<1s": 0.9198,
+        "1-2s": 0.8579,
+        "2-4s": 0.7904,
+        ">4s": 0.5
+      },
+      "G2_excl_mujawwad": 0.8896,
+      "abs_err_ms": {
+        "median": 40.0,
+        "p90": 310.0,
+        "p99": 5005.3,
+        "max": 16480.0
+      },
+      "n_words": 1374
+    },
+    "fp32": {
+      "G2": 0.857,
+      "pass_spec": true,
+      "start_acc": 0.8872,
+      "end_acc": 0.8268,
+      "by_speed": {
+        "fast": 0.8782,
+        "measured": 0.875,
+        "medium": 0.8899,
+        "moderate": 0.9152,
+        "very_slow": 0.723
+      },
+      "by_word_duration": {
+        "<1s": 0.9198,
+        "1-2s": 0.8579,
+        "2-4s": 0.7904,
+        ">4s": 0.5
+      },
+      "G2_excl_mujawwad": 0.8896,
+      "abs_err_ms": {
+        "median": 40.0,
+        "p90": 310.0,
+        "p99": 5005.3,
+        "max": 16480.0
+      },
+      "n_words": 1374
+    },
+    "int8": {
+      "G2": 0.8592,
+      "pass_spec": true,
+      "start_acc": 0.8894,
+      "end_acc": 0.829,
+      "by_speed": {
+        "fast": 0.88,
+        "measured": 0.8822,
+        "medium": 0.8899,
+        "moderate": 0.9152,
+        "very_slow": 0.7249
+      },
+      "by_word_duration": {
+        "<1s": 0.9207,
+        "1-2s": 0.8597,
+        "2-4s": 0.7969,
+        ">4s": 0.5
+      },
+      "G2_excl_mujawwad": 0.8919,
+      "abs_err_ms": {
+        "median": 40.0,
+        "p90": 300.0,
+        "p99": 4825.3,
+        "max": 16480.0
+      },
+      "n_words": 1374
+    }
+  },
+  "reproduces_frozen_G2": {
+    "torch": true,
+    "fp32": true,
+    "int8": false
+  },
+  "delta_vs_frozen": {
+    "torch": 0.0,
+    "fp32": 0.0,
+    "int8": 0.0022
+  },
+  "logit_divergence": {
+    "torch_vs_fp32": {
+      "max_abs": 0.000132,
+      "mean_of_per_clip_max": 5.2e-05,
+      "argmax_agreement": 0.999992,
+      "frames": 121177
+    },
+    "torch_vs_int8": {
+      "max_abs": 2.689405,
+      "mean_of_per_clip_max": 1.26269,
+      "argmax_agreement": 0.99443,
+      "frames": 121177
+    }
+  },
+  "boundary_divergence_torch_vs_int8_ms": {
+    "n_boundaries": 2748,
+    "identical": 2644,
+    "identical_frac": 0.962154,
+    "max": 7580.0,
+    "p99": 20.0,
+    "mean": 11.783
+  }
+}

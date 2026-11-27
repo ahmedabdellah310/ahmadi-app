@@ -1,0 +1,33 @@
+{
+  "step": "M2.0 mel_path_spike2 (conv-basis DFT)",
+  "T1_tolerance": 0.001,
+  "ops": "Conv, Mul, Add, MatMul, Clip, Log, ReduceMax",
+  "torch_convmel_vs_hf_max_abs": 3.219e-05,
+  "plan_A2_conv_frontend": {
+    "exported": true,
+    "ort_loads": true,
+    "ort_runs": true,
+    "error": null,
+    "size_mb": 0.6776,
+    "max_abs_vs_hf": 3.266e-05,
+    "within_T1": true,
+    "ms_per_15s_window": 12.012,
+    "op_types": [
+      "Add",
+      "Clip",
+      "Constant",
+      "Conv",
+      "Div",
+      "Log",
+      "MatMul",
+      "Max",
+      "Mul",
+      "ReduceMax",
+      "Slice",
+      "Sub",
+      "Unsqueeze"
+    ]
+  },
+  "decision": "PLAN_A2",
+  "decision_basis": "Conv-basis DFT front end exports, runs in ONNX Runtime and matches WhisperFeatureExtractor within the T1 tolerance using only core ops. The Kotlin side ports no DSP."
+}

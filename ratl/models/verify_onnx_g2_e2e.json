@@ -1,0 +1,78 @@
+{
+  "step": "M2.0 verify_onnx_g2_e2e",
+  "corpus": "RATL-Bench-v0 (unchanged)",
+  "harness": "05_g2_alignment.py imported unmodified",
+  "graph": "reflect-padded PCM -> logits, conv-basis mel front end in-graph",
+  "frozen_reference_G2": 0.857,
+  "spec_threshold": 0.85,
+  "results": {
+    "fp32": {
+      "G2": 0.857,
+      "pass_spec": true,
+      "start_acc": 0.8872,
+      "end_acc": 0.8268,
+      "by_speed": {
+        "fast": 0.8782,
+        "measured": 0.875,
+        "medium": 0.8899,
+        "moderate": 0.9152,
+        "very_slow": 0.723
+      },
+      "by_word_duration": {
+        "<1s": 0.9198,
+        "1-2s": 0.8579,
+        "2-4s": 0.7904,
+        ">4s": 0.5
+      },
+      "G2_excl_mujawwad": 0.8896,
+      "abs_err_ms": {
+        "median": 40.0,
+        "p90": 310.0,
+        "p99": 5005.3,
+        "max": 16480.0
+      },
+      "n_words": 1374
+    },
+    "int8": {
+      "G2": 0.8588,
+      "pass_spec": true,
+      "start_acc": 0.8894,
+      "end_acc": 0.8282,
+      "by_speed": {
+        "fast": 0.88,
+        "measured": 0.8822,
+        "medium": 0.8917,
+        "moderate": 0.9152,
+        "very_slow": 0.7212
+      },
+      "by_word_duration": {
+        "<1s": 0.9216,
+        "1-2s": 0.8597,
+        "2-4s": 0.7926,
+        ">4s": 0.5
+      },
+      "G2_excl_mujawwad": 0.8923,
+      "abs_err_ms": {
+        "median": 40.0,
+        "p90": 300.0,
+        "p99": 4698.3,
+        "max": 16480.0
+      },
+      "n_words": 1374
+    }
+  },
+  "reproduces_frozen_G2": {
+    "fp32": true,
+    "int8": false
+  },
+  "delta_vs_frozen": {
+    "fp32": 0.0,
+    "int8": 0.0018
+  },
+  "staged_reference": {
+    "torch": 0.857,
+    "fp32": 0.857,
+    "int8": 0.8592
+  },
+  "n_boundaries": 2748
+}

@@ -1,0 +1,81 @@
+{
+  "step": "M2.0 rtf_bench",
+  "threads": 1,
+  "reps": 5,
+  "windowing": "FROZEN 15 s window / 10 s hop",
+  "feature_extraction_included": true,
+  "mel_ms_per_15s_window": 1.26,
+  "artifacts": {
+    "fp32": {
+      "size_mb": 30.3119,
+      "desktop_cpu_rtf_1thread": 0.02151,
+      "per_clip": [
+        {
+          "clip": "Husary_64kbps/001001.mp3",
+          "dur_s": 5.12,
+          "rtf_best": 0.03913,
+          "rtf_median": 0.04283
+        },
+        {
+          "clip": "Alafasy_128kbps/018001.mp3",
+          "dur_s": 11.12,
+          "rtf_best": 0.01372,
+          "rtf_median": 0.01741
+        },
+        {
+          "clip": "Abdul_Basit_Mujawwad_128kbps/001007.mp3",
+          "dur_s": 25.0,
+          "rtf_best": 0.01447,
+          "rtf_median": 0.01681
+        },
+        {
+          "clip": "Husary_64kbps/002255.mp3",
+          "dur_s": 60.71,
+          "rtf_best": 0.01873,
+          "rtf_median": 0.01983
+        }
+      ],
+      "projected_device_3x": 0.0645,
+      "projected_device_5x": 0.1076,
+      "G5_ceiling": 0.5,
+      "headroom_vs_ceiling_at_5x": 4.6,
+      "verdict_estimated": "PLAUSIBLE"
+    },
+    "int8": {
+      "size_mb": 10.069,
+      "desktop_cpu_rtf_1thread": 0.01486,
+      "per_clip": [
+        {
+          "clip": "Husary_64kbps/001001.mp3",
+          "dur_s": 5.12,
+          "rtf_best": 0.02498,
+          "rtf_median": 0.0255
+        },
+        {
+          "clip": "Alafasy_128kbps/018001.mp3",
+          "dur_s": 11.12,
+          "rtf_best": 0.01136,
+          "rtf_median": 0.01169
+        },
+        {
+          "clip": "Abdul_Basit_Mujawwad_128kbps/001007.mp3",
+          "dur_s": 25.0,
+          "rtf_best": 0.01034,
+          "rtf_median": 0.01041
+        },
+        {
+          "clip": "Husary_64kbps/002255.mp3",
+          "dur_s": 60.71,
+          "rtf_best": 0.01274,
+          "rtf_median": 0.01356
+        }
+      ],
+      "projected_device_3x": 0.0446,
+      "projected_device_5x": 0.0743,
+      "G5_ceiling": 0.5,
+      "headroom_vs_ceiling_at_5x": 6.7,
+      "verdict_estimated": "PLAUSIBLE"
+    }
+  },
+  "note": "ESTIMATE ONLY. G5 requires measurement on the Xiaomi Redmi Note 12 Pro+ 5G per SPEC 7.3. The 3x-5x device factor is an assumption carried from M1, not a measurement."
+}

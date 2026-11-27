@@ -1,0 +1,111 @@
+RATL M3 - G5/G6 measured on the SPEC 7.3 benchmark device
+date: 2026-08-19T12:45:05Z
+
+=== DEVICE ===
+  manufacturer = Xiaomi
+  brand = Redmi
+  model = 22101316UG
+  device = rubypro
+  board = rubypro
+  hardware = mt6877
+  soc_manufacturer = Mediatek
+  soc_model = MT6877V/TTZA
+  android_release = 14
+  sdk_int = 34
+  build_id = UP1A.231005.007
+  fingerprint = Redmi/rubypro_global/rubypro:14/UP1A.231005.007/OS2.0.14.0.UMOMIXM:user/release-keys
+  supported_abis = arm64-v8a,armeabi-v7a,armeabi
+  total_ram_mb = 7551
+  thermal_before = NONE
+=== DEVICE ===
+  fixture_root = /sdcard/ratl
+  manufacturer = Xiaomi
+  brand = Redmi
+  model = 22101316UG
+  device = rubypro
+  board = rubypro
+  hardware = mt6877
+  soc_manufacturer = Mediatek
+  soc_model = MT6877V/TTZA
+  android_release = 14
+  sdk_int = 34
+  build_id = UP1A.231005.007
+  fingerprint = Redmi/rubypro_global/rubypro:14/UP1A.231005.007/OS2.0.14.0.UMOMIXM:user/release-keys
+  supported_abis = arm64-v8a,armeabi-v7a,armeabi
+  total_ram_mb = 7551
+  thermal_before = NONE
+=== DEVICE ===
+  fixture_root = /sdcard/ratl
+  manufacturer = Xiaomi
+  brand = Redmi
+  model = 22101316UG
+  device = rubypro
+  board = rubypro
+  hardware = mt6877
+  soc_manufacturer = Mediatek
+  soc_model = MT6877V/TTZA
+  android_release = 14
+  sdk_int = 34
+  build_id = UP1A.231005.007
+  fingerprint = Redmi/rubypro_global/rubypro:14/UP1A.231005.007/OS2.0.14.0.UMOMIXM:user/release-keys
+  supported_abis = arm64-v8a,armeabi-v7a,armeabi
+  total_ram_mb = 7551
+  thermal_before = NONE
+=== DEVICE ===
+  fixture_root = /sdcard/Android/data/ai.ratl.android.test/files/ratl
+  external_files_dir = /storage/emulated/0/Android/data/ai.ratl.android.test/files
+  candidate /sdcard/Android/data/ai.ratl.android.test/files/ratl  model.isDir=false  pcm.count=-1
+  candidate /storage/emulated/0/Android/data/ai.ratl.android.test/files/ratl  model.isDir=false  pcm.count=-1
+  candidate /sdcard/ratl  model.isDir=true  pcm.count=0
+  candidate /data/local/tmp/ratl  model.isDir=false  pcm.count=-1
+  manufacturer = Xiaomi
+  brand = Redmi
+  model = 22101316UG
+  device = rubypro
+  board = rubypro
+  hardware = mt6877
+  soc_manufacturer = Mediatek
+  soc_model = MT6877V/TTZA
+  android_release = 14
+  sdk_int = 34
+  build_id = UP1A.231005.007
+  fingerprint = Redmi/rubypro_global/rubypro:14/UP1A.231005.007/OS2.0.14.0.UMOMIXM:user/release-keys
+  supported_abis = arm64-v8a,armeabi-v7a,armeabi
+  total_ram_mb = 7551
+  thermal_before = NONE
+=== DEVICE ===
+  fixture_root = /data/user/0/ai.ratl.android.test/files/ratl
+  extracted from APK assets to /data/user/0/ai.ratl.android.test/files/ratl
+  model=ratl-align-v1-e2e-fp32.onnx,vocab.json  pcm=5
+  manufacturer = Xiaomi
+  brand = Redmi
+  model = 22101316UG
+  device = rubypro
+  board = rubypro
+  hardware = mt6877
+  soc_manufacturer = Mediatek
+  soc_model = MT6877V/TTZA
+  android_release = 14
+  sdk_int = 34
+  build_id = UP1A.231005.007
+  fingerprint = Redmi/rubypro_global/rubypro:14/UP1A.231005.007/OS2.0.14.0.UMOMIXM:user/release-keys
+  supported_abis = arm64-v8a,armeabi-v7a,armeabi
+  total_ram_mb = 7551
+  thermal_before = NONE
+  rss_baseline_mb = 99.6
+  model_id = 95a01016aa1383bf60d28edfe5eaf6baecb65b71280cc5085b67ce05545d2798
+  clip Abdul_Basit_Mujawwad_128kbps_001007.s16  dur=25.00s  rtf=0.05146
+  clip Alafasy_128kbps_018001.s16  dur=11.12s  rtf=0.05738
+  clip Hani_Rifai_192kbps_036001.s16  dur=4.15s  rtf=0.15504
+  clip Husary_64kbps_001001.s16  dur=5.12s  rtf=0.12514
+  clip Minshawy_Murattal_128kbps_055001.s16  dur=2.25s  rtf=0.28682
+
+=== RESULTS (SPEC 7.3 device) ===
+  G5 rtf_mean        = 0.13517   ceiling 0.5
+  G5 rtf_worst_clip  = 0.28682
+  G5 PASS            = true
+  G6 peak_rss_mb     = 350.7   ceiling 400
+  G6 PASS            = true
+  thermal_after      = NONE
+  clips              = 5
+  threads            = 1 (G5 is specified single-threaded)
