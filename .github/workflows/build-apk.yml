@@ -1,6 +1,6 @@
 name: Build Alahmady APK
 
-# Builds the Alahmady app (Emran fork, GPL-3.0) v2.3.11 / versionCode 21 from
+# Builds the Alahmady app (Emran fork, GPL-3.0) v2.3.12 / versionCode 22 from
 # the full source ZIP, signs it with the Maknouni shared keystore from repo
 # secrets (the SAME key that signed v2.7/v2.8/v2.9, so the APK installs as an
 # update over them), and publishes the universal APK as a release on this repo.
@@ -52,7 +52,7 @@ jobs:
 
       - name: Download full source
         run: |
-          curl -L -o source.zip "https://muse.ai/files/1405664769305067/3270247556501122/uoome89psrlkety32nzu1jhn/ahmadi-source-v21.zip"
+          curl -L -o source.zip "https://muse.ai/files/1405664769305067/2481383865600856/rk7jrss17mwo159no2qsfkux/ahmadi-source-v22.zip"
           unzip -q source.zip
           ls ahmadi-source/app/build.gradle.kts
 
@@ -92,20 +92,20 @@ jobs:
           echo "$CERT"
           echo "$CERT" | grep -qi '7fa43d647db800386bd384ed21b1603c4f87c9f552ab940cd92f338e620dc0ce' || { echo "::error::APK is not signed with the Maknouni key (install-as-update would fail)"; exit 1; }
           sha256sum "$APK"
-          cp "$APK" alahmady-v2.3.11.apk
-          ls -la alahmady-v2.3.11.apk
+          cp "$APK" alahmady-v2.3.12.apk
+          ls -la alahmady-v2.3.12.apk
 
       - name: Upload APK as workflow artifact
         uses: actions/upload-artifact@v4
         with:
-          name: alahmady-v2.3.11
-          path: alahmady-v2.3.11.apk
+          name: alahmady-v2.3.12
+          path: alahmady-v2.3.12.apk
 
       - name: Publish APK as release on this repo
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh release create v2.3.11 --title "Alahmady v2.3.11 (versionCode 21)" \
-            --notes "Fixed pack downloads: the Hifz check, hadith books, tafsirs and video backgrounds now install offline from inside the app (the native libraries ship in the APK again), the failure dialog now says why, Mushaf edition downloads retry; default theme is now Monochrome (Pure Slate), returning on every fresh launch." \
-            alahmady-v2.3.11.apk \
-          || gh release upload v2.3.11 alahmady-v2.3.11.apk --clobber
+          gh release create v2.3.12 --title "Alahmady v2.3.12 (versionCode 22)" \
+            --notes "Fixed pack downloads: the Hifz check, hadith books, tafsirs and video backgrounds now install offline from inside the app (the native libraries ship in the APK again), the failure dialog now says why, Mushaf edition downloads retry; default theme is now Monochrome (Pure Slate), returning on every fresh launch; new Settings button 'Alahmady website' opens the website." \
+            alahmady-v2.3.12.apk \
+          || gh release upload v2.3.12 alahmady-v2.3.12.apk --clobber
