@@ -31,7 +31,7 @@ class PrayerViewModel(application: Application) : AndroidViewModel(application) 
 
     // User settings stored in SharedPreferences
     val onboardingCompleted = MutableStateFlow(preferences.getBoolean("onboarding_completed", false))
-    val themePreset = MutableStateFlow(preferences.getString("theme_preset", "EXPRESSIVE") ?: "EXPRESSIVE")
+    val themePreset = MutableStateFlow(preferences.getString("theme_preset", "MONOCHROME") ?: "MONOCHROME")
 
     /**
      * Light / dark / follow-system. Defaults to DARK so existing installs look
@@ -560,6 +560,15 @@ class PrayerViewModel(application: Application) : AndroidViewModel(application) 
     }
 
     init {
+        // The default theme is Monochrome (Pure Slate): every fresh launch starts there,
+        // even if another preset was picked during the previous session. Switching themes
+        // still works inside a session (see setThemePreset); the choice simply does not
+        // survive the app being closed. A ViewModel is created once per process, so this
+        // runs on a cold start and never while the app is merely in the background.
+        if (themePreset.value != "MONOCHROME") {
+            preferences.edit().putString("theme_preset", "MONOCHROME").apply()
+            themePreset.value = "MONOCHROME"
+        }
         // 2.1.1: the default method moved from Egyptian (Fajr 19.5 deg) to Muslim World League
         // (18/17 deg), which is what Google and the Syrian timetables show for Aleppo. Egyptian
         // runs about 7 minutes early there, so installs still on it are moved over once; anyone

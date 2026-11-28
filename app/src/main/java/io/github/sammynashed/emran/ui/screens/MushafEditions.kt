@@ -98,25 +98,42 @@ private fun downloadEdition(c: android.content.Context, e: Edition, onProgress: 
     val dir = edDir(c, e); dir.mkdirs()
     val part = File(dir, "dl.part")
     val url = URL("https://qurancomplex.gov.sa/files/fonts/${e.zip}.zip")
-    var have = if (part.exists()) part.length() else 0L
-    var conn = url.openConnection() as HttpURLConnection
-    (conn as? javax.net.ssl.HttpsURLConnection)?.sslSocketFactory = trustWithExtraRoot(c)
-    conn.connectTimeout = 20000; conn.readTimeout = 30000
-    if (have > 0) conn.setRequestProperty("Range", "bytes=$have-")
-    val code = conn.responseCode
-    if (code == 200) have = 0L
-    else if (code != 206) throw RuntimeException("HTTP $code")
-    val total = have + conn.contentLengthLong
-    conn.inputStream.use { ins ->
-        java.io.FileOutputStream(part, have > 0).use { out ->
-            val buf = ByteArray(32768); var done = have
-            while (true) {
-                val n = ins.read(buf); if (n < 0) break
-                out.write(buf, 0, n); done += n
-                if (total > 0) onProgress(done.toFloat() / total * 0.8f)
+    // One attempt used to be all it got: a single dropped connection failed the whole
+    // edition download. Retry up to 3 times with backoff; the partial file (dl.part)
+    // is kept, so every retry resumes where the last one stopped instead of starting over.
+    var lastError: Throwable? = null
+    for (attempt in 0 until 3) {
+        if (attempt > 0) Thread.sleep(2000L * attempt)
+        var conn: HttpURLConnection? = null
+        try {
+            var have = if (part.exists()) part.length() else 0L
+            conn = url.openConnection() as HttpURLConnection
+            (conn as? javax.net.ssl.HttpsURLConnection)?.sslSocketFactory = trustWithExtraRoot(c)
+            conn.connectTimeout = 20000; conn.readTimeout = 30000
+            if (have > 0) conn.setRequestProperty("Range", "bytes=$have-")
+            val code = conn.responseCode
+            if (code == 200) have = 0L
+            else if (code != 206) throw RuntimeException("HTTP $code")
+            val total = have + conn.contentLengthLong
+            conn.inputStream.use { ins ->
+                java.io.FileOutputStream(part, have > 0).use { out ->
+                    val buf = ByteArray(32768); var done = have
+                    while (true) {
+                        val n = ins.read(buf); if (n < 0) break
+                        out.write(buf, 0, n); done += n
+                        if (total > 0) onProgress(done.toFloat() / total * 0.8f)
+                    }
+                }
             }
+            lastError = null
+            break
+        } catch (t: Throwable) {
+            lastError = t
+        } finally {
+            try { conn?.disconnect() } catch (_: Exception) { }
         }
     }
+    if (lastError != null) throw lastError
     // unpack: the font stays as shipped; the Word file is read once into plain pages and discarded
     val zip = ZipFile(part)
     val docx = File(dir, "tmp.docx")

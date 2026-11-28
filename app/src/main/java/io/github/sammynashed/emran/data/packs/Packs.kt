@@ -86,21 +86,36 @@ object Packs {
     /** The phone's own CPU flavour, among the two Emran ships. */
     val abi: String = Build.SUPPORTED_ABIS.firstOrNull { it == "arm64-v8a" || it == "armeabi-v7a" } ?: "arm64-v8a"
 
+    /**
+     * Whether onnxruntime's native libraries ride inside this APK (in lib/<abi>/).
+     * The "full" build ships them since v2.3.11; before that they were excluded and the Hifz
+     * pack was supposed to fetch them — but the pack host is gone and the files were never in
+     * assets either, so the Hifz install could never succeed. When they are in the APK the
+     * pack does not need them at all: only the model file is copied from assets.
+     */
+    fun nativeLibsInApk(context: Context): Boolean {
+        val dir = File(context.applicationInfo.nativeLibraryDir)
+        return File(dir, "libonnxruntime.so").isFile && File(dir, "libonnxruntime4j_jni.so").isFile
+    }
+
     /** What this pack needs on THIS phone: its catalog rows, each with where it is stored. */
     private fun files(context: Context, id: String): List<Pair<PackCatalog.Row, File>> {
         val d = def(id) ?: return emptyList()
         val dir = d.dir(context)
-        return PackCatalog.ROWS.filter { it.pack == id && (it.abi == null || (it.abi == abi && NATIVE_FROM_PACK)) }
+        val nativeInApk = nativeLibsInApk(context)
+        return PackCatalog.ROWS.filter { it.pack == id && (it.abi == null || (it.abi == abi && NATIVE_FROM_PACK && !nativeInApk)) }
             .map { it to if (it.abi != null) File(dir, "lib/${it.name}") else File(dir, it.name) }
     }
 
     /**
-     * Whether the onnxruntime native library comes with the Hifz pack. The Telegram ("full") build leaves it out of
-     * the APK to stay small; the F-Droid build keeps it inside (F-Droid does not allow fetching executable code).
+     * Whether the onnxruntime native library comes with the Hifz pack. It does on the F-Droid
+     * build (F-Droid does not allow fetching executable code) — and since v2.3.11 also on the
+     * Telegram ("full") build, where the libraries now ride in the APK's lib/ dir instead
+     * (see nativeLibsInApk): the pack only ever supplies them when they are in NEITHER place.
      */
     private val NATIVE_FROM_PACK get() = BuildConfig.SELF_UPDATE
 
-    fun totalBytes(id: String): Long = PackCatalog.ROWS.filter { it.pack == id && (it.abi == null || (it.abi == abi && NATIVE_FROM_PACK)) }.sumOf { it.size }
+    fun totalBytes(context: Context, id: String): Long = PackCatalog.ROWS.filter { it.pack == id && (it.abi == null || (it.abi == abi && NATIVE_FROM_PACK && !nativeLibsInApk(context))) }.sumOf { it.size }
 
     // ------------------------------------------------------------------ state
 
@@ -157,7 +172,7 @@ object Packs {
         val app = context.applicationContext
         synchronized(jobs) {
             if (jobs[id]?.isActive == true) return
-            set(id, PackStatus.Downloading(0, totalBytes(id)))
+            set(id, PackStatus.Downloading(0, totalBytes(app, id)))
             jobs[id] = scope.launch { download(app, id) }
         }
     }
@@ -221,11 +236,20 @@ object Packs {
         val tmp = File(target.path + ".part")
         tmp.delete()
         var have = 0L
-        context.assets.open("packs/" + row.pack + "/" + row.name).use { input ->
+        val assetPath = "packs/" + row.pack + "/" + row.name
+        val input = try {
+            context.assets.open(assetPath)
+        } catch (e: java.io.FileNotFoundException) {
+            // The file is not inside the APK at all (this is what broke the Hifz install
+            // before v2.3.11: the native libraries were neither in the APK nor in assets).
+            // Say so plainly instead of failing with a bare "file not found".
+            throw IOException("missing in app assets: $assetPath")
+        }
+        input.use { inputStream ->
             tmp.outputStream().use { out ->
                 val buf = ByteArray(64 * 1024)
                 while (true) {
-                    val n = input.read(buf); if (n < 0) break
+                    val n = inputStream.read(buf); if (n < 0) break
                     out.write(buf, 0, n); have += n; progress(have)
                 }
             }
@@ -324,11 +348,18 @@ object Packs {
     // ------------------------------------------------------------------ Hifz's native library
 
     /**
-     * Points onnxruntime at the library inside the Hifz pack. Must run before the first use of onnxruntime. A build
-     * that carries the library itself (F-Droid) needs nothing. Returns false when the library is not there yet.
+     * Points onnxruntime at the library inside the Hifz pack. Must run before the first use of onnxruntime.
+     * Since v2.3.11 the "full" build carries the libraries in its own lib/ dir, so they are used from
+     * there (no pack download needed for them); a build that carries the library itself (F-Droid)
+     * needs nothing either. Only when the libraries are in NEITHER place do we fall back to the
+     * pack folder. Returns false when the library is not there yet.
      */
     fun prepareNative(context: Context): Boolean {
         if (!NATIVE_FROM_PACK) return true
+        if (nativeLibsInApk(context)) {
+            System.setProperty("onnxruntime.native.path", context.applicationInfo.nativeLibraryDir)
+            return true
+        }
         val dir = File(def("hifz")!!.dir(context), "lib")
         val ok = files(context, "hifz").filter { it.first.abi != null }.all { (r, f) -> f.isFile && f.length() == r.size }
         if (ok) System.setProperty("onnxruntime.native.path", dir.path)

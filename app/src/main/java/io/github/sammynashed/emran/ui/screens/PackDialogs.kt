@@ -46,7 +46,7 @@ fun PackDownloadDialog(packId: String, ar: Boolean, why: String, onReady: () -> 
     val status by Packs.status.collectAsState()
     val changes by Packs.changes.collectAsState()
     val installed = remember(changes, status[packId]) { Packs.isInstalled(context, packId) }
-    val total = Packs.totalBytes(packId)
+    val total = Packs.totalBytes(context, packId)
 
     LaunchedEffect(installed) { if (installed) onReady() }
     if (installed) return
@@ -80,9 +80,34 @@ fun PackDownloadDialog(packId: String, ar: Boolean, why: String, onReady: () -> 
             onConfirm = { Packs.start(context, packId) },
             dismissLabel = if (ar) "ليس الآن" else "Not now",
         ) {
+            // The old text always blamed the internet, even when the real cause was a file
+            // missing inside the app itself (that is what broke the Hifz install). Say why.
+            val reason = s.reason
+            val whyText = if (ar) when {
+                reason.contains("missing in app assets") || reason.contains("packs/") ->
+                    "ملف من الحزمة غير موجود داخل التطبيق نفسه. حدِّث التطبيق لآخر نسخة من موقع التحديثات ثم حاول مجددًا."
+                reason.contains("did not match") ->
+                    "الملف الذي وصل لم يطابق المتوقَّع. حاول مجددًا."
+                reason.contains("size ") ->
+                    "الملف الذي وصل غير مكتمل. حاول مجددًا."
+                else -> "تأكد من الاتصال بالإنترنت وحاول مرة أخرى. ما نزل منه محفوظ ولن يُعاد."
+            } else when {
+                reason.contains("missing in app assets") || reason.contains("packs/") ->
+                    "A file of this pack is missing inside the app itself. Update the app to the latest version from the updates site, then try again."
+                reason.contains("did not match") ->
+                    "The file that arrived did not match what was expected. Try again."
+                reason.contains("size ") ->
+                    "The file that arrived is incomplete. Try again."
+                else -> "Check your connection and try again. What already arrived is kept."
+            }
             Text(
-                if (ar) "تأكد من الاتصال بالإنترنت وحاول مرة أخرى. ما نزل منه محفوظ ولن يُعاد." else "Check your connection and try again. What already arrived is kept.",
+                whyText,
                 color = sky.inkSoft, fontSize = 14.sp, lineHeight = 20.sp,
+            )
+            Text(
+                reason,
+                color = sky.inkSoft.copy(alpha = 0.6f), fontSize = 12.sp, lineHeight = 16.sp,
+                modifier = Modifier.padding(top = 6.dp),
             )
         }
         PackStatus.Idle -> GlassDialog(

@@ -166,7 +166,7 @@ private fun TafsirDialog(ar: Boolean, ink: Color, panel: Color, accent: Color, o
                     ) {
                         Column(Modifier.weight(1f)) {
                             Text(d.name(ar), color = ink, fontSize = 15.sp, fontWeight = FontWeight.Medium)
-                            Text(packSize(io.github.sammynashed.emran.data.packs.Packs.totalBytes(d.id), ar), color = ink.copy(alpha = 0.55f), fontSize = 12.sp)
+                            Text(packSize(io.github.sammynashed.emran.data.packs.Packs.totalBytes(context, d.id), ar), color = ink.copy(alpha = 0.55f), fontSize = 12.sp)
                         }
                         Text(if (ar) "تنزيل" else "Download", color = accent, fontSize = 14.sp, fontWeight = FontWeight.Bold)
                     }

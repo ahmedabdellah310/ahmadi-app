@@ -24,7 +24,7 @@ enum class EmranTheme(val presetName: String) {
 
     companion object {
         fun fromPresetName(name: String?): EmranTheme {
-            return entries.find { it.presetName == name } ?: EXPRESSIVE
+            return entries.find { it.presetName == name } ?: MONOCHROME
         }
     }
 }

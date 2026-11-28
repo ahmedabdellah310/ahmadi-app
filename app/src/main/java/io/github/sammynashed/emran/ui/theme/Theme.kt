@@ -28,7 +28,7 @@ enum class ThemeMode {
 
 @Composable
 fun MyApplicationTheme(
-    themePreset: String = "EXPRESSIVE",
+    themePreset: String = "MONOCHROME",
     themeMode: ThemeMode = ThemeMode.DARK,
     content: @Composable () -> Unit,
 ) {

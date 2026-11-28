@@ -30,6 +30,7 @@ import androidx.compose.material.icons.outlined.CalendarToday
 import androidx.compose.material.icons.outlined.Schedule
 import androidx.compose.material.icons.outlined.WbSunny
 import androidx.compose.material.icons.outlined.NightsStay
+import androidx.compose.material.icons.outlined.Public
 import androidx.compose.material.icons.outlined.BugReport
 import androidx.compose.material.icons.outlined.Lightbulb
 import androidx.compose.material.icons.outlined.SystemUpdate
@@ -322,6 +323,17 @@ fun FineTuneScreen(
                             value = (if (ar) "العربية" else "English") + " · " +
                                 (if (io.github.sammynashed.emran.data.TimeFormat.use24) (if (ar) "٢٤ ساعة" else "24h") else (if (ar) "١٢ ساعة" else "12h")),
                             onClick = { settingsPage = "app" },
+                        )
+                        GlassDivider()
+                        SettingsRow(
+                            icon = Icons.Outlined.Public,
+                            title = if (ar) "موقع الأحمدي" else "Alahmady website",
+                            value = if (ar) "افتح الموقع" else "Open the website",
+                            onClick = {
+                                runCatching {
+                                    context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://ahmadi-web.vercel.app")))
+                                }
+                            },
                         )
                     }
 

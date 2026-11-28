@@ -132,7 +132,7 @@ fun StorageScreen(lang: String, onBack: () -> Unit) {
                                 value = when (s) {
                                     is PackStatus.Downloading -> "${packSize(s.done, ar)} / ${packSize(s.total, ar)}"
                                     is PackStatus.Failed -> if (ar) "تعذّر، اضغط للمحاولة" else "Failed, tap to retry"
-                                    PackStatus.Idle -> packSize(Packs.totalBytes(d.id), ar)
+                                    PackStatus.Idle -> packSize(Packs.totalBytes(context, d.id), ar)
                                 },
                                 onClick = { if (s is PackStatus.Downloading) Packs.cancel(d.id) else Packs.start(context, d.id) },
                             )

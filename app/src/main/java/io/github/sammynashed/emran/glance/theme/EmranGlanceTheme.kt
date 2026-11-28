@@ -23,7 +23,7 @@ fun EmranGlanceTheme(
 ) {
     val themeToUse = if (widgetState.followsAppTheme || widgetState.themeOverride == null) {
         // The WidgetUpdater sets themeOverride to the app's current theme when followsAppTheme is true.
-        widgetState.themeOverride ?: EmranTheme.EXPRESSIVE
+        widgetState.themeOverride ?: EmranTheme.MONOCHROME
     } else {
         widgetState.themeOverride
     }

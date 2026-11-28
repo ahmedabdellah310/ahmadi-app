@@ -18,8 +18,8 @@ android {
     applicationId = "my.ahmed.quran2.ratel"
     minSdk = 24
     targetSdk = 36
-    versionCode = 20
-    versionName = "2.3.10"
+    versionCode = 22
+    versionName = "2.3.12"
 
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
   }
@@ -209,10 +209,12 @@ dependencies {
   "ksp"(libs.moshi.kotlin.codegen)
 }
 
-// The Telegram ("full") build does not carry onnxruntime's native libraries (17 MB of an 81 MB APK): the Hifz pack
-// downloads them (data/packs/Packs.kt). The F-Droid build keeps them inside: F-Droid does not allow fetching code.
-androidComponents {
-  onVariants(selector().withFlavor("store" to "full")) { variant ->
-    variant.packaging.jniLibs.excludes.add("**/libonnxruntime*.so")
-  }
-}
+// The Telegram ("full") build CARRIES onnxruntime's native libraries (~18 MB for one ABI).
+// They were excluded before to keep the APK small, and the Hifz pack was supposed to
+// download them — but the pack host is gone (data/packs/Packs.kt: BASES is empty and the
+// files were never shipped in assets/packs either), so the Hifz download could never
+// succeed: it failed opening packs/hifz/libonnxruntime.so from assets. The libraries
+// now ride in the APK's lib/ dir and Packs.prepareNative() points onnxruntime at the
+// app's own nativeLibraryDir, so the Hifz pack installs offline from assets.
+// (The F-Droid build always carried them: F-Droid does not allow fetching code.)
+// No androidComponents exclude here anymore: removing it is the fix.

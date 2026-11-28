@@ -209,7 +209,7 @@ fun OnboardingScreen(
                             val quiet = behavior == "quiet"
                             listOf("Dhuhr", "Asr").forEach { setMode(context, it, if (quiet) AdhanPolicy.Mode.VIBRATE else AdhanPolicy.Mode.ADHAN) }
                         }
-                        onFinished("EXPRESSIVE", loc, notifications, method, school, sound)
+                        onFinished("MONOCHROME", loc, notifications, method, school, sound)
                     } else step += 1
                 }
                 if (step > 0) {

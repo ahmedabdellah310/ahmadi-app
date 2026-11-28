@@ -26,8 +26,8 @@ class PrayerWidgetStateProvider(private val context: Context) {
         val prefs = context.getSharedPreferences("emran_settings", Context.MODE_PRIVATE)
         
         // Theme Data
-        val themeName = prefs.getString("theme_preset", "EXPRESSIVE")
-        val themeOverride = try { EmranTheme.fromPresetName(themeName) } catch (e: Exception) { EmranTheme.EXPRESSIVE }
+        val themeName = prefs.getString("theme_preset", "MONOCHROME")
+        val themeOverride = try { EmranTheme.fromPresetName(themeName) } catch (e: Exception) { EmranTheme.MONOCHROME }
         
         // Resolve the app's light/dark choice. SYSTEM is read from the widget host's
         // configuration, which is the closest a Glance provider can get to
