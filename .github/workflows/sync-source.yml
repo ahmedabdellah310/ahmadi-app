@@ -43,5 +43,5 @@ jobs:
             /tmp/src/ahmadi-source/ ./
           git add -A
           git status --short | head -30
-          git commit -m "Sync full Alahmady source v2.3.9 (complete tree incl. binaries + LICENSE)" || echo "nothing to commit"
+          git commit -m "Sync full Alahmady source v2.3.12 (complete tree incl. binaries + LICENSE)" || echo "nothing to commit"
           git push
