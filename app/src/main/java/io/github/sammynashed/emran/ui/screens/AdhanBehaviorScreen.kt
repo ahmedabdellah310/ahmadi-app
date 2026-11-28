@@ -65,6 +65,7 @@ import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material3.Icon
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Alarm
+import androidx.compose.material.icons.filled.Article
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Schedule
 import androidx.compose.material.icons.filled.Vibration
@@ -95,6 +96,7 @@ fun AdhanBehaviorScreen(viewModel: PrayerViewModel, lang: String, onBack: () -> 
     var loudness by remember { mutableFloatStateOf(AdhanPolicy.loudness(context).toFloat()) }
     var volStops by remember { mutableStateOf(AdhanPolicy.volumeStops(context)) }
     var voiceNotice by remember { mutableStateOf(AdhanPolicy.voiceNotice(context)) }
+    var postAdhan by remember { mutableStateOf(AdhanPolicy.showPostAdhanScreen(context)) }
     var testReport by remember { mutableStateOf<String?>(null) }
     var fixedLevel by remember { mutableStateOf(AdhanPolicy.fixedLevel(context)) }
     var wakeLoudness by remember { mutableFloatStateOf(AdhanPolicy.wakeLoudness(context).toFloat()) }
@@ -219,6 +221,15 @@ fun AdhanBehaviorScreen(viewModel: PrayerViewModel, lang: String, onBack: () -> 
                     )
                     GlassDivider()
                     SettingsRow(
+                        icon = Icons.Default.Article,
+                        minHeight = 50.dp,
+                        title = if (ar) "شاشة بعد الأذان" else "Post-adhan screen",
+                        value = if (postAdhan) (if (ar) "مفعّلة" else "On") else (if (ar) "متوقفة" else "Off"),
+                        chevron = false,
+                        onClick = { postAdhan = !postAdhan; AdhanPolicy.setShowPostAdhanScreen(context, postAdhan) },
+                    )
+                    GlassDivider()
+                    SettingsRow(
                         icon = Icons.AutoMirrored.Filled.VolumeUp,
                         minHeight = 50.dp,
                         title = if (ar) "جرّب الأذان الآن" else "Test the adhan now",
@@ -288,7 +299,7 @@ fun AdhanBehaviorScreen(viewModel: PrayerViewModel, lang: String, onBack: () -> 
         ) {
             ChoiceRow(
                 label = if (ar) "أوّله فقط" else "Opening only", selected = !full,
-                sublabel = if (ar) "بضع ثوانٍ، كما كان" else "A few seconds, as before",
+                sublabel = if (ar) "التكبيرات ثم «أشهد أن لا إله إلا الله» مرتين، ثم يتوقف" else "The takbirat, then “I bear witness there is no god but God” twice, then it stops",
                 onClick = { full = false; AdhanPolicy.setFullAdhan(context, false) },
             )
             ChoiceRow(

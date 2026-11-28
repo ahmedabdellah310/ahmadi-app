@@ -51,36 +51,98 @@ object ForcedUpdate {
         data class Failed(val reason: String) : Download()
     }
 
-    /** Downloads the APK into the app's cache, reports 0..100, and checks its SHA-256 before it may be installed. */
-    suspend fun download(context: Context, info: Info, onProgress: (Int) -> Unit): Download = withContext(Dispatchers.IO) {
+    /**
+     * Downloads the APK into the app's cache, reports 0..100, and checks its SHA-256 before it may be installed.
+     * It NEVER fails: a dropped connection, a stall, or a server error only makes it wait (onWaiting(true))
+     * and retry forever with backoff, resuming from the saved partial file (HTTP Range) whenever the
+     * connection returns — even if the app was closed or the attempt was cancelled, the next run continues
+     * from where it stopped, never from zero. A finished file with a bad checksum is deleted and downloaded
+     * again silently. Same behaviour as the website's resumable upload: wait for the connection, never fail.
+     */
+    suspend fun download(
+        context: Context, info: Info,
+        onProgress: (Int) -> Unit, onWaiting: (Boolean) -> Unit = {},
+    ): Download = withContext(Dispatchers.IO) {
         val dir = File(context.cacheDir, "update").apply { mkdirs() }
-        dir.listFiles()?.forEach { it.delete() }
         val out = File(dir, "update-${info.versionCode}.apk")
-        try {
-            val c = URL(info.apkUrl).openConnection() as HttpURLConnection
-            c.connectTimeout = 10000; c.readTimeout = 20000
-            c.instanceFollowRedirects = true
-            if (c.responseCode != 200) return@withContext Download.Failed("http ${c.responseCode}")
-            val total = c.contentLengthLong.takeIf { it > 0 } ?: info.sizeBytes
-            val md = MessageDigest.getInstance("SHA-256")
-            var done = 0L; var last = -1
-            c.inputStream.use { ins ->
-                out.outputStream().use { os ->
-                    val buf = ByteArray(64 * 1024)
-                    while (true) {
-                        val n = ins.read(buf); if (n < 0) break
-                        os.write(buf, 0, n); md.update(buf, 0, n); done += n
-                        val p = if (total > 0) (done * 100 / total).toInt().coerceIn(0, 100) else 0
-                        if (p != last) { last = p; onProgress(p) }
+        val total = if (info.sizeBytes > 0) info.sizeBytes else -1L
+        var done = if (out.exists()) out.length() else 0L
+        if (total > 0 && done >= total) {
+            if (isComplete(out, info)) return@withContext Download.Done(out)
+            out.delete(); done = 0L
+        }
+        if (done > 0 && total > 0) onProgress((done * 100 / total).toInt().coerceIn(0, 100))
+        var attempt = 0
+        var result: Download? = null
+        while (result == null) {
+            try {
+                val c = URL(info.apkUrl).openConnection() as HttpURLConnection
+                c.connectTimeout = 15000; c.readTimeout = 60000
+                c.instanceFollowRedirects = true
+                if (done > 0) c.setRequestProperty("Range", "bytes=$done-")
+                val code = c.responseCode
+                if (code == 416) { // our partial file is longer than the server file: start clean
+                    out.delete(); done = 0L; onProgress(0); continue
+                }
+                if (code != 200 && code != 206) throw java.io.IOException("http $code")
+                if (code == 200 && done > 0) { // server ignored Range: restart cleanly
+                    out.delete(); done = 0L; onProgress(0)
+                }
+                onWaiting(false)
+                val totalNow = if (code == 206) {
+                    val remaining = c.contentLengthLong.takeIf { it > 0 } ?: -1L
+                    if (remaining > 0) remaining + done else total
+                } else {
+                    c.contentLengthLong.takeIf { it > 0 } ?: total
+                }
+                c.inputStream.use { ins ->
+                    java.io.FileOutputStream(out, true).use { os ->
+                        val buf = ByteArray(64 * 1024)
+                        var last = -1
+                        while (true) {
+                            val n = ins.read(buf); if (n < 0) break
+                            os.write(buf, 0, n); done += n
+                            val p = if (totalNow > 0) (done * 100 / totalNow).toInt().coerceIn(0, 100) else 0
+                            if (p != last) { last = p; onProgress(p) }
+                        }
                     }
                 }
+            } catch (e: Exception) {
+                // Connection dropped or stalled: wait, never cancel. The partial file stays,
+                // and the next attempt resumes from `done`.
+                onWaiting(true)
+                kotlinx.coroutines.delay((2000L * (attempt + 1)).coerceAtMost(30000L))
+                attempt++
+                continue
             }
-            val hex = md.digest().joinToString("") { "%02x".format(it) }
-            if (info.sha256.isNotBlank() && hex != info.sha256) { out.delete(); return@withContext Download.Failed("sha256") }
-            Download.Done(out)
-        } catch (e: Exception) {
-            out.delete(); Download.Failed(e.message ?: "error")
+            // Stream ended: if the file is short, resume from `done`; if its checksum is bad,
+            // delete it and download again silently. This function never reports a failure.
+            if (total > 0 && out.length() != total) continue
+            if (!isComplete(out, info)) { out.delete(); done = 0L; onProgress(0); continue }
+            onWaiting(false)
+            result = Download.Done(out)
         }
+        result!!
+    }
+
+    /** A finished, verified APK already on disk for [info] (downloaded earlier, even in another run), or null. */
+    fun findReadyApk(context: Context, info: Info): File? {
+        val out = File(File(context.cacheDir, "update"), "update-${info.versionCode}.apk")
+        return if (out.exists() && isComplete(out, info)) out else null
+    }
+
+    /** True when the file has the expected size (when known) and SHA-256 (when known). Never throws. */
+    private fun isComplete(out: File, info: Info): Boolean {
+        if (info.sizeBytes > 0 && out.length() != info.sizeBytes) return false
+        if (info.sha256.isBlank()) return true
+        return runCatching {
+            val md = MessageDigest.getInstance("SHA-256")
+            out.inputStream().use { ins ->
+                val buf = ByteArray(64 * 1024)
+                while (true) { val n = ins.read(buf); if (n < 0) break; md.update(buf, 0, n) }
+            }
+            md.digest().joinToString("") { "%02x".format(it) } == info.sha256
+        }.getOrDefault(false)
     }
 
     /** Opens the system installer for [apk]. Returns false when the phone first needs "install unknown apps" switched on for this app. */

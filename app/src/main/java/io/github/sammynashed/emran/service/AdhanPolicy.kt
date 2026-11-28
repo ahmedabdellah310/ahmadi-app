@@ -132,7 +132,7 @@ object AdhanPolicy {
         return Play.ADHAN
     }
 
-    /** "The whole adhan" instead of its opening seconds, for every prayer (a friend asked for it, 2026-11). Off by default. */
+    /** "The whole adhan" instead of its opening — the opening is the takbirat and the two testimonies of faith ("أشهد أن لا إله إلا الله" twice), then it stops — for every prayer (a friend asked for it, 2026-11). Off by default. */
     /** "Stop the adhan with a volume button" (on by default): any press of a volume key stops it at once, even with the screen off. */
     fun volumeStops(context: Context): Boolean = prefs(context).getBoolean("adhan_volume_stops", true)
 
@@ -182,6 +182,15 @@ object AdhanPolicy {
 
     fun setFullAdhan(context: Context, on: Boolean) {
         prefs(context).edit().putBoolean(KEY_FULL, on).commit()
+    }
+
+    /** "The screen after the adhan" (on by default): when an adhan ends on its own, a full screen shows its text and the dua after it. */
+    private const val KEY_POST_ADHAN = "post_adhan_screen"
+
+    fun showPostAdhanScreen(context: Context): Boolean = prefs(context).getBoolean(KEY_POST_ADHAN, true)
+
+    fun setShowPostAdhanScreen(context: Context, on: Boolean) {
+        prefs(context).edit().putBoolean(KEY_POST_ADHAN, on).commit()
     }
 
     private fun raw(context: Context, name: String): Uri? {

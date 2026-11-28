@@ -1,5 +1,7 @@
 package io.github.sammynashed.emran.ui.screens
 
+import android.content.Intent
+import android.net.Uri
 import androidx.activity.compose.BackHandler
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
@@ -27,12 +29,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import io.github.sammynashed.emran.data.update.ForcedUpdate
-import io.github.sammynashed.emran.ui.design.GlassPanel
+import io.github.sammynashed.emran.data.update.UpdateDownloadService
 import io.github.sammynashed.emran.ui.design.LocalSky
-import io.github.sammynashed.emran.ui.design.Radius
 import io.github.sammynashed.emran.ui.design.SkyHost
 import io.github.sammynashed.emran.ui.viewmodel.PrayerViewModel
-import kotlinx.coroutines.launch
 
 /** Debug: show the page with sample data without a server: adb ... --ez FORCE_UPDATE_DEMO true */
 object UpdateDemo { var on by mutableStateOf(false) }
@@ -67,10 +67,22 @@ fun ForcedUpdateGate(viewModel: PrayerViewModel, ar: Boolean) {
 private fun ForcedUpdateScreen(info: ForcedUpdate.Info, ar: Boolean, demo: Boolean) {
     val context = LocalContext.current
     val sky = LocalSky.current
-    val scope = rememberCoroutineScope()
     var percent by remember { mutableIntStateOf(-1) }   // -1 = not started
+    var waiting by remember { mutableStateOf(false) }   // connection dropped: waiting, never cancelled
     var message by remember { mutableStateOf<String?>(null) }
     var file by remember { mutableStateOf<java.io.File?>(null) }
+    // The download runs in a foreground service, so it keeps going even if the user leaves the app.
+    // These flows carry its live state back into this screen when the user returns.
+    val svcProgress by UpdateDownloadService.progress.collectAsState()
+    val svcWaiting by UpdateDownloadService.waiting.collectAsState()
+    val svcDone by UpdateDownloadService.doneFile.collectAsState()
+    LaunchedEffect(svcProgress) { if (svcProgress >= 0) percent = svcProgress }
+    LaunchedEffect(svcWaiting) { waiting = svcWaiting }
+    LaunchedEffect(svcDone) { svcDone?.let { file = it; percent = 100; waiting = false } }
+    // A finished APK already on disk (downloaded earlier, even in another run): offer install at once.
+    LaunchedEffect(info) {
+        ForcedUpdate.findReadyApk(context, info)?.let { file = it; percent = 100 }
+    }
     BackHandler(enabled = true) { }
     val icon = remember {
         runCatching {
@@ -96,53 +108,68 @@ private fun ForcedUpdateScreen(info: ForcedUpdate.Info, ar: Boolean, demo: Boole
                 color = sky.inkSoft, fontSize = 15.sp,
             )
             Spacer(Modifier.height(22.dp))
-            GlassPanel(Modifier.fillMaxWidth(), cornerRadius = Radius.row, lens = false) {
-                Column(Modifier.fillMaxWidth().padding(18.dp)) {
-                    Text(if (ar) "ما الجديد" else "What's new", color = Color(0xFFE9CB86), fontSize = 14.sp, fontWeight = FontWeight.SemiBold)
-                    Spacer(Modifier.height(8.dp))
-                    Text(info.notes.ifBlank { if (ar) "تحسينات وإصلاحات." else "Improvements and fixes." }, color = sky.ink, fontSize = 15.sp, lineHeight = 24.sp)
-                }
-            }
-            Spacer(Modifier.height(22.dp))
             if (percent >= 0) {
                 LinearProgressIndicator(
                     progress = { percent / 100f }, modifier = Modifier.fillMaxWidth().height(8.dp).clip(RoundedCornerShape(50)),
                     color = Color(0xFFE9CB86), trackColor = Color.White.copy(alpha = 0.18f),
                 )
                 Spacer(Modifier.height(6.dp))
-                Text(if (percent < 100) "$percent%" else (if (ar) "جارٍ التحقق…" else "Verifying…"), color = sky.inkSoft, fontSize = 13.sp)
+                Text(if (waiting) (if (ar) "بانتظار الاتصال…" else "Waiting for connection…") else if (percent < 100) "$percent%" else (if (ar) "جارٍ التحقق…" else "Verifying…"), color = sky.inkSoft, fontSize = 13.sp)
                 Spacer(Modifier.height(12.dp))
             }
-            message?.let { Text(it, color = sky.ink, fontSize = 14.sp, textAlign = TextAlign.Center); Spacer(Modifier.height(12.dp)) }
+            message?.let { Text(it, color = sky.ink, fontSize = 14.sp, textAlign = TextAlign.Center); Spacer(Modifier.height(6.dp)) }
             Box(
                 Modifier.fillMaxWidth().heightIn(min = 56.dp).clip(RoundedCornerShape(50))
                     .background(if (busy) Color.White.copy(alpha = 0.5f) else Color.White)
                     .clickable(enabled = !busy) {
                         message = null
+                        waiting = false
                         val ready = file
                         if (ready != null) { if (!ForcedUpdate.install(context, ready)) message = if (ar) "اسمح للتطبيق بتثبيت التحديثات ثم اضغط «تحديث الآن» مرة أخرى." else "Allow installs for this app, then tap Update now again." ; return@clickable }
                         if (demo) { message = if (ar) "هذه معاينة: لا يوجد خادم بعد." else "Preview only: no server yet."; return@clickable }
                         percent = 0
-                        scope.launch {
-                            when (val r = ForcedUpdate.download(context, info) { percent = it }) {
-                                is ForcedUpdate.Download.Done -> {
-                                    file = r.file; percent = 100
-                                    if (!ForcedUpdate.install(context, r.file)) message = if (ar) "اسمح للتطبيق بتثبيت التحديثات ثم اضغط «تحديث الآن» مرة أخرى." else "Allow installs for this app, then tap Update now again."
-                                }
-                                is ForcedUpdate.Download.Failed -> {
-                                    percent = -1
-                                    message = if (r.reason == "sha256") (if (ar) "الملف لم يتطابق مع بصمته، لم يُثبَّت. حاول مرة أخرى." else "The file did not match its checksum and was not installed. Try again.")
-                                    else (if (ar) "تعذّر التنزيل. تحقق من الاتصال وحاول مرة أخرى." else "Download failed. Check your connection and try again.")
-                                }
-                            }
-                        }
+                        // The download runs in a foreground service: it keeps going even if the
+                        // user leaves the app, and this screen picks up its progress on return.
+                        UpdateDownloadService.start(context, info)
                     },
                 contentAlignment = Alignment.Center,
             ) {
                 Text(
-                    if (busy) (if (ar) "جارٍ التنزيل…" else "Downloading…") else if (file != null) (if (ar) "تثبيت الآن" else "Install now") else (if (ar) "تحديث الآن" else "Update now"),
+                    if (waiting) (if (ar) "بانتظار الاتصال…" else "Waiting for connection…") else if (busy) (if (ar) "جارٍ التنزيل…" else "Downloading…") else if (file != null) (if (ar) "تثبيت الآن" else "Install now") else (if (ar) "تحديث الآن" else "Update now"),
                     color = Color(0xFF0B1B33), fontSize = 17.sp, fontWeight = FontWeight.Bold,
                 )
+            }
+            Spacer(Modifier.height(10.dp))
+            Box(
+                Modifier.fillMaxWidth().heightIn(min = 48.dp).clip(RoundedCornerShape(50))
+                    .clickable {
+                        if (demo) return@clickable
+                        runCatching {
+                            context.startActivity(
+                                Intent(Intent.ACTION_VIEW, Uri.parse(info.apkUrl))
+                                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                            )
+                        }
+                    },
+                contentAlignment = Alignment.Center,
+            ) {
+                Text(if (ar) "تنزيل من المتصفّح" else "Download in browser", color = Color(0xFFE9CB86), fontSize = 15.sp, fontWeight = FontWeight.SemiBold)
+            }
+            Spacer(Modifier.height(10.dp))
+            Box(
+                Modifier.fillMaxWidth().heightIn(min = 48.dp).clip(RoundedCornerShape(50))
+                    .clickable {
+                        if (demo) return@clickable
+                        runCatching {
+                            context.startActivity(
+                                Intent(Intent.ACTION_VIEW, Uri.parse(ForcedUpdate.BASE_URL))
+                                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                            )
+                        }
+                    },
+                contentAlignment = Alignment.Center,
+            ) {
+                Text(if (ar) "موقع التحديثات" else "Updates site", color = Color(0xFFE9CB86), fontSize = 15.sp, fontWeight = FontWeight.SemiBold)
             }
             Spacer(Modifier.height(14.dp))
             Text(if (ar) "لازم تحدّث التطبيق عشان تكمل" else "You need to update the app to continue", color = sky.inkSoft, fontSize = 13.sp, textAlign = TextAlign.Center)

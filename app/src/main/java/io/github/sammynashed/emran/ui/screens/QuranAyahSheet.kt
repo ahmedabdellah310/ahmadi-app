@@ -71,6 +71,13 @@ fun AyahMeaningSheet(
     onToggleBookmark: () -> Unit,
     onDismiss: () -> Unit,
     onMakeVideo: (() -> Unit)? = null,
+    /**
+     * Word-by-word mode: the single tapped word. When set, the sheet shows
+     * that word only — its meaning, not the ayah's tafsir. The app bundles no
+     * per-word meaning data (no glossary asset or table exists), so the sheet
+     * says so plainly rather than inventing a meaning.
+     */
+    word: String? = null,
 ) {
     val ar = lang == "ar"
     val context = LocalContext.current
@@ -145,6 +152,37 @@ fun AyahMeaningSheet(
                     Modifier.weight(1f, fill = false).verticalScroll(rememberScrollState()),
                     verticalArrangement = Arrangement.spacedBy(10.dp),
                 ) {
+                    if (word != null) {
+                        // Word by word: the word itself, and the honest gap —
+                        // no word-meaning data is bundled in the app.
+                        Text(
+                            word,
+                            color = ink,
+                            fontFamily = HafsFontFamily,
+                            fontSize = 34.sp,
+                            lineHeight = 52.sp,
+                            textAlign = TextAlign.Center,
+                            modifier = Modifier.fillMaxWidth(),
+                        )
+                        Text(
+                            if (ar) "معنى هذه الكلمة غير متوفر في التطبيق بعد — لا توجد بيانات معاني كلمات مدمجة، فلا نعرض معنى مخترعًا."
+                            else "This word's meaning is not available in the app yet — no word-meaning data is bundled, so no meaning is shown rather than an invented one.",
+                            color = ink.copy(alpha = 0.65f),
+                            fontSize = 14.sp,
+                            lineHeight = 22.sp,
+                            textAlign = TextAlign.Center,
+                            modifier = Modifier.fillMaxWidth(),
+                        )
+                        Text(
+                            if (ar) "لتفسير الآية كاملة، بدّل الاختيار إلى «الآية كاملة» من إعدادات المصحف."
+                            else "For the whole ayah's tafsir, switch back to “Whole ayah” in the Mushaf settings.",
+                            color = ink.copy(alpha = 0.45f),
+                            fontSize = 12.sp,
+                            lineHeight = 18.sp,
+                            textAlign = TextAlign.Center,
+                            modifier = Modifier.fillMaxWidth(),
+                        )
+                    } else {
                     val e = entry
                     if (e == null) {
                         Box(Modifier.fillMaxWidth().height(80.dp), contentAlignment = Alignment.Center) {
@@ -185,6 +223,7 @@ fun AyahMeaningSheet(
                             },
                             color = ink.copy(alpha = 0.45f), fontSize = 11.sp, lineHeight = 15.sp,
                         )
+                    }
                     }
                 }
 

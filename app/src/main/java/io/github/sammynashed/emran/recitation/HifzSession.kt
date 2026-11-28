@@ -42,6 +42,19 @@ class HifzSession(
     var fading by mutableStateOf(mapOf<Int, Float>())
         private set
 
+    /**
+     * Word keys the settled (Final) assessment got wrong: display MISSED /
+     * REPEATED / UNFINISHED / EXTRA. UNCERTAIN maps to UNCLEAR and is never
+     * recorded here — RATL abstains rather than accuses, and the UI must not
+     * undo that by painting an unclear word red.
+     */
+    var wrongWords by mutableStateOf(setOf<Int>())
+        private set
+
+    /** Āyah numbers (within this surah) that hold at least one [wrongWords] entry. */
+    var wrongAyahs by mutableStateOf(setOf<Int>())
+        private set
+
     /** Index into the surah's verse list that the engine is aligned against. */
     var ayah by mutableIntStateOf(0)
         private set
@@ -76,6 +89,8 @@ class HifzSession(
         revealed = emptySet()
         unsure = emptySet()
         fading = emptyMap()
+        wrongWords = emptySet()
+        wrongAyahs = emptySet()
         steady = emptySet()
         ayah = 0
         attempts = 0
@@ -224,6 +239,24 @@ class HifzSession(
                     .filter { it.status == ai.ratl.core.WordStatus.CORRECT }
                     .mapNotNull { keyOf(it.index) }
                 steady = emptySet()
+                // Settled mistakes only: a Partial is revised by later audio, so
+                // only the Final verdict may mark words wrong. UNCERTAIN (and
+                // SUBSTITUTION) map to UNCLEAR, never a mistake — see
+                // RecitationAssessor.display.
+                val mistakeKeys = r.assessment.words
+                    .filter {
+                        assessor.display(it.status) in setOf(
+                            RecitationAssessor.Display.MISSED,
+                            RecitationAssessor.Display.REPEATED,
+                            RecitationAssessor.Display.UNFINISHED,
+                            RecitationAssessor.Display.EXTRA,
+                        )
+                    }
+                    .mapNotNull { keyOf(it.index) }
+                if (mistakeKeys.isNotEmpty()) {
+                    wrongWords = wrongWords + mistakeKeys
+                    wrongAyahs = wrongAyahs + ayahNumber
+                }
                 // Settled, but not necessarily right. A fully revealed ayah moves
                 // on; otherwise it starts again, keeping what was earned - unless
                 // the reciter plainly got to the end and the engine is merely
@@ -291,6 +324,16 @@ class HifzSession(
         targetMap = t.targetToArabic
         steady = emptySet()
         if (recorder.isRecording) recorder.advanceTo(t.targets, ayah) else recording = false
+    }
+
+    /**
+     * Listen to the current āyah again ("إعادة الآية"). Words already revealed
+     * stay revealed, so the reciter only has to land the ones still blurred —
+     * the same rule as the automatic [redo] after a failed attempt.
+     */
+    fun retryCurrentAyah(verses: List<String>) {
+        attempts = 0
+        redo(verses)
     }
 
     /** Hand the still-open microphone to the next ayah. */

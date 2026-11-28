@@ -98,6 +98,63 @@ class PrayerAlarmReceiver : BroadcastReceiver() {
                 mediaPlayer = null
             }
         }
+
+        const val POST_ADHAN_NOTIFICATION_ID = 9101
+        private const val POST_ADHAN_REQUEST_CODE = 9101
+
+        /**
+         * The screen after the adhan: a full-screen page with the adhan's text and the dua after it,
+         * shown when an adhan ends on its own. Delivered as a high-priority notification with a
+         * full-screen intent — the same sanctioned mechanism as the adhan notification itself — so it
+         * appears over the lock screen and over other apps. Sunrise is a reminder, not an adhan, so it
+         * gets no screen; a muted adhan never fires the completion listener, so it gets none either.
+         */
+        fun showPostAdhanScreen(context: Context, prayerName: String) {
+            if (prayerName == "Sunrise") return
+            val appContext = context.applicationContext
+            if (!AdhanPolicy.showPostAdhanScreen(appContext)) return
+            val channelId = "emran_adhan_v4_alarm"
+            val notificationManager = appContext.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                val channel = NotificationChannel(
+                    channelId,
+                    "الأَحْمَدِيّ Adhan alarm",
+                    NotificationManager.IMPORTANCE_HIGH
+                ).apply {
+                    description = "The adhan, played as an alarm even on silent"
+                    enableVibration(true)
+                    vibrationPattern = longArrayOf(0, 500, 200, 500)
+                    setBypassDnd(true)
+                    lockscreenVisibility = android.app.Notification.VISIBILITY_PUBLIC
+                    setSound(null, null)
+                }
+                notificationManager.createNotificationChannel(channel)
+            }
+            val intent = Intent(appContext, io.github.sammynashed.emran.ui.screens.PostAdhanActivity::class.java).apply {
+                putExtra(io.github.sammynashed.emran.ui.screens.PostAdhanActivity.EXTRA_PRAYER, prayerName)
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            }
+            val pendingIntent = PendingIntent.getActivity(
+                appContext,
+                POST_ADHAN_REQUEST_CODE,
+                intent,
+                PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+            )
+            val prefs = appContext.getSharedPreferences("emran_settings", Context.MODE_PRIVATE)
+            val ar = (prefs.getString("current_language", "en") ?: "en") == "ar"
+            val notification = NotificationCompat.Builder(appContext, channelId)
+                .setSmallIcon(io.github.sammynashed.emran.R.drawable.ic_stat_emran)
+                .setContentTitle(if (ar) "انتهى الأذان" else "The adhan has ended")
+                .setContentText(if (ar) "اضغط لعرض نص الأذان والدعاء بعده" else "Tap to see the adhan text and the dua after it")
+                .setPriority(NotificationCompat.PRIORITY_MAX)
+                .setCategory(NotificationCompat.CATEGORY_ALARM)
+                .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+                .setAutoCancel(true)
+                .setContentIntent(pendingIntent)
+                .setFullScreenIntent(pendingIntent, true)
+                .build()
+            runCatching { notificationManager.notify(POST_ADHAN_NOTIFICATION_ID, notification) }
+        }
     }
 
     override fun onReceive(context: Context, intent: Intent) {
@@ -184,8 +241,9 @@ class PrayerAlarmReceiver : BroadcastReceiver() {
     private fun showNotification(context: Context, prayerName: String) {
         val preferences = context.getSharedPreferences("emran_settings", Context.MODE_PRIVATE)
         // "default" (never chosen) used to mean the phone's short notification beep, which is not an adhan.
+        // Any saved voice with a recording in res/raw plays; anything else falls back to a real adhan.
         val soundKey = (preferences.getString("default_adhan_sound", null) ?: "default")
-            .let { if (it in setOf("ahmad_alnafees", "mishary_alafasy", "saad_alghamdi")) it else "ahmad_alnafees" }
+            .let { if (context.resources.getIdentifier(it, "raw", context.packageName) != 0) it else "ahmad_alnafees" }
 
         // What happens now depends on the phone (silent, vibrate, Do Not Disturb), the user's per-prayer
         // choice, their quiet hours and, for Fajr only, the opt-in "wake me" switch.
@@ -323,11 +381,9 @@ class PrayerAlarmReceiver : BroadcastReceiver() {
         }
         val wake = play == AdhanPolicy.Play.WAKE
         val alarmish = wake || (play == AdhanPolicy.Play.ADHAN && prayerName != "Sunrise")
-        val voiceUri: Uri? = when (soundKey) {
-            "ahmad_alnafees", "mishary_alafasy", "saad_alghamdi" ->
-                Uri.parse("android.resource://${context.packageName}/raw/$soundKey")
-            else -> null
-        }
+        // The opening clip of any voice with a recording in res/raw (takbirat + the two testimonies of faith).
+        val voiceUri: Uri? = if (context.resources.getIdentifier(soundKey, "raw", context.packageName) != 0)
+            Uri.parse("android.resource://${context.packageName}/raw/$soundKey") else null
         val systemTone = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
         // "Fajr sound": the user may hear only "الصلاة خير من النوم" at Fajr (everyday and wake-up alike).
         val fajrCall = if (prayerName == "Fajr") AdhanPolicy.fajrTathweebVoice(context)?.let { AdhanPolicy.tathweebUri(context, it) } else null
@@ -412,7 +468,14 @@ class PrayerAlarmReceiver : BroadcastReceiver() {
                 setAudioAttributes(attrs)
                 isLooping = false
                 setVolume(0f, 0f)
-                setOnCompletionListener { muteAdhan(appContext) }
+                setOnCompletionListener {
+                    muteAdhan(appContext)
+                    // Natural end only: stop() never fires this, so a muted adhan shows no screen.
+                    // Vibrate/silent never reach here (they have no audio and no completion).
+                    if (play == AdhanPolicy.Play.ADHAN || play == AdhanPolicy.Play.WAKE) {
+                        showPostAdhanScreen(appContext, prayerName)
+                    }
+                }
                 prepare()
                 start()
             }

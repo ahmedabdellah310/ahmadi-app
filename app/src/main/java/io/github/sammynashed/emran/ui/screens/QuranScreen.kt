@@ -47,6 +47,7 @@ import androidx.compose.foundation.gestures.scrollBy
 
 import androidx.compose.ui.input.pointer.pointerInput
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -563,6 +564,27 @@ fun QuranScreen(
         )
     }
     val hifzScope = rememberCoroutineScope()
+    // Whether the red mistake tint is showing in Hifz mode; reset on every entry.
+    var showHifzMistakes by remember { mutableStateOf(false) }
+    // Fast first listen: once the Hifz pack is installed and Hifz mode is open,
+    // warm the engine up in the background (it reads ~31 MB, never on the UI
+    // thread), so the first "ابدأ التلاوة" starts instantly instead of showing
+    // "جارٍ التحضير…". The pack-install dialog's onReady enters Hifz mode, so
+    // installing the pack warms the engine up too. The engine is never loaded
+    // while the pack is not installed, and it stays loaded while Hifz is open.
+    val hifzPackChanges by io.github.sammynashed.emran.data.packs.Packs.changes.collectAsState()
+    val hifzInstalled = remember(hifzPackChanges) {
+        io.github.sammynashed.emran.data.packs.Packs.isInstalled(hifzContext, "hifz")
+    }
+    LaunchedEffect(hifzMode, hifzInstalled) {
+        if (!hifzMode) return@LaunchedEffect
+        showHifzMistakes = false
+        if (hifzInstalled && !hifzAssessor.isLoaded) {
+            kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.IO) {
+                runCatching { hifzAssessor.load() }
+            }
+        }
+    }
     val askHifzMic = androidx.activity.compose.rememberLauncherForActivityResult(
         androidx.activity.result.contract.ActivityResultContracts.RequestPermission(),
     ) { granted ->
@@ -650,6 +672,12 @@ fun QuranScreen(
 
                 // The ayah whose meaning is open (tapped on the page), and the reader's own bookmarks.
                 var selectedAyah by remember(state.chapter.id) { mutableStateOf<Pair<Int, Int>?>(null) }
+                // The single word tapped in word-by-word mode (surah, ayah, word index).
+                var selectedWord by remember(state.chapter.id) { mutableStateOf<Triple<Int, Int, Int>?>(null) }
+                // What a tap on the page does (whole ayah vs word by word, and
+                // whether the tap reads the ayah aloud); persisted in SharedPreferences.
+                var tapMode by remember { mutableStateOf(MushafTapPrefs.mode(recitationContext)) }
+                var tapReadsAyah by remember { mutableStateOf(MushafTapPrefs.readsAyah(recitationContext)) }
                 // The ayah the reciter is on: marked on the page, and the page follows it.
                 val audioNow by io.github.sammynashed.emran.data.audio.QuranAudio.state.collectAsState()
                 // Only when the recitation is of the surah you opened: opening another surah while one
@@ -689,6 +717,23 @@ fun QuranScreen(
                         else -> "Bookmarked ${ch?.transliteration ?: ""} $s:$a"
                     }
                 }
+                // Play one ayah aloud with the chosen reciter, from the tapped
+                // ayah (the existing Listen path: the queue then continues to
+                // the following ayat, as it does from the Listen panel). Only
+                // when that surah is downloaded for this reciter; otherwise the
+                // tap stays silent and the sheet still opens.
+                fun playTappedAyah(s: Int, a: Int) {
+                    val ctx = recitationContext
+                    val reciter = io.github.sammynashed.emran.data.audio.Reciters.chosen(ctx)
+                    if (!reciter.has(s)) return
+                    if (!io.github.sammynashed.emran.data.audio.AudioStore.isInstalled(ctx, reciter.id, s)) return
+                    val name = allChapters.firstOrNull { it.id == s }?.name ?: state.chapter.name
+                    hifzScope.launch {
+                        runCatching {
+                            io.github.sammynashed.emran.data.audio.QuranAudio.play(ctx, reciter, s, name, a)
+                        }
+                    }
+                }
                 val onAyahTap: (Int, Int) -> Boolean = { s, a ->
                     val allowed = when {
                         !hifzMode && !sweeping -> true
@@ -702,8 +747,24 @@ fun QuranScreen(
                     if (allowed) {
                         selectedAyah = s to a
                         openPanel = null
+                        // Hifz must not hear the reciter, so no audio while it runs.
+                        if (!hifzMode && tapReadsAyah) playTappedAyah(s, a)
                     }
                     allowed
+                }
+                // Word-by-word mode: a tap on one word selects just that word.
+                // Returning false falls through to the ayah tap (whole-ayah mode,
+                // Hifz mode, or a rosette tap). There is no per-word audio: every
+                // recitation is one MP3 per ayah with no word timings, so the tap
+                // reads the whole ayah aloud instead — the word alone cannot be played.
+                val onWordTap: (Int, Int, Int) -> Boolean = { s, a, w ->
+                    if (hifzMode || tapMode != MushafTapPrefs.TapMode.WORD) false
+                    else {
+                        selectedWord = Triple(s, a, w)
+                        openPanel = null
+                        if (tapReadsAyah) playTappedAyah(s, a)
+                        true
+                    }
                 }
 
                 // Auto Scroll engine state (Scroll View only)
@@ -952,6 +1013,9 @@ fun QuranScreen(
                                                     onlySurah = if (isContinuous) null else state.chapter.id,
                                                     focusAyah = playingAyah ?: selectedAyah ?: focusAyah,
                                                     onAyahTap = onAyahTap,
+                                                    onWordTap = onWordTap,
+                                                    wrongAyahs = hifz.wrongAyahs,
+                                                    showMistakes = showHifzMistakes,
                                                 )
                                                 return@HorizontalPager
                                             }
@@ -1169,6 +1233,9 @@ fun QuranScreen(
                                                 onlySurah = if (isContinuous) null else state.chapter.id,
                                                 focusAyah = playingAyah ?: selectedAyah ?: focusAyah,
                                                 onAyahTap = onAyahTap,
+                                                onWordTap = onWordTap,
+                                                wrongAyahs = hifz.wrongAyahs,
+                                                showMistakes = showHifzMistakes,
                                                 flow = sideways,
                                                 modifier = if (sideways) Modifier else Modifier.fillParentMaxHeight(),
                                             )
@@ -1495,6 +1562,65 @@ fun QuranScreen(
                                             }
                                         }
                                         }
+                                        // Mistakes, from the settled assessment: a gold button
+                                        // shows them (the wrong ayah turns red on the page),
+                                        // and "إعادة الآية" listens to this ayah again.
+                                        if (hifz.wrongAyahs.isNotEmpty()) {
+                                            Row(
+                                                modifier = Modifier.fillMaxWidth(),
+                                                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                                            ) {
+                                                Button(
+                                                    onClick = { showHifzMistakes = !showHifzMistakes },
+                                                    modifier = Modifier.weight(1f).height(48.dp),
+                                                    shape = RoundedCornerShape(50),
+                                                    colors = ButtonDefaults.buttonColors(
+                                                        containerColor = Color(0xFFE9CB86),
+                                                        contentColor = Color(0xFF0B1B33),
+                                                    ),
+                                                ) {
+                                                    Text(
+                                                        text = if (showHifzMistakes) {
+                                                            if (lang == "ar") "إخفاء الأخطاء" else "Hide mistakes"
+                                                        } else {
+                                                            if (lang == "ar") "إظهار الأخطاء" else "Show mistakes"
+                                                        },
+                                                        fontSize = 14.sp,
+                                                        fontWeight = FontWeight.SemiBold,
+                                                        maxLines = 1,
+                                                        softWrap = false,
+                                                    )
+                                                }
+                                                Button(
+                                                    onClick = { hifz.retryCurrentAyah(hifzVerses.map { it.text }) },
+                                                    modifier = Modifier.weight(1f).height(48.dp),
+                                                    shape = RoundedCornerShape(50),
+                                                    colors = ButtonDefaults.buttonColors(
+                                                        containerColor = currentTheme.textColor.copy(alpha = 0.08f),
+                                                        contentColor = currentTheme.textColor,
+                                                    ),
+                                                ) {
+                                                    Text(
+                                                        text = if (lang == "ar") "إعادة الآية" else "Repeat ayah",
+                                                        fontSize = 14.sp,
+                                                        fontWeight = FontWeight.SemiBold,
+                                                        maxLines = 1,
+                                                        softWrap = false,
+                                                    )
+                                                }
+                                            }
+                                            if (!showHifzMistakes) {
+                                                Text(
+                                                    text = if (lang == "ar") {
+                                                        "✗ خطأ في الآية ${hifz.wrongAyahs.sorted().joinToString("، ")} — اضغط «إظهار الأخطاء» لترى الكلمة"
+                                                    } else {
+                                                        "✗ Mistake in ayah ${hifz.wrongAyahs.sorted().joinToString(", ")} — tap “Show mistakes” to see it"
+                                                    },
+                                                    color = Color(0xFFE57373),
+                                                    fontSize = 13.sp,
+                                                )
+                                            }
+                                        }
                                     }
                                     hifz.problem?.let { msg ->
                                         Spacer(modifier = Modifier.height(6.dp))
@@ -1556,6 +1682,23 @@ fun QuranScreen(
                                     }
                                 }
                                 
+                                // Mushaf tap settings: whole ayah vs word by word, the
+                                // reciter, and whether a tap reads the ayah aloud. Tafsir
+                                // follows the same choice (whole-ayah tafsir, or the
+                                // tapped word's meaning).
+                                if (moreTools) {
+                                    HorizontalDivider(color = currentTheme.textColor.copy(alpha = 0.1f))
+                                    MushafTapSettingsSection(
+                                        theme = currentTheme,
+                                        lang = lang,
+                                        onOpenReciters = onOpenReciters,
+                                        tapMode = tapMode,
+                                        onTapModeChange = { tapMode = it; MushafTapPrefs.saveMode(recitationContext, it) },
+                                        tapReadsAyah = tapReadsAyah,
+                                        onTapReadsChange = { tapReadsAyah = it; MushafTapPrefs.saveReadsAyah(recitationContext, it) },
+                                    )
+                                }
+
                                 if (moreTools) Row(
                                     modifier = Modifier.fillMaxWidth(),
                                     horizontalArrangement = Arrangement.spacedBy(8.dp)
@@ -1706,6 +1849,36 @@ fun QuranScreen(
                             onToggleBookmark = { io.github.sammynashed.emran.data.hadith.HadithBookmarks.toggleAyah(recitationContext, s, a) },
                             onDismiss = { selectedAyah = null },
                             onMakeVideo = { selectedAyah = null; onMakeVideo(s, a) },
+                        )
+                    }
+
+                    // The single word tapped in word-by-word mode: its meaning
+                    // sheet (the word itself — the app bundles no word-meaning
+                    // data, so the sheet says so instead of inventing one).
+                    androidx.compose.animation.AnimatedVisibility(
+                        visible = selectedWord != null,
+                        enter = fadeIn(tween(180)) + slideInVertically(tween(260)) { it / 3 },
+                        exit = fadeOut(tween(160)),
+                        modifier = Modifier.zIndex(3f),
+                    ) {
+                        var shownWord by remember { mutableStateOf(Triple(1, 1, 0)) }
+                        selectedWord?.let { shownWord = it }
+                        val (s, a, w) = shownWord
+                        val wordText = remember(s, a, w, state.verses) {
+                            state.verses.firstOrNull { it.chapterId == s && it.id == a }
+                                ?.let { MushafSource.words(it.text).getOrNull(w) }.orEmpty()
+                        }
+                        AyahMeaningSheet(
+                            surah = s,
+                            ayah = a,
+                            surahName = allChapters.firstOrNull { it.id == s }?.let { if (lang == "ar") it.name else it.transliteration }
+                                ?: state.chapter.name,
+                            theme = currentTheme,
+                            lang = lang,
+                            bookmarked = ayahBookmarks.any { it.surah == s && it.ayah == a },
+                            onToggleBookmark = { io.github.sammynashed.emran.data.hadith.HadithBookmarks.toggleAyah(recitationContext, s, a) },
+                            onDismiss = { selectedWord = null },
+                            word = wordText,
                         )
                     }
                 }

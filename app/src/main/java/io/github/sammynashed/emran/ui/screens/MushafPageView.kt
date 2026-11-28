@@ -128,6 +128,17 @@ fun MushafPageView(
      * used, so the reader's own tap (show / hide the bars) does not fire as well.
      */
     onAyahTap: ((surah: Int, ayah: Int) -> Boolean)? = null,
+    /**
+     * A tap on one word that is showing: (surah, ayah, word index in the ayah).
+     * Tried before [onAyahTap]; returning false falls through to the ayah tap,
+     * so a rosette tap (not a word) and word mode's "whole ayah" choice still
+     * reach [onAyahTap].
+     */
+    onWordTap: ((surah: Int, ayah: Int, word: Int) -> Boolean)? = null,
+    /** Āyah numbers (within [hifzSurah]) the settled assessment got wrong. */
+    wrongAyahs: Set<Int> = emptySet(),
+    /** When true, [wrongAyahs] are painted red; when false they look normal. */
+    showMistakes: Boolean = false,
     /** Sideways inside a list: the page is as tall as its lines and the list scrolls, instead of scrolling inside itself. */
     flow: Boolean = false,
     modifier: Modifier = Modifier,
@@ -232,6 +243,7 @@ fun MushafPageView(
             val draw = DrawParams(
                 ink, ornament, dark, tajweed, hifzSurah, revealed, fading, current, highlight,
                 focus = focusAyah, focusColor = ornament.copy(alpha = (if (dark) 0.26f else 0.20f) * focusIn.value),
+                wrongAyahs = wrongAyahs, showMistakes = showMistakes,
             )
 
             Column(
@@ -290,6 +302,7 @@ fun MushafPageView(
                                     params = draw,
                                     measurer = measurer,
                                     onAyahTap = onAyahTap,
+                                    onWordTap = onWordTap,
                                     modifier = slotModifier,
                                 )
                             }
@@ -371,7 +384,14 @@ private class DrawParams(
     val highlight: Color,
     val focus: Pair<Int, Int>? = null,
     val focusColor: Color = Color.Transparent,
-)
+    val wrongAyahs: Set<Int> = emptySet(),
+    val showMistakes: Boolean = false,
+) {
+    /** True for a word of a wrongly-recited ayah, while mistakes are shown. */
+    fun isWrong(item: Item): Boolean =
+        showMistakes && hifzSurah != null && item.isWord &&
+            item.surah == hifzSurah && item.ayah in wrongAyahs
+}
 
 private fun mushafStyle(sp: Float) = TextStyle(
     fontFamily = MushafFontFamily,
@@ -393,7 +413,14 @@ private fun mushafStyle(sp: Float) = TextStyle(
 private class Laid(val layout: TextLayoutResult, val left: Float, val width: Float)
 
 private fun measureItem(item: Item, sp: Float, params: DrawParams?, measurer: TextMeasurer): Laid {
-    val text: AnnotatedString = if (params != null && params.tajweed && item.isWord) {
+    // A wrongly-recited word, while mistakes are shown: plain red, no tajweed
+    // colours on top of it — the red is the verdict, and a tajweed colour
+    // would read as a second one. UNCERTAIN words never reach here: they are
+    // never recorded as wrong (see HifzSession), so they are never red.
+    val red = params?.isWrong(item) == true
+    val text: AnnotatedString = if (red) {
+        AnnotatedString(item.text)
+    } else if (params != null && params.tajweed && item.isWord) {
         buildAnnotatedString {
             append(item.text)
             Tajweed.annotate(item.text).forEach { span ->
@@ -403,6 +430,7 @@ private fun measureItem(item: Item, sp: Float, params: DrawParams?, measurer: Te
     } else AnnotatedString(item.text)
     val color = when {
         params == null -> Color.Unspecified
+        red -> if (params.dark) Color(0xFFEF9A9A) else Color(0xFFC62828)
         item.isWord -> params.ink
         else -> params.ornament
     }
@@ -446,6 +474,7 @@ private fun MushafLine(
     params: DrawParams,
     measurer: TextMeasurer,
     onAyahTap: ((Int, Int) -> Boolean)?,
+    onWordTap: ((Int, Int, Int) -> Boolean)? = null,
     modifier: Modifier,
 ) {
     val density = LocalDensity.current
@@ -454,17 +483,27 @@ private fun MushafLine(
     // gap on each side, so a tap between two words still lands on one of them.
     val hits = remember(items) { ArrayList<Triple<Float, Float, Item>>(items.size) }
     val tap by androidx.compose.runtime.rememberUpdatedState(onAyahTap)
-    val tapModifier = if (onAyahTap == null) Modifier else Modifier.pointerInput(items) {
+    val wordTap by androidx.compose.runtime.rememberUpdatedState(onWordTap)
+    val tapModifier = if (onAyahTap == null && onWordTap == null) Modifier else Modifier.pointerInput(items) {
         awaitEachGesture {
             awaitFirstDown(requireUnconsumed = false)
             val up = waitForUpOrCancellation() ?: return@awaitEachGesture
             val x = up.position.x
             val hit = hits.firstOrNull { x >= it.first && x <= it.second }?.third ?: return@awaitEachGesture
+            // A word tap first: in word-by-word mode it selects just that word.
+            // Anything it does not use (whole-ayah mode, Hifz mode, a rosette)
+            // falls through to the ayah tap below.
+            if (hit.isWord && wordTap?.invoke(hit.surah, hit.ayah, hit.word) == true) {
+                up.consume()
+                return@awaitEachGesture
+            }
             if (tap?.invoke(hit.surah, hit.ayah) == true) up.consume()
         }
     }
     // Measured once per line and colour scheme. Hifz state is applied in the draw pass.
-    val laid = remember(items, fontSp, params.tajweed, params.dark, params.ink, params.ornament) {
+    // Mistake display is part of the measure: a wrong word is drawn red, so the
+    // layout is re-measured when the toggle (or the wrong set) changes.
+    val laid = remember(items, fontSp, params.tajweed, params.dark, params.ink, params.ornament, params.showMistakes, params.wrongAyahs) {
         items.map { measureItem(it, fontSp, params, measurer) }
     }
     Canvas(modifier.then(tapModifier)) {
@@ -529,6 +568,20 @@ private fun MushafLine(
                     p.focusColor,
                     topLeft = Offset(x - gap / 2f, cy - bandH / 2f),
                     size = Size(w + gap, bandH),
+                )
+            }
+            // A wrongly-recited ayah, while mistakes are shown: the whole ayah
+            // carries a red tint behind its words, rosette included, so the
+            // mistake is visible at a glance without opening anything.
+            if (p.showMistakes && p.hifzSurah != null && item.surah == p.hifzSurah &&
+                item.ayah in p.wrongAyahs && item.word != KIND_RUB
+            ) {
+                val bandH = layout.size.height * scaleY * 0.92f
+                drawRoundRect(
+                    Color(0xFFFF5252).copy(alpha = 0.14f),
+                    topLeft = Offset(x - gap / 2f, cy - bandH / 2f),
+                    size = Size(w + gap, bandH),
+                    cornerRadius = CornerRadius(0.25f * em),
                 )
             }
             if (item.word != KIND_RUB) hits += Triple(x - gap / 2f, x + w + gap / 2f, item)

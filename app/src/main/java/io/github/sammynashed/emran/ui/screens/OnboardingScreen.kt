@@ -106,6 +106,9 @@ private val ADHAN_CHOICES = listOf(
     AdhanChoice("ahmad_alnafees", "Ahmad Alnafys", "أحمد النفيس"),
     AdhanChoice("mishary_alafasy", "Mishary Alafasy", "مشاري العفاسي"),
     AdhanChoice("saad_alghamdi", "Saad Alghamdy", "سعد الغامدي"),
+    AdhanChoice("ali_ahmed_mullah", "Ali Ahmed Mullah", "علي أحمد ملا"),
+    AdhanChoice("naif_saleh_faydah", "Naif Saleh Faydah", "نايف صالح فايدة"),
+    AdhanChoice("emad_ismail_baqree", "Emad Ismail Baqree", "عماد إسماعيل بقري"),
 )
 
 /**

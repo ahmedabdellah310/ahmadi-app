@@ -72,7 +72,7 @@ import java.time.format.DateTimeFormatter
 // Settings dialogs, all in the glass style: one calm pane, one idea, at most two actions.
 // ---------------------------------------------------------------------------------------------
 
-/** The four adhan voices. */
+/** The adhan voices (plus the phone's own notification sound). */
 private data class Voice(val key: String, val en: String, val ar: String, val descEn: String, val descAr: String)
 
 private val VOICES = listOf(
@@ -80,6 +80,9 @@ private val VOICES = listOf(
     Voice("ahmad_alnafees", "Ahmad Alnafys", "أحمد النفيس", "Calm and gentle", "هادئ ولطيف"),
     Voice("mishary_alafasy", "Mishary Alafasy", "مشاري العفاسي", "Clear and melodious", "نديّ وعذب"),
     Voice("saad_alghamdi", "Saad Alghamdy", "سعد الغامدي", "Deep and majestic", "خاشع ومهيب"),
+    Voice("ali_ahmed_mullah", "Ali Ahmed Mullah", "علي أحمد ملا", "The iconic voice of Makkah", "صوت مكة الشهير"),
+    Voice("naif_saleh_faydah", "Naif Saleh Faydah", "نايف صالح فايدة", "Deep voice of Makkah", "صوت مكي عميق"),
+    Voice("emad_ismail_baqree", "Emad Ismail Baqree", "عماد إسماعيل بقري", "Melodious voice of Makkah", "صوت مكي عذب"),
 )
 
 /** Short name of a saved adhan, for the Settings row. */

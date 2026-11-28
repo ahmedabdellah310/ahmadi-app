@@ -78,6 +78,16 @@
             android:theme="@style/Theme.Emran">
         </activity>
 
+        <!-- After an adhan ends on its own: a full screen with the adhan's text and the dua after it. -->
+        <activity
+            android:name=".ui.screens.PostAdhanActivity"
+            android:exported="false"
+            android:excludeFromRecents="true"
+            android:launchMode="singleTop"
+            android:showWhenLocked="true"
+            android:turnScreenOn="true"
+            android:theme="@style/Theme.Emran" />
+
         <activity-alias
             android:name=".MainActivityAliasDefault"
             android:targetActivity=".MainActivity"
@@ -97,6 +107,11 @@
             android:name=".service.AdhanKeepAliveService"
             android:exported="false"
             android:foregroundServiceType="mediaPlayback" />
+        <!-- Downloads a forced update in the background: it keeps going even if the user leaves the app. -->
+        <service
+            android:name=".data.update.UpdateDownloadService"
+            android:exported="false"
+            android:foregroundServiceType="dataSync" />
         <service
             android:name=".service.QuranAudioService"
             android:exported="true"
