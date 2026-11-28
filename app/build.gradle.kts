@@ -18,8 +18,8 @@ android {
     applicationId = "my.ahmed.quran2.ratel"
     minSdk = 24
     targetSdk = 36
-    versionCode = 23
-    versionName = "2.3.13"
+    versionCode = 24
+    versionName = "2.3.14"
 
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
   }

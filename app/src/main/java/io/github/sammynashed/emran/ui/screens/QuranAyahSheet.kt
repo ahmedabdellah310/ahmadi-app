@@ -51,6 +51,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import io.github.sammynashed.emran.data.AyahTafsir
 import io.github.sammynashed.emran.data.TafsirLibrary
+import io.github.sammynashed.emran.data.WordMeanings
 import io.github.sammynashed.emran.ui.localization.Text
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -73,11 +74,17 @@ fun AyahMeaningSheet(
     onMakeVideo: (() -> Unit)? = null,
     /**
      * Word-by-word mode: the single tapped word. When set, the sheet shows
-     * that word only — its meaning, not the ayah's tafsir. The app bundles no
-     * per-word meaning data (no glossary asset or table exists), so the sheet
-     * says so plainly rather than inventing a meaning.
+     * that word — its meaning from the bundled books of gharīb al-Qur'ān
+     * (Quranpedia) when one explains it, and always the āyah's Arabic
+     * tafsīr below it. A word no book explains gets no invented meaning:
+     * the sheet says so plainly and shows the tafsīr.
      */
     word: String? = null,
+    /**
+     * True when the word's own audio could not be fetched (offline) and the
+     * whole āyah is being read instead; the sheet says so in one line.
+     */
+    wordAudioFallback: Boolean = false,
 ) {
     val ar = lang == "ar"
     val context = LocalContext.current
@@ -88,6 +95,14 @@ fun AyahMeaningSheet(
 
     val entry by produceState<AyahTafsir.Entry?>(null, surah, ayah) {
         value = withContext(Dispatchers.IO) { AyahTafsir.get(context.applicationContext, surah, ayah) }
+    }
+
+    // The word's meaning from the bundled books of gharib al-Quran, when
+    // one of them explains it; loaded with the sheet, off the main thread.
+    val meaning by produceState<WordMeanings.Meaning?>(null, surah, ayah, word) {
+        value = if (word == null) null else withContext(Dispatchers.IO) {
+            WordMeanings.meaningFor(context.applicationContext, surah, ayah, word)
+        }
     }
 
     // The tafsir the reader chose (Al-Mukhtasar unless they picked or added another); follows the choice live.
@@ -153,8 +168,10 @@ fun AyahMeaningSheet(
                     verticalArrangement = Arrangement.spacedBy(10.dp),
                 ) {
                     if (word != null) {
-                        // Word by word: the word itself, and the honest gap —
-                        // no word-meaning data is bundled in the app.
+                        // Word by word: the word itself, its meaning when a
+                        // book of gharib explains it, and always the ayah's
+                        // Arabic tafsir below — so the sheet always has
+                        // Arabic content, and nothing is ever invented.
                         Text(
                             word,
                             color = ink,
@@ -164,24 +181,94 @@ fun AyahMeaningSheet(
                             textAlign = TextAlign.Center,
                             modifier = Modifier.fillMaxWidth(),
                         )
+                        if (wordAudioFallback) {
+                            Text(
+                                if (ar) "تعذّر تنزيل صوت الكلمة — تُقرأ الآية كاملة بدلًا منها."
+                                else "Couldn't download the word's audio — the whole ayah is read instead.",
+                                color = ink.copy(alpha = 0.6f),
+                                fontSize = 13.sp,
+                                lineHeight = 20.sp,
+                                textAlign = TextAlign.Center,
+                                modifier = Modifier.fillMaxWidth(),
+                            )
+                        }
                         Text(
-                            if (ar) "معنى هذه الكلمة غير متوفر في التطبيق بعد — لا توجد بيانات معاني كلمات مدمجة، فلا نعرض معنى مخترعًا."
-                            else "This word's meaning is not available in the app yet — no word-meaning data is bundled, so no meaning is shown rather than an invented one.",
-                            color = ink.copy(alpha = 0.65f),
-                            fontSize = 14.sp,
-                            lineHeight = 22.sp,
-                            textAlign = TextAlign.Center,
-                            modifier = Modifier.fillMaxWidth(),
+                            if (ar) "معنى الكلمة" else "Word meaning",
+                            color = theme.ornament,
+                            fontSize = 13.sp,
+                            fontWeight = FontWeight.Bold,
                         )
+                        val m = meaning
+                        if (m != null) {
+                            // The glossed phrase, when the meaning explains
+                            // more than the one word that was tapped.
+                            if (m.text != word) {
+                                Text(
+                                    m.text,
+                                    color = ink.copy(alpha = 0.85f),
+                                    fontFamily = HafsFontFamily,
+                                    fontSize = 20.sp,
+                                    lineHeight = 32.sp,
+                                    textAlign = TextAlign.Center,
+                                    modifier = Modifier.fillMaxWidth(),
+                                )
+                            }
+                            Text(
+                                m.meaning,
+                                color = ink.copy(alpha = 0.92f),
+                                fontSize = 17.sp,
+                                lineHeight = 29.sp,
+                            )
+                            Text(
+                                if (ar) "المصدر: ${m.book}" else "Source: ${m.book}",
+                                color = ink.copy(alpha = 0.45f),
+                                fontSize = 11.sp,
+                                lineHeight = 15.sp,
+                            )
+                        } else {
+                            Text(
+                                if (ar) "هذه الكلمة ليس لها شرح في كتب الغريب المدمجة."
+                                else "No book of gharib al-Quran in the app explains this word.",
+                                color = ink.copy(alpha = 0.65f),
+                                fontSize = 14.sp,
+                                lineHeight = 22.sp,
+                            )
+                        }
                         Text(
-                            if (ar) "لتفسير الآية كاملة، بدّل الاختيار إلى «الآية كاملة» من إعدادات المصحف."
-                            else "For the whole ayah's tafsir, switch back to “Whole ayah” in the Mushaf settings.",
-                            color = ink.copy(alpha = 0.45f),
-                            fontSize = 12.sp,
-                            lineHeight = 18.sp,
-                            textAlign = TextAlign.Center,
-                            modifier = Modifier.fillMaxWidth(),
+                            if (ar) "تفسير الآية" else "Ayah tafsir",
+                            color = theme.ornament,
+                            fontSize = 13.sp,
+                            fontWeight = FontWeight.Bold,
                         )
+                        val e = entry
+                        if (e == null) {
+                            Box(Modifier.fillMaxWidth().height(60.dp), contentAlignment = Alignment.Center) {
+                                CircularProgressIndicator(color = theme.ornament, strokeWidth = 2.dp, modifier = Modifier.size(24.dp))
+                            }
+                        } else {
+                            e.group?.let { g ->
+                                // Al-Mukhtasar explains a few ayat together; say so, so it never reads as a mismatch.
+                                Text(
+                                    if (ar) "تفسير الآيات ${g.first}–${g.last} معًا" else "Explains ayat ${g.first}–${g.last} together",
+                                    color = ink.copy(alpha = 0.6f), fontSize = 12.sp,
+                                )
+                            }
+                            if (e.tafsirAr.isNotBlank()) {
+                                Text(
+                                    e.tafsirAr, color = ink.copy(alpha = 0.92f),
+                                    fontSize = 18.sp, lineHeight = 31.sp,
+                                )
+                            } else {
+                                Text(
+                                    if (ar) "لا يتوفر شرح لهذه الآية في هذا التفسير." else "This tafsir has nothing on this ayah.",
+                                    color = ink.copy(alpha = 0.6f), fontSize = 14.sp,
+                                )
+                            }
+                            Text(
+                                if (ar) "المختصر في تفسير القرآن الكريم" else "Al-Mukhtasar fi Tafsir al-Quran al-Karim",
+                                color = ink.copy(alpha = 0.45f), fontSize = 11.sp, lineHeight = 15.sp,
+                            )
+                        }
                     } else {
                     val e = entry
                     if (e == null) {

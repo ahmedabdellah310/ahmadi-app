@@ -674,6 +674,10 @@ fun QuranScreen(
                 var selectedAyah by remember(state.chapter.id) { mutableStateOf<Pair<Int, Int>?>(null) }
                 // The single word tapped in word-by-word mode (surah, ayah, word index).
                 var selectedWord by remember(state.chapter.id) { mutableStateOf<Triple<Int, Int, Int>?>(null) }
+                // True when the tapped word's own audio could not be fetched
+                // (offline) and the whole ayah is being read instead; the
+                // word sheet says so in one line. Reset on every tap.
+                var wordAudioFallback by remember(state.chapter.id) { mutableStateOf(false) }
                 // What a tap on the page does (whole ayah vs word by word, and
                 // whether the tap reads the ayah aloud); persisted in SharedPreferences.
                 var tapMode by remember { mutableStateOf(MushafTapPrefs.mode(recitationContext)) }
@@ -684,7 +688,12 @@ fun QuranScreen(
                 // plays must not pull you to the reciting one.
                 val playingAyah = audioNow?.takeIf { it.ayah > 0 && it.surah == state.chapter.id }?.let { it.surah to it.ayah }
                 // Hifz listens through the microphone; it must not hear the reciter.
-                LaunchedEffect(hifzMode) { if (hifzMode) io.github.sammynashed.emran.data.audio.QuranAudio.stop() }
+                LaunchedEffect(hifzMode) {
+                    if (hifzMode) {
+                        io.github.sammynashed.emran.data.audio.QuranAudio.stop()
+                        io.github.sammynashed.emran.data.audio.WordAudio.stop()
+                    }
+                }
                 val allBookmarks by io.github.sammynashed.emran.data.hadith.HadithBookmarks.all.collectAsState()
                 LaunchedEffect(Unit) { io.github.sammynashed.emran.data.hadith.HadithBookmarks.ensureLoaded(recitationContext) }
                 val ayahBookmarks = remember(allBookmarks) {
@@ -721,9 +730,11 @@ fun QuranScreen(
                 // ayah (the existing Listen path: the queue then continues to
                 // the following ayat, as it does from the Listen panel). Only
                 // when that surah is downloaded for this reciter; otherwise the
-                // tap stays silent and the sheet still opens.
+                // tap stays silent and the sheet still opens. A word sounding
+                // on its own is stopped first, so the two never overlap.
                 fun playTappedAyah(s: Int, a: Int) {
                     val ctx = recitationContext
+                    io.github.sammynashed.emran.data.audio.WordAudio.stop()
                     val reciter = io.github.sammynashed.emran.data.audio.Reciters.chosen(ctx)
                     if (!reciter.has(s)) return
                     if (!io.github.sammynashed.emran.data.audio.AudioStore.isInstalled(ctx, reciter.id, s)) return
@@ -754,15 +765,26 @@ fun QuranScreen(
                 }
                 // Word-by-word mode: a tap on one word selects just that word.
                 // Returning false falls through to the ayah tap (whole-ayah mode,
-                // Hifz mode, or a rosette tap). There is no per-word audio: every
-                // recitation is one MP3 per ayah with no word timings, so the tap
-                // reads the whole ayah aloud instead — the word alone cannot be played.
+                // Hifz mode, or a rosette tap). The word itself is read aloud
+                // in the fixed word-by-word voice (its own MP3, downloaded on
+                // demand); only when that cannot be fetched — the ayah has no
+                // mapping for the word, or the phone is offline and the word
+                // is not cached yet — does the tap read the whole ayah instead.
                 val onWordTap: (Int, Int, Int) -> Boolean = { s, a, w ->
                     if (hifzMode || tapMode != MushafTapPrefs.TapMode.WORD) false
                     else {
                         selectedWord = Triple(s, a, w)
                         openPanel = null
-                        if (tapReadsAyah) playTappedAyah(s, a)
+                        wordAudioFallback = false
+                        if (tapReadsAyah) {
+                            hifzScope.launch {
+                                val res = io.github.sammynashed.emran.data.audio.WordAudio.playWord(recitationContext, s, a, w)
+                                if (res == io.github.sammynashed.emran.data.audio.WordAudio.Result.FALLBACK_AYAH) {
+                                    wordAudioFallback = true
+                                    playTappedAyah(s, a)
+                                }
+                            }
+                        }
                         true
                     }
                 }
@@ -1853,8 +1875,9 @@ fun QuranScreen(
                     }
 
                     // The single word tapped in word-by-word mode: its meaning
-                    // sheet (the word itself — the app bundles no word-meaning
-                    // data, so the sheet says so instead of inventing one).
+                    // sheet (the word itself, its meaning from the bundled
+                    // gharib books when one explains it, and always the
+                    // ayah's Arabic tafsir below it).
                     androidx.compose.animation.AnimatedVisibility(
                         visible = selectedWord != null,
                         enter = fadeIn(tween(180)) + slideInVertically(tween(260)) { it / 3 },
@@ -1879,6 +1902,7 @@ fun QuranScreen(
                             onToggleBookmark = { io.github.sammynashed.emran.data.hadith.HadithBookmarks.toggleAyah(recitationContext, s, a) },
                             onDismiss = { selectedWord = null },
                             word = wordText,
+                            wordAudioFallback = wordAudioFallback,
                         )
                     }
                 }

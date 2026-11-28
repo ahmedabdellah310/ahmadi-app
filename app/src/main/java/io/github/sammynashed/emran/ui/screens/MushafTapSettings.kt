@@ -34,10 +34,11 @@ import io.github.sammynashed.emran.data.audio.Reciters
  * What a tap on the muṣḥaf page does.
  *
  * WHOLE: the tap selects the whole āyah — its tafsir opens, and (when
- * [readsAyah]) the āyah is read aloud. WORD: the tap selects one word only —
- * its meaning opens, and the āyah is still read whole when [readsAyah] is on,
- * because the app has no per-word audio timings: every recitation is one MP3
- * per āyah, so a single word cannot be played on its own.
+ * [readsAyah]) the āyah is read aloud with the chosen reciter. WORD: the tap
+ * selects one word only — its meaning opens, and the word itself is read
+ * aloud in the fixed word-by-word voice (its own MP3, downloaded on demand
+ * and cached), falling back to the whole āyah only when the word's audio
+ * cannot be fetched.
  */
 object MushafTapPrefs {
     enum class TapMode { WHOLE, WORD }
@@ -68,10 +69,10 @@ object MushafTapPrefs {
 /**
  * The "عند الضغط على الآية" section of the reader's Display panel: whole
  * āyah vs word by word, the reciter row (which opens the existing reciter
- * picker), and the "tap reads the āyah" switch. Tafsir follows the same
+ * picker), and the "tap reads aloud" switch. Tafsir follows the same
  * choice: whole-āyah mode opens the āyah's tafsir, word mode opens the
- * tapped word — whose meaning the app does not bundle, so that sheet says so
- * plainly instead of inventing one.
+ * tapped word — its meaning from the bundled gharib books when one explains
+ * it, and always the āyah's Arabic tafsir below it.
  */
 @Composable
 fun MushafTapSettingsSection(
@@ -119,8 +120,8 @@ fun MushafTapSettingsSection(
             )
             MushafTapModeRow(
                 title = if (ar) "كلمة بكلمة" else "Word by word",
-                subtitle = if (ar) "الضغط يحدّد كلمة واحدة فقط — وتُقرأ الآية كاملة بصوت القارئ، إذ لا يوجد تسجيل لكل كلمة على حدة"
-                else "A tap selects one word only — the ayah is still read whole, as there is no recording of single words",
+                subtitle = if (ar) "الضغط يحدّد كلمة واحدة فقط — وتُقرأ الكلمة نفسها بصوت ثابت"
+                else "A tap selects one word only — the word itself is read in a fixed voice",
                 selected = tapMode == MushafTapPrefs.TapMode.WORD,
                 ink = ink,
                 onClick = { onTapModeChange(MushafTapPrefs.TapMode.WORD) },
@@ -147,8 +148,8 @@ fun MushafTapSettingsSection(
                     fontWeight = FontWeight.SemiBold,
                 )
                 Text(
-                    text = if (ar) "التلاوة بصوته — الآية كاملة أو كلمة واحدة حسب الاختيار"
-                    else "Recitation in this voice — whole ayah or one word, as chosen",
+                    text = if (ar) "تلاوة الآية كاملة بصوته؛ والكلمة الواحدة بصوت ثابت"
+                    else "Whole-ayah recitation in this voice; single words in a fixed voice",
                     color = ink.copy(alpha = 0.6f),
                     fontSize = 12.sp,
                     lineHeight = 17.sp,
@@ -168,14 +169,14 @@ fun MushafTapSettingsSection(
         ) {
             Column(modifier = Modifier.weight(1f)) {
                 Text(
-                    text = if (ar) "الضغط يقرأ الآية كاملة" else "Tap reads the whole ayah",
+                    text = if (ar) "الضغط يقرأ بصوت" else "Tap reads aloud",
                     color = ink,
                     fontSize = 15.sp,
                     fontWeight = FontWeight.SemiBold,
                 )
                 Text(
-                    text = if (ar) "تشتغل تلاوة الآية كاملة عند الضغط عليها"
-                    else "Plays the whole ayah when it is tapped",
+                    text = if (ar) "تُسمَع الكلمة أو الآية عند الضغط عليها، حسب الاختيار"
+                    else "Hear the word or the ayah when it is tapped, as chosen",
                     color = ink.copy(alpha = 0.6f),
                     fontSize = 12.sp,
                 )
