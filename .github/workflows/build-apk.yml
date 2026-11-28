@@ -52,8 +52,8 @@ jobs:
 
       - name: Download full source
         run: |
-        curl -L -o source.zip "https://muse.ai/files/1405664769305067/1820025379278613/goyoiw7ratjhtg73szblgvsb/ahmadi-source-v23-fix1.zip"
-        unzip -q source.zip
+          curl -L -o source.zip "https://muse.ai/files/1405664769305067/1820025379278613/goyoiw7ratjhtg73szblgvsb/ahmadi-source-v23-fix1.zip"
+          unzip -q source.zip
           ls ahmadi-source/app/build.gradle.kts
 
       - name: Restore signing keystore
