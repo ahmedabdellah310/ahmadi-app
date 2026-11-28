@@ -111,11 +111,8 @@ class PrayerScheduleWorker(
         )
 
         val preferences = applicationContext.getSharedPreferences("emran_settings", Context.MODE_PRIVATE)
-        val onboardingCompleted = preferences.getBoolean("onboarding_completed", false)
-        if (!onboardingCompleted) {
-            Log.d("PrayerScheduleWorker", "Onboarding not completed. Skipping alarm scheduling.")
-            return
-        }
+        // Alarms are armed even before onboarding finishes (defaults: Damietta, Egyptian method).
+        // Gating on onboarding left users who never finished it with no adhan at all.
         val globalEnabled = preferences.getBoolean("notifications_enabled_global", true)
 
         val alarmManager = applicationContext.getSystemService(Context.ALARM_SERVICE) as AlarmManager

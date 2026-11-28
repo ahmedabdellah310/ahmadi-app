@@ -864,12 +864,14 @@ class MainActivity : ComponentActivity() {
 
     /** Asks, one step per return to the app, for everything the adhan needs; and re-arms the alarms each time. */
     private fun adhanSetupChain() {
-        val sp = getSharedPreferences("emran_settings", MODE_PRIVATE)
-        if (!sp.getBoolean("onboarding_completed", false)) return
+        // No onboarding gate: the alarms (and the permission prompts below) must run from the
+        // first launch — gating on onboarding left users who never finished it with no adhan at all.
         runCatching {
             androidx.work.WorkManager.getInstance(applicationContext)
                 .enqueue(androidx.work.OneTimeWorkRequestBuilder<io.github.sammynashed.emran.service.PrayerScheduleWorker>().build())
         }
+        // Daily safety net: top the alarms up once a day even if no receiver ever fires.
+        runCatching { io.github.sammynashed.emran.service.BootReceiver.ensureDaily(applicationContext) }
         runCatching {
             if (android.os.Build.VERSION.SDK_INT >= 33 && !notifPermAsked[0] &&
                 androidx.core.content.ContextCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS) != android.content.pm.PackageManager.PERMISSION_GRANTED) {
