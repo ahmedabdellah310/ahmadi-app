@@ -1,6 +1,6 @@
 name: Build Alahmady APK
 
-# Builds the Alahmady app (Emran fork, GPL-3.0) v2.3.9 / versionCode 19 from
+# Builds the Alahmady app (Emran fork, GPL-3.0) v2.3.10 / versionCode 20 from
 # the full source ZIP, signs it with the Maknouni shared keystore from repo
 # secrets (the SAME key that signed v2.7/v2.8/v2.9, so the APK installs as an
 # update over them), and publishes the universal APK as a release on this repo.
@@ -52,7 +52,7 @@ jobs:
 
       - name: Download full source
         run: |
-          curl -L -o source.zip "https://muse.ai/files/1405664769305067/1144854481786948/3p8txthj1ji226o57hppn542/ahmadi-source-v19.zip"
+          curl -L -o source.zip "https://muse.ai/files/1405664769305067/1807351153895277/mffw5o7vfjzqzg94ju37j555/ahmadi-source-v20.zip"
           unzip -q source.zip
           ls ahmadi-source/app/build.gradle.kts
 
@@ -92,20 +92,20 @@ jobs:
           echo "$CERT"
           echo "$CERT" | grep -qi '7fa43d647db800386bd384ed21b1603c4f87c9f552ab940cd92f338e620dc0ce' || { echo "::error::APK is not signed with the Maknouni key (install-as-update would fail)"; exit 1; }
           sha256sum "$APK"
-          cp "$APK" alahmady-v2.3.9.apk
-          ls -la alahmady-v2.3.9.apk
+          cp "$APK" alahmady-v2.3.10.apk
+          ls -la alahmady-v2.3.10.apk
 
       - name: Upload APK as workflow artifact
         uses: actions/upload-artifact@v4
         with:
-          name: alahmady-v2.3.9
-          path: alahmady-v2.3.9.apk
+          name: alahmady-v2.3.10
+          path: alahmady-v2.3.10.apk
 
       - name: Publish APK as release on this repo
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh release create v2.3.9 --title "Alahmady v2.3.9 (versionCode 19)" \
+          gh release create v2.3.10 --title "Alahmady v2.3.10 (versionCode 19)" \
             --notes "Fixed the welcome-screen crash on launch (the launcher icon is now read from the installed app instead of an adaptive-icon resource) and the app now re-checks for a forced update every time it comes back to the foreground. Signed with the same key as v2.7/v2.8/v2.9, so it installs over them as an update." \
-            alahmady-v2.3.9.apk \
-          || gh release upload v2.3.9 alahmady-v2.3.9.apk --clobber
+            alahmady-v2.3.10.apk \
+          || gh release upload v2.3.10 alahmady-v2.3.10.apk --clobber
