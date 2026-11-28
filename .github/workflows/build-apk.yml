@@ -1,6 +1,6 @@
 name: Build Alahmady APK
 
-# Builds the Alahmady app (Emran fork, GPL-3.0) v2.3.13 / versionCode 23 from
+# Builds the Alahmady app (Emran fork, GPL-3.0) v2.3.14 / versionCode 24 from
 # the full source ZIP, signs it with the Maknouni shared keystore from repo
 # secrets (the SAME key that signed v2.7/v2.8/v2.9, so the APK installs as an
 # update over them), and publishes the universal APK as a release on this repo.
@@ -52,7 +52,7 @@ jobs:
 
       - name: Download full source
         run: |
-          curl -L -o source.zip "https://muse.ai/files/1405664769305067/1820025379278613/goyoiw7ratjhtg73szblgvsb/ahmadi-source-v23-fix1.zip"
+          curl -L -o source.zip "https://muse.ai/files/1405664769305067/1137120059119336/dvprbqirhl9j31t8u3p77hx4/ahmadi-source-v24.zip"
           unzip -q source.zip
           ls ahmadi-source/app/build.gradle.kts
 
@@ -92,20 +92,20 @@ jobs:
           echo "$CERT"
           echo "$CERT" | grep -qi '7fa43d647db800386bd384ed21b1603c4f87c9f552ab940cd92f338e620dc0ce' || { echo "::error::APK is not signed with the Maknouni key (install-as-update would fail)"; exit 1; }
           sha256sum "$APK"
-          cp "$APK" alahmady-v2.3.13.apk
-          ls -la alahmady-v2.3.13.apk
+          cp "$APK" alahmady-v2.3.14.apk
+          ls -la alahmady-v2.3.14.apk
 
       - name: Upload APK as workflow artifact
         uses: actions/upload-artifact@v4
         with:
-          name: alahmady-v2.3.13
-          path: alahmady-v2.3.13.apk
+          name: alahmady-v2.3.14
+          path: alahmady-v2.3.14.apk
 
       - name: Publish APK as release on this repo
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh release create v2.3.13 --title "Alahmady v2.3.13 (versionCode 23)" \
+          gh release create v2.3.14 --title "Alahmady v2.3.14 (versionCode 24)" \
             --notes "Never-fail update downloader: waits for connection and resumes from where it stopped, keeps downloading in the background even outside the app; new buttons to download from the browser and open the updates site; no more What's new text; 3 new Makkah muezzins (Ali Ahmad Mullah, Naif Saleh Faydah, Emad Ismail Baqree) and the opening-only adhan now stops after the shahada; full-screen screen after the adhan with the adhan text and the dua; Hifz check now shows mistakes in red with a show-mistakes button, tap an ayah to hear it, and a Mushaf tap setting (whole ayah or word by word) with tafsir following the same choice." \
-            alahmady-v2.3.13.apk \
-          || gh release upload v2.3.13 alahmady-v2.3.13.apk --clobber
+            alahmady-v2.3.14.apk \
+          || gh release upload v2.3.14 alahmady-v2.3.14.apk --clobber
